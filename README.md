@@ -3,6 +3,7 @@
 ## Overview
 
 This is my custom configurations for the tools I use on Linux. `init.vim` is the config file for terminal Neovim, and Terminator is the terminal I use instead of the native ubuntu terminal.
+`zsh` contains the configuration files for the `zshell`.
 
 While you can download the whole repository and use it, it is not recommended though. Good configurations are personal. Everyone should have his or her unique config file. You are encouraged to copy from this this repo the part you feel useful and add it to your own Nvim config.
 
@@ -11,7 +12,7 @@ Under `nvim` you can find the config files for the plugins I use.
 
 ---
 
-## Features and plugins
+## Features and plugins for Neovim
 
 * `closetags` - Autoclose html tags
 * `coc` - Conquerer of Completion
@@ -76,3 +77,17 @@ Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` r
 ## Trouble shooting
 
 If you come across an issue, you can first use `:checkhealth` command provided by `nvim` to trouble-shoot yourself. Please read carefully the messages provided by health check.
+
+## Zshell
+
+I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
+
+* `bazel`
+* `git`
+* `docker`
+* `docker-compose`
+* `docker-machine`
+* `pip`
+* `sudo`
+* `ubuntu`
+* `zsh-navigation-tools`
