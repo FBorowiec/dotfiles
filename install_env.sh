@@ -7,7 +7,10 @@ ERROR_MARK="\033[0;31m\u2717"
 
 # Check if script executed with sudo
 echo -e "  Checking execution rights...\n"
-[ `whoami` = root ] || { echo -e "$ERROR_MARK Failed to run script as sudo!"; exit; }
+[ $(whoami) = root ] || {
+    echo -e "$ERROR_MARK Failed to run script as sudo!"
+    exit
+}
 
 echo -e "Upgrading the system..."
 sudo apt -y -qq update
@@ -45,6 +48,11 @@ sed -i 's/ZSH_THEME=.*/ZSH_THEME="murilasso"/' ${HOME}/.zshrc
 sed -i 's/plugins=(.*)/plugins=(bazel docker docker-compose docker-machine git zsh-navigation-tools)/' ${HOME}/.zshrc
 sudo chmod 744 ${HOME}/.oh-my-zsh
 sudo chmod 744 ${HOME}/.zshrc*
+# Installing powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+cp zsh/p10k.zsh ~/.p10k.zsh
+cp zsh/zshrc ~/.zshrc
 
 # Exit on success
 echo -e "$CHECK_MARK \e[1mScript execution succeeded!\e[0m\e[32m\e[39m"
