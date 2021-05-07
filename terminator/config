@@ -1,8 +1,6 @@
 [global_config]
   enabled_plugins = InactivityWatch, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  focus = system
-  window_state = fullscreen
-  borderless = True
+  borderless = False
   tab_position = hidden
   hide_from_taskbar = False
   title_hide_sizetext = True
@@ -35,8 +33,6 @@
       parent = ""
       order = 0
       position = 0:0
-      maximised = False
-      fullscreen = True
       size = 1920, 1080
       last_active_term = 05b4cbb7-0652-4321-ba15-a4d9a901a06f
       last_active_window = True
