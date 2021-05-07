@@ -1,55 +1,45 @@
-set exrc
-set relativenumber
-set nohlsearch
-set hidden
-set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set nu
-set nowrap
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
-set termguicolors
-set scrolloff=8
-set noshowmode
-set completeopt=menuone,noinsert,noselect
-set colorcolumn=100
-set signcolumn=yes
+" General Settings
 
-" More space for messages
-set cmdheight=2
+" if vscode
+if exists('g:vscode')
+  source $HOME/.config/nvim/vscode/settings.vim
 
-" Having longer updatetime (default is 4000 ms) leads to noticeable delays and
-" poor user experience
-set updatetime=50
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Don't pass message to |ins-completion-menu|.
-set shortmess+=c
+else
+    " nvim settings
+    source $HOME/.config/nvim/vim-plug/plugins.vim
+    source $HOME/.config/nvim/general/settings.vim
+    source $HOME/.config/nvim/general/functions.vim
+    source $HOME/.config/nvim/keys/mappings.vim
 
-call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/popup.nvim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'vim-utils/vim-man'
-" Plug 'git@github.com:ycm-core/YouCompleteMe.git'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-fugitive'
-Plug 'arcticicestudio/nord-vim'
-call plug#end()
+    " Themes
+    source $HOME/.config/nvim/plug-config/onedark.vim
+    source $HOME/.config/nvim/plug-config/gruvboxmaterial.vim
+    source $HOME/.config/nvim/plug-config/vim-airline.vim
+    source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
-" if (has('nvim'))
-"     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-" endif
+    " Plugin Configuration
+    source $HOME/.config/nvim/plug-config/coc.vim
+    source $HOME/.config/nvim/plug-config/codi.vim
+    source $HOME/.config/nvim/plug-config/easymotion.vim
+    source $HOME/.config/nvim/plug-config/fzf.vim
+    source $HOME/.config/nvim/plug-config/floaterm.vim
+    source $HOME/.config/nvim/plug-config/gitgutter.vim
+    source $HOME/.config/nvim/plug-config/goyo.vim
+    source $HOME/.config/nvim/plug-config/closetags.vim
+    source $HOME/.config/nvim/plug-config/quickscope.vim
+    source $HOME/.config/nvim/plug-config/ranger.vim
+    source $HOME/.config/nvim/plug-config/signify.vim
+    source $HOME/.config/nvim/plug-config/undotree.vim
+    source $HOME/.config/nvim/plug-config/syntastic.vim
+    source $HOME/.config/nvim/plug-config/vim-commentary.vim
+    source $HOME/.config/nvim/plug-config/vim-cmake.vim
+    source $HOME/.config/nvim/plug-config/vim-lsp.vim
+    source $HOME/.config/nvim/plug-config/vim-lsp-cxx-highlight.vim
+    source $HOME/.config/nvim/plug-config/which-key.vim
 
-colorscheme nord
-highlight Normal guibg=none
+endif
 
-let mapleader = " "
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -15,7 +15,9 @@ sudo apt -y -qq upgrade
 echo -e "$CHECK_MARK \e[1mUpgrading system succeeded!\e[0m\e[32m\e[39m"
 
 echo -e "Installing dependencies..."
-sudo apt install -y software-properties-common apt-transport-https wget git curl wget simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions vim zsh terminator
+sudo apt install -y software-properties-common apt-transport-https wget git curl wget \
+    simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
+    neovim python3-neovim zsh terminator
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code
