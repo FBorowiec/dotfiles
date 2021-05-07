@@ -1,0 +1,19 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[user]
+	name = Franek Borowiec
+	email = franek.borowiec@gmail.com
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nvim
+[push]
+  default = current
+[pull]
+  default = current
+[credential]
+	helper = store
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

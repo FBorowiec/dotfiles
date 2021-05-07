@@ -1,12 +1,5 @@
 {
-    //**********************************************
-    //**********************************************
-    // language server
-    //**********************************************
     "languageserver": {
-        //*******************************************
-        // ccls *************************************
-        //*******************************************
         "ccls": {
             "command": "ccls",
             "filetypes": [
@@ -47,9 +40,6 @@
                 }
             }
         },
-        //*******************************************
-        // cmake ************************************
-        //*******************************************
         "cmake": {
             "command": "cmake-language-server",
             "filetypes": [
@@ -80,29 +70,10 @@
             ]
         }
     },
-    //**********************************************
-    //**********************************************
-    // diagnostics
-    //**********************************************
-    //**********************************************
     "diagnostic.errorSign": " ",
     "diagnostic.warningSign": " ",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": " ",
-    // "diagnostic.displayByAle": true,
-    // "diagnostic.virtualText": true, // this won't work with codelens when error on same line
-    // codelens
-    // "codeLens.enable": true,
-    // "java.referencesCodeLens.enabled": true,
-    // "java.implementationsCodeLens.enabled": true,
-    // "java.completion.enabled": true,
-    // "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
-    //**********************************************
-    //**********************************************
-    // Coc-settings
-    //**********************************************
-    //**********************************************
-    // autoformat
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
         "markdown",
@@ -115,15 +86,9 @@
         "java"
     ],
     "coc.preferences.hoverTarget": "float",
-    //coc-emoji
     "coc.source.emoji.filetypes": [
         "markdown"
     ],
-    //**********************************************
-    //**********************************************
-    // python
-    //**********************************************
-    //**********************************************
     "python.analysis.autoImportCompletions": true,
     "python.analysis.autoSearchPaths": true,
     "python.analysis.diagnosticMode": "openFilesOnly",
@@ -153,13 +118,7 @@
     "pyright.disableCompletion": false,
     "pyright.disableLanguageServices": false,
     "pyright.disableOrganizeImports": false,
-    //**********************************************
-    //**********************************************
-    // snippets
-    //**********************************************
-    //**********************************************
     "snippets.priority": 1,
-    //"yank.priority": 1,
     "suggest.languageSourcePriority": 99,
     "coc.source.file.priority": 2,
     "coc.source.around.priority": 3,
@@ -168,29 +127,14 @@
         "UltiSnips",
         "~/.config/nvim/snippets"
     ],
-    //**********************************************
-    //**********************************************
-    // emmet
-    //**********************************************
-    //**********************************************
     "emmet.includeLanguages": {
         "vue-html": "html",
         "javascript": "javascriptreact"
     },
-    //**********************************************
-    //**********************************************
-    // css
-    //**********************************************
-    //**********************************************
     "css.validate": false,
     "less.validate": false,
     "scss.validate": false,
     "wxss.validate": false,
-    //**********************************************
-    //**********************************************
-    // explorer
-    //**********************************************
-    //**********************************************
     "explorer.width": 30,
     "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
     "explorer.icon.enableNerdfont": true,
@@ -205,18 +149,11 @@
         ],
         "v": "open:vsplit"
     },
-    //**********************************************
-    //**********************************************
-    // misc
-    //**********************************************
-    //**********************************************
-    // suggest
     "suggest.completionItemKindLabels": {
         "text": "t",
         "method": "m",
         "function": ""
     },
-    // list
     "list.indicator": ">",
     "list.selectedSignText": " "
 }
