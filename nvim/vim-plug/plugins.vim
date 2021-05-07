@@ -96,6 +96,12 @@ else
     " cmake-build
     Plug 'cdelledonne/vim-cmake'
 
+    " bazel build tools
+    " Add maktaba and bazel to the runtimepath.
+    " (The latter must be installed before it can be used.)
+    Plug 'google/vim-maktaba'
+    Plug 'bazelbuild/vim-bazel'
+
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
