@@ -26,7 +26,7 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 sudo apt install code
 echo -e "$CHECK_MARK \e[1mInstalling dependecies succeeded!\e[0m\e[32m\e[39m"
 
-sudo wget -q https://wallpapercave.com/download/star-wars-last-supper-wallpaper-wp2982200?nocache=1 -O /usr/share/backgrounds/start_wars_last_supper.jpg
+sudo wget -q https://coolwallpapers.me/picsup/2873215-darth-vader-emperor-palpatine-stormtrooper-star-wars-the-last-supper___movie-wallpapers.jpg -O /usr/share/backgrounds/start_wars_last_supper.jpg
 
 gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/start_wars_last_supper.jpg'
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
