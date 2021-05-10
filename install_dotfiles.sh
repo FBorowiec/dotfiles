@@ -7,7 +7,7 @@ cp terminator/config ~/.config/terminator/config
 
 # Installing NVim
 echo -e "Configuring nvim..."
-cp -r nvim2 ~/.config/nvim
+cp -r nvim ~/.config/nvim
 
 # Configuring Powerlevel10k and Zsh
 echo -e "Configuring zsh..."

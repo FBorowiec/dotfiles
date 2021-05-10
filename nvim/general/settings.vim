@@ -31,7 +31,7 @@ set noswapfile
 set cmdheight=2
 set scrolloff=8
 
-" backup
+" Backup
 set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
