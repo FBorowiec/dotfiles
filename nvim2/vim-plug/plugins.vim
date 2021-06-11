@@ -41,6 +41,9 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
+" File navigation
+Plug 'scrooloose/nerdtree'
+
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
 " 
