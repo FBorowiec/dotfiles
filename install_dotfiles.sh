@@ -6,4 +6,4 @@ mkdir -p ~/.config/terminator/
 cp terminator/config ~/.config/terminator/config
 
 # Installing NVim
-cp -r nvim ~/config/nvim
+cp -r nvim2 ~/.config/nvim
