@@ -1,16 +1,14 @@
 " Basic Key-bindings
 
+" Leader key to space
+let mapleader=" "
+
 " Better indenting
 vnoremap < <gv
 vnoremap > >gv
 
 " alias for 'escape' to NORMAL from INSERT
 inoremap jk <Esc>
-
-" Explore
-nnoremap <Space>. :Sex!<CR>
-" TODO
-" nnoremap <Space><Space> :Files<CR>
 
 " Move selected line / block of text in visual mode
 " shift + k to move up
