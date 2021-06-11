@@ -30,6 +30,15 @@ Plug 'voldikss/vim-floaterm'
 " zen mode
 Plug 'junegunn/goyo.vim'
 
+" bazel build tools
+" Add maktaba and bazel to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+
+" Auto pairs for '(' '[' '{'
+Plug 'jiangmiao/auto-pairs'
+
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
 " 
@@ -42,12 +51,6 @@ Plug 'junegunn/goyo.vim'
 " 
 " " Text Navigation
 " Plug 'unblevable/quick-scope'
-" 
-" " Auto pairs for '(' '[' '{'
-" Plug 'jiangmiao/auto-pairs'
-" 
-" " Closetags
-" Plug 'alvan/vim-closetag'
 " 
 " " fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -84,12 +87,6 @@ Plug 'junegunn/goyo.vim'
 " 
 " " cmake-build
 " Plug 'cdelledonne/vim-cmake'
-" 
-" " bazel build tools
-" " Add maktaba and bazel to the runtimepath.
-" " (The latter must be installed before it can be used.)
-" Plug 'google/vim-maktaba'
-" Plug 'bazelbuild/vim-bazel'
 " 
 " endif
 
