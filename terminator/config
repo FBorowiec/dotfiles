@@ -36,35 +36,3 @@
       size = 1920, 1080
       last_active_term = 05b4cbb7-0652-4321-ba15-a4d9a901a06f
       last_active_window = True
-    [[[child1]]]
-      type = VPaned
-      parent = child0
-      order = 0
-      position = 538
-      ratio = 0.5004651162790698
-    [[[child2]]]
-      type = HPaned
-      parent = child1
-      order = 0
-      position = 958
-      ratio = 0.5002610966057441
-    [[[terminal3]]]
-      type = Terminal
-      parent = child2
-      order = 0
-      profile = default
-      uuid = 05b4cbb7-0652-4321-ba15-a4d9a901a06f
-    [[[terminal4]]]
-      type = Terminal
-      parent = child2
-      order = 1
-      profile = default
-      uuid = 77fb2188-e067-4b42-9764-e6452b8c5937
-    [[[child5]]]
-      type = HPaned
-      parent = child1
-      order = 1
-      position = 958
-      ratio = 0.5002610966057441
-    [[[terminal6]]]
-      type = Terminal
