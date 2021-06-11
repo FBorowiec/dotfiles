@@ -9,7 +9,8 @@ inoremap jk <Esc>
 
 " Explore
 nnoremap <Space>. :Sex!<CR>
-nnoremap <Space><Space> :Files<CR>
+" TODO
+" nnoremap <Space><Space> :Files<CR>
 
 " Move selected line / block of text in visual mode
 " shift + k to move up

@@ -13,8 +13,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" " Easymotion
-" Plug 'easymotion/vim-easymotion'
+" Easymotion
+Plug 'easymotion/vim-easymotion'
 
 " theme
 Plug 'joshdick/onedark.vim'
