@@ -21,16 +21,11 @@ set smartcase
 " mouse
 set mouse=a
 
-" autocompletion
-" noremap! { {}<left>
-" noremap! [ []<left>
-" noremap! ( ()<left>
-" noremap! ' ''<left>
-
 " misc
 set nu
 set nowrap
 set noswapfile
+
 " More space for messages
 set cmdheight=2
 set scrolloff=8
