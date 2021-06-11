@@ -14,30 +14,17 @@ Under `nvim` you can find the config files for the plugins I use.
 
 ## Features and plugins for Neovim
 
-* `closetags` - Autoclose html tags
-* `coc` - Conquerer of Completion
-* `codi` - Opens virtual text which displays the results of evaluating each line as you type with NeoVim asynchronously. It's extensible to nearly any language that provides a REPL (interactive interpreter)
-* `easymotion` - EasyMotion provides a much simpler way to use some motions in vim. It takes the `number` out of `number`w or `number`f{char} by highlighting all possible choices and allowing you to press one key to jump directly to the target.
-When one of the available motions is triggered, all visible text preceding or following the cursor is faded, and motion targets are highlighted.
 * `floaterm` - Use (neo)vim terminal in the floating/popup window.
-* `fzf` - fzf in itself is not a Vim plugin, and the official repository only provides the basic wrapper function for Vim and it's up to the users to write their own Vim commands with it.
-* `gitgutter` - A Vim plugin which shows a git diff in the sign column. It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks; and stage partial hunks. The plugin also provides a hunk text object.
 * `goyo` - Distraction-free writing in Vim.
 * `gruvboxmaterial` - Gruvbox Material is a modified version of Gruvbox, the contrast is adjusted to be softer in order to protect developers' eyes.
 * `onedark` - A dark Vim/Neovim color scheme for the GUI and 16/256/true-color terminals, based on FlatColor, with colors inspired by the excellent One Dark syntax theme for the Atom text editor.
 * `quickscope` - An always-on highlight for a unique character in every word on a line to help you use f, F and family. This plugin should help you get to any word on a line in two or three keystrokes with Vim's built-in f`char` (which moves your cursor to `char`).
-* `ranger` - Ranger is a console file manager with VI key bindings.
-* `signify` - Signify (or just Sy) uses the sign column to indicate added, modified and removed lines in a file that is managed by a version control system (VCS).
-* `syntastic` - Syntastic is a syntax checking plugin for Vim
-* `undotree` - The plug-in visualizes undo history and makes it easier to browse and switch between different undo branches.
 * `vim-airline` - Lean & mean status/tabline for vim that's light as air.
 * `vim-bazel` - Vim-bazel is a plugin for invoking bazel and interacting with bazel artifacts.
-* `vim-cmake` - Vim-cmake is a Vim plugin to make working with CMake a little nicer.
-* `vim-commentary` - Comment stuff out.
+* `vim-easymotion` - EasyMotion provides a much simpler way to use some motions in vim. It takes the `number` out of `number`w or `number`f{char} by highlighting all possible choices and allowing you to press one key to jump directly to the target.
+When one of the available motions is triggered, all visible text preceding or following the cursor is faded, and motion targets are highlighted.
 * `vim-highlightedyank` - Make the yanked region apparent.
-* `vim-lsp-cxx-highlight` - Vim-lsp-cxx-highlight is a vim plugin that provides C/C++/Cuda/ObjC semantic highlighting using the language server protocol.
-* `vim-lsp` - Async Language Server Protocol plugin for vim8 and neovim.
-* `which-key` - Vim-which-key is vim port of emacs-which-key that displays available keybindings in popup.
+* `vim-surround` - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
 ---
 ## Shortcuts
@@ -45,7 +32,7 @@ When one of the available motions is triggered, all visible text preceding or fo
 Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` represents ASCII character `,`.
 
 | Shortcut          | Mode          | Description                                                      |
-|-------------------|---------------|------------------------------------------------------------------|
+| ----------------- | ------------- | ---------------------------------------------------------------- |
 | `<leader>f`       | Normal        | Fuzzy file search in a floating window                           |
 | `<leader>h`       | Normal        | Fuzzy help search in a floating window                           |
 | `<leader>t`       | Normal        | Fuzzy buffer tag search in a floating window                     |
@@ -87,7 +74,4 @@ I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 * `docker`
 * `docker-compose`
 * `docker-machine`
-* `pip`
-* `sudo`
-* `ubuntu`
 * `zsh-navigation-tools`
