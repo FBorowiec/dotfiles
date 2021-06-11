@@ -21,7 +21,7 @@ source $HOME/.config/nvim/plug-config/floaterm.vim
 " source $HOME/.config/nvim/plug-config/gitgutter.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 " source $HOME/.config/nvim/plug-config/closetags.vim
-" source $HOME/.config/nvim/plug-config/quickscope.vim
+source $HOME/.config/nvim/plug-config/quickscope.vim
 " source $HOME/.config/nvim/plug-config/ranger.vim
 " source $HOME/.config/nvim/plug-config/signify.vim
 " source $HOME/.config/nvim/plug-config/undotree.vim

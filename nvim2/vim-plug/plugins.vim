@@ -13,8 +13,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Easymotion
+" Text Navigation
 Plug 'easymotion/vim-easymotion'
+Plug 'unblevable/quick-scope'
 
 " theme
 Plug 'joshdick/onedark.vim'
@@ -36,8 +37,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
 
-" Auto pairs for '(' '[' '{'
+" Auto pairs and settings for parenthesis
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
@@ -48,9 +50,6 @@ Plug 'jiangmiao/auto-pairs'
 " 
 " " commenting files
 " Plug 'tpope/vim-commentary'
-" 
-" " Text Navigation
-" Plug 'unblevable/quick-scope'
 " 
 " " fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
