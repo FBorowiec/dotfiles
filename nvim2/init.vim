@@ -17,7 +17,7 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 " source $HOME/.config/nvim/plug-config/codi.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 " source $HOME/.config/nvim/plug-config/fzf.vim
-" source $HOME/.config/nvim/plug-config/floaterm.vim
+source $HOME/.config/nvim/plug-config/floaterm.vim
 " source $HOME/.config/nvim/plug-config/gitgutter.vim
 " source $HOME/.config/nvim/plug-config/goyo.vim
 " source $HOME/.config/nvim/plug-config/closetags.vim

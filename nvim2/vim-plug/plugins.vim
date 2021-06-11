@@ -24,11 +24,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
  
+" floating terminal
+Plug 'voldikss/vim-floaterm'
+ 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
-" 
-" " floating terminal
-" Plug 'voldikss/vim-floaterm'
 " 
 " " ranger
 " Plug 'francoiscabrol/ranger.vim'
