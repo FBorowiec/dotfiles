@@ -27,15 +27,15 @@ Plug 'machakann/vim-highlightedyank'
 " floating terminal
 Plug 'voldikss/vim-floaterm'
  
+" zen mode
+Plug 'junegunn/goyo.vim'
+
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
 " 
 " " ranger
 " Plug 'francoiscabrol/ranger.vim'
 " Plug 'rbgrouleff/bclose.vim'
-" 
-" " zen mode
-" Plug 'junegunn/goyo.vim'
 " 
 " " commenting files
 " Plug 'tpope/vim-commentary'
