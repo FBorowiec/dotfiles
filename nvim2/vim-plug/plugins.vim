@@ -24,10 +24,10 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
- 
+
 " floating terminal
 Plug 'voldikss/vim-floaterm'
- 
+
 " zen mode
 Plug 'junegunn/goyo.vim'
 
@@ -46,50 +46,50 @@ Plug 'scrooloose/nerdtree'
 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
-" 
+"
 " " ranger
 " Plug 'francoiscabrol/ranger.vim'
 " Plug 'rbgrouleff/bclose.vim'
-" 
+"
 " " commenting files
 " Plug 'tpope/vim-commentary'
-" 
+"
 " " fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 " Plug 'junegunn/fzf.vim'
 " Plug 'airblade/vim-rooter'
-" 
+"
 " " git
 " Plug 'airblade/vim-gitgutter'
 " Plug 'mhinz/vim-signify'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-rhubarb'
 " Plug 'junegunn/gv.vim'
-" 
+"
 " " coc-lsp
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" 
+"
 " " cxx-highlight
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Plug 'vim-syntastic/syntastic'
-" 
+"
 " "cpp-format
 " Plug 'rhysd/vim-clang-format'
-" 
+"
 " " snippets
 " Plug 'honza/vim-snippets'
 " Plug 'mattn/emmet-vim'
-" 
+"
 " " undo time travel
 " Plug 'mbbill/undotree'
-" 
+"
 " " Interactive code
 " Plug 'metakirby5/codi.vim'
-" 
+"
 " " cmake-build
 " Plug 'cdelledonne/vim-cmake'
-" 
+"
 " endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
