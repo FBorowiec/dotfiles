@@ -54,6 +54,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 
+" Snippets
+Plug 'honza/vim-snippets'
+
 " git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
