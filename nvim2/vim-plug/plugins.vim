@@ -41,8 +41,15 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-" File navigation
+" File navigation and fuzzy finder
 Plug 'scrooloose/nerdtree'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Editing
+Plug 'terryma/vim-multiple-cursors'
 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'

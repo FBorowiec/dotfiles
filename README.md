@@ -20,11 +20,13 @@ Under `nvim` you can find the config files for the plugins I use.
 * `nerdtree` - The NERDTree is a file system explorer for the Vim editor. Using this plugin, users can visually browse complex directory hierarchies, quickly open files for reading or editing, and perform basic file system operations.
 * `onedark` - A dark Vim/Neovim color scheme for the GUI and 16/256/true-color terminals, based on FlatColor, with colors inspired by the excellent One Dark syntax theme for the Atom text editor.
 * `quickscope` - An always-on highlight for a unique character in every word on a line to help you use f, F and family. This plugin should help you get to any word on a line in two or three keystrokes with Vim's built-in f`char` (which moves your cursor to `char`).
+* `telescope` - Telescope is a highly extendable fuzzy finder over lists. Built on the latest awesome features from neovim core. Telescope is centered around modularity, allowing for easy customization.
 * `vim-airline` - Lean & mean status/tabline for vim that's light as air.
 * `vim-bazel` - Vim-bazel is a plugin for invoking bazel and interacting with bazel artifacts.
 * `vim-easymotion` - EasyMotion provides a much simpler way to use some motions in vim. It takes the `number` out of `number`w or `number`f{char} by highlighting all possible choices and allowing you to press one key to jump directly to the target.
 When one of the available motions is triggered, all visible text preceding or following the cursor is faded, and motion targets are highlighted.
 * `vim-highlightedyank` - Make the yanked region apparent.
+* `vim-multiple-cursors` - Plugin bringing a much-loved Sublime feature to Vim, doing exactly what it says in the name. You’ve got to love multiple selections.
 * `vim-surround` - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
 ---
@@ -34,7 +36,7 @@ Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` r
 
 | Shortcut          | Mode          | Description                                                      |
 | ----------------- | ------------- | ---------------------------------------------------------------- |
-| `<leader>f`       | Normal        | Fuzzy file search in a floating window                           |
+| `<leader>ff`      | Normal        | Fuzzy file search in a floating window                           |
 | `<leader>h`       | Normal        | Fuzzy help search in a floating window                           |
 | `<leader>t`       | Normal        | Fuzzy buffer tag search in a floating window                     |
 | `<leader><Space>` | Normal        | Remove trailing white spaces                                     |
