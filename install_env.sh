@@ -50,12 +50,6 @@ sudo chmod 744 ${HOME}/.oh-my-zsh
 sudo chmod 744 ${HOME}/.zshrc*
 # Installing powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-cp zsh/p10k.zsh ~/.p10k.zsh
-cp zsh/zshrc ~/.zshrc
-
-echo -e "Configuring git..."
-cp git/gitconfig ~/.gitconfig
-
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # Exit on success
 echo -e "$CHECK_MARK \e[1mScript execution succeeded!\e[0m\e[32m\e[39m"
