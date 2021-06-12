@@ -57,6 +57,7 @@ Plug 'mbbill/undotree'
 " git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-rooter'
 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
@@ -65,7 +66,6 @@ Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 " Plug 'junegunn/fzf.vim'
-" Plug 'airblade/vim-rooter'
 "
 " " git
 " Plug 'tpope/vim-rhubarb'
