@@ -49,6 +49,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'tpope/vim-eunuch'
+Plug 'bronson/vim-visual-star-search'
+Plug 'kopischke/vim-fetch'
 
 " Editing
 Plug 'terryma/vim-multiple-cursors'
