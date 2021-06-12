@@ -30,6 +30,7 @@ Under `nvim` you can find the config files for the plugins I use.
 * `vim-bazel` - Vim-bazel is a plugin for invoking bazel and interacting with bazel artifacts.
 * `vim-easymotion` - EasyMotion provides a much simpler way to use some motions in vim. It takes the `number` out of `number`w or `number`f{char} by highlighting all possible choices and allowing you to press one key to jump directly to the target. When one of the available motions is triggered, all visible text preceding or following the cursor is faded, and motion targets are highlighted.
 * `vim-eunuch` - Vim sugar for the UNIX shell commands that need it the most.
+* `vim-fetch` - Make Vim handle line and column numbers in file names with a minimum of fuss.
 * `vim-fugitive` - Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git plugin for Vim? Either way, it's "so awesome, it should be illegal". That's why it's called Fugitive.
 * `vim-highlightedyank` - Make the yanked region apparent.
 * `vim-multiple-cursors` - Plugin bringing a much-loved Sublime feature to Vim, doing exactly what it says in the name. You’ve got to love multiple selections.
