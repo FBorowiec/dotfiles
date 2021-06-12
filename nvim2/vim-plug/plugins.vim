@@ -61,7 +61,6 @@ Plug 'tpope/vim-fugitive'
 "
 " " ranger
 " Plug 'francoiscabrol/ranger.vim'
-" Plug 'rbgrouleff/bclose.vim'
 "
 " " commenting files
 " Plug 'tpope/vim-commentary'
