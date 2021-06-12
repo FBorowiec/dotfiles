@@ -14,6 +14,7 @@ Under `nvim` you can find the config files for the plugins I use.
 
 ## Features and plugins for Neovim
 
+* `commentary.vim` - Comment stuff out.
 * `floaterm` - Use (neo)vim terminal in the floating/popup window.
 * `goyo` - Distraction-free writing in Vim.
 * `gruvboxmaterial` - Gruvbox Material is a modified version of Gruvbox, the contrast is adjusted to be softer in order to protect developers' eyes.

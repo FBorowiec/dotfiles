@@ -51,6 +51,7 @@ Plug 'tpope/vim-eunuch'
 
 " Editing
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
 
 " git
 Plug 'airblade/vim-gitgutter'
@@ -58,12 +59,6 @@ Plug 'tpope/vim-fugitive'
 
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
-"
-" " ranger
-" Plug 'francoiscabrol/ranger.vim'
-"
-" " commenting files
-" Plug 'tpope/vim-commentary'
 "
 " " fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
