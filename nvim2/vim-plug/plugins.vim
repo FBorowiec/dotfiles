@@ -43,6 +43,7 @@ Plug 'tpope/vim-surround'
 
 " File navigation and fuzzy finder
 Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
