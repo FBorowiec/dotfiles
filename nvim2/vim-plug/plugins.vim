@@ -47,6 +47,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'tpope/vim-eunuch'
 
 " Editing
 Plug 'terryma/vim-multiple-cursors'
@@ -90,9 +91,6 @@ Plug 'terryma/vim-multiple-cursors'
 "
 " " undo time travel
 " Plug 'mbbill/undotree'
-"
-" " Interactive code
-" Plug 'metakirby5/codi.vim'
 "
 " " cmake-build
 " Plug 'cdelledonne/vim-cmake'
