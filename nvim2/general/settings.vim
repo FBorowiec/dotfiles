@@ -34,5 +34,5 @@ set scrolloff=8
 set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
-set colorcolumn=80
+set colorcolumn=120
 highlight Colorcolumn ctermbg=0 guibg=lightgrey
