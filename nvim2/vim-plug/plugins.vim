@@ -52,6 +52,7 @@ Plug 'tpope/vim-eunuch'
 " Editing
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
+Plug 'mbbill/undotree'
 
 " git
 Plug 'airblade/vim-gitgutter'
@@ -84,9 +85,6 @@ Plug 'tpope/vim-fugitive'
 " " snippets
 " Plug 'honza/vim-snippets'
 " Plug 'mattn/emmet-vim'
-"
-" " undo time travel
-" Plug 'mbbill/undotree'
 "
 " " cmake-build
 " Plug 'cdelledonne/vim-cmake'
