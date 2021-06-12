@@ -17,11 +17,10 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 " source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/gitgutter.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/nerdtree.vim
-" source $HOME/.config/nvim/plug-config/signify.vim
+source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 " source $HOME/.config/nvim/plug-config/syntastic.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
