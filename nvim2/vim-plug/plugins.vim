@@ -52,6 +52,10 @@ Plug 'tpope/vim-eunuch'
 " Editing
 Plug 'terryma/vim-multiple-cursors'
 
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 " " whichkey
 " Plug 'liuchengxu/vim-which-key'
 "
@@ -69,9 +73,7 @@ Plug 'terryma/vim-multiple-cursors'
 " Plug 'airblade/vim-rooter'
 "
 " " git
-" Plug 'airblade/vim-gitgutter'
 " Plug 'mhinz/vim-signify'
-" Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-rhubarb'
 " Plug 'junegunn/gv.vim'
 "
