@@ -55,7 +55,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 
 " git
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 " " whichkey
@@ -68,7 +68,6 @@ Plug 'tpope/vim-fugitive'
 " Plug 'airblade/vim-rooter'
 "
 " " git
-" Plug 'mhinz/vim-signify'
 " Plug 'tpope/vim-rhubarb'
 " Plug 'junegunn/gv.vim'
 "
