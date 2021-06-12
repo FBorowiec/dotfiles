@@ -20,36 +20,23 @@ echo -e "$CHECK_MARK \e[1mUpgrading system succeeded!\e[0m\e[32m\e[39m"
 echo -e "Installing dependencies..."
 sudo apt install -y software-properties-common apt-transport-https wget git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
-    neovim python3-neovim zsh terminator tmux
+    neovim python3-neovim zsh fzf terminator tmux
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code
 echo -e "$CHECK_MARK \e[1mInstalling dependecies succeeded!\e[0m\e[32m\e[39m"
 
-sudo wget -q https://coolwallpapers.me/picsup/2873215-darth-vader-emperor-palpatine-stormtrooper-star-wars-the-last-supper___movie-wallpapers.jpg -O /usr/share/backgrounds/start_wars_last_supper.jpg
-
-gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/start_wars_last_supper.jpg'
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
-gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 48
-gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
-gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items false
-gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
-gsettings set org.gnome.desktop.wm.preferences button-layout close,minimize,maximize:
-
-gsettings set org.gnome.shell.extensions.user-theme name "Flat-Remix-Red-Dark-fullPanel"
-gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Red-Dark-Solid"
-gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Red-Dark"
-
 echo -e "Updating zshell..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && exit
-sed -i 's/ZSH_THEME=.*/ZSH_THEME="murilasso"/' ${HOME}/.zshrc
-sed -i 's/plugins=(.*)/plugins=(bazel docker docker-compose docker-machine git zsh-navigation-tools)/' ${HOME}/.zshrc
 sudo chmod 744 ${HOME}/.oh-my-zsh
 sudo chmod 744 ${HOME}/.zshrc*
+
 # Installing powerlevel10k
+echo -e "Installing powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sed -i 's/ZSH_THEME=.*/ZSH_THEME="powerlevel10k/powerlevel10k"/' ${HOME}/.zshrc
+sed -i 's/plugins=(.*)/plugins=(bazel docker docker-compose docker-machine git zsh-autosuggestions zsh-navigation-tools)/' ${HOME}/.zshrc
+
 # Exit on success
 echo -e "$CHECK_MARK \e[1mScript execution succeeded!\e[0m\e[32m\e[39m"
