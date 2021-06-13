@@ -1,5 +1,6 @@
 syntax on
 set noerrorbells
+set clipboard=unnamed
 
 " relative line numbering
 :set relativenumber
