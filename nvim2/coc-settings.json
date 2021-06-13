@@ -51,23 +51,6 @@
             "initializationOptions": {
                 "buildDirectory": "build"
             }
-        },
-        "haskell": {
-            "command": "haskell-language-server-wrapper",
-            "args": [
-                "--lsp"
-            ],
-            "rootPatterns": [
-                "*.cabal",
-                "stack.yaml",
-                "cabal.project",
-                "package.yaml",
-                "hie.yaml"
-            ],
-            "filetypes": [
-                "haskell",
-                "lhaskell"
-            ]
         }
     },
     "diagnostic.errorSign": " ",
@@ -76,6 +59,7 @@
     "diagnostic.hintSign": " ",
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
+        "cpp",
         "markdown",
         "javascript",
         "graphql",
