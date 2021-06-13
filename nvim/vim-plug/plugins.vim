@@ -68,19 +68,14 @@ Plug 'junegunn/gv.vim'
 " Plug 'tpope/vim-rhubarb'
 
 " LSP
-" Plug 'neovim/nvim-lsp'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
-" Plug 'psf/black'
-" Plug 'rhysd/vim-clang-format'
-
-" Devicons - needs to be last!
-" Plug 'ryanoasis/vim-devicons'
+Plug 'neovim/nvim-lsp'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'psf/black'
+Plug 'rhysd/vim-clang-format'
 
 " whichkey
-" Plug 'liuchengxu/vim-which-key'
-"
-" endif
+Plug 'liuchengxu/vim-which-key'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
