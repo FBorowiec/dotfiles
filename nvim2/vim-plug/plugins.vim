@@ -67,25 +67,18 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/gv.vim'
 " Plug 'tpope/vim-rhubarb'
 
-" " whichkey
-" Plug 'liuchengxu/vim-which-key'
-"
-" " coc-lsp
+" LSP
+" Plug 'neovim/nvim-lsp'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"
-" " cxx-highlight
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
-" Plug 'vim-syntastic/syntastic'
-"
-" "cpp-format
+" Plug 'psf/black'
 " Plug 'rhysd/vim-clang-format'
-"
-" " snippets
-" Plug 'honza/vim-snippets'
-" Plug 'mattn/emmet-vim'
-"
-" " cmake-build
-" Plug 'cdelledonne/vim-cmake'
+
+" Devicons - needs to be last!
+" Plug 'ryanoasis/vim-devicons'
+
+" whichkey
+" Plug 'liuchengxu/vim-which-key'
 "
 " endif
 
