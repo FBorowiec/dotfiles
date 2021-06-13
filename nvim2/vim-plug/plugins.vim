@@ -58,7 +58,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 
 " Snippets
-Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
 
 " git
 Plug 'mhinz/vim-signify'
