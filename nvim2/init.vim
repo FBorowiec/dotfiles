@@ -23,11 +23,11 @@ source $HOME/.config/nvim/plug-config/nerdtree.vim
 source $HOME/.config/nvim/plug-config/nerdtree-git-plugin.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/signify.vim
-" source $HOME/.config/nvim/plug-config/syntastic.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/ultisnips.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
-" source $HOME/.config/nvim/plug-config/vim-lsp.vim
-" source $HOME/.config/nvim/plug-config/vim-lsp-cxx-highlight.vim
+source $HOME/.config/nvim/plug-config/vim-lsp.vim
+source $HOME/.config/nvim/plug-config/vim-lsp-cxx-highlight.vim
 source $HOME/.config/nvim/plug-config/vim-multiple-cursors.vim
 " source $HOME/.config/nvim/plug-config/which-key.vim
 
