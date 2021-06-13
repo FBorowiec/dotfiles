@@ -13,6 +13,7 @@ cp -r nvim2 ~/.config/nvim
 echo -e "Configuring zsh..."
 cp zsh/p10k.zsh ~/.p10k.zsh
 cp zsh/zshrc ~/.zshrc
+cp zsh/inputrc ~/.inputrc
 
 echo -e "Configuring git..."
 cp git/gitconfig ~/.gitconfig
