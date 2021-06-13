@@ -4,7 +4,6 @@
 	name = Franek Borowiec
 	email = franek.borowiec@gmail.com
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = nvim
 [push]
   default = current
