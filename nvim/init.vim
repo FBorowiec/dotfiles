@@ -19,6 +19,7 @@ source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
+source $HOME/.config/nvim/plug-config/jedi-vim.vim
 source $HOME/.config/nvim/plug-config/nerdtree.vim
 source $HOME/.config/nvim/plug-config/nerdtree-git-plugin.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
