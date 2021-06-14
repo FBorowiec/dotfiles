@@ -1,4 +1,4 @@
-nnoremap <C-n> :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc$', 'bazel-*', '\~$'] "ignore files in NERDTree
