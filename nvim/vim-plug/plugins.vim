@@ -25,13 +25,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'machakann/vim-highlightedyank'
 
-" floating terminal
+" Floating terminal
 Plug 'voldikss/vim-floaterm'
 
-" zen mode
+" Zen mode
 Plug 'junegunn/goyo.vim'
 
-" bazel build tools
+" Bazel build tools
 " Add maktaba and bazel to the runtimepath.
 " (The latter must be installed before it can be used.)
 Plug 'google/vim-maktaba'
@@ -60,7 +60,7 @@ Plug 'mbbill/undotree'
 " Snippets
 Plug 'sirver/ultisnips'
 
-" git
+" Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-rooter'
@@ -69,12 +69,9 @@ Plug 'junegunn/gv.vim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'psf/black'
-" Plug 'rhysd/vim-clang-format'
-" Plug 'neovim/nvim-lsp'
-" Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'grailbio/bazel-compilation-database'
 
-" whichkey
+" Whichkey
 Plug 'liuchengxu/vim-which-key'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
