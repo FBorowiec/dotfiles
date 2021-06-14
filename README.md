@@ -15,6 +15,7 @@ Under `nvim` you can find the config files for the plugins I use.
 ## Features and plugins for Neovim
 
 * `commentary.vim` - Comment stuff out.
+* `bazel-compilation-database` - If you use Bazel and want to use libclang based editors and tools, you can now generate JSON compilation database easily without using build intercept hooks. The advantage is that you can generate the database even if your source code does not compile, and the generation process is much faster.
 * `floaterm` - Use (neo)vim terminal in the floating/popup window.
 * `goyo` - Distraction-free writing in Vim.
 * `gruvboxmaterial` - Gruvbox Material is a modified version of Gruvbox, the contrast is adjusted to be softer in order to protect developers' eyes.
@@ -37,14 +38,26 @@ Under `nvim` you can find the config files for the plugins I use.
 * `vim-rooter` - Rooter changes the working directory to the project root when you open a file or directory.
 * `vim-surround` - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
-For `clangd` maker sure to run a `:CocCommand clangd.install`.
+### Important notes
 
+1. For `clangd` maker sure to run a `:CocCommand clangd.install`.
 The available `coc` extensions can be found under: [github.com/neoclide/coc.nvim/wiki/Using-coc-extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
 
+2. For Bazel projects you will need to run the `install_bazel_compilation_db.sh` script and each time you enter a Bazel project run `bazel-compdb`.
+This will generate a `compile_commands.json` file which you should include within your `.gitignore`.
+
+3. For C++ projects you should install `ccls` and create a `.ccls` file inside the root folder of you project with the following content:
+
+```bash
+clang++
+%h %cpp -std=c++17
+```
+
 ---
+
 ## Shortcuts
 
-Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` represents ASCII character `,`.
+Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` represents the <\SPACE> bar.
 
 | Shortcut          | Mode          | Description                                                      |
 | ----------------- | ------------- | ---------------------------------------------------------------- |
