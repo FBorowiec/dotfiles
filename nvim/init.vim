@@ -14,7 +14,7 @@ source $HOME/.config/nvim/plug-config/vim-airline.vim
 source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
 " Plugin Configuration
-" source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
@@ -26,10 +26,7 @@ source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/ultisnips.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
-source $HOME/.config/nvim/plug-config/vim-lsp.vim
-source $HOME/.config/nvim/plug-config/vim-clang-format.vim
-source $HOME/.config/nvim/plug-config/vim-lsp-cxx-highlight.vim
 source $HOME/.config/nvim/plug-config/vim-multiple-cursors.vim
-" source $HOME/.config/nvim/plug-config/which-key.vim
+source $HOME/.config/nvim/plug-config/which-key.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

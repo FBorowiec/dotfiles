@@ -37,6 +37,10 @@ Under `nvim` you can find the config files for the plugins I use.
 * `vim-rooter` - Rooter changes the working directory to the project root when you open a file or directory.
 * `vim-surround` - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
+For `clangd` maker sure to run a `:CocCommand clangd.install`.
+
+The available `coc` extensions can be found under: [github.com/neoclide/coc.nvim/wiki/Using-coc-extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
+
 ---
 ## Shortcuts
 
