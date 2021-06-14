@@ -26,3 +26,6 @@ nnoremap <leader><Tab> >>
 nnoremap <leader><S-Tab> <lt><lt>
 vnoremap <leader><Tab> >
 vnoremap <leader><S-Tab> <lt>
+
+" Switch on gitdiff
+nnoremap <F6> :Git difftool<cr>
