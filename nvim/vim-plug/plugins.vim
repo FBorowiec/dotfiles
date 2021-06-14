@@ -69,6 +69,7 @@ Plug 'junegunn/gv.vim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'grailbio/bazel-compilation-database'
 
 " Whichkey
