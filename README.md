@@ -40,6 +40,20 @@ Under `nvim` you can find the config files for the plugins I use.
 
 ### Important notes
 
+#### Dependencies
+
+* `neovim`
+* `python3-neovim`
+* `zsh`
+* `fzf`
+* `terminator`
+* `tmux`
+* `ccls`
+* `ctags`
+* `jedi-language-server`
+
+Install them using: `sudo apt install neovim python3-neovim zsh fzf terminator tmux ccls ctags && pip3 install -U jedi-language-server`
+
 1. For `clangd` maker sure to run a `:CocCommand clangd.install`.
 The available `coc` extensions can be found under: [github.com/neoclide/coc.nvim/wiki/Using-coc-extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
 
