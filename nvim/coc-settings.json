@@ -1,143 +1,153 @@
 {
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
-            ],
-            "rootPatterns": [
-                ".ccls",
-                ".ccls-root",
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "client": {
-                "snippetSupport": true
-            },
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                },
-                "clang": {
-                    "resourceDir": "/usr/lib/clang/11.0.0",
-                    "extraArgs": [
-                        "-isystem",
-                        "/usr/include/c++/v1",
-                        "-I",
-                        "/usr/include/"
-                    ]
-                },
-                "index": {
-                    "onChange": true
-                },
-                "highlight": {
-                    "lsRanges": true
-                }
-            }
-        },
-        "cmake": {
-            "command": "cmake-language-server",
-            "filetypes": [
-                "cmake"
-            ],
-            "rootPatterns": [
-                "build/"
-            ],
-            "initializationOptions": {
-                "buildDirectory": "build"
-            }
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        ".ccls-root",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
         }
+      }
     },
-    "diagnostic.errorSign": " ",
-    "diagnostic.warningSign": " ",
-    "diagnostic.infoSign": "",
-    "diagnostic.hintSign": " ",
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "cpp",
-        "markdown",
-        "javascript",
-        "graphql",
-        "html",
-        "yaml",
-        "json",
-        "python",
-        "java"
-    ],
-    "coc.preferences.hoverTarget": "float",
-    "coc.source.emoji.filetypes": [
-        "markdown"
-    ],
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.autoSearchPaths": true,
-    "python.analysis.diagnosticMode": "openFilesOnly",
-    "python.analysis.stubPath": "typings",
-    "python.analysis.typeshedPaths": [],
-    "python.analysis.diagnosticSeverityOverrides": {},
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.useLibraryCodeForTypes": true,
-    "python.pythonPath": "python",
-    "python.venvPath": "",
-    "python.formatting.provider": "black",
-    "python.formatting.blackPath": "black",
-    "python.formatting.blackArgs": [],
-    "python.formatting.autopep8Path": "autopep8",
-    "python.formatting.autopep8Args": [],
-    "python.formatting.yapfPath": "yapf",
-    "python.formatting.yapfArgs": [],
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": false,
-    "python.linting.banditEnabled": false,
-    "python.linting.mypyEnabled": false,
-    "python.linting.pytypeEnabled": false,
-    "python.linting.prospectorEnabled": false,
-    "python.linting.pydocstyleEnabled": false,
-    "python.linting.pylamaEnabled": false,
-    "python.linting.pylintEnabled": false,
-    "pyright.disableCompletion": false,
-    "pyright.disableLanguageServices": false,
-    "pyright.disableOrganizeImports": false,
-    "snippets.priority": 1,
-    "suggest.languageSourcePriority": 99,
-    "coc.source.file.priority": 2,
-    "coc.source.around.priority": 3,
-    "coc.source.buffer.priority": 4,
-    "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "~/.config/nvim/snippets"
-    ],
-    "emmet.includeLanguages": {
-        "vue-html": "html",
-        "javascript": "javascriptreact"
-    },
-    "css.validate": false,
-    "less.validate": false,
-    "scss.validate": false,
-    "wxss.validate": false,
-    "explorer.width": 30,
-    "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
-    "explorer.icon.enableNerdfont": true,
-    "explorer.previewAction.onHover": false,
-    "explorer.icon.enableVimDevicons": false,
-    "explorer.file.showHiddenFiles": false,
-    "explorer.keyMappings.global": {
-        "<cr>": [
-            "expandable?",
-            "expand",
-            "open"
-        ],
-        "v": "open:vsplit"
-    },
-    "suggest.completionItemKindLabels": {
-        "text": "t",
-        "method": "m",
-        "function": ""
-    },
-    "list.indicator": ">",
-    "list.selectedSignText": " "
+    "python": {
+      "command": "python",
+      "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+      "trace.server": "verbose",
+      "filetypes": ["python"],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "trace": {
+            "server": "verbose"
+          },
+          "commandPath": "",
+          "configurationSources": ["pycodestyle"],
+          "plugins": {
+            "jedi_completion": {
+              "enabled": true
+            },
+            "jedi_hover": {
+              "enabled": true
+            },
+            "jedi_references": {
+              "enabled": true
+            },
+            "jedi_signature_help": {
+              "enabled": true
+            },
+            "jedi_symbols": {
+              "enabled": true,
+              "all_scopes": true
+            },
+            "mccabe": {
+              "enabled": true,
+              "threshold": 15
+            },
+            "preload": {
+              "enabled": true
+            },
+            "pycodestyle": {
+              "enabled": true
+            },
+            "pydocstyle": {
+              "enabled": false,
+              "match": "(?!test_).*\\.py",
+              "matchDir": "[^\\.].*"
+            },
+            "pyflakes": {
+              "enabled": true
+            },
+            "rope_completion": {
+              "enabled": true
+            },
+            "yapf": {
+              "enabled": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "cpp",
+    "markdown",
+    "javascript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python",
+    "java"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "coc.source.emoji.filetypes": ["markdown"],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.stubPath": "typings",
+  "python.analysis.typeshedPaths": [],
+  "python.analysis.diagnosticSeverityOverrides": {},
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.pythonPath": "python",
+  "python.venvPath": "",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "black",
+  "python.formatting.blackArgs": [],
+  "python.formatting.autopep8Path": "autopep8",
+  "python.formatting.autopep8Args": [],
+  "python.formatting.yapfPath": "yapf",
+  "python.formatting.yapfArgs": [],
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.linting.banditEnabled": false,
+  "python.linting.mypyEnabled": false,
+  "python.linting.pytypeEnabled": false,
+  "python.linting.prospectorEnabled": false,
+  "python.linting.pydocstyleEnabled": false,
+  "python.linting.pylamaEnabled": false,
+  "python.linting.pylintEnabled": false,
+  "pyright.disableCompletion": false,
+  "pyright.disableLanguageServices": false,
+  "pyright.disableOrganizeImports": false,
+  "snippets.priority": 1,
+  "suggest.languageSourcePriority": 99,
+  "coc.source.file.priority": 2,
+  "coc.source.around.priority": 3,
+  "coc.source.buffer.priority": 4,
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+  "explorer.width": 30,
+  "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.icon.enableVimDevicons": false,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "suggest.completionItemKindLabels": {
+    "text": "t",
+    "method": "m",
+    "function": ""
+  },
+  "list.indicator": ">",
+  "list.selectedSignText": " "
 }
