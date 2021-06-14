@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Shell script for installing my ws env
 
 # Beautify logs
@@ -21,9 +22,7 @@ echo -e "Installing dependencies..."
 sudo apt install -y software-properties-common apt-transport-https wget git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     neovim python3-neovim zsh fzf terminator tmux ccls ctags
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt install code
+pip3 install -U jedi-language-server
 echo -e "$CHECK_MARK \e[1mInstalling dependecies succeeded!\e[0m\e[32m\e[39m"
 
 echo -e "Updating zshell..."
