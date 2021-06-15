@@ -1,2 +1,2 @@
-colorscheme nord
+colorscheme onedark
 let g:airline_theme='onedark'

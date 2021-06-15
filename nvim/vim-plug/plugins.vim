@@ -76,6 +76,9 @@ Plug 'grailbio/bazel-compilation-database'
 " Whichkey
 Plug 'liuchengxu/vim-which-key'
 
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#end()
