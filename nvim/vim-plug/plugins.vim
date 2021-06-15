@@ -68,6 +68,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/gv.vim'
+Plug 'sindrets/diffview.nvim'
 " Plug 'tpope/vim-rhubarb'
 
 " LSP
@@ -80,6 +81,7 @@ Plug 'liuchengxu/vim-which-key'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
