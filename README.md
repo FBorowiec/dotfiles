@@ -118,3 +118,12 @@ I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 * `docker-machine`
 * `zsh-autosuggestions`
 * `zsh-navigation-tools`
+
+## Install order
+
+`chmod +x *.sh`
+
+1. `install_env.sh`
+2. `install_shell.sh`
+3. `install_dotfiles.sh`
+4. Optional: `install_gnome.sh`
