@@ -12,3 +12,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 sed -i 's/ZSH_THEME=.*/ZSH_THEME="powerlevel10k/powerlevel10k"/' ${HOME}/.zshrc
 sed -i 's/plugins=(.*)/plugins=(bazel docker docker-compose docker-machine git zsh-autosuggestions zsh-navigation-tools)/' ${HOME}/.zshrc
+
+echo -e "Installing nerd fonts..."
+curl -sS https://webinstall.dev/nerdfont | bash

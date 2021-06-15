@@ -4,6 +4,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 let NERDTreeIgnore=['\.pyc$', 'bazel-*', '\~$'] "ignore files in NERDTree
+let NERDTreeShowHidden=1
 let g:NERDTreeHighlightCursorline = 1
 
 " Start NERDTree when Vim is started without file arguments.
