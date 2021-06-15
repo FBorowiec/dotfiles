@@ -73,33 +73,40 @@ clang++
 
 Some of the shortcuts I use frequently. In the following shortcuts, `<leader>` represents the <\SPACE> bar.
 
-| Shortcut          | Mode          | Description                                                      |
-| ----------------- | ------------- | ---------------------------------------------------------------- |
-| `<leader>ff`      | Normal        | Fuzzy file search in a floating window                           |
-| `<leader>h`       | Normal        | Fuzzy help search in a floating window                           |
-| `<leader>t`       | Normal        | Fuzzy buffer tag search in a floating window                     |
-| `<leader><Space>` | Normal        | Remove trailing white spaces                                     |
-| `<leader>v`       | Normal        | Reselect last pasted text                                        |
-| `<leader>ev`      | Normal        | Edit Neovim config in a new tabpage                              |
-| `<leader>sv`      | Normal        | Reload Neovim config                                             |
-| `<leader>q`       | Normal        | Quit current window                                              |
-| `<leader>Q`       | Normal        | Quit all window and close Neovim                                 |
-| `<leader>w`       | Normal        | Save current buffer content                                      |
-| `<leader>cd`      | Normal        | Change current directory to where current file is                |
-| `<leader>y`       | Normal        | Copy the content of entire buffer to default register            |
-| `<leader>cl`      | Normal        | Toggle cursor column                                             |
-| `<leader>cd`      | Normal        | Change current working directory to to the dir of current buffer |
-| `<space>t`        | Normal        | Toggle tag window (show project tags in the right window)        |
-| `<F11>`           | Normal        | Toggle spell checking                                            |
-| `<F12>`           | Normal        | Toggle paste mode                                                |
-| `\x`              | Normal        | Close location or quickfix window                                |
-| `\d`              | Normal        | Close current buffer and go to previous buffer                   |
-| `{count}gb`       | Normal        | Go to {count} buffer or next buffer in the buffer list.          |
-| `Alt-M`           | Normal        | Render Markdown to HTML and open it in system browser            |
-| `ob`              | Normal/Visual | Open link under cursor or search visual selection                |
-| `ctrl-u`          | Insert        | Turn word under cursor to upper case                             |
-| `ctrl-t`          | Insert        | Turn word under cursor to title case                             |
-| `jk`              | Insert        | Return to Normal mode (faster `<ESC>`)                           |
+| Shortcut     | Mode          | Description                                                      |
+| ------------ | ------------- | ---------------------------------------------------------------- |
+| `<leader>ff` | Normal        | Fuzzy file search in a floating window                           |
+| `<C-^>`      | Normal        | Jump between last two files (remember to press Shift)            |
+| `<C-o>`      | Normal        | Jump backwards through history                                   |
+| `<C-i>`      | Normal        | Jump forward through history                                     |
+| `mh`         | Normal        | Set local mark that you can jump to with 'h (can use any letter) |
+| `mH`         | Normal        | Set a global mark that you can jump to with 'H                   |
+| `<C-w>o`     | Normal        | Close all but current buffer                                     |
+| `<C-w>v`     | Normal        | Split current buffer vertically                                  |
+| `<C-w>s`     | Normal        | Split current buffer horizontally                                |
+| `:resize 10` | Normal        | Resize split to 10                                               |
+| `<C-w>=`     | Normal        | Equally spread splits                                            |
+| `<C-w>r`     | Normal        | Rotate buffer                                                    |
+| `<C-w>H`     | Normal        | Switch from horizontal to vertical split                         |
+| `<leader>e`  | Normal        | CocList diagnostics                                              |
+| `<leader>q`  | Normal        | Quit current window                                              |
+| `<leader>Q`  | Normal        | Quit all window and close Neovim                                 |
+| `<leader>w`  | Normal        | Save current buffer content                                      |
+| `<leader>cd` | Normal        | Change current directory to where current file is                |
+| `<leader>y`  | Normal        | Copy the content of entire buffer to default register            |
+| `<leader>cl` | Normal        | Toggle cursor column                                             |
+| `<leader>cd` | Normal        | Change current working directory to to the dir of current buffer |
+| `<space>t`   | Normal        | Toggle tag window (show project tags in the right window)        |
+| `<F11>`      | Normal        | Toggle spell checking                                            |
+| `<F12>`      | Normal        | Toggle paste mode                                                |
+| `\d`         | Normal        | Close current buffer and go to previous buffer                   |
+| `{count}gb`  | Normal        | Go to {count} buffer or next buffer in the buffer list.          |
+| `ob`         | Normal/Visual | Open link under cursor or search visual selection                |
+| `ctrl-u`     | Insert        | Turn word under cursor to upper case                             |
+| `ctrl-t`     | Insert        | Turn word under cursor to title case                             |
+| `jk`         | Insert        | Return to Normal mode (faster `<ESC>`)                           |
+
+Tip: Have only 3-4 marks with `h` being most important and `l` being least important.
 
 ---
 

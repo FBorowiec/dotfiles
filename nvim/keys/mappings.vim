@@ -29,3 +29,9 @@ vnoremap <leader><S-Tab> <lt>
 
 " Switch on gitdiff
 nnoremap <F4> :Git diff<cr>
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>x :x<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>q :q!<cr>
+
