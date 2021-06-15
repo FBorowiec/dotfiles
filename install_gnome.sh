@@ -51,5 +51,9 @@ gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Red-Dark"
 sudo wget -q https://coolwallpapers.me/picsup/2873215-darth-vader-emperor-palpatine-stormtrooper-star-wars-the-last-supper___movie-wallpapers.jpg -O /usr/share/backgrounds/start_wars_last_supper.jpg
 gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/start_wars_last_supper.jpg'
 
+echo -e "Installing font..."
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
 # Exit on success
 echo -e "$CHECK_MARK \e[1mScript execution succeeded!\e[0m\e[32m\e[39m"
