@@ -49,9 +49,7 @@ Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim', {'do': 'make' }
 Plug 'tpope/vim-eunuch'
 Plug 'bronson/vim-visual-star-search'
 Plug 'kopischke/vim-fetch'

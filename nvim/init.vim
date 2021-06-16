@@ -15,14 +15,10 @@ source $HOME/.config/nvim/plug-config/vim-airline.vim
 source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
 " Plugin Configuration
-" luafile $HOME/.config/nvim/plug-config/diffview.lua
-" luafile $HOME/.config/nvim/plug-config/telescope.lua
-" luafile $HOME/.config/nvim/plug-config/nvim-web-devicons.lua
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/diffview.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/jedi-vim.vim
