@@ -32,3 +32,8 @@ nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>q :q!<cr>
 
+map <leader>h :wincmd h<cr>
+map <leader>j :wincmd j<cr>
+map <leader>k :wincmd k<cr>
+map <leader>l :wincmd l<cr>
+
