@@ -14,7 +14,7 @@ echo -e "$CHECK_MARK \e[1mUpgrading system succeeded!\e[0m\e[32m\e[39m"
 echo -e "Installing dependencies..."
 sudo apt install -y software-properties-common apt-transport-https wget git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
-    python3-neovim python3-venv zsh fzf ripgrep terminator tmux ccls ctags nodejs \
+    python3-neovim pynvim python3-venv zsh fzf ripgrep terminator tmux ccls ctags nodejs \
     npm global clangd lua5.1 lua-nvim ninja-build gettext libtool libtool-bin autoconf \
     automake cmake g++ pkg-config unzip # neovim
 sudo npm install -g yarn && yarn --registry "https://registry.npmjs.org"
