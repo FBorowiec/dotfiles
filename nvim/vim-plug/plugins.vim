@@ -80,6 +80,8 @@ Plug 'liuchengxu/vim-which-key'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
