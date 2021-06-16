@@ -71,6 +71,7 @@ Plug 'sindrets/diffview.nvim'
 " LSP
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'grailbio/bazel-compilation-database'
 
 " Whichkey
