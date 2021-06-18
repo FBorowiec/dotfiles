@@ -1,5 +1,5 @@
 " nnoremap <C-n> :NERDTreeFocus<CR>
-nnoremap <C-r> :NERDTreeRefreshRoot<CR>
+nnoremap <leader><C-r> :NERDTreeRefreshRoot<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 

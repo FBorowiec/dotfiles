@@ -71,6 +71,7 @@ Plug 'sindrets/diffview.nvim'
 " Plug 'tpope/vim-rhubarb'
 
 " LSP
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'grailbio/bazel-compilation-database'
@@ -80,9 +81,10 @@ Plug 'liuchengxu/vim-which-key'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " needs to be places after devicons
 Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
