@@ -36,6 +36,8 @@
   ],
   "coc.preferences.hoverTarget": "float",
   "coc.source.emoji.filetypes": ["markdown"],
+  "pyright.enable": true,
+  "python.analysis.autoImportCompletions": true,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "black",
   "python.formatting.blackArgs": [],
@@ -105,10 +107,6 @@
         "property": { "all": false, "names": [], "fullNames": [] },
         "statement": { "all": false, "names": [], "fullNames": [] }
       }
-    },
-    "jediSettings": {
-      "autoImportModules": [],
-      "caseInsensitiveCompletion": true
     },
     "markupKindPreferred": "markdown",
     "workspace": {

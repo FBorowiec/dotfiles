@@ -168,6 +168,7 @@ let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-json',
   \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-snippets',
   \ 'coc-yaml',
