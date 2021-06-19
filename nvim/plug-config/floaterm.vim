@@ -7,7 +7,7 @@ let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
 
 " Configuration
-" let g:floaterm_keymap_new    = '<F7>'
-" let g:floaterm_keymap_prev   = '<F8>'
-" let g:floaterm_keymap_next   = '<F9>'
-let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_keymap_new    = '<leader>tf'
+let g:floaterm_keymap_prev   = '<leader>tp'
+let g:floaterm_keymap_next   = '<leader>tn'
+let g:floaterm_keymap_toggle = '<leader>tt'

@@ -37,3 +37,7 @@ set undodir=~/.config/nvim/undodir
 set undofile
 set colorcolumn=120
 highlight Colorcolumn ctermbg=0 guibg=lightgrey
+
+" Focus on new splits
+set splitbelow
+set splitright
