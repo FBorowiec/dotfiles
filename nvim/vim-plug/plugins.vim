@@ -42,10 +42,7 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-" File navigation and fuzzy finder
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'unkiwii/vim-nerdtree-sync'
+" Fuzzy finder
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -79,11 +76,11 @@ Plug 'grailbio/bazel-compilation-database'
 " Whichkey
 Plug 'folke/which-key.nvim'
 
-" Devicons
+" File navigation and Devicons
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " needs to be places after devicons
 Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'romgrk/barbar.nvim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
