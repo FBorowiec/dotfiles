@@ -71,7 +71,6 @@ Plug 'sindrets/diffview.nvim'
 " LSP
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'grailbio/bazel-compilation-database'
 
 " Whichkey

@@ -16,7 +16,8 @@ sudo apt install -y software-properties-common apt-transport-https wget git curl
     python3-neovim pynvim python3-venv zsh fzf ripgrep terminator tmux ccls ctags nodejs \
     yarn global clangd lua5.1 lua-nvim ninja-build gettext libtool libtool-bin autoconf \
     automake cmake g++ gcc pkg-config unzip build-essential # neovim
-pip3 install -U jedi-language-server
+pip3 install -U jedi-language-server pyright
+sudo npm i -g pyright
 echo -e "$CHECK_MARK \e[1mInstalling dependecies succeeded!\e[0m\e[32m\e[39m"
 
 cd && git clone https://github.com/neovim/neovim.git && cd neovim && make && sudo make install
