@@ -1,227 +1,65 @@
-" Which-key settings
-
-" Setting space as the leader ley
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-
-" By default timeoutlen is 1000 ms
-set timeoutlen=400
-
-" Minimal configuration with <Space> and <,> as 'leader' and 'local leader'
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-
-" call which_key#register('<Space>', "g:which_key_map")
-
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-" Define prefix dictionary
-let g:which_key_map =  {}
-
-" 'a' for action
-let g:which_key_map.a = {
-    \ 'name' : '+action',
-    \ 'x' : {
-        \ 'name': '+cut',
-    \ },
-    \ 'c' : {
-        \ 'name': '+copy',
-    \ },
-    \ 'v' : {
-        \ 'name': '+paste',
-    \ },
-    \ 'h' : [':nohlsearch'    , 'nohlsearch'],
-    \ '?' : ['Buffers'        , 'fzf-buffer'],
-    \ '/' : ['gcc'             , 'comment-line'],
-    \ }
-
-" 'b' for buffer
-let g:which_key_map.b = {
-      \ 'name' : '+buffer',
-      \ '1' : ['b1'            , 'buffer 1'],
-      \ '2' : ['b2'            , 'buffer 2'],
-      \ 'B' : ['Buffers'       , 'fzf-buffer'],
-      \ 'd' : ['bd'            , 'kill-buffer'],
-      \ 'f' : ['bfirst'        , 'first-buffer'],
-      \ 'l' : ['blast'         , 'last-buffer'],
-      \ 'n' : ['bnext'         , 'next-buffer'],
-      \ 'p' : ['bprevious'     , 'previous-buffer'],
-      \ 't' : ['<C-^>'         , 'toggle-buffer'],
-      \ '?' : ['Buffers'       , 'fzf-buffer'],
-      \ ']' : ['bnext'         , 'next-buffer'],
-      \ '[' : ['bprevious'     , 'previous-buffer'],
-      \ }
-
-" 'd' for git diff
-let g:which_key_map.d = {
-      \ 'name' : '+diff',
-      \ 'do' : [':DiffviewOpen' , 'Open Diffview'],
-      \ 'dc' : [':DiffviewClose' , 'Close Diffview'],
-      \ 'df' : [':DiffviewFocusFiles' , 'Focus on Diffview files'],
-      \ 'dr' : [':DiffviewRefresh' , 'Refresh Diffview files'],
-      \ }
-
-" 'e' for edit
-let g:which_key_map.e = {
-      \ 'name' : '+edit',
-      \ 'e' : [':vs $HOME/.config/nvim/init.vim'              , 'init.vim'],
-      \ 'c' : [':vs $HOME/.config/nvim/plug-config/coc.vim'   , 'coc.vim'],
-      \ 'C' : [':vs $HOME/.config/nvim/coc-settings.json'     , 'coc-settings.json'],
-      \ 'k' : [':vs $HOME/.config/nvim/keys/mappings.vim'     , 'mappings.vim'],
-      \ 'p' : [':vs $HOME/.config/nvim/vim-plug/plugins.vim'  , 'plugins.vim'],
-      \ 's' : [':vs $HOME/.config/nvim/general/settings.vim'  , 'settings.vim'],
-      \ 'w' : [':vs $HOME/.config/nvim/plug-config/which-key.vim'   , 'which-key.vim'],
-      \ }
-
-" 'f' for file
-let g:which_key_map.f = {
-      \ 'name' : '+file',
-      \ 'p' : [':Files $HOME/.config/nvim/' , 'Find in Config'],
-      \ 'P' : [':vs $HOME/.config/nvim/' , 'Browse Config'],
-      \ 's' : [':update'            , 'update-file'],
-      \ 'z' : ['Goyo'               , 'zen-mode'],
-      \ }
-
-" 'g' for git
-let g:which_key_map.g = {
-      \ 'name' : '+git',
-      \ 'g' : [':G'             , 'status-interactive'],
-      \ 'c' : [':Git commit'    , 'commit'],
-      \ 'i' : [':Git init'      , 'init'],
-      \ 'l' : [':Git log'       , 'log'],
-      \ 'm' : [':GV'            , 'magit-like'],
-      \ 'P' : [':Git push'      , 'Push'],
-      \ 'p' : [':Git pull'      , 'pull'],
-      \ 'q' : ['gq'             , 'quit'],
-      \ 's' : [':Git status'    , 'status'],
-      \ }
-
-" 'h' for help
-let g:which_key_map.h = {
-      \ 'name' : '+help',
-      \ 't' : ['Colors'        , 'load-theme'],
-      \ }
-
-" 'i' for insert
-let g:which_key_map.i = {
-      \ 'name' : '+insert',
-      \ }
-
-" l is for lsp
-let g:which_key_map.l = {
-      \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'code action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'c' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'O' : [':CocList outline'                    , 'search outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
-      \ 'S' : [':CocList snippets'                   , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'x' : [':CocList extensions'                 , 'extensions'],
-      \ 'z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
-      \ }
-      " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-
-" 'o' for open
-let g:which_key_map.o = {
-      \ 'name' : '+open',
-      \ 't' : ['FloatermToggle'     , 'terminal'],
-      \ }
-
-" 'q' for quit
-let g:which_key_map.q = {
-      \ 'name' : '+quit',
-      \ 'q' : [':q'         , 'quit, unmodified'],
-      \ 'a' : [':qa'        , 'quit-all, unmodified'],
-      \ 'r' : [':source $HOME/.config/nvim/init.vim' , 'reload'],
-      \ 'u' : [':update'    , 'update-file'],
-      \ 'w' : [':wq'        , 'save and quit'],
-      \ '!' : [':q!'        , 'quit without saving'],
-      \ }
-
-" 'r' for reload
-let g:which_key_map.r = {
-      \ 'name' : '+reload',
-      \ 'r' : [':source $HOME/.config/nvim/init.vim' , 'reload'],
-      \ }
-
-" 's' for search
-let g:which_key_map.s = {
-      \ 'name' : '+search',
-      \ 's' : ['/'                  , 'search'],
-      \ 'h' : [':set hls!'          , 'hlsearch'],
-      \ }
-
-nnoremap <Space>sc :CocSearch <right>
-
-" 't' for toggle
-let g:which_key_map.t = {
-      \ 'name' : '+toggle',
-      \ 'b' : ['<C-^>'              , 'buffer'],
-      \ 'h' : [':set hls!'          , 'hlsearch'],
-      \ 's' : [':set spell!'        , 'spell-check'],
-      \ 't' : [':terminal.Toggle'   , 'terminal'],
-      \ 'u' : ['UndotreeToggle'     , 'undotree'],
-      \ 'z' : ['Goyo'               , 'zen-mode'],
-      \ }
-
-" 'w' for window
-let g:which_key_map['w'] = {
-      \ 'name' : '+windows',
-      \ 'b' : ['<C-^>'          , 'buffer'],
-      \ 'c' : ['<C-W>c'         , 'delete-window'],
-      \ 'h' : ['<C-W>h'         , 'window-left'],
-      \ 'j' : ['<C-W>j'         , 'window-below'],
-      \ 'k' : ['<C-W>k'         , 'window-up'],
-      \ 'l' : ['<C-W>l'         , 'window-right'],
-      \ 'H' : ['<C-W>5<'        , 'expand-window-left'],
-      \ 'J' : [':resize +5'     , 'expand-window-below'],
-      \ 'K' : [':resize -5'     , 'expand-window-up'],
-      \ 'L' : ['<C-W>5>'        , 'expand-window-right'],
-      \ 's' : ['<C-W>s'         , 'split-window-below'],
-      \ 'v' : ['<C-W>v'         , 'split-window-right'],
-      \ 'w' : ['<C-W>w'         , 'other-window'],
-      \ '-' : ['<C-W>s'         , 'split-window-below'],
-      \ '|' : ['<C-W>v'         , 'split-window-right'],
-      \ '=' : ['<C-W>='         , 'balance-window'],
-      \ '2' : ['<C-W>v'         , 'layout-double-columns'],
-      \ '?' : ['Windows'        , 'fzf-window'],
-      \ }
-
-" 'z' for fzf
-let g:which_key_map['z'] = {
-      \ 'name' : '+fzf',
-      \ 'b' : ['Buffers'        , 'buffers'],
-      \ 'C' : ['Colors'         , 'Colors'],
-      \ 'c' : ['Commits'        , 'commits'],
-      \ 'f' : ['Files'          , 'files'],
-      \ 'l' : ['Lines'          , 'lines'],
-      \ 'm' : ['Marks'          , 'marks'],
-      \ 'r' : ['History'        , 'recent files'],
-      \ 't' : ['Tags'           , 'tags'],
-      \ 'v' : ['Commands'       , 'vim-commands'],
-      \ 'w' : ['Windows'        , 'windows'],
-      \ 'z' : ['Rg'             , 'Rg'],
-      \ }
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    plugins = {
+    marks = true, -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+    -- No actual key bindings are created
+    spelling = {
+      enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      suggestions = 20, -- how many suggestions should be shown in the list?
+    },
+    presets = {
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true, -- bindings for prefixed with g
+    },
+  },
+  -- add operators that will trigger motion and text object completion
+  -- to enable all native operators, set the preset / operators plugin above
+  operators = { gcc = "Comments" },
+  key_labels = {
+    -- override the label used to display some keys. It doesn't effect WK in any other way.
+    -- For example:
+    -- ["<space>"] = "SPC",
+    -- ["<cr>"] = "RET",
+    -- ["<tab>"] = "TAB",
+  },
+  icons = {
+    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+    separator = "➜", -- symbol used between a key and it's label
+    group = "+", -- symbol prepended to a group
+  },
+  window = {
+    border = "none", -- none, single, double, shadow
+    position = "bottom", -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+  },
+  layout = {
+    height = { min = 4, max = 25 }, -- min and max height of the columns
+    width = { min = 20, max = 50 }, -- min and max width of the columns
+    spacing = 3, -- spacing between columns
+    align = "left", -- align columns left, center or right
+  },
+  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+  show_help = true, -- show help message on the command line when the popup is visible
+  triggers = "auto", -- automatically setup triggers
+  -- triggers = {"<leader>"} -- or specify a list manually
+  triggers_blacklist = {
+    -- list of mode / prefixes that should never be hooked by WhichKey
+    -- this is mostly relevant for key maps that start with a native binding
+    -- most people should not need to change this
+    i = { "j", "k" },
+    v = { "j", "k" },
+  }
+}
+EOF

@@ -77,7 +77,7 @@ Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build'
 Plug 'grailbio/bazel-compilation-database'
 
 " Whichkey
-Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
