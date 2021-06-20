@@ -41,3 +41,6 @@ highlight Colorcolumn ctermbg=0 guibg=lightgrey
 " Focus on new splits
 set splitbelow
 set splitright
+
+" Timeout length
+set timeoutlen=400
