@@ -1,5 +1,5 @@
 " Find files using Telescope command-line sugar.
-nnoremap <c-p> :lua require'telescope.builtin'.find_files{}<CR>
+" nnoremap <c-p> :lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 " nnoremap <leader>fg <cmd>Telescope grep_string({ search = vim.fn.input("Grep For > ")})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
