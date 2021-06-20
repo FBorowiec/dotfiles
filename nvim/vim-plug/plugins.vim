@@ -50,6 +50,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim', {'do': 'make' }
 Plug 'tpope/vim-eunuch'
 Plug 'bronson/vim-visual-star-search'
 Plug 'kopischke/vim-fetch'
+Plug 'brooth/far.vim'
 
 " Editing
 Plug 'terryma/vim-multiple-cursors'
