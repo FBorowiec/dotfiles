@@ -15,8 +15,7 @@ sudo apt install -y software-properties-common apt-transport-https wget git curl
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     python3-neovim pynvim python3-venv zsh fzf ripgrep terminator tmux ccls ctags nodejs \
     yarn global clangd lua5.1 lua-nvim ninja-build gettext libtool libtool-bin autoconf \
-    automake cmake g++ gcc pkg-config unzip build-essential # neovim
-pip3 install -U jedi-language-server pyright
+    automake cmake g++ gcc pkg-config unzip build-essential xclip
 sudo npm i -g pyright
 echo -e "$CHECK_MARK \e[1mInstalling dependecies succeeded!\e[0m\e[32m\e[39m"
 
