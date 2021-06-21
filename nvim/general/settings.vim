@@ -3,9 +3,8 @@ set noerrorbells
 set clipboard=unnamed
 
 " relative line numbering
-:set relativenumber
-:set number
-:set number relativenumber
+set relativenumber
+set number
 
 " indentation
 set tabstop=4

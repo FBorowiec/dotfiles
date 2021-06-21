@@ -24,7 +24,6 @@ source $HOME/.config/nvim/plug-config/goyo.vim
 source $HOME/.config/nvim/plug-config/gutentags.vim
 source $HOME/.config/nvim/plug-config/gutentags_plus.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
-source $HOME/.config/nvim/plug-config/jedi-vim.vim
 source $HOME/.config/nvim/plug-config/nvim-tree.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/signify.vim
