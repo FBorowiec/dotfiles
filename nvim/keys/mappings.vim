@@ -31,7 +31,7 @@ vnoremap <leader><S-Tab> <lt>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>q :q!<cr>
+nnoremap <leader>Q :q!<cr>
 
 " Nohighlight
 map <leader>noh :nohlsearch<cr>
