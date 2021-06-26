@@ -17,5 +17,5 @@ VERSION="0.4.5"
 # bazel-compdb # This will generate compile_commands.json in your workspace root.
 
 # You can tweak some behavior with flags:
-# 1. To use the source dir instead of bazel-execroot for directory in which clang commands are run.
+# To use the source dir instead of bazel-execroot for directory in which clang commands are run.
 # bazel-compdb -s
