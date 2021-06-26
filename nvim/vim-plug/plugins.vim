@@ -75,6 +75,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'grailbio/bazel-compilation-database'
 
+" Debugging
+Plug 'puremourning/vimspector'
+
 " Whichkey
 Plug 'folke/which-key.nvim'
 
@@ -84,6 +87,7 @@ Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'romgrk/barbar.nvim'
+Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
