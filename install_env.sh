@@ -19,7 +19,7 @@ sudo apt install -y software-properties-common apt-transport-https wget git curl
 sudo npm i -g pyright
 
 echo -e "Installing i3"
-sudo apt install i3 i3status dmenu i3lock xbacklight feh xrandr
+sudo apt install i3 i3status dmenu i3lock xbacklight feh xrandr neofetch
 
 echo -e "Installing tmux"
 sudo apt install fonts-powerline
