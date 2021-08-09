@@ -1,120 +1,73 @@
 {
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [
-        ".ccls",
-        ".ccls-root",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
+    "languageserver": {
+        "coc-clangd": {
+            "command": "clangd",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                "compile_commands.json",
+                "compile_flags.txt",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/clangd"
+                }
+            }
         }
-      }
-    }
-  },
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": " ",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "cpp",
-    "markdown",
-    "javascript",
-    "graphql",
-    "html",
-    "yaml",
-    "json",
-    "python",
-    "java"
-  ],
-  "coc.preferences.hoverTarget": "float",
-  "coc.source.emoji.filetypes": ["markdown"],
-  "pyright.enable": true,
-  "python.analysis.autoImportCompletions": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "black",
-  "python.formatting.blackArgs": [],
-  "python.formatting.autopep8Path": "autopep8",
-  "python.formatting.autopep8Args": [],
-  "python.formatting.yapfPath": "yapf",
-  "python.formatting.yapfArgs": [],
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": false,
-  "python.linting.banditEnabled": false,
-  "python.linting.mypyEnabled": false,
-  "python.linting.pytypeEnabled": false,
-  "python.linting.prospectorEnabled": false,
-  "python.linting.pydocstyleEnabled": false,
-  "python.linting.pylamaEnabled": false,
-  "python.linting.pylintEnabled": false,
-  "coc.source.file.priority": 2,
-  "coc.source.around.priority": 3,
-  "coc.source.buffer.priority": 4,
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snippets"],
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
-  "wxss.validate": false,
-  "explorer.width": 30,
-  "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.icon.enableVimDevicons": false,
-  "explorer.file.showHiddenFiles": true,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
-  "suggest.completionItemKindLabels": {
-    "text": "t",
-    "method": "m",
-    "function": ""
-  },
-  "list.indicator": ">",
-  "list.selectedSignText": " ",
-  "initializationOptions": {
-    "codeAction": {
-      "nameExtractVariable": "jls_extract_var",
-      "nameExtractFunction": "jls_extract_def"
     },
-    "completion": {
-      "disableSnippets": false,
-      "resolveEagerly": false
+    "diagnostic.errorSign": " ",
+    "diagnostic.warningSign": " ",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": " ",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "cpp",
+        "markdown",
+        "javascript",
+        "graphql",
+        "html",
+        "yaml",
+        "json",
+        "python",
+        "java"
+    ],
+    "pyright.enable": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "black",
+    "python.formatting.blackArgs": [],
+    "python.formatting.autopep8Path": "autopep8",
+    "python.formatting.autopep8Args": [],
+    "python.formatting.yapfPath": "yapf",
+    "python.formatting.yapfArgs": [],
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.mypyEnabled": false,
+    "python.linting.pytypeEnabled": false,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.pylamaEnabled": false,
+    "python.linting.pylintEnabled": false,
+    "coc.source.file.priority": 2,
+    "coc.source.around.priority": 3,
+    "coc.source.buffer.priority": 4,
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "~/.config/nvim/snippets"
+    ],
+    "suggest.completionItemKindLabels": {
+        "text": "t",
+        "method": "m",
+        "function": ""
     },
-    "diagnostics": {
-      "enable": true,
-      "didOpen": true,
-      "didChange": true,
-      "didSave": true
-    },
-    "hover": {
-      "enable": true,
-      "disable": {
-        "class": { "all": false, "names": [], "fullNames": [] },
-        "function": { "all": false, "names": [], "fullNames": [] },
-        "instance": { "all": false, "names": [], "fullNames": [] },
-        "keyword": { "all": false, "names": [], "fullNames": [] },
-        "module": { "all": false, "names": [], "fullNames": [] },
-        "param": { "all": false, "names": [], "fullNames": [] },
-        "path": { "all": false, "names": [], "fullNames": [] },
-        "property": { "all": false, "names": [], "fullNames": [] },
-        "statement": { "all": false, "names": [], "fullNames": [] }
-      }
-    },
-    "markupKindPreferred": "markdown",
-    "workspace": {
-      "extraPaths": [],
-      "symbols": {
-        "ignoreFolders": [".nox", ".tox", ".venv", "__pycache__", "venv"],
-        "maxSymbols": 20
-      }
-    }
-  }
+    "list.indicator": ">",
+    "list.selectedSignText": " "
 }
