@@ -35,3 +35,30 @@ nnoremap <leader>Q :q!<cr>
 
 " Nohighlight
 map <leader>noh :nohlsearch<cr>
+
+" Make Y behave like other capital letters (C, D)
+nnoremap Y y$
+
+" Keeping it centered while iterating through results with n
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Jumplist mutations
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+
+" Moving text
+vnoremap J :m ''>+1<CR>gv=gv
+vnoremap K :m ''<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+" have to remap easymotion
+" nnoremap <leader>j :m .+1<CR>==
+" nnoremap <leader>k :m .-2<CR>==
