@@ -47,6 +47,7 @@
     "python.formatting.autopep8Args": [],
     "python.formatting.yapfPath": "yapf",
     "python.formatting.yapfArgs": [],
+    "python.jediEnabled": false,
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": false,
     "python.linting.banditEnabled": false,
