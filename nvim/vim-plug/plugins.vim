@@ -75,6 +75,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'grailbio/bazel-compilation-database'
 
+" Misc
+Plug 'tweekmonster/startuptime.vim'
+
 " Debugging
 Plug 'puremourning/vimspector'
 
