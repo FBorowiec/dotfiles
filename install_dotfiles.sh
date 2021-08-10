@@ -6,7 +6,7 @@ mkdir -p ~/.config/terminator/
 cp terminator/config ~/.config/terminator/config
 
 # Installing NVim
-cp -r nvim ~/.config/nvim
+ln -s ~/.config/nvim nvim
 
 # Configuring Powerlevel10k and Zsh
 cp zsh/p10k.zsh ~/.p10k.zsh
