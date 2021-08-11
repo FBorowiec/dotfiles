@@ -72,9 +72,13 @@ Plug 'sindrets/diffview.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
 Plug 'grailbio/bazel-compilation-database'
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'onsails/lspkind-nvim'
+Plug 'aymericbeaumet/vim-symlink'
 
 " Misc
 Plug 'tweekmonster/startuptime.vim'
