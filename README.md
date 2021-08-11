@@ -21,7 +21,7 @@ Under `nvim` you can find the config files for the plugins I use.
 * `tmux`
 * `ctags`
 
-Install them using the `install_env.sh` script.
+Install them using the `install_deps.sh` script.
 
 For Bazel projects you will need to run the `install_bazel_compilation_db.sh` script and each time you enter a Bazel project run `bazel-compdb`.
 This will generate a `compile_commands.json` file which you should include within your `.gitignore`.
@@ -48,9 +48,10 @@ I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 
 `chmod +x *.sh`
 
-1. `install_env.sh`
-2. `install_shell.sh`
-3. `install_dotfiles.sh`
-4. Optional __for Bazel c++ projects__: `install_bazel_compilation_db.sh`
-5. Optional: `install_gnome.sh`
-6. Optional: `install_polybar.sh`
+1. `install_deps.sh`
+2. `install_zshell.sh`
+3. `install_neovim.sh`
+4. `install_dotfiles.sh`
+5. Optional __for Bazel c++ projects__: `install_bazel_compilation_db.sh`
+6. Optional: `install_gnome.sh`
+7. Optional: `install_polybar.sh`
