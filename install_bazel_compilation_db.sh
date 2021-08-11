@@ -14,8 +14,5 @@ VERSION="0.4.5"
         ln -f -s "${INSTALL_DIR}/bazel-compilation-database-${VERSION}/generate.sh" bazel-compdb
 )
 
-# bazel-compdb # This will generate compile_commands.json in your workspace root.
-
-# You can tweak some behavior with flags:
-# To use the source dir instead of bazel-execroot for directory in which clang commands are run.
-# bazel-compdb -s
+echo "You can now run: bazel-compdb from within a Bazel workspace.\n \
+    This will generate compile_commands.json in your root folder"
