@@ -80,6 +80,7 @@ Plug 'tweekmonster/startuptime.vim'
 
 " Debugging
 Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 " Whichkey
 Plug 'folke/which-key.nvim'
