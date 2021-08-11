@@ -1,3 +1,7 @@
+echo -e "Installing i3"
+sudo apt install i3 i3status dmenu i3lock xbacklight feh xrandr neofetch
+
+echo -e "Installing polybar"
 git clone --recursive https://github.com/polybar/polybar
 cd polybar
 mkdir build
