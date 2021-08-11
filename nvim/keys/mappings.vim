@@ -62,3 +62,18 @@ inoremap <C-k> <esc>:m .-2<CR>==
 " have to remap easymotion
 " nnoremap <leader>j :m .+1<CR>==
 " nnoremap <leader>k :m .-2<CR>==
+
+" Quickfix and Location list
+" nnoremap <leader>lqo :copen<cr>
+" nnoremap <leader>lqc :cclose<cr>
+nnoremap <C-j> :cnext<cr>
+nnoremap <C-k> :cprev<cr>
+" nnoremap <leader>lqf :cfirst<cr>
+" nnoremap <leader>lql :clast<cr>
+
+" nnoremap <leader>llo :lopen<cr>
+" nnoremap <leader>llc :lclose<cr>
+" nnoremap <leader>lln :lnext<cr>
+" nnoremap <leader>llp :lprev<cr>
+" nnoremap <leader>llf :lfirst<cr>
+" nnoremap <leader>lll :llast<cr>
