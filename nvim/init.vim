@@ -27,6 +27,7 @@ source $HOME/.config/nvim/plug-config/gutentags_plus.vim
 source $HOME/.config/nvim/plug-config/nvim-window.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/nvim-tree.vim
+source $HOME/.config/nvim/plug-config/nvim-lsp.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
