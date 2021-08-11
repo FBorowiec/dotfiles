@@ -2,7 +2,7 @@
 syntax enable
 filetype plugin indent on
 
-" Need to run: :VimspectorInstall vscode-cpptools debugpy
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools' ]
 
 nnoremap <leader>m :MaximizerToggle!
 nnoremap <leader>dd :call vimspector#Launch()<cr>
