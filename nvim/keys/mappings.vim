@@ -34,7 +34,7 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 
 " Nohighlight
-map <leader>noh :nohlsearch<cr>
+map <leader>nh :nohlsearch<cr>
 
 " Make Y behave like other capital letters (C, D)
 nnoremap Y y$
