@@ -2,7 +2,6 @@ syntax on
 set noerrorbells  " Disable error bells
 set clipboard=unnamed,unnamedplus  " Use + registers for clipboard
 set cursorline  " Highlight current line
-set expandtab  " Tabs are spaces
 set encoding=utf-8  " Use UTF-8 encoding
 
 " relative line numbering
@@ -13,7 +12,7 @@ set number
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
+set expandtab  " Tabs are spaces
 set smartindent
 
 " search
