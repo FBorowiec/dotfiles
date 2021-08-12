@@ -4,7 +4,6 @@ filetype plugin indent on
 
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools' ]
 
-nnoremap <leader>m :MaximizerToggle!
 nnoremap <leader>dd :call vimspector#Launch()<cr>
 nnoremap <leader>d<space> :call vimspector#Continue()<cr>
 nnoremap <leader>de :call vimspector#Reset()<cr>
