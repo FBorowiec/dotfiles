@@ -26,6 +26,13 @@ Install them using the `install_deps.sh` script.
 For Bazel projects you will need to run the `install_bazel_compilation_db.sh` script and each time you enter a Bazel project run `bazel-compdb`.
 This will generate a `compile_commands.json` file which you should include within your `.gitignore`.
 
+As I use the neovim's native LSP with `clang` for `cpp` projects the error `-fno-canonical-system-headers` pops up as Bazel uses `gcc` for building.
+Simply remove it from the `compile_commands.json`:
+
+```bash
+sed -i 's/-fno-canonical-system-headers //g' path/to/your/compile_commands.json
+```
+
 ---
 
 ## Trouble shooting
