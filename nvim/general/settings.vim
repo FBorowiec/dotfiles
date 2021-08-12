@@ -1,6 +1,9 @@
 syntax on
-set noerrorbells
-set clipboard=unnamed
+set noerrorbells  " Disable error bells
+set clipboard=unnamed,unnamedplus  " Use + registers for clipboard
+set cursorline  " Highlight current line
+set expandtab  " Tabs are spaces
+set encoding=utf-8  " Use UTF-8 encoding
 
 " relative line numbering
 set relativenumber
@@ -18,7 +21,7 @@ set incsearch
 set hlsearch
 set smartcase
 
-" mouse
+" mouse in all modes
 set mouse=a
 
 " misc
@@ -43,3 +46,6 @@ set splitright
 
 " Timeout length
 set timeoutlen=400
+
+" Refresh buffers automatically
+set autoread
