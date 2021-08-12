@@ -90,7 +90,8 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Debugging
-Plug 'puremourning/vimspector'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 Plug 'szw/vim-maximizer'
 
 " Whichkey
