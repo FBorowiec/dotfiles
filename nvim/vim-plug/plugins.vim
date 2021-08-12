@@ -70,6 +70,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/gv.vim'
 Plug 'sindrets/diffview.nvim'
+Plug 'APZelos/blamer.nvim'
 " Plug 'tpope/vim-rhubarb'
 
 " LSP

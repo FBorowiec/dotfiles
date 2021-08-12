@@ -18,6 +18,7 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
 " Plugin Configuration
 source $HOME/.config/nvim/plug-config/barbar.vim
+source $HOME/.config/nvim/plug-config/blamer.vim
 source $HOME/.config/nvim/plug-config/diffview.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
