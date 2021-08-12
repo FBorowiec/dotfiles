@@ -52,10 +52,14 @@ Plug 'bronson/vim-visual-star-search'
 Plug 'kopischke/vim-fetch'
 Plug 'brooth/far.vim'
 
-" Editing
+" Editing / Formatting
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
+Plug 'psf/black'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 
 " Snippets
 Plug 'sirver/ultisnips'
