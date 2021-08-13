@@ -19,8 +19,10 @@
 [diff]
     tool = vimdiff
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [merge]
-  tool = nvim
+    tool = nvim
 [mergetool]
-  prompt = false
+    prompt = false
+[core]
+  excludesfile = ~/.config/gitignore
