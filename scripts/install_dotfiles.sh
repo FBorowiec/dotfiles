@@ -2,19 +2,19 @@
 
 echo -e "Configuring dotfiles..."
 # Installing terminator config
-mkdir -p ~/.config/terminator/
-cp terminator/config ~/.config/terminator/config
+ln -s ~/.config/terminator/config terminator/config
 
 # Installing NVim
 ln -s ~/.config/nvim nvim
 
 # Configuring Powerlevel10k and Zsh
-cp zsh/p10k.zsh ~/.p10k.zsh
-cp zsh/zshrc ~/.zshrc
-cp zsh/inputrc ~/.inputrc
+ln -s ~/.p10k.zsh zsh/p10k.zsh
+ln -s ~/.zshrc zsh/zshrc
+ln -s ~/.inputrc zsh/inputrc
 
 # git config
-cp git/gitconfig ~/.gitconfig
+ln -s ~/.gitconfig git/gitconfig
+ln -s ~/.config/gitignore git/gitignore
 
 # Tmux config
-cp tmux/tmux.conf ~/.tmux.conf
+ln -s ~/.tmux.conf tmux/tmux.conf
