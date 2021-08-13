@@ -6,4 +6,8 @@ let g:startify_custom_header = [
 \ "               ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
 \ "               ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
 \ ]
-highlight StartifyHeader ctermfg=245
+
+
+let g:startify_lists = [
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ ]
