@@ -22,6 +22,8 @@ Plug 'unblevable/quick-scope'
 " THEMES -------------------------------------------------------
 " Theme for Nvim - Onedark theme
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 " Status tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -98,6 +100,8 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-eunuch'
 " Change vim root folder automatically
 Plug 'airblade/vim-rooter'
+" Vim persistence
+Plug 'tpope/vim-obsession'
 
 " DEBUGGING ----------------------------------------------------
 Plug 'puremourning/vimspector'

@@ -10,8 +10,7 @@ source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/keys/mappings.vim
 
 " Themes
-source $HOME/.config/nvim/plug-config/onedark.vim
-source $HOME/.config/nvim/plug-config/gruvboxmaterial.vim
+source $HOME/.config/nvim/plug-config/colorscheme.vim
 source $HOME/.config/nvim/plug-config/startify.vim
 source $HOME/.config/nvim/plug-config/vim-airline.vim
 source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
