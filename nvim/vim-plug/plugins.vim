@@ -61,9 +61,6 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
-" Snippets
-Plug 'sirver/ultisnips'
-
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
