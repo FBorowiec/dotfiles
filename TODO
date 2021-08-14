@@ -1,0 +1,6 @@
+- Debugger compatible with Bazel - Nvim-dap / vimspector?
+    vimspector works but is incredibly slow
+- Lsp - should the session be attached to the code inside the bazel cache?
+- Use stow for installing dotfiles
+- Keybindings (redo-search, debugging)
+- Configure i3-gaps
