@@ -10,7 +10,7 @@
 [pull]
     default = current
 [credential]
-    helper = store
+	helper = store
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -25,4 +25,4 @@
 [mergetool]
     prompt = false
 [core]
-  excludesfile = ~/.config/gitignore
+    excludesfile = ~/.config/gitignore
