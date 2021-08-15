@@ -1,5 +1,5 @@
 echo -e "Installing i3"
-sudo apt install i3 i3status dmenu i3lock xbacklight feh xrandr neofetch
+sudo apt install i3 i3status dmenu i3lock xbacklight feh neofetch # xrandr
 
 echo -e "Installing polybar"
 git clone --recursive https://github.com/polybar/polybar

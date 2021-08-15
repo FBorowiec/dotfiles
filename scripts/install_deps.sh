@@ -15,7 +15,7 @@ sudo apt install -y software-properties-common apt-transport-https wget git curl
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     python3-neovim python3-venv zsh fzf ripgrep terminator tmux ccls ctags nodejs \
     yarn global clangd lua5.1 lua-nvim ninja-build gettext libtool libtool-bin autoconf \
-    automake cmake g++ gcc pkg-config unzip build-essential xclip
+    automake cmake g++ gcc pkg-config unzip build-essential xclip stow
 
 echo -e "Installing tmux deps..."
 sudo apt install fonts-powerline

@@ -39,9 +39,10 @@ let g:nvim_tree_show_icons = {
 "but this will not work when you set indent_markers (because of UI conflict)
 
 nnoremap <C-p> :NvimTreeToggle<CR>
-nnoremap <leader><C-r> :NvimTreeRefresh<CR>
-nnoremap <leader><C-f> :NvimTreeFindFile<CR>
-" NvimTreeOpen and NvimTreeClose are also available if you need them
+" NvimTreeRefresh
+" NvimTreeFindFile
+" NvimTreeOpen
+" NvimTreeClose
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
