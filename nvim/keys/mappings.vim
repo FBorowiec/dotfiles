@@ -9,6 +9,8 @@ vnoremap > >gv
 
 " alias for 'escape' to NORMAL from INSERT
 inoremap jk <Esc>
+inoremap kj <Esc>
+inoremap jj <Esc>
 
 " Move selected line / block of text in visual mode
 " shift + k to move up
