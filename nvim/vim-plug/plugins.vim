@@ -31,7 +31,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 
 " FLOATING TERMINAL --------------------------------------------
-" Floating terminal with <leader>tt
 Plug 'voldikss/vim-floaterm'
 
 " AUTO PAIRS AND SETTINGS FOR PARENTHESIS ----------------------
@@ -52,28 +51,35 @@ Plug 'brooth/far.vim'
 Plug 'wsdjeg/vim-fetch'
 
 " EDITING / FORMATTING -----------------------------------------
+" VS-Code <C-d> like multiple cursors
 Plug 'terryma/vim-multiple-cursors'
-Plug 'machakann/vim-highlightedyank' " Highlight yanked section
-Plug 'tpope/vim-commentary' " gcc to comment/uncomment
-" Plug 'psf/black' " Python formatter
-Plug 'google/vim-maktaba' " required by vim-codefmt
-Plug 'google/vim-glaive' " required by vim-codefmt
-Plug 'google/vim-codefmt' " Code formatters
+" Highlight yanked selection
+Plug 'machakann/vim-highlightedyank'
+" Quick commenting for any type of file
+Plug 'tpope/vim-commentary'
+" Code formatters
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+Plug 'google/vim-codefmt'
 
 " GIT / UNDOTREE -----------------------------------------------
+" Undotree
 Plug 'mbbill/undotree'
+" See current changes in the line number column
 Plug 'mhinz/vim-signify'
+" Vim commands inside of vim
 Plug 'tpope/vim-fugitive'
+" Better diff view
 Plug 'sindrets/diffview.nvim'
 " Git lens
 Plug 'APZelos/blamer.nvim'
 
-" LSP / TREESITTER ---------------------------------------------
-" Treesitter dependencies
+" TREESITTER ---------------------------------------------------
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
-" LSP dependencies
+
+" NATIVE LSP ---------------------------------------------------
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
@@ -102,6 +108,7 @@ Plug 'tpope/vim-obsession'
 
 " DEBUGGING ----------------------------------------------------
 Plug 'puremourning/vimspector'
+" Plug 'mfussenegger/nvim-dap'
 
 " WHICHKEY -----------------------------------------------------
 Plug 'folke/which-key.nvim'
@@ -110,9 +117,10 @@ Plug 'folke/which-key.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
 
-" BUFFERS NAVIGATION -------------------------------------------
+" BUFFERS AND TREE NAVIGATION ----------------------------------
+" Nvim Tree
+Plug 'kyazdani42/nvim-tree.lua'
 " Navigating buffer with <A-...> keys
 Plug 'romgrk/barbar.nvim'
 " Quick switching to desired tab with <leader><TAB>
