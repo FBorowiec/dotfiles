@@ -21,9 +21,6 @@ source $HOME/.config/nvim/plug-config/blamer.vim
 source $HOME/.config/nvim/plug-config/diffview.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/goyo.vim
-source $HOME/.config/nvim/plug-config/gutentags.vim
-source $HOME/.config/nvim/plug-config/gutentags_plus.vim
 source $HOME/.config/nvim/plug-config/nvim-window.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim

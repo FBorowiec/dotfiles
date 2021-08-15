@@ -34,9 +34,6 @@ Plug 'mhinz/vim-startify'
 " Floating terminal with <leader>tt
 Plug 'voldikss/vim-floaterm'
 
-" ZEN MODE -----------------------------------------------------
-Plug 'junegunn/goyo.vim'
-
 " AUTO PAIRS AND SETTINGS FOR PARENTHESIS ----------------------
 " cs"' to change surrounding "" to ''
 Plug 'tpope/vim-surround'

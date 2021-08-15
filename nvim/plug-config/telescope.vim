@@ -3,10 +3,13 @@
 " File pickers
 " nnoremap <c-p> <cmd>lua require('telescope.builtin').find_files{}<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ft <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
 nnoremap <leader>fl <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader>fp <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 
 " Git pickers
 nnoremap <leader>ftc <cmd>lua require('telescope.builtin').git_commits()<cr>
