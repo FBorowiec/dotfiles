@@ -21,7 +21,7 @@ set hlsearch
 set smartcase
 
 " mouse in all modes
-set mouse=a
+" set mouse=a
 
 " misc
 set nu

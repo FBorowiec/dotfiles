@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo -e "Configuring dotfiles..."
 # Installing terminator config
 ln -s ~/.config/terminator/config terminator/config
 
