@@ -59,6 +59,7 @@ I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 2. `install_zshell.sh`
 3. `install_neovim.sh`
 4. `install_dotfiles.sh`
-5. Optional __for Bazel c++ projects__: `install_bazel_compilation_db.sh`
-6. Optional: `install_gnome.sh`
-7. Optional: `install_polybar.sh`
+5. `install_fonts.sh`
+6. Optional for Bazel c++ projects: `install_bazel_compilation_db.sh`
+7. Optional: `install_gnome.sh`
+8. Optional: `install_polybar.sh`

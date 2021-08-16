@@ -97,6 +97,7 @@ Plug 'grailbio/bazel-compilation-database'
 Plug 'tweekmonster/startuptime.vim'
 " Preview for Markdown files
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " Easy maximization with <leader>m
 Plug 'szw/vim-maximizer'
 " Unix shell commands :Chmod ...
