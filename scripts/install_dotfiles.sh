@@ -1,19 +1,19 @@
 #!/bin/bash
 
 # Installing terminator config
-ln -s ~/.config/terminator/config terminator/config
+ln -s $PWD/terminator/ ~/.config/terminator/
 
 # Installing NVim
-ln -s ~/.config/nvim nvim
+ln -s $PWD/nvim ~/.config/nvim
 
 # Configuring Powerlevel10k and Zsh
-ln -s ~/.p10k.zsh zsh/p10k.zsh
-ln -s ~/.zshrc zsh/zshrc
-ln -s ~/.inputrc zsh/inputrc
+ln -s $PWD/zsh/p10k.zsh ~/.p10k.zsh
+ln -s $PWD/zsh/zshrc ~/.zshrc
+ln -s $PWD/zsh/inputrc ~/.inputrc
 
-# git config
-ln -s ~/.gitconfig git/gitconfig
-ln -s ~/.config/gitignore git/gitignore
+# Git config
+ln -s $PWD/git/gitconfig ~/.gitconfig
+ln -s $PWD/git/gitignore ~/.config/gitignore
 
 # Tmux config
-ln -s ~/.tmux.conf tmux/tmux.conf
+ln -s $PWD/tmux/tmux.conf ~/.tmux.conf
