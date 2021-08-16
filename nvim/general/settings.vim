@@ -30,7 +30,7 @@ set noswapfile
 
 " More space for messages
 set cmdheight=2
-set scrolloff=8
+set scrolloff=16
 
 " Backup
 set nobackup
