@@ -1,31 +1,29 @@
-" Find files using Telescope command-line sugar.
-
+" TELESCOPE ----------------------------------------------------
 " File pickers
 " nnoremap <c-p> <cmd>lua require('telescope.builtin').find_files{}<cr>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>ft <cmd>lua require('telescope.builtin').treesitter()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
-nnoremap <leader>fl <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
-nnoremap <leader>fp <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+nnoremap <leader><space>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader><space>fg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
+nnoremap <leader><space>fl <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader><space>t <cmd>lua require('telescope.builtin').treesitter()<cr>
+nnoremap <leader><space>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader><space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader><space>r <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader><space>d <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+nnoremap <leader><space>q <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <leader><space>s <cmd>lua require('telescope.builtin').search_history()<cr>
 
 " Git pickers
-nnoremap <leader>ftc <cmd>lua require('telescope.builtin').git_commits()<cr>
-nnoremap <leader>ftb <cmd>lua require('telescope.builtin').git_branches()<cr>
-nnoremap <leader>fts <cmd>lua require('telescope.builtin').git_stash()<cr>
-nnoremap <leader>ftt <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader><space>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
+nnoremap <leader><space>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader><space>gh <cmd>lua require('telescope.builtin').git_stash()<cr>
+nnoremap <leader><space>gs <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " Vim pickers
-nnoremap <leader>fvb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fvo <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>fvc <cmd>lua require('telescope.builtin').commands()<cr>
-nnoremap <leader>fvh <cmd>lua require('telescope.builtin').search_history()<cr>
-nnoremap <leader>fvq <cmd>lua require('telescope.builtin').quickfix()<cr>
-nnoremap <leader>fvl <cmd>lua require('telescope.builtin').loclist()<cr>
-nnoremap <leader>fvr <cmd>lua require('telescope.builtin').registers()<cr>
-nnoremap <leader>fvs <cmd>lua require('telescope.builtin').colorscheme()<cr>
+nnoremap <leader><space>vo <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader><space>vc <cmd>lua require('telescope.builtin').commands()<cr>
+nnoremap <leader><space>vl <cmd>lua require('telescope.builtin').loclist()<cr>
+nnoremap <leader><space>vr <cmd>lua require('telescope.builtin').registers()<cr>
+nnoremap <leader><space>vs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 
 lua << EOF
 require('telescope').setup {
