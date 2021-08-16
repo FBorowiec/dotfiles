@@ -108,10 +108,6 @@ let g:completion_matching_smart_case = 1
 " Avoid showing message extra message when using completion
 set shortmess+=c
 
-" }}}
-
-" keybindings {{{
-
 nnoremap <leader>rn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR>
 nnoremap [d :lua vim.lsp.diagnostic.goto_prev()<CR>
@@ -120,9 +116,8 @@ nnoremap ]d :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>r :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>lr :LspRestart<CR>
+nnoremap <leader>ls :LspStop<CR>
 " nnoremap <leader>q :lua vim.lsp.diagnostic.set_qflist()<CR>
-" }}}
-
-" }}}
 
 " let LspInstall python cpp
