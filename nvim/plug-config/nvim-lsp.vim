@@ -105,6 +105,11 @@ set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_matching_smart_case = 1
 
+" Enable preview window with auto close
+set completeopt+=preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:asyncomplete_auto_popup = 1
+
 " Avoid showing message extra message when using completion
 set shortmess+=c
 
