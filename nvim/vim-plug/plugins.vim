@@ -24,6 +24,7 @@ Plug 'unblevable/quick-scope'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'arcticicestudio/nord-vim'
 " Status tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
