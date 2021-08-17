@@ -121,3 +121,13 @@ source ~/.inputrc
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+
+gencompdb() {
+    BAZEL_ROOT=$(bazel info workspace)
+    cd ${BAZEL_ROOT} &&
+    bazel-compdb &&
+    sed -i 's/-fno-canonical-system-headers //g' ${BAZEL_ROOT}/compile_commands.json;
+    sed -i 's/-ftree-loop-vectorize //g' ${BAZEL_ROOT}/compile_commands.json;
+    perl -ni.bak -e 'print unless /.*\.h(pp)?"},?/' ${BAZEL_ROOT}/compile_commands.json;
+    rm ${BAZEL_ROOT}/compile_commands.json.bak;
+}
