@@ -21,7 +21,6 @@ local function write_to_file(filename, lines)
     vim.cmd('e#')
 end
 
-
 function _G.create_cpp_vimspector_json_for_bazel_test()
     local test_filter = require('bazel').get_gtest_filter()
     local executable =  require('bazel').get_bazel_test_executable()
@@ -55,3 +54,24 @@ function! StartVimspector(job_id, code, event) dict
         call vimspector#Launch()
     endif
 endfun
+
+function! SwitchSourceHeader()
+    let filepath = expand('%:p:h')
+    let filename = expand('%:t:r')
+    let fileending = expand('%:e')
+    if (fileending == "cpp")
+        let filetype = ".hpp"
+        if (stridx(filepath, "/src"))
+            let filepath = split(filepath, "/src")[0] . "/**/"
+        endif
+    endif
+    if (fileending == "hpp")
+        let filetype = ".cpp"
+        if (stridx(filepath, "/include"))
+            let filepath = split(filepath, "/include")[0] . "/**/"
+        endif
+    endif
+    exec "find " . filepath . filename . filetype
+endfun
+
+map <F8> :call SwitchSourceHeader()<cr>
