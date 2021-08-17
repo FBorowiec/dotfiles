@@ -22,6 +22,7 @@ Plug 'unblevable/quick-scope'
 " THEMES -------------------------------------------------------
 " Theme for Nvim - Onedark theme
 Plug 'joshdick/onedark.vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
