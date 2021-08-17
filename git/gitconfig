@@ -2,8 +2,8 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
 [user]
-    name = Franek Borowiec
-    email = franek.borowiec@gmail.com
+    name = Franciszek Borowiec
+    email = franciszekwladyslaw.borowiec@fcagroup.com
 [core]
     editor = nvim
 [push]
