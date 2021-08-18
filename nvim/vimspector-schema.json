@@ -1,0 +1,39 @@
+{
+  "configurations": {
+    "NAME": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "NAME",
+        "type": "python",
+        "request": "launch",
+        "python": "/usr/bin/python3",
+        "stopOnEntry": false,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "cwd": "${workspaceRoot}",
+        "program": "/path/to/workspace/python/executable.py",
+        "args": []
+      }
+    },
+    "NAME_TEST": {
+      "adapter": "debugpy",
+      "default": false,
+      "configuration": {
+        "request": "launch",
+        "program": "/path/to/workspace/python/test.py",
+        "python": "/usr/bin/python3",
+        "console": "externalTerminal",
+        "cwd": "${workspaceRoot}",
+        "args": [],
+        "stopOnEntry": false
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "Y",
+          "uncaught": "Y",
+          "userUnhandled": "Y"
+        }
+      }
+    }
+  }
+}
