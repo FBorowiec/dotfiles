@@ -21,40 +21,38 @@ local function write_to_file(filename, lines)
     vim.cmd('e#')
 end
 
-function _G.create_python_vimspector_json_for_bazel_test()
-    local test_filter = require('bazel').get_gtest_filter()
-    local executable =  require('bazel').get_bazel_test_executable()
-    local lines = {
-        '{',
-        '  "configurations": {',
-        '    "PyTest": {',
-        '      "adapter": "debugpy",',
-        '      "default": "false",',
-        '      "configuration": {',
-        '         "type": "python",',
-        '         "request": "launch",',
-        '         "python": "/usr/bin/python3",',
-        '         "stopOnEntry": false,',
-        '         "console": "externalTerminal",',
-        '         "debugOptions": [],',
-        '         "cwd": "${workspaceRoot}",',
-        '         "program": "' .. executable .. '",',
-        '         "args": []',
-        '      }',
-        '      "breakpoints": {',
-        '        "exception": {',
-        '          "raised": "Y",',
-        '          "uncaught": "Y",',
-        '          "userUnhandled": "Y"',
-        '        }',
-        '      }',
-        '    }',
-        '  }',
-        '}'}
-    write_to_file('.vimspector.json', lines)
-end
+-- function create_python_vimspector_json_for_bazel_test()
+--     local lines = {
+--         '{',
+--         '  "configurations": {',
+--         '    "PyTest": {',
+--         '      "adapter": "debugpy",',
+--         '      "default": "false",',
+--         '      "configuration": {',
+--         '         "type": "python",',
+--         '         "request": "launch",',
+--         '         "python": "/usr/bin/python3",',
+--         '         "stopOnEntry": false,',
+--         '         "console": "externalTerminal",',
+--         '         "debugOptions": [],',
+--         '         "cwd": "${workspaceRoot}",',
+--         '         "program": "' .. executable .. '",',
+--         '         "args": []',
+--         '      }',
+--         '      "breakpoints": {',
+--         '        "exception": {',
+--         '          "raised": "Y",',
+--         '          "uncaught": "Y",',
+--         '          "userUnhandled": "Y"',
+--         '        }',
+--         '      }',
+--         '    }',
+--         '  }',
+--         '}'}
+--     write_to_file('.vimspector.json', lines)
+-- end
 
-function _G.create_cpp_vimspector_json_for_bazel_test()
+function create_cpp_vimspector_json_for_bazel_test()
     local test_filter = require('bazel').get_gtest_filter()
     local executable =  require('bazel').get_bazel_test_executable()
     local lines = {
@@ -74,18 +72,20 @@ function _G.create_cpp_vimspector_json_for_bazel_test()
     write_to_file('.vimspector.json', lines)
 end
 
-function _G.DebugPythonTest()
-    create_python_vimspector_json_for_bazel_test()
-    vim.cmd('new')
-    vim.cmd('call termopen("bazel run " . g:current_bazel_target, {"on_exit": "StartVimspector"})')
-end
+-- function DebugPythonTest()
+--     create_python_vimspector_json_for_bazel_test()
+--     vim.cmd('new')
+--     vim.cmd('call termopen("bazel run " . g:current_bazel_target, {"on_exit": "StartVimspector"})')
+-- end
 
-function _G.DebugCppTest()
+function DebugCppTest()
     create_cpp_vimspector_json_for_bazel_test()
     vim.cmd('new')
     vim.cmd('call termopen("bazel build " . g:bazel_config . " -c dbg " . g:current_bazel_target, {"on_exit": "StartVimspector"})')
 end
 EOF
+
+map <F7> :lua _G.create_cpp_vimspector_json_for_bazel_test()<cr>
 
 function! StartVimspector(job_id, code, event) dict
     if a:code == 0
