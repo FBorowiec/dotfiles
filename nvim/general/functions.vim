@@ -60,12 +60,12 @@ function! SwitchSourceHeader()
     let filename = expand('%:t:r')
     let fileending = expand('%:e')
     if (fileending == "cpp")
-        let filetype = ".hpp"
+        let filetype = ".h*"
         if (stridx(filepath, "/src"))
             let filepath = split(filepath, "/src")[0] . "/**/"
         endif
     endif
-    if (fileending == "hpp")
+    if (fileending == "hpp" || fileending == "h")
         let filetype = ".cpp"
         if (stridx(filepath, "/include"))
             let filepath = split(filepath, "/include")[0] . "/**/"
