@@ -18,7 +18,6 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 " Plugin Configuration
 source $HOME/.config/nvim/plug-config/barbar.vim
 source $HOME/.config/nvim/plug-config/blamer.vim
-source $HOME/.config/nvim/plug-config/diffview.vim
 source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/nvim-window.vim
@@ -34,6 +33,7 @@ source $HOME/.config/nvim/plug-config/treesitter.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vim-codefmt.vim
+source $HOME/.config/nvim/plug-config/vim-fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-multiple-cursors.vim
 source $HOME/.config/nvim/plug-config/vim-devicons.vim
 source $HOME/.config/nvim/plug-config/which-key.vim

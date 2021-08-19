@@ -71,8 +71,6 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 " Vim commands inside of vim
 Plug 'tpope/vim-fugitive'
-" Better diff view
-Plug 'sindrets/diffview.nvim'
 " Git lens
 Plug 'APZelos/blamer.nvim'
 

@@ -1,9 +1,10 @@
 " TELESCOPE ----------------------------------------------------
 " File pickers
-" nnoremap <c-p> <cmd>lua require('telescope.builtin').find_files{}<cr>
-nnoremap <leader><space>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader><space>fg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
-nnoremap <leader><space>fl <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("  : ")})<cr>
+nnoremap <leader>fl <cmd>lua require('telescope.builtin').live_grep()<cr>
+
+" Misc
 nnoremap <leader><space>t <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <leader><space>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader><space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
@@ -29,7 +30,7 @@ lua << EOF
 require('telescope').setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
-        prompt_prefix = ' >',
+        prompt_prefix = '  : ',
         color_devicons = true,
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
