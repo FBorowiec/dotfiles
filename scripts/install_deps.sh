@@ -10,7 +10,7 @@ sudo apt-get -y -qq update
 sudo apt install -y software-properties-common apt-transport-https git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     automake cmake g++ gcc pkg-config unzip build-essential xclip stow \
-    terminator ccls ctags nodejs \
+    terminator ccls ctags nodejs ranger \
     yarn global clangd ninja-build gettext libtool libtool-bin autoconf \
 
 # nvim deps
