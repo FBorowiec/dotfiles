@@ -47,6 +47,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " Native fzy support for Telescope
 Plug 'nvim-telescope/telescope-fzy-native.nvim', {'do': 'make' }
+" Harpoon for most recent files editing
+Plug 'ThePrimeagen/harpoon'
 " Find and replace
 Plug 'brooth/far.vim'
 " Go to file with: vim path/to/file.ext:12:3 in shell or :e path/to/file.ext:12:3
@@ -106,6 +108,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'airblade/vim-rooter'
 " Vim persistence
 Plug 'tpope/vim-obsession'
+" Visualize hex colors
+Plug 'gko/vim-coloresque'
 
 " DEBUGGING ----------------------------------------------------
 Plug 'puremourning/vimspector'
