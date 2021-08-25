@@ -21,5 +21,6 @@ sudo apt install tmux fonts-powerline
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # alacritty
-sudo apt install alacritty
+sudo add-apt-repository -y ppa:mmstick76/alacritty
+sudo apt install -y alacritty
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 60
