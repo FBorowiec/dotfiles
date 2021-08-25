@@ -7,119 +7,154 @@ require'nvim-web-devicons'.setup {
  override = {
   zsh = {
     icon = "",
-    color = "#428850",
+    color = "#81A1C1",
     name = "zsh"
   },
   ['zshrc'] = {
     icon = "",
-    color = "#428850",
+    color = "#81A1C1",
     name = "zshrc"
   },
   ['inputrc'] = {
     icon = "",
-    color = "#428850",
+    color = "#81A1C1",
     name = "inputrc"
+  },
+  ['.gitattributes'] = {
+    icon = '',
+    color = '#BF616A',
+    name = 'gitattributes'
   },
   ['.gitconfig'] = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'gitconfig'
   },
   gitconfig = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'gitconfig'
   },
   ['.gitignore'] = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'gitignore'
   },
   gitignore = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'gitignore'
   },
   ['.lfsconfig'] = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'lfsconfig'
   },
   ['.gitlint'] = {
     icon = '',
-    color = '#e0cc75',
+    color = '#BF616A',
     name = 'gitlint'
   },
   ['TODO'] = {
     icon = '',
-    color = '#ffc0cb',
+    color = '#B48EAD',
     name = 'TODO'
   },
   ['BUILD'] = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'BUILD'
   },
   ['WORKSPACE'] = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'WORKSPACE'
   },
   ['.bazeliskrc'] = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'bazeliskrc'
   },
   ['.bazelrc'] = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'bazelrc'
   },
   bazelrc = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'bazelrc'
   },
   bzl = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'bzl'
   },
   ['.bazelversion'] = {
     icon = '',
-    color = '#008000',
+    color = '#A3BE8C',
     name = 'bazelversion'
   },
   txt = {
     icon = '',
-    color = '#6B4683',
+    color = '#88C0D0',
     name = 'txt'
   },
   ['version'] = {
     icon = '',
-    color = '#6B4683',
+    color = '#B48EAD',
     name = 'version'
   },
   config = {
     icon = '',
-    color = '#6d8086',
+    color = '#6D8086',
     name = 'config'
   },
   ['.coveragerc'] = {
     icon = '',
-    color = '#6d8086',
+    color = '#6D8086',
     name = 'coveragerc'
   },
   ['.pylintrc'] = {
     icon = '',
-    color = '#6d8086',
+    color = '#6D8086',
     name = 'pylintrc'
   },
   ['Jenkinsfile'] = {
     icon = '',
-    color = '#FFFFFF',
+    color = '#ECEFF4',
     name = 'Jenkinsfile'
   },
+  fcdl = {
+    icon = 'ﲩ',
+    color = '#ECEFF4',
+    name = 'fcdl'
+  },
+  ['.clang-format'] = {
+    icon = '',
+    color = '#ECEFF4',
+    name = 'ClangFormat'
+  },
+  ['.clang-tidy'] = {
+    icon = '',
+    color = '#ECEFF4',
+    name = 'ClangTidy'
+  },
+  ['.clang-tidy-minimal'] = {
+    icon = '',
+    color = '#ECEFF4',
+    name = 'ClangTidyMinimal'
+  },
+  msg = {
+    icon = '',
+    color = '#ECEFF4',
+    name = 'msg'
+  },
+  xlsx = {
+    icon = '',
+    color = '#A3BE8C',
+    name = 'xlsx'
+  }
  };
  -- globally enable default icons (default to false)
  -- will get overriden by `get_icons` option
