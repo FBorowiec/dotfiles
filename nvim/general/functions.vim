@@ -9,6 +9,13 @@ augroup TRIM_ON_SAVE
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 lua << EOF
 local function write_to_file(filename, lines)
     vim.cmd('e ' .. filename)
