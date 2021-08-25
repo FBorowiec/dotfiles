@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Installing alacritty config
+ln -s $PWD/alacritty ~/.config/alacritty
+
 # Installing terminator config
-ln -s $PWD/terminator/ ~/.config/terminator/
+ln -s $PWD/terminator ~/.config/terminator
 
 # Installing NVim
 ln -s $PWD/nvim ~/.config/nvim

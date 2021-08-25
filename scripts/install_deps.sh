@@ -10,12 +10,15 @@ sudo apt-get -y -qq update
 sudo apt install -y software-properties-common apt-transport-https git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     automake cmake g++ gcc pkg-config unzip build-essential xclip stow \
-    terminator ccls ctags nodejs ranger \
-    yarn global clangd ninja-build gettext libtool libtool-bin autoconf \
+    ccls ctags nodejs yarn global clangd ninja-build gettext libtool \
+    libtool-bin autoconf \
 
 # nvim deps
-sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep
+sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep ranger
 
 # tmux deps...
 sudo apt install tmux fonts-powerline
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# alacritty
+sudo apt install alacritty
