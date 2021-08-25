@@ -55,8 +55,6 @@ Plug 'brooth/far.vim'
 Plug 'wsdjeg/vim-fetch'
 
 " EDITING / FORMATTING -----------------------------------------
-" VS-Code <C-d> like multiple cursors
-Plug 'terryma/vim-multiple-cursors'
 " Highlight yanked selection
 Plug 'machakann/vim-highlightedyank'
 " Quick commenting for any type of file
