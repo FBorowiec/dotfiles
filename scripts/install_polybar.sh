@@ -1,5 +1,5 @@
 echo -e "Installing i3"
-sudo apt install i3 i3status dmenu i3lock xbacklight feh neofetch # xrandr
+sudo apt install i3-gaps i3status dmenu i3lock xbacklight feh dmenu neofetch xorg openbox playerctl compton
 
 echo -e "Installing polybar"
 git clone --recursive https://github.com/polybar/polybar
