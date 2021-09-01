@@ -150,6 +150,11 @@ require'nvim-web-devicons'.setup {
     color = '#ECEFF4',
     name = 'msg'
   },
+  csv = {
+    icon = '',
+    color = '#A3BE8C',
+    name = 'csv'
+  },
   xlsx = {
     icon = '',
     color = '#A3BE8C',
