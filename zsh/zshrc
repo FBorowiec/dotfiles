@@ -118,9 +118,10 @@ fi
 
 source ~/.inputrc
 
+alias svim='sudo -E nvim'
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 
 gencompdb() {
     BAZEL_ROOT=$(bazel info workspace)
