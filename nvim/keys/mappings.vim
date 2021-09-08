@@ -62,3 +62,5 @@ inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <C-j> :cnext<cr>
 nnoremap <C-k> :cprev<cr>
 
+" Close all splits and go to last window
+nnoremap ;q <C-w><C-O>
