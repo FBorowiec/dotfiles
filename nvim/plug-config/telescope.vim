@@ -11,6 +11,7 @@ nnoremap <leader><space>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader><space>r <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader><space>d <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader><space>q <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <leader><space>l <cmd>lua require('telescope.builtin').loclist()<cr>
 nnoremap <leader><space>s <cmd>lua require('telescope.builtin').search_history()<cr>
 
 " Git pickers
@@ -22,7 +23,6 @@ nnoremap <leader><space>gs <cmd>lua require('telescope.builtin').git_status()<cr
 " Vim pickers
 nnoremap <leader><space>vo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader><space>vc <cmd>lua require('telescope.builtin').commands()<cr>
-nnoremap <leader><space>vl <cmd>lua require('telescope.builtin').loclist()<cr>
 nnoremap <leader><space>vr <cmd>lua require('telescope.builtin').registers()<cr>
 nnoremap <leader><space>vs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 
