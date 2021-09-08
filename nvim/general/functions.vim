@@ -1,3 +1,4 @@
+" Trimming whitespaces
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -9,13 +10,15 @@ augroup TRIM_ON_SAVE
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
+" Macros over visual range
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+" Clang format cpp files
 function FormatBuffer()
   if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
     let cursor_pos = getpos('.')
@@ -26,6 +29,7 @@ endfunction
 
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
 
+" Vimspector configuration autocreation
 lua << EOF
 local function write_to_file(filename, lines)
     vim.cmd('e ' .. filename)
@@ -41,6 +45,7 @@ end
 function _G.create_python_vimspector_json_for_bazel_test()
     local test_filter = require('bazel').get_gtest_filter()
     local executable =  require('bazel').get_bazel_test_executable()
+    -- local cwd = vim.cmd('call termopen("bazel workspace info")')
     local lines = {
         '{',
         '  "configurations": {',
@@ -74,6 +79,8 @@ end
 function _G.create_cpp_vimspector_json_for_bazel_test()
     local test_filter = require('bazel').get_gtest_filter()
     local executable =  require('bazel').get_bazel_test_executable()
+    -- local cwd = vim.cmd('call termopen("bazel workspace info")')
+
     local lines = {
         '{',
         '  "configurations": {',
@@ -111,6 +118,7 @@ function! StartVimspector(job_id, code, event) dict
     endif
 endfun
 
+" Fast switching between source and header files for cpp
 function! SwitchSourceHeader()
     let filepath = expand('%:p:h')
     let filename = expand('%:t:r')
@@ -130,4 +138,4 @@ function! SwitchSourceHeader()
     exec "find " . filepath . filename . filetype
 endfun
 
-map <F2> :call SwitchSourceHeader()<cr>
+map <F2> ma :call SwitchSourceHeader()<cr>'a
