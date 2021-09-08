@@ -61,6 +61,8 @@ inoremap <C-k> <esc>:m .-2<CR>==
 " Quickfix and Location list
 nnoremap <C-j> :cnext<cr>
 nnoremap <C-k> :cprev<cr>
+nnoremap <leader>j :lnext<cr>
+nnoremap <leader>k :lprev<cr>
 
 " Close all splits and go to last window
 nnoremap ;q <C-w><C-O>

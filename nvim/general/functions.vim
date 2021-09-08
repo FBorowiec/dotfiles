@@ -111,3 +111,13 @@ function! SwitchSourceHeader()
 endfun
 
 map <F2> ma :call SwitchSourceHeader()<cr>'a
+
+" Quick navigation over errors using loclist
+function! LspLocationList()
+    lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
+endfun
+
+augroup LOCLIST_LSP
+    autocmd!
+    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
+augroup END
