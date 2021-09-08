@@ -1,6 +1,16 @@
 {
   "configurations": {
-    "NAME": {
+    "GTest": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "request": "launch",
+        "program": "/home/path/to/executable",
+        "args": [],
+        "stopOnEntry": false,
+        "cwd": "/home/path/to/workspace/dir"
+      }
+    },
+    "PythonTestv1": {
       "adapter": "debugpy",
       "configuration": {
         "name": "NAME",
@@ -15,7 +25,7 @@
         "args": []
       }
     },
-    "NAME_TEST": {
+    "PythonTestv2": {
       "adapter": "debugpy",
       "default": false,
       "configuration": {

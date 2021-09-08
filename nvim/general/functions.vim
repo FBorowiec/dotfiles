@@ -130,4 +130,4 @@ function! SwitchSourceHeader()
     exec "find " . filepath . filename . filetype
 endfun
 
-map <F8> :call SwitchSourceHeader()<cr>
+map <F2> :call SwitchSourceHeader()<cr>
