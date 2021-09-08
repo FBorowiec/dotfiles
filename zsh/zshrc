@@ -130,5 +130,5 @@ gencompdb() {
     sed -i 's/-fno-canonical-system-headers //g' ${BAZEL_ROOT}/compile_commands.json;
     sed -i 's/-ftree-loop-vectorize //g' ${BAZEL_ROOT}/compile_commands.json;
     perl -ni.bak -e 'print unless /.*\.h(pp)?"},?/' ${BAZEL_ROOT}/compile_commands.json;
-    rm ${BAZEL_ROOT}/compile_commands.json.bak;
+    rm ${BAZEL_ROOT}/compile_commands.json.bak 2> /dev/null;
 }
