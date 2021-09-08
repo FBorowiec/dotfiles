@@ -29,6 +29,17 @@ endfunction
 
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp,*.vert,*.frag :call FormatBuffer()
 
+" Format jsons
+function FormatJsonBuffer()
+  if &modified
+    let cursor_pos = getpos('.')
+    :%!python -m json.tool
+    call setpos('.', cursor_pos)
+  endif
+endfunction
+
+autocmd BufWritePre *.json :call FormatJsonBuffer()
+
 " Vimspector configuration autocreation
 lua << EOF
 local function write_to_file(filename, lines)
