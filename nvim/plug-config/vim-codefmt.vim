@@ -6,7 +6,7 @@ if isdirectory(expand("~/.config/nvim/plugged/vim-codefmt/"))
       autocmd FileType dart AutoFormatBuffer dartfmt
       autocmd FileType go AutoFormatBuffer gofmt
       autocmd FileType gn AutoFormatBuffer gn
-      autocmd FileType html,css,json AutoFormatBuffer js-beautify
+      " autocmd FileType html,css,json AutoFormatBuffer js-beautify
       autocmd FileType java AutoFormatBuffer google-java-format
       autocmd FileType python AutoFormatBuffer black
     augroup END
