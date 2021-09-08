@@ -1,5 +1,4 @@
 - Use stow for installing dotfiles
-- Keybindings (debugging - mapping fkeys doesn't work)
 - Configure i3-gaps, polybar, rofi
 - Autocreate vimspector config files
-- use ';' as secondary key
+- use mappings with ';' as secondary key
