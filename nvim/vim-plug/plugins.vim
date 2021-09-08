@@ -90,6 +90,7 @@ Plug 'aymericbeaumet/vim-symlink'
 " BAZEL BUILD TOOLS --------------------------------------------
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'alexander-born/bazel-vim'
 Plug 'grailbio/bazel-compilation-database'
 
 " MISCELLANEOUS ------------------------------------------------
