@@ -1,5 +1,4 @@
 bazel-*
 compile_commands.json
-compile_flags.txt
 Session.vim
-vimspector.json
+.vimspector.json
