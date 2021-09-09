@@ -75,7 +75,4 @@ function! LspLocationList()
     lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
 endfun
 
-augroup LOCLIST_LSP
-    autocmd!
-    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
-augroup END
+nnoremap ;l :call LspLocationList()<cr>
