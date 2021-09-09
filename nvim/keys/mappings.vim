@@ -66,3 +66,6 @@ nnoremap <leader>k :lprev<cr>
 
 " Close all splits and go to last window
 nnoremap ;q <C-w><C-O>
+
+" DebugThisTest for cpp files
+nnoremap <leader>bdt :lua require'vim-bazel'.DebugThisTest()<cr>
