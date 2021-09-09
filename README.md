@@ -14,46 +14,15 @@ Under `nvim` you can find the config files for the plugins I use.
 
 #### Dependencies
 
-* `neovim 0.5`
+* `neovim`
 * `zsh`
 * `ripgrep`
-* `terminator`
+* `alacritty`
 * `tmux`
-* `ctags`
 
 Install them using the `install_deps.sh` script.
 
-For Bazel projects you will need to run the `install_bazel_compilation_db.sh` script and each time you enter a Bazel project run `bazel-compdb`.
-This will generate a `compile_commands.json` file which you should include within your `.gitignore`.
-
-As I use the neovim's native LSP with `clang` for `cpp` projects the error `-fno-canonical-system-headers` pops up as Bazel uses `gcc` for building.
-Simply remove it from the `compile_commands.json`:
-
-```bash
-sed -i 's/-fno-canonical-system-headers //g' path/to/your/compile_commands.json
-```
-
----
-
-## Trouble shooting
-
-If you come across an issue, you can first use `:checkhealth` command provided by `nvim` to trouble-shoot yourself. Please read carefully the messages provided by health check.
-
-## Zshell
-
-I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
-
-* `bazel`
-* `git`
-* `docker`
-* `docker-compose`
-* `docker-machine`
-* `zsh-autosuggestions`
-* `zsh-navigation-tools`
-
-## Install order
-
-`chmod +x *.sh`
+Install order:
 
 1. `install_deps.sh`
 2. `install_zshell.sh`
@@ -63,3 +32,40 @@ I use it with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 6. Optional for Bazel c++ projects: `install_bazel_compilation_db.sh`
 7. Optional: `install_gnome.sh`
 8. Optional: `install_polybar.sh`
+
+
+For Bazel projects you will need to run the `install_bazel_compilation_db.sh` first. This will let you use the command `bazel-compdb` to generate a `compile_commands.json`.
+
+---
+
+## Zshell
+
+Used with `oh-my-zsh`, `powerlevel10k` and the following plugins:
+
+* `bazel`
+* `git`
+* `docker`
+* `docker-compose`
+* `docker-machine`
+* `zsh-autosuggestions`
+* `zsh-navigation-tools`
+
+---
+
+## Nvim
+
+### Search and replace
+
+How to:
+* `<leader>fg` - Telescope grep
+* `<C-q>` - Add results to quickfix list
+* `:cfdo s/ORIGINAL/REPLACEMENT/g | update` - replace within the qf-list
+
+Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/)
+
+`q:` - list last executed commands
+`copen | lopen` - open quickfix or location list
+
+### Trouble shooting Neovim issues
+
+If you come across an issue, you can first use `:checkhealth` command provided by `nvim` to trouble-shoot.
