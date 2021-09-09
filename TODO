@@ -1,4 +1,3 @@
 - Use stow for installing dotfiles
 - Configure i3-gaps, polybar, rofi
-- Autocreate vimspector config files
 - use mappings with ';' as secondary key
