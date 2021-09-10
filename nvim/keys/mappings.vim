@@ -67,5 +67,9 @@ nnoremap <leader>k :lprev<cr>
 " Close all splits and go to last window
 nnoremap ;q <C-w><C-O>
 
+" Quick window resize
+nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<cr>
+nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<cr>
+
 " DebugThisTest for cpp files
 nnoremap <leader>bdt :lua require'vim-bazel'.DebugThisTest()<cr>
