@@ -65,6 +65,7 @@ Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/1
 
 `q:` - list last executed commands
 `copen | lopen` - open quickfix or location list
+`[d / ]d` - next / previous diagnostic
 
 ### Trouble shooting Neovim issues
 
