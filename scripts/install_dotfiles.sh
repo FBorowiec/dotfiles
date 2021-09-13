@@ -20,3 +20,6 @@ ln -s $PWD/git/gitignore ~/.config/gitignore
 
 # Tmux config
 ln -s $PWD/tmux/tmux.conf ~/.tmux.conf
+
+# Cheatsheet
+ln -s $PWD/scripts/cht.sh ~/.config/cht.sh
