@@ -6,21 +6,25 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /us
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get -y -qq update
 
-# deps
+# Deps
 sudo apt install -y software-properties-common apt-transport-https git curl wget \
     simplescreenrecorder nload gnome-tweaks chrome-gnome-shell gnome-shell-extensions \
     automake cmake g++ gcc pkg-config unzip build-essential xclip stow \
     ccls ctags nodejs yarn global clangd ninja-build gettext libtool \
-    libtool-bin autoconf clang-format node-js-beautify \
+    libtool-bin autoconf clang-format node-js-beautify
 
-# nvim deps
+# Python deps
+pip3 install lookatme
+pip3 install lookatme.contrib.qrcode lookatme.contrib.image-ueberzug lookatme.contrib.render
+
+# Nvim deps
 sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep ranger
 
-# tmux deps...
+# Tmux deps...
 sudo apt install tmux fonts-powerline
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# alacritty
+# Alacritty
 sudo add-apt-repository -y ppa:mmstick76/alacritty
 sudo apt install -y alacritty
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 60
