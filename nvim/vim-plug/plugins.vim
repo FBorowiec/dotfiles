@@ -77,6 +77,7 @@ Plug 'APZelos/blamer.nvim'
 " TREESITTER ---------------------------------------------------
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'nvim-treesitter/playground'
 
 " NATIVE LSP ---------------------------------------------------
@@ -98,6 +99,9 @@ Plug 'grailbio/bazel-compilation-database'
 Plug 'tweekmonster/startuptime.vim'
 " Preview for Markdown files
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Tex
+Plug 'jakewvincent/texmagic.nvim'
+
 
 " Easy maximization with <leader>m
 Plug 'szw/vim-maximizer'

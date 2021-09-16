@@ -31,6 +31,7 @@ source $HOME/.config/nvim/plug-config/ranger.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/textmagic.vim
 source $HOME/.config/nvim/plug-config/treesitter.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
