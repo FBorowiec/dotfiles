@@ -13,6 +13,9 @@ sudo apt install -y software-properties-common apt-transport-https git curl wget
     ccls ctags nodejs yarn global clangd ninja-build gettext libtool \
     libtool-bin autoconf clang-format node-js-beautify
 
+# Tex deps
+sudo apt install -y texlive-latex-extra texlive-extra-utils texmaker
+
 # Python deps
 pip3 install lookatme
 pip3 install lookatme.contrib.qrcode lookatme.contrib.image-ueberzug lookatme.contrib.render
