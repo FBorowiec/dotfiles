@@ -23,7 +23,6 @@ nnoremap <M-Down> :move +1<CR>
 
 " Faster writing / quitting
 nnoremap <leader>w :w<cr>
-nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
 
@@ -73,3 +72,6 @@ nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<cr>
 
 " DebugThisTest for cpp files
 nnoremap <leader>bdt :lua require'vim-bazel'.DebugThisTest()<cr>
+
+" Make current file executable
+nnoremap <leader>x :!chmod +x %<cr>
