@@ -13,6 +13,12 @@ sudo apt install -y software-properties-common apt-transport-https git curl wget
     ccls ctags nodejs yarn global clangd ninja-build gettext libtool \
     libtool-bin autoconf clang-format node-js-beautify
 
+# Python dev deps
+pip3 install 'python-lsp-server[all]'
+
+# Bash dev deps
+sudo npm i -g bash-language-server
+
 # Tex deps
 sudo apt install -y texlive-latex-extra texlive-extra-utils texmaker
 

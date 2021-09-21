@@ -4,6 +4,9 @@ languages=`echo "cpp c python lua" | tr ' ' '\n'`
 core_utils=`echo "xargs find mv cp sed awk curl tar rg" | tr ' ' '\n'`
 
 selected=`printf "$languages\n$core_utils" | fzf`
+if [[ -z $selected ]]; then
+    exit 0
+fi
 read -p "Query: " query
 
 if printf $languages | grep -qs $selected; then

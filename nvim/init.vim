@@ -26,6 +26,7 @@ source $HOME/.config/nvim/plug-config/markdown-preview.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/nvim-tree.vim
 source $HOME/.config/nvim/plug-config/nvim-lsp.vim
+source $HOME/.config/nvim/plug-config/nvim-lspconfig.vim
 source $HOME/.config/nvim/plug-config/nvim-window.vim
 source $HOME/.config/nvim/plug-config/ranger.vim
 source $HOME/.config/nvim/plug-config/rooter.vim

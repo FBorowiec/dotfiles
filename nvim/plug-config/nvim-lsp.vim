@@ -49,6 +49,8 @@ local lua_settings = {
   }
 }
 
+local util = require('lspconfig.util')
+
 local function setup_servers()
     local servers = require'lspinstall'.installed_servers()
     for _, server in pairs(servers) do
