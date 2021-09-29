@@ -27,7 +27,7 @@ pip3 install lookatme
 pip3 install lookatme.contrib.qrcode lookatme.contrib.image-ueberzug lookatme.contrib.render
 
 # Nvim deps
-sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep ranger
+sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep ranger ueberzug
 
 # Tmux deps...
 sudo apt install tmux fonts-powerline
