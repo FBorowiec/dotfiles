@@ -131,14 +131,14 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " BUFFERS AND TREE NAVIGATION ----------------------------------
 " Nvim Tree
-Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'kyazdani42/nvim-tree.lua'
 " Navigating buffer with <A-...> keys
 Plug 'romgrk/barbar.nvim'
 " Quick switching to desired tab with <leader><TAB>
 Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
 " Ranger for file navigation
 Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim'
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
