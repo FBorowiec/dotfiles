@@ -6,8 +6,12 @@ ln -s $PWD/alacritty ~/.config/alacritty
 # Installing terminator config
 ln -s $PWD/terminator ~/.config/terminator
 
-# Installing NVim
+# Installing Nvim
 ln -s $PWD/nvim ~/.config/nvim
+
+# Installing Ranger
+ln -s $PWD/ranger ~/.config/ranger
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 # Configuring Powerlevel10k and Zsh
 ln -s $PWD/zsh/p10k.zsh ~/.p10k.zsh
