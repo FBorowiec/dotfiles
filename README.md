@@ -70,3 +70,7 @@ Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/1
 ### Trouble shooting Neovim issues
 
 If you come across an issue, you can first use `:checkhealth` command provided by `nvim` to trouble-shoot.
+
+### Special thanks
+
+Special thanks to [Alexander Born](https://github.com/alexander-born) who helped me with the `lua` and `bazel` setup.
