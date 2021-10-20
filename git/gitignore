@@ -2,3 +2,5 @@ bazel-*
 compile_commands.json
 Session.vim
 .vimspector.json
+__init__.py
+__pycache__/

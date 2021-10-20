@@ -27,7 +27,7 @@ pip3 install lookatme
 pip3 install lookatme.contrib.qrcode lookatme.contrib.image-ueberzug lookatme.contrib.render
 
 # Ranger
-sudo apt install ranger caca-utils highlight atool w3m poppler-utils mediainfo
+sudo apt install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo lynx ffmpegthumbnailer
 
 # Nvim deps
 sudo apt install -y lua-nvim python3-neovim python3-venv zsh fzf ripgrep ueberzug
