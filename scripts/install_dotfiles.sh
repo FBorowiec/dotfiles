@@ -26,3 +26,7 @@ ln -s $PWD/tmux/tmux.conf ~/.tmux.conf
 
 # Cheatsheet
 ln -s $PWD/scripts/cht.sh ~/.config/cht.sh
+
+# Mutt config
+ln -s $PWD/mutt ~/.mutt
+

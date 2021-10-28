@@ -33,11 +33,13 @@ function M.setup()
         disable_netrw = 0,
         update_cwd = true,
         view = {
-            width = 60,
+            width = 40,
+            side = 'left',
+            auto_resize = false,
             mappings = {
-                list = {
-                    { key = {"<Leader>gr", "gr" }, cb = ":lua require'config.nvimtree'.grep_at_current_tree_node()<CR>", mode = "n"}}
-             }
+                custom_only = false,
+                list = {}
+            }
         }
     }
 end

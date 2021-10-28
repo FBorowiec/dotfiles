@@ -1,0 +1,25 @@
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set signature = "~/.mutt/signature"
+set copy = no
+
+set from = "franek.borowiec@gmail.com"
+set realname = "F.Borowiec"
+
+# Imap settings
+set imap_user = "franek.borowiec@gmail.com"
+# set imap_pass = "<mutt-app-specific-password>"
+
+# Smtp settings
+set smtp_url = "smtps://franek.borowiec@smtp.gmail.com"
+# set smtp_pass = "<mutt-app-specific-password>"
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
