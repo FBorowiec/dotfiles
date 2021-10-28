@@ -5,7 +5,16 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd('PackerSync')
 end
 
-vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
+vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerSync]])
+-- vim.cmd[[
+--   augroup Packer_aug
+--   autocmd!
+--   autocmd BufWritePost plugins.lua PackerCompile
+--   autocmd BufWritePost plugins.lua PackerClean
+--   autocmd BufWritePost plugins.lua PackerInstall
+--   augroup END
+-- ]]
+
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
