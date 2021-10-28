@@ -159,3 +159,8 @@ if [[ -d "/usr/libexec/rpp_zshrc.d" ]]; then
     done
 fi
 ###  RPP-END  ###
+
+export http_proxy="http://127.0.0.1:3128"
+export https_proxy="https://127.0.0.1:3128"
+export ftp_proxy="ftp://127.0.0.1:3128"
+export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
