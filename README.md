@@ -7,7 +7,7 @@ This is my custom configurations for the tools I use on Linux. `init.vim` is the
 
 While you can download the whole repository and use it, it is not recommended though. Good configurations are personal. Everyone should have his or her unique config file. You are encouraged to copy from this this repo the part you feel useful and add it to your own Nvim config.
 
-See [neovim/wiki/Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) on how to install Neovim 0.5, and how to configure on different platforms (Linux, macOS and Windows).
+See [neovim/wiki/Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) on how to install the latest Neovim, and how to configure on different platforms (Linux, macOS and Windows).
 Under `nvim` you can find the config files for the plugins I use.
 
 ---
@@ -20,21 +20,7 @@ Under `nvim` you can find the config files for the plugins I use.
 * `alacritty`
 * `tmux`
 
-Install them using the `install_deps.sh` script.
-
-Install order:
-
-1. `install_deps.sh`
-2. `install_zshell.sh`
-3. `install_neovim.sh`
-4. `install_dotfiles.sh`
-5. `install_fonts.sh`
-6. Optional for Bazel c++ projects: `install_bazel_compilation_db.sh`
-7. Optional: `install_gnome.sh`
-8. Optional: `install_polybar.sh`
-
-
-For Bazel projects you will need to run the `install_bazel_compilation_db.sh` first. This will let you use the command `bazel-compdb` to generate a `compile_commands.json`.
+For Bazel projects you will need to run the `bazel_compilation_db.sh` first. This will let you use the command `bazel-compdb` to generate a `compile_commands.json`.
 
 ---
 
