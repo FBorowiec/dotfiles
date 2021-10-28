@@ -1,5 +1,6 @@
 - Use stow for installing dotfiles
-- Configure i3-gaps, polybar, rofi
+- Configure dwm
 - use mappings with ';' as secondary key
 - vim -> lua:
     Startify -> goolord/alpha-nvim
+    nvim-lualine

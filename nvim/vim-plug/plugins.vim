@@ -13,12 +13,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" TEXT NAVIGATION ----------------------------------------------
-" <leader>s for quick searching a char
-Plug 'easymotion/vim-easymotion'
-" Highlight unique words to help using f, F, t and T
-Plug 'unblevable/quick-scope'
-
 " THEMES -------------------------------------------------------
 " Theme for Nvim - Onedark theme
 Plug 'joshdick/onedark.vim'
@@ -29,16 +23,9 @@ Plug 'arcticicestudio/nord-vim'
 " Status tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Nvim startuppage
-Plug 'mhinz/vim-startify'
 
 " FLOATING TERMINAL --------------------------------------------
 Plug 'voldikss/vim-floaterm'
-
-" AUTO PAIRS AND SETTINGS FOR PARENTHESIS ----------------------
-" cs"' to change surrounding "" to ''
-Plug 'tpope/vim-surround'
-" Plug 'jiangmiao/auto-pairs'
 
 " FUZZY FINDER - TELESCOPE -------------------------------------
 " required by telescope
@@ -130,24 +117,20 @@ Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " BUFFERS AND TREE NAVIGATION ----------------------------------
-" Nvim Tree
-" Plug 'kyazdani42/nvim-tree.lua'
-" Navigating buffer with <A-...> keys
-Plug 'romgrk/barbar.nvim'
 " Quick switching to desired tab with <leader><TAB>
 Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
 " Ranger for file navigation
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
+" GITHUB COPILOT
+Plug 'github/copilot.vim'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Lua plugins
-lua require'vim-bazel'.setup()
 
 " Automatically install missing plugins on startup
 autocmd VimEnter *

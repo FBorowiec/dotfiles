@@ -1,0 +1,54 @@
+- name: Install ZSH
+  apt: name=zsh
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - zsh
+- name: Change shell to zsh
+  shell: chsh -s $(which zsh)
+  tags:
+    - install
+    - dotfiles
+    - productivity
+    - zsh
+- name: Oh-My-Zsh
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - zsh
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - zsh
+- name: Link .zshrc file | file
+  file:
+    src: "{{ lookup('env', 'ROOTDIR') }}/zsh/zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: link
+    force: yes
+- name: Link .zshrc file | file
+  file:
+    src: "{{ lookup('env', 'ROOTDIR') }}/zsh/zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: link
+    force: yes
+- name: Link .inputrc file | file
+  file:
+    src: "{{ lookup('env', 'ROOTDIR') }}/zsh/inputrc"
+    dest: "{{ lookup('env', 'HOME') }}/.inputrc"
+    state: link
+    force: yes
+- name: Link powerlevel10k file | file
+  file:
+    src: "{{ lookup('env', 'ROOTDIR') }}/zsh/p10k.zsh"
+    dest: "{{ lookup('env', 'HOME') }}/.p10k.zsh"
+    state: link
+    force: yes
