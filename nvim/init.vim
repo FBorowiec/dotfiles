@@ -38,9 +38,9 @@ source $HOME/.config/nvim/plug-config/vim-fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-devicons.vim
 source $HOME/.config/nvim/plug-config/which-key.vim
 
-" Lua plugins
+" Lua plugins and settings
 lua require('plugins')
-lua require('maps')
+lua require('mappings')
 
 " Use local vimrc if available {
 if filereadable(expand("~/.vimrc.local"))
