@@ -23,9 +23,11 @@ function M.setup()
         { name = 'bazel' },
         { name = 'path' },
         { name = 'buffer' },
+        { name = 'vsnip' },
       },
     }
 
+    vim.cmd [[ autocmd FileType bzl lua require'cmp'.setup.buffer { sources = { { name = 'bazel' }, { name = 'buffer' } } } ]]
 end
 
 return M

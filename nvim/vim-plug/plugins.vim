@@ -45,8 +45,6 @@ Plug 'google/vim-glaive'
 Plug 'google/vim-codefmt'
 
 " GIT / UNDOTREE -----------------------------------------------
-" Undotree
-Plug 'mbbill/undotree'
 " See current changes in the line number column
 Plug 'mhinz/vim-signify'
 " Vim commands inside of vim
@@ -63,10 +61,6 @@ Plug 'nvim-treesitter/playground'
 " NATIVE LSP ---------------------------------------------------
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'aymericbeaumet/vim-symlink'

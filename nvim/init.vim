@@ -22,7 +22,6 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 source $HOME/.config/nvim/plug-config/blamer.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/harpoon.vim
-source $HOME/.config/nvim/plug-config/markdown-preview.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/nvim-lsp.vim
 source $HOME/.config/nvim/plug-config/nvim-lspconfig.vim
@@ -32,7 +31,6 @@ source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/textmagic.vim
 source $HOME/.config/nvim/plug-config/treesitter.vim
-source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vim-codefmt.vim
 source $HOME/.config/nvim/plug-config/vim-fugitive.vim
