@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
     use {'hrsh7th/cmp-path'}
     use {'hrsh7th/cmp-buffer'}
     use {'hrsh7th/cmp-vsnip'}
+    use {'alexander-born/cmp-bazel'}
 
     -- Nvim tree
     use {
@@ -63,6 +64,21 @@ return require('packer').startup(function(use)
 
     -- Bazel
     use {'alexander-born/bazel-vim', config = function() require'config.bazel'.setup() end }
+
+    -- undotree
+    use {'mbbill/undotree', config = function() require'config.undotree' end }
+
+    -- markdown
+    use {
+        'iamcco/markdown-preview.nvim',
+        ft = {'markdown'},
+        run = 'vim.cmd("mkdp#util#install()")',
+        config = function() require'config.markdown-preview' end
+    }
+
+    -- snippets
+    use {'hrsh7th/vim-vsnip'}
+    use {'rafamadriz/friendly-snippets'}
 
     -- Debugging
     -- use {

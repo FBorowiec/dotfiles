@@ -83,24 +83,7 @@ require'lspinstall'.post_install_hook = function ()
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
-require'compe'.setup {
-  enabled = true;
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-  };
-}
 EOF
-
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-b>     compe#scroll({ 'delta': -4 })
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -122,9 +105,9 @@ nnoremap ]d :lua vim.lsp.diagnostic.goto_next()<CR>
 
 nnoremap gd :lua vim.lsp.buf.definition()<CR>
 nnoremap gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>r :lua vim.lsp.buf.references()<CR>
+nnoremap gr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>lr :LspRestart<CR>
 nnoremap <leader>ls :LspStop<CR>
-" nnoremap <leader>q :lua vim.lsp.diagnostic.set_qflist()<CR>
+nnoremap <leader>lq :lua vim.lsp.diagnostic.set_qflist()<CR>
 
 " let LspInstall python cpp
