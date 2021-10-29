@@ -21,16 +21,9 @@ Plug 'vim-airline/vim-airline-themes'
 " FLOATING TERMINAL --------------------------------------------
 Plug 'voldikss/vim-floaterm'
 
-" Find and replace
-Plug 'brooth/far.vim'
-" Go to file with: vim path/to/file.ext:12:3 in shell or :e path/to/file.ext:12:3
-Plug 'wsdjeg/vim-fetch'
-
 " EDITING / FORMATTING -----------------------------------------
 " Highlight yanked selection
 Plug 'machakann/vim-highlightedyank'
-" Quick commenting for any type of file
-Plug 'tpope/vim-commentary'
 " Code formatters
 Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
@@ -43,12 +36,6 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 " Git lens
 Plug 'APZelos/blamer.nvim'
-
-" TREESITTER ---------------------------------------------------
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'nvim-treesitter/playground'
 
 " NATIVE LSP ---------------------------------------------------
 Plug 'neovim/nvim-lspconfig'
