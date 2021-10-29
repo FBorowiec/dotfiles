@@ -37,6 +37,12 @@ return require('packer').startup(function(use)
         config = function() require'config.nvimtree'.setup() end
     }
 
+    -- Telescope
+    use {'nvim-lua/popup.nvim'}
+    use {'nvim-lua/plenary.nvim'}
+    use {'nvim-telescope/telescope-fzy-native.nvim'}
+    use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
+
     -- Navigating buffers
     use {
         'romgrk/barbar.nvim',
