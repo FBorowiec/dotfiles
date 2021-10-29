@@ -1,6 +1,10 @@
 " General settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Lua plugins and settings
+lua require('plugins')
+lua require('mappings')
+
 " Nvim settings
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -16,10 +20,8 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 
 " Plugin Configuration
 source $HOME/.config/nvim/plug-config/blamer.vim
-source $HOME/.config/nvim/plug-config/easymotion.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/harpoon.vim
-source $HOME/.config/nvim/plug-config/quickscope.vim
 source $HOME/.config/nvim/plug-config/markdown-preview.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/nvim-lsp.vim
@@ -28,7 +30,6 @@ source $HOME/.config/nvim/plug-config/nvim-window.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/signify.vim
-source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/textmagic.vim
 source $HOME/.config/nvim/plug-config/treesitter.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
@@ -37,10 +38,6 @@ source $HOME/.config/nvim/plug-config/vim-codefmt.vim
 source $HOME/.config/nvim/plug-config/vim-fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-devicons.vim
 source $HOME/.config/nvim/plug-config/which-key.vim
-
-" Lua plugins and settings
-lua require('plugins')
-lua require('mappings')
 
 " Use local vimrc if available {
 if filereadable(expand("~/.vimrc.local"))
