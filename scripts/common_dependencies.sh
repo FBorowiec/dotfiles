@@ -17,7 +17,7 @@ sudo apt install -y software-properties-common apt-transport-https git curl wget
 pip3 install 'python-lsp-server[all]'
 
 # Bash dev deps
-sudo npm i -g bash-language-server
+sudo npm i -g bash-language-server lua-fmt
 
 # Tex deps
 sudo apt install -y texlive-latex-extra texlive-extra-utils texmaker

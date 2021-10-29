@@ -90,6 +90,19 @@ return require('packer').startup(function(use)
     -- Harpoon for most recent files editing
     use {'ThePrimeagen/harpoon', config = function() require'config.harpoon' end }
 
+    -- Find and replace
+    use {'brooth/far.vim'}
+    -- Go to file with: vim path/to/file.ext:12:3 in shell or :e path/to/file.ext:12:3
+    use {'wsdjeg/vim-fetch'}
+
+    -- Editing
+    use {'tpope/vim-commentary'}
+
+    -- Treesitter
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'config.treesitter'.setup() end }
+    use {'nvim-treesitter/nvim-treesitter-textobjects'}
+    use {'nvim-treesitter/playground'}
+
     -- Debugging
     -- use {
     --     'mfussenegger/nvim-dap',
