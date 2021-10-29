@@ -14,12 +14,6 @@ call plug#begin('~/.config/nvim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " THEMES -------------------------------------------------------
-" Theme for Nvim - Onedark theme
-Plug 'joshdick/onedark.vim'
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'arcticicestudio/nord-vim'
 " Status tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,8 +21,6 @@ Plug 'vim-airline/vim-airline-themes'
 " FLOATING TERMINAL --------------------------------------------
 Plug 'voldikss/vim-floaterm'
 
-" Harpoon for most recent files editing
-Plug 'ThePrimeagen/harpoon'
 " Find and replace
 Plug 'brooth/far.vim'
 " Go to file with: vim path/to/file.ext:12:3 in shell or :e path/to/file.ext:12:3

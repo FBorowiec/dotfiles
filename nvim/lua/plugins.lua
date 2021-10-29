@@ -62,6 +62,13 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Themes
+    use {'joshdick/onedark.vim'}
+    use {'christianchiarulli/nvcode-color-schemes.vim'}
+    use {'morhetz/gruvbox'}
+    use {'sainnhe/gruvbox-material'}
+    use {'arcticicestudio/nord-vim'}
+
     -- Bazel
     use {'alexander-born/bazel-vim', config = function() require'config.bazel'.setup() end }
 
@@ -79,6 +86,9 @@ return require('packer').startup(function(use)
     -- snippets
     use {'hrsh7th/vim-vsnip'}
     use {'rafamadriz/friendly-snippets'}
+
+    -- Harpoon for most recent files editing
+    use {'ThePrimeagen/harpoon', config = function() require'config.harpoon' end }
 
     -- Debugging
     -- use {

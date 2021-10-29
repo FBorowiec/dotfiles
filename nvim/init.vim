@@ -21,7 +21,6 @@ source $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
 " Plugin Configuration
 source $HOME/.config/nvim/plug-config/blamer.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
-source $HOME/.config/nvim/plug-config/harpoon.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/nvim-lsp.vim
 source $HOME/.config/nvim/plug-config/nvim-lspconfig.vim
