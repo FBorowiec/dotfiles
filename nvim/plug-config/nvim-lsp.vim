@@ -1,9 +1,7 @@
-" formatting {{{
 hi link LspDiagnosticsVirtualTextError Red
 hi link LspDiagnosticsVirtualTextWarning Yellow
 hi link LspDiagnosticsUnderlineError Red
 hi link LspDiagnosticsUnderlineWarning Yellow
-" }}}
 
 " lspplugins {{{
 lua require('lspkind').init()

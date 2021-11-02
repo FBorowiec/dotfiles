@@ -6,15 +6,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerSync]])
--- vim.cmd[[
---   augroup Packer_aug
---   autocmd!
---   autocmd BufWritePost plugins.lua PackerCompile
---   autocmd BufWritePost plugins.lua PackerClean
---   autocmd BufWritePost plugins.lua PackerInstall
---   augroup END
--- ]]
-
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -104,19 +95,19 @@ return require('packer').startup(function(use)
     use {'nvim-treesitter/playground'}
 
     -- Debugging
-    -- use {
-    --     'mfussenegger/nvim-dap',
-    --     opt = true,
-    --     ft = {'python'},
-    --     requires = {
-    --         {'mfussenegger/nvim-dap-python', opt = true},
-    --         {
-    --             'theHamsta/nvim-dap-virtual-text',
-    --             opt = true,
-    --             after = 'nvim-treesitter'
-    --         }
-    --     },
-    --     setup = require('config/nvim-dap').setup,
-    --     config = require('config/nvim-dap').config
-    -- }
+    use {
+        'mfussenegger/nvim-dap',
+        opt = true,
+        ft = {'python'},
+        requires = {
+            {'mfussenegger/nvim-dap-python', opt = true},
+            {
+                'theHamsta/nvim-dap-virtual-text',
+                opt = true,
+                after = 'nvim-treesitter'
+            }
+        },
+        setup = require('config.nvim-dap').setup,
+        config = require('config.nvim-dap').config
+    }
 end)
