@@ -3,12 +3,9 @@ hi link LspDiagnosticsVirtualTextWarning Yellow
 hi link LspDiagnosticsUnderlineError Red
 hi link LspDiagnosticsUnderlineWarning Yellow
 
-" lspplugins {{{
-lua require('lspkind').init()
-" }}}
 
-" server configs {{{
 lua << EOF
+require('lspkind').init()
 require'lspinstall'.setup() -- important
 
 local on_attach = function(client, bufnr)
