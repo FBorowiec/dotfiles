@@ -40,8 +40,18 @@ function M.setup()
                 custom_only = false,
                 list = {}
             }
+        },
+        update_focused_file = {
+            enable      = true,
+            update_cwd  = true,
+            ignore_list = {}
+        },
+        update_to_buf_dir   = {
+            enable = true,
+            auto_open = true,
         }
     }
+
     vim.g.nvim_tree_icons = {
         default = '',
         symlink = '',
