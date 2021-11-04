@@ -1,6 +1,3 @@
-map <silent> <leader><Tab> :lua require('nvim-window').pick()<CR>
-
-lua << EOF
 require('nvim-window').setup({
   -- The characters available for hinting windows.
   chars = {
@@ -19,4 +16,5 @@ require('nvim-window').setup({
   -- The border style to use for the floating window.
   border = 'single'
 })
-EOF
+
+vim.api.nvim_set_keymap('n', '<leader><Tab>', ":lua require('nvim-window').pick()<cr>", { noremap = true })

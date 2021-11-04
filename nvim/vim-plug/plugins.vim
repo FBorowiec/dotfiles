@@ -80,8 +80,6 @@ Plug 'her/synicons.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " BUFFERS AND TREE NAVIGATION ----------------------------------
-" Quick switching to desired tab with <leader><TAB>
-Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
 " Ranger for file navigation
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}

@@ -24,7 +24,6 @@ source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/nvim-lsp.vim
 source $HOME/.config/nvim/plug-config/nvim-lspconfig.vim
-source $HOME/.config/nvim/plug-config/nvim-window.vim
 source $HOME/.config/nvim/plug-config/rooter.vim
 source $HOME/.config/nvim/plug-config/rnvimr.vim
 source $HOME/.config/nvim/plug-config/signify.vim
@@ -33,7 +32,6 @@ source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vim-codefmt.vim
 source $HOME/.config/nvim/plug-config/vim-fugitive.vim
 source $HOME/.config/nvim/plug-config/vim-devicons.vim
-source $HOME/.config/nvim/plug-config/which-key.vim
 
 " Use local vimrc if available {
 if filereadable(expand("~/.vimrc.local"))

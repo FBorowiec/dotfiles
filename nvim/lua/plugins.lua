@@ -112,9 +112,11 @@ return require('packer').startup(function(use)
     }
 
     -- Which key
-    use {'folke/which-key.nvim'}
+    use {'folke/which-key.nvim', config = function() require'config.which-key' end }
 
     -- Github copilot
     use {'github/copilot.vim'}
 
+    -- Quick switching to desired tab with <leader><TAB>
+    use {'https://gitlab.com/yorickpeterse/nvim-window.git', config = function() require'config.nvim-window' end }
 end)
