@@ -74,9 +74,6 @@ Plug 'gko/vim-coloresque'
 Plug 'puremourning/vimspector'
 " Plug 'mfussenegger/nvim-dap'
 
-" WHICHKEY -----------------------------------------------------
-Plug 'folke/which-key.nvim'
-
 " DEVICONS -----------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
 Plug 'her/synicons.vim'
