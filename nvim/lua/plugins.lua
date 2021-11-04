@@ -111,6 +111,8 @@ return require('packer').startup(function(use)
         config = require('config.nvim-dap').config
     }
 
+    -- Which key
+    use {'folke/which-key.nvim'}
 
     -- Github copilot
     use {'github/copilot.vim'}
