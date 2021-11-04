@@ -110,4 +110,9 @@ return require('packer').startup(function(use)
         setup = require('config.nvim-dap').setup,
         config = require('config.nvim-dap').config
     }
+
+
+    -- Github copilot
+    use {'github/copilot.vim'}
+
 end)
