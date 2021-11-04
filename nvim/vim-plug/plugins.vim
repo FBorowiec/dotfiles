@@ -89,9 +89,6 @@ Plug 'https://gitlab.com/yorickpeterse/nvim-window.git'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
-" GITHUB COPILOT
-Plug 'github/copilot.vim'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#end()
