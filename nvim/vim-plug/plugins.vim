@@ -32,8 +32,6 @@ Plug 'google/vim-codefmt'
 " GIT / UNDOTREE -----------------------------------------------
 " See current changes in the line number column
 Plug 'mhinz/vim-signify'
-" Vim commands inside of vim
-Plug 'tpope/vim-fugitive'
 " Git lens
 Plug 'APZelos/blamer.nvim'
 
@@ -69,7 +67,6 @@ Plug 'gko/vim-coloresque'
 
 " DEBUGGING ----------------------------------------------------
 Plug 'puremourning/vimspector'
-" Plug 'mfussenegger/nvim-dap'
 
 " DEVICONS -----------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
