@@ -58,9 +58,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Tex
 Plug 'jakewvincent/texmagic.nvim'
 
-
-" Easy maximization with <leader>m
-Plug 'szw/vim-maximizer'
 " Unix shell commands :Chmod ...
 Plug 'tpope/vim-eunuch'
 " Change vim root folder automatically

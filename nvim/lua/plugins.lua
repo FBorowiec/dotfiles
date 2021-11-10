@@ -110,6 +110,8 @@ return require('packer').startup(function(use)
         setup = require('config.nvim-dap').setup,
         config = require('config.nvim-dap').config
     }
+    -- Easy maximization with <leader>m
+    use {'szw/vim-maximizer', config = function() require'config.maximizer' end }
 
     -- Which key
     use {'folke/which-key.nvim', config = function() require'config.which-key' end }
@@ -119,4 +121,10 @@ return require('packer').startup(function(use)
 
     -- Quick switching to desired tab with <leader><TAB>
     use {'https://gitlab.com/yorickpeterse/nvim-window.git', config = function() require'config.nvim-window' end }
+
+    -- Lua development
+    use {'tjdevries/nlua.nvim'}
+    use {'nvim-lua/completion-nvim'}
+    use {'euclidianAce/BetterLua.vim'}
+    use {'tjdevries/manillua.nvim'}
 end)
