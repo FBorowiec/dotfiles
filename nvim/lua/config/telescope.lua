@@ -2,8 +2,7 @@
 local map = vim.api.nvim_set_keymap
 options = { noremap = true }
 
-map('n', '<leader>ff', "<cmd> lua require('telescope.builtin').find_files()<cr>", options)
-map('n', '<leader>fg', "<cmd> lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", options)
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
 map('n', '<leader>fl', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
 
