@@ -45,7 +45,7 @@ Used with `oh-my-zsh`, `powerlevel10k` and the following plugins:
 How to:
 * `<leader>fg` - Telescope grep
 * `<C-q>` - Add results to quickfix list
-* `:cfdo s/ORIGINAL/REPLACEMENT/g | update` - replace within the qf-list
+* `:cfdo %s/ORIGINAL/REPLACEMENT/g | update` - replace within the qf-list
 
 Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/)
 
