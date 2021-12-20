@@ -27,6 +27,10 @@ map('x', 'J', ':move \'>+1<cr>gv-gv', options)
 map('n', '<M-Up>', ':move -2<cr>', options)
 map('n', '<M-Down>', ':move +1<cr>', options)
 
+-- insert an empty line above / below
+map('n', '<leader>o', 'o<esc>', options)
+map('n', '<leader>O', 'O<esc>', options)
+
 -- Faster writing / quitting
 map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
