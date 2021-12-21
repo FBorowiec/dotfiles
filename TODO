@@ -1,6 +1,0 @@
-- Use stow for installing dotfiles
-- Configure dwm
-- use mappings with ';' as secondary key
-- vim -> lua:
-    Startify -> goolord/alpha-nvim
-    nvim-lualine

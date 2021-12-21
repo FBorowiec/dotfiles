@@ -1,32 +1,33 @@
 #!/bin/bash
 
 # Installing alacritty config
-ln -s $PWD/alacritty ~/.config/alacritty
+ln -s $PWD/.config/alacritty ~/.config/alacritty
 
 # Installing terminator config
-ln -s $PWD/terminator ~/.config/terminator
+ln -s $PWD/.config/terminator ~/.config/terminator
 
 # Installing Nvim
-ln -s $PWD/nvim ~/.config/nvim
+ln -s $PWD/.config/nvim ~/.config/nvim
 
 # Installing Ranger
-ln -s $PWD/ranger ~/.config/ranger
+ln -s $PWD/.config/ranger ~/.config/ranger
 
 # Configuring Powerlevel10k and Zsh
-ln -s $PWD/zsh/p10k.zsh ~/.p10k.zsh
-ln -s $PWD/zsh/zshrc ~/.zshrc
-ln -s $PWD/zsh/inputrc ~/.inputrc
+ln -s $PWD/.p10k.zsh ~/.p10k.zsh
+ln -s $PWD/.zshrc ~/.zshrc
+ln -s $PWD/.inputrc ~/.inputrc
 
 # Git config
-ln -s $PWD/git/gitconfig ~/.gitconfig
-ln -s $PWD/git/gitignore ~/.config/gitignore
+ln -s $PWD/.gitconfig ~/.gitconfig
+ln -s $PWD/.config/gitignore ~/.config/gitignore
 
 # Tmux config
-ln -s $PWD/tmux/tmux.conf ~/.tmux.conf
+ln -s $PWD/.tmux.conf ~/.tmux.conf
 
 # Cheatsheet
-ln -s $PWD/scripts/cht.sh ~/.config/cht.sh
+ln -s $PWD/.config/cht.sh ~/.config/cht.sh
+ln -s $PWD/.config/znt-tmux.sh ~/.config/znt-tmux.sh
 
 # Mutt config
-ln -s $PWD/mutt ~/.mutt
+ln -s $PWD/.mutt ~/.mutt
 
