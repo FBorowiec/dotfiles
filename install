@@ -4,6 +4,10 @@ if [[ -z $STOW_FOLDERS ]]; then
     STOW_FOLDERS="alacritty,git,mutt,nvim,ranger,scripts,terminator,tmux,zsh"
 fi
 
+if [[ -e $HOME/.zshrc ]]; then
+    rm $HOME/.zshrc
+fi
+
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     stow -D $folder
