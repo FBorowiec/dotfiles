@@ -1,10 +1,12 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-pushd $DOTFILES
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="alacritty,git,mutt,nvim,ranger,scripts,terminator,tmux,zsh"
+fi
+
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     stow -D $folder
     stow $folder
 done
-popd
 
