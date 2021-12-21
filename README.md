@@ -2,8 +2,7 @@
 
 ## Overview
 
-This is my custom configurations for the tools I use on Linux. `init.vim` is the config file for terminal Neovim, and Terminator is the terminal I use instead of the native ubuntu terminal.
-`zsh` contains the configuration files for the `zshell`.
+This is my custom configurations for the tools I use on Linux managed by [FBorowiec/ansible](https://www.github.com/FBorowiec/ansible).
 
 While you can download the whole repository and use it, it is not recommended though. Good configurations are personal. Everyone should have his or her unique config file. You are encouraged to copy from this this repo the part you feel useful and add it to your own Nvim config.
 
@@ -14,11 +13,7 @@ Under `nvim` you can find the config files for the plugins I use.
 
 #### Dependencies
 
-* `neovim`
-* `zsh`
-* `ripgrep`
-* `alacritty`
-* `tmux`
+All dependecies are managed by Ansible.
 
 For Bazel projects you will need to run the `bazel_compilation_db.sh` first. This will let you use the command `bazel-compdb` to generate a `compile_commands.json`.
 
@@ -49,9 +44,9 @@ How to:
 
 Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/)
 
-`q:` - list last executed commands
-`copen | lopen` - open quickfix or location list
-`[d / ]d` - next / previous diagnostic
+* `q:` - list last executed commands
+* `copen | lopen` - open quickfix or location list
+* `[d / ]d` - next / previous diagnostic
 
 ### Trouble shooting Neovim issues
 
