@@ -40,14 +40,6 @@ endfunction
 
 autocmd BufWritePre *.json :call FormatJsonBuffer()
 
-" Vimspector json
-function! StartVimspector(job_id, code, event) dict
-    if a:code == 0
-        close
-        call vimspector#Launch()
-    endif
-endfun
-
 " Fast switching between source and header files for cpp
 function! SwitchSourceHeader()
     let filepath = expand('%:p:h')

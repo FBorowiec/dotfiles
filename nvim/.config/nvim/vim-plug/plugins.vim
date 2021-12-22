@@ -65,9 +65,6 @@ Plug 'tpope/vim-obsession'
 " Visualize hex colors
 Plug 'gko/vim-coloresque'
 
-" DEBUGGING ----------------------------------------------------
-Plug 'puremourning/vimspector'
-
 " DEVICONS -----------------------------------------------------
 Plug 'ryanoasis/vim-devicons'
 Plug 'her/synicons.vim'
