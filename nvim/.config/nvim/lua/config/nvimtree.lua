@@ -44,7 +44,7 @@ function M.setup()
         update_focused_file = {
             enable      = true,
             update_cwd  = true,
-            ignore_list = {}
+            ignore_list = {".git"}
         },
         update_to_buf_dir   = {
             enable = true,
