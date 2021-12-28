@@ -22,6 +22,12 @@ return require('packer').startup(function(use)
     use {'hrsh7th/cmp-vsnip'}
     use {'alexander-born/cmp-bazel'}
 
+    -- lsp
+    use {'williamboman/nvim-lsp-installer'}
+    use {'neovim/nvim-lspconfig', config = function() require'config.lsp'.setup() end }
+    use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup({hint_enable = false}) end }
+    use {'aymericbeaumet/vim-symlink'}
+
     -- Nvim tree
     use {
         'kyazdani42/nvim-tree.lua',
@@ -95,8 +101,8 @@ return require('packer').startup(function(use)
     use {'nvim-treesitter/playground'}
 
     -- Debugging
-    use {'rcarriga/nvim-dap-ui'}
     use {'mfussenegger/nvim-dap', config = function() require'config.dap'.setup() end }
+    use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"} }
     use {'nvim-telescope/telescope-dap.nvim'}
     use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
 

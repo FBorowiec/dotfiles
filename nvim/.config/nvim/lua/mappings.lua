@@ -72,11 +72,35 @@ map('n', ';q', '<C-w><C-O>', options)
 map('n', '<leader>+', ':exe "resize " . (winheight(0) * 3/2)<cr>', options)
 map('n', '<leader>-', ':exe "resize " . (winheight(0) * 2/3)<cr>', options)
 
--- DebugThisTest for cpp files
-map('n', '<leader>bdt', ':lua require\'bazel\'.DebugThisTest()<cr>', options)
-
 -- Make current file executable
 map('n', '<leader>x', ':!chmod +x %<cr>', options)
 
 -- Plugins
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options)
+
+-- Bazel
+-- autocmd FileType bzl nnoremap <buffer> gd :call GoToBazelDefinition()<CR>
+map('n', 'gbt', ':call GoToBazelTarget()<CR>', options)
+map('n', '<Leader>Bt',  ':call RunBazelHere("test " . g:bazel_config . " -c opt" )<CR>', options)
+map('n', '<Leader>Bb',  ':call RunBazelHere("build " . g:bazel_config . " -c opt")<CR>', options)
+map('n', '<Leader>Bdb', ':call RunBazelHere("build " . g:bazel_config . " -c dbg")<CR>', options)
+map('n', '<Leader>Bl',  ':call RunBazel()<CR>', options)
+
+-- DebugThisTest for cpp files
+map('n', '<leader>bdt',  ":lua  require'config.bazel'.DebugThisTest()<CR>" , options)
+
+-- Debugging
+-- map('n', '<leader>Dt', ':lua require("dapui").toggle()<CR>', options)
+-- map('n', '<leader>d<space>', ":lua require'dap'.continue()<CR>", options)
+-- map('n', '<leader>p', ":lua require'dap'.toggle_breakpoint()<CR>", options)
+-- map('n', '<leader>l', ":lua require'dap'.step_into()<CR>", options)
+-- map('n', '<leader>j', ":lua require'dap'.step_over()<CR>", options)
+-- map('n', '<leader>k', ":lua require'dap'.step_out()<CR>", options)
+-- map('n', '<leader>rc', ":lua require'dap'.run_to_cursor()<CR>", options)
+-- map('n', '<leader>de', ":lua require'dap'.close()<CR>", options)
+-- map('n', '<leader>dd', ":Telescope dap commands<CR>", options)
+-- map('n', '<leader>df', ":Telescope dap frames<CR>", options)
+-- map('n', '<leader>dr', ":lua require'dap'.repl.open()<CR>", options)
+-- map('n', '<leader>dh', ":lua require('dap.ui.widgets').hover()<CR>", options)
+-- map('n', '<leader>ds', ":lua require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle()<CR>", options)
+-- map('n', '<leader>de', ":lua require('dap.ui.widgets').sidebar(require('dap.ui.widgets').expression).toggle()<CR>", options)
