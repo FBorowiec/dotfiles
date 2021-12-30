@@ -30,7 +30,7 @@ function M.setup()
 
     -- dap.adapters.lldb = {
     --   type = 'executable',
-    --   command = '/usr/bin/lldb-vscode-12',
+    --   command = '/usr/local/bin/lldb-vscode',
     --   name = "lldb"
     -- }
     --
@@ -49,13 +49,29 @@ function M.setup()
     --   },
     -- }
 
+    dap.adapters.cppdbg = {
+      type = 'executable',
+      command = '~/.cpptools/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7',
+    }
+
+    dap.configurations.cpp = {
+      {
+        name = "Launch file",
+        type = "cppdbg",
+        request = "launch",
+        program = "~/dev/cpp_dev/leetcode/bazel-bin/problems/test/unit_tests",
+        cwd = '/home/fra/dev/cpp_dev/leetcode',
+        stopOnEntry = true,
+      },
+    }
+
     require("dapui").setup({
       sidebar = {
         elements = {
           -- Provide as ID strings or tables with "id" and "size" keys
           { id = "scopes", size = 0.25 },
           { id = "breakpoints", size = 0.25 },
-          { id = "watches", size = 00.25 },
+          { id = "watches", size = 0.25 },
         },
       },
       tray = {
