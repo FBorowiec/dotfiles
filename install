@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="alacritty,git,mutt,nvim,ranger,scripts,terminator,tmux,zsh"
+    STOW_FOLDERS="alacritty,dwm,git,mutt,nvim,ranger,scripts,terminator,tmux,zsh"
 fi
 
 if [[ -e $HOME/.zshrc ]]; then

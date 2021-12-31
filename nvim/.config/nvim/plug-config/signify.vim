@@ -5,4 +5,4 @@ let g:signify_sign_change            = '~'
 
 let g:signify_sign_show_count = 1
 let g:signify_sign_show_text = 1
-set signcolumn="yes"
+" set signcolumn="yes"
