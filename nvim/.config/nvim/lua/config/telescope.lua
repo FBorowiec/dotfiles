@@ -3,6 +3,7 @@ local map = vim.api.nvim_set_keymap
 options = { noremap = true }
 
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
+map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
 map('n', '<leader>fl', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
 
@@ -70,6 +71,7 @@ function M.setup()
         }
     }
     require('telescope').load_extension('fzy_native')
+    require('telescope').load_extension('file_browser')
 end
 
 return M

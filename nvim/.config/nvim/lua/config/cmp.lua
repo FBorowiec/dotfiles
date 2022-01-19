@@ -2,9 +2,6 @@ local M = {}
 
 function M.setup()
 
-    -- Set completeopt to have a better completion experience
-    vim.o.completeopt = 'menuone,noselect'
-
     local cmp = require 'cmp'
     cmp.setup {
       snippet = {
@@ -12,7 +9,11 @@ function M.setup()
           vim.fn["vsnip#anonymous"](args.body)
         end,
      },
+     formatting = {
+       format = require'lspkind'.cmp_format({})
+     },
       mapping = {
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<CR>'] = cmp.mapping.confirm {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
@@ -20,10 +21,9 @@ function M.setup()
       },
       sources = {
         { name = 'nvim_lsp' },
-        { name = 'bazel' },
+        { name = 'vsnip' },
         { name = 'path' },
         { name = 'buffer' },
-        { name = 'vsnip' },
       },
     }
 

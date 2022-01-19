@@ -42,14 +42,14 @@ function M.setup()
             capabilities = capabilities,
             on_attach = on_attach,
         }
-        if server == "lua" then
+        if server.name == "lua" then
           config.settings = lua_settings
         end
-        if server == "vim" then
+        if server.name == "vim" then
             local plugin_path = vim.fn.stdpath('data')..'/site/pack/packer'
             config.init_options = { runtimepath = vim.fn.expand("~/.config/nvim/" .. ',' .. plugin_path) }
         end
-        if server == "python" then
+        if server.name == "pyright" then
             config.settings = { python = { analysis = { extraPaths = { vim.fn.getcwd() } } } }
         end
         if server.name == "clangd" then

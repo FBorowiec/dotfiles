@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
     use {'nvim-lua/popup.nvim'}
     use {'nvim-lua/plenary.nvim'}
     use {'nvim-telescope/telescope-fzy-native.nvim'}
+    use {'nvim-telescope/telescope-file-browser.nvim'}
     use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
 
     -- Navigating buffers
@@ -55,7 +56,7 @@ return require('packer').startup(function(use)
         'goolord/alpha-nvim',
         requires = { 'kyazdani42/nvim-web-devicons' },
         config = function ()
-            require'alpha'.setup(require'alpha.themes.startify'.opts)
+            require'alpha'.setup(require'alpha.themes.dashboard'.opts)
         end
     }
 
@@ -81,7 +82,6 @@ return require('packer').startup(function(use)
     }
 
     -- snippets
-    use {'hrsh7th/vim-vsnip'}
     use {'rafamadriz/friendly-snippets'}
 
     -- Harpoon for most recent files editing
