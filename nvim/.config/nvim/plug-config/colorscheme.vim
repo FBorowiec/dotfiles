@@ -23,3 +23,6 @@ syntax on
 " Nord -------------------------
 colorscheme nord
 let g:airline_theme='base16_nord'
+
+" Transparency
+highlight Normal guibg=none
