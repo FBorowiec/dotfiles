@@ -8,7 +8,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-feh --bg-fill $HOME/dev/ansible/files/star_wars_last_supper.jpg
+feh --bg-fill /home/$USER/ansible/files/star_wars_last_supper.jpg
 setxkbmap -option caps:escape
 
 Day() {
@@ -34,5 +34,4 @@ while true; do
   sleep 15
 done &
 
-# dwmblocks &
 exec /usr/bin/dwm
