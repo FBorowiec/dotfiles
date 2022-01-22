@@ -132,3 +132,9 @@ gencompdb() {
     perl -ni.bak -e 'print unless /.*\.h(pp)?"},?/' ${BAZEL_ROOT}/compile_commands.json;
     rm ${BAZEL_ROOT}/compile_commands.json.bak 2> /dev/null;
 }
+
+alias tmux_def='rm -r ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/ressurect/last'
+
+export PATH="$PATH:/home/$USER/bin"
+export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
