@@ -7,3 +7,11 @@ spotify/.config/spicetify/Backup
 spotify/.config/spicetify/CustomApps
 spotify/.config/spicetify/Extracted
 spotify/.config/spicetify/config-xpui.ini
+
+discord/.config/BetterDiscord/data/betterdiscord.asar
+discord/.config/BetterDiscord/data/emotes.asar
+discord/.config/BetterDiscord/data/stable/custom.css
+discord/.config/BetterDiscord/data/stable/emotes.json
+discord/.config/BetterDiscord/data/stable/misc.json
+discord/.config/BetterDiscord/data/stable/plugins.json
+discord/.config/BetterDiscord/data/stable/settings.json
