@@ -56,7 +56,7 @@ do
     upperbar="$upperbar$(dwm_spotify)"
     upperbar="$upperbar$(dwm_resources)"
     upperbar="$upperbar$(dwm_battery)"
-    upperbar="$upperbar$(dwm_backlight)"
+    # upperbar="$upperbar$(dwm_backlight)"
     upperbar="$upperbar$(dwm_pulse)"
     upperbar="$upperbar$(dwm_keyboard)"
     upperbar="$upperbar$(dwm_date)"
