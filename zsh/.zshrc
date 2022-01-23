@@ -133,7 +133,7 @@ gencompdb() {
     rm ${BAZEL_ROOT}/compile_commands.json.bak 2> /dev/null;
 }
 
-alias tmux_def='rm -r ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/ressurect/last'
+alias tmux_def='rm -r -- ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/resurrect/last'
 
 export PATH="$PATH:/home/$USER/bin"
 export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
