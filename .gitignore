@@ -2,3 +2,8 @@ nvim/.config/nvim/autoload
 nvim/.config/nvim/plugin
 nvim/.config/nvim/plugged
 nvim/.config/nvim/undodir
+
+spotify/.config/spicetify/Backup
+spotify/.config/spicetify/CustomApps
+spotify/.config/spicetify/Extracted
+spotify/.config/spicetify/config-xpui.ini
