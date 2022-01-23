@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # invoke global X session script
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
+# if [ -d /etc/X11/xinit/xinitrc.d ]; then
+#   for f in /etc/X11/xinit/xinitrc.d/*; do
+#     [ -x "$f" ] && . "$f"
+#   done
+#   unset f
+# fi
 
 feh --bg-fill /home/$USER/ansible/files/star_wars_last_supper.jpg
-setxkbmap -option caps:escape
+# setxkbmap -option caps:escape
 
 Day() {
   printf `date "+%e" | sed -e 's/\ //'`
@@ -29,9 +29,11 @@ Battery() {
   cat "${dir}"/capacity
 }
 
-while true; do
-  xsetroot -name "`date \"+%a, %b \`Day\` %k:%M\"`" # | Battery: `Battery`%"
-  sleep 15
-done &
+# while true; do
+#   xsetroot -name "`date \"+%a, %b \`Day\` %k:%M\"`" # | Battery: `Battery`%"
+#   sleep 15
+# done &
+
+exec /home/$USER/dwm-bar/dwm_bar.sh &
 
 exec /usr/bin/dwm

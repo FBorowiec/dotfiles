@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-center "/home/$USER/ansible/files/star_wars_last_supper.jpg"
+feh --no-fehbg --bg-center '/home/fra/ansible/files/star_wars_last_supper.jpg' 

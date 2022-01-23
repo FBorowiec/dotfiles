@@ -25,7 +25,7 @@ export SEP2="]"
 . "$DIR/bar-functions/dwm_spotify.sh" # dep - spotify, playerctl
 . "$DIR/bar-functions/dwm_resources.sh"
 . "$DIR/bar-functions/dwm_battery.sh"
-. "$DIR/bar-functions/dwm_backlight.sh" # dep - xbacklight
+# . "$DIR/bar-functions/dwm_backlight.sh" # dep - xbacklight
 . "$DIR/bar-functions/dwm_pulse.sh"  # dep - pamixer
 # . "$DIR/bar-functions/dwm_alsa.sh" # alternative to dwm_pulse
 . "$DIR/bar-functions/dwm_keyboard.sh"
