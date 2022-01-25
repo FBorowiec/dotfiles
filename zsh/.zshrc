@@ -116,6 +116,16 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
+function refresh_tmux_vars {
+  if [ -n "$TMUX" ]; then
+    eval $(tmux showenv -s | grep -E '^(SSH|DISPLAY)')
+  fi
+}
+
+function preexec {
+    refresh_tmux_vars
+}
+
 source ~/.inputrc
 
 alias svim='sudo -E nvim'
