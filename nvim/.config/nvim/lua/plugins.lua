@@ -124,6 +124,8 @@ return require('packer').startup(function(use)
     use {'euclidianAce/BetterLua.vim'}
     use {'tjdevries/manillua.nvim'}
 
+    use {'ThePrimeagen/Vim-Be-Good'}
+
     -- Vim commands inside of vim
     use {'tpope/vim-fugitive', config = function() require'config.vim-fugitive' end }
 end)

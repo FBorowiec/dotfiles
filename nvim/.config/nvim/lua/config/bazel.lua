@@ -69,7 +69,6 @@ function M.setup()
      set errorformat+=%f:%l:\ %m                            " <filename>:<line>: <message>
      ]]
 
-
 end
 
 return M

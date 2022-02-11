@@ -37,7 +37,8 @@ set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set colorcolumn=120
-highlight Colorcolumn ctermbg=0 guibg=lightgrey
+highlight Colorcolumn ctermbg=0
+highlight Normal guibg=none
 
 " Focus on new splits
 set splitbelow
@@ -48,3 +49,6 @@ set timeoutlen=400
 
 " Refresh buffers automatically
 set autoread
+
+" No space when concating
+set nojoinspaces
