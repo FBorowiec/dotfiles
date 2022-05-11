@@ -30,7 +30,7 @@ end
 function M.setup()
     vim.g.project_path = vim.fn.getcwd()
     require'nvim-tree'.setup {
-        disable_netrw = 0,
+        disable_netrw = true,
         update_cwd = true,
         view = {
             width = 40,
