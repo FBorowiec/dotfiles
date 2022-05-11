@@ -101,10 +101,10 @@ return require('packer').startup(function(use)
     use {'nvim-treesitter/playground'}
 
     -- Debugging
-    use {'mfussenegger/nvim-dap', config = function() require'config.dap'.setup() end }
-    use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"} }
-    use {'nvim-telescope/telescope-dap.nvim'}
-    use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
+    -- use {'mfussenegger/nvim-dap', config = function() require'config.dap'.setup() end }
+    -- use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"} }
+    -- use {'nvim-telescope/telescope-dap.nvim'}
+    -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
 
     -- Easy maximization with <leader>m
     use {'szw/vim-maximizer', config = function() require'config.maximizer' end }
