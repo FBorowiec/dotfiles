@@ -27,8 +27,6 @@ colors:
     cyan: "#56b6c2"
     white: "#ECEFF4"
 
-background_opacity: 0.9
-
 font:
   # normal:
   #   family: "Hack"
@@ -57,6 +55,7 @@ window:
   padding:
     x: 5
     y: 5
+  opacity: 0.9
 
   startup_mode: Maximized
 
