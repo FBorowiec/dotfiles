@@ -1,32 +1,44 @@
 local M = {}
 
-local function StartDebugger(_, code)
-    if code == 0 then
-        vim.cmd('bdelete')
-        require'dapui'.open()
-        require'dap'.run({
-            name = "Launch",
-            type = "cpptools",
-            request = "launch",
-            program = function() return require('bazel').get_bazel_test_executable() end,
-            cwd = vim.fn.getcwd(),
-            stopOnEntry = false,
-            args = {'--gtest_filter=' .. require('bazel').get_gtest_filter()},
-            runInTerminal = false,
-        })
-    end
+local function StartDebugger(program, args)
+    require'dapui'.open()
+    require'dap'.run({
+        name = "Launch",
+        type = "cppdbg",
+        request = "launch",
+        program = function() return program end,
+        cwd = vim.fn.getcwd(),
+        stopOnEntry = false,
+        args = args,
+        runInTerminal = false,
+        setupCommands = {{text = "-enable-pretty-printing", ignoreFailures = true}},
+    })
 end
 
 function M.DebugThisTest()
-    vim.fn.BazelGetCurrentBufTarget()
+    local program = require('bazel').get_bazel_test_executable()
+    local args = {'--gtest_filter=' .. require('bazel').get_gtest_filter()}
     vim.cmd('new')
-    vim.fn.termopen('bazel build ' .. vim.g.bazel_config .. ' --copt=-O0 -c dbg ' .. vim.g.current_bazel_target, {on_exit = StartDebugger })
+    local on_exit = function(_, code)
+        if code == 0 then
+            vim.cmd('bdelete')
+            StartDebugger(program, args)
+        end
+    end
+    vim.fn.termopen('bazel build ' .. vim.g.bazel_config .. ' -c dbg --cxxopt=-O0 ' .. vim.g.current_bazel_target, {on_exit = on_exit})
+end
+
+function M.YankLabel()
+    local label = vim.fn.GetLabel()
+    print('yanking ' .. label .. ' to + and " register')
+    vim.fn.setreg('+', label)
+    vim.fn.setreg('"', label)
 end
 
 function M.setup()
     -- Info: to make tab completion work copy '/etc/bash_completion.d/bazel-complete.bash' to '/etc/bash_completion.d/bazel'
 
-    vim.g.bazel_config = vim.g.bazel_config  or '' -- or '--config=stla --config=platform_ros --copt=-O0 --copt=-ggdb'
+    vim.g.bazel_config = vim.g.bazel_config  or ''
 
     vim.cmd[[
     set errorformat=ERROR:\ %f:%l:%c:%m
@@ -68,6 +80,7 @@ function M.setup()
      set errorformat+=%f:%l:%c:\ %m                         " <filename>:<line>:<col>: <message>
      set errorformat+=%f:%l:\ %m                            " <filename>:<line>: <message>
      ]]
+
 
 end
 

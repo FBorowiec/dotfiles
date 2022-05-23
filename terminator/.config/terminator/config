@@ -26,7 +26,7 @@
     scrollback_infinite = True
     palette = "#2f343f:#fc8680:#87d37c:#f2ca27:#89c4f4:#dda0dd:#50c6d8:#d2d7d3:#5f6672:#fc8680:#87d37c:#f2ca27:#89c4f4:#dda0dd:#50c6d8:#dadfe1"
     copy_on_selection = True
-    background_darkness = 0.9
+    background_darkness = 1.0
     background_type = transparent
 [layouts]
   [[default]]
