@@ -1,6 +1,6 @@
 local M = {}
 function M.setup()
-    local servers = { "clangd", "pyright", "bashls" }
+    local servers = { "clangd", "pylsp", "bashls" }
     require("nvim-lsp-installer").setup({ automatic_installation = true})
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -11,7 +11,7 @@ function M.setup()
         local config = {
             capabilities = capabilities,
         }
-        if server == "pyright" then
+        if server == "pylsp" then
             config.settings = { python = { analysis = { extraPaths = { vim.fn.getcwd() } } } }
         end
         if server == "clangd" then
