@@ -10,18 +10,19 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
--- enable mouse in all modes - are you out of your mind?
+-- enable mouse in all modes - before enabling this ask yourself: 'are you out of your mind?'
 -- vim.opt.mouse = "a"
 
 -- misc
-vim.opt.nu = true
-vim.opt.nowrap = true
-vim.opt.noswapfile = true
+vim.opt.nu = true -- show line numbers
+vim.opt.nowrap = true -- what is this? MS Word??
+vim.opt.noswapfile = true -- no swap file. none.
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.noerrorbells = true -- disable error bells
 vim.opt.clipboard = "unnamed,unnamedplus" -- use + registers for clipboard
 vim.opt.cursorline = true -- highlight current line
 vim.opt.encoding = "utf-8" -- use UTF-8 encoding
+vim.opt.shortmess += "c" -- avoid showing extra message when using completion
 
 -- search
 vim.opt.incsearch = true
