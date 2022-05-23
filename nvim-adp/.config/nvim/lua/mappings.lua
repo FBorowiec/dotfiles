@@ -126,7 +126,6 @@ map('n', '<leader>gd', ':Gdiff<cr>', options)
 -- Navigation
 map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
 map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
-
 -- Actions
 map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
 map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
@@ -139,6 +138,8 @@ map('n', ';bt', gs.toggle_current_line_blame)
 map('n', ';d', gs.diffthis)
 map('n', ';D', function() gs.diffthis('~') end)
 map('n', ';t', gs.toggle_deleted)
-
--- Text object
+-- text object
 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+
+-- debugging
+

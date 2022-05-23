@@ -24,7 +24,7 @@ return require('packer').startup(function()
 
     -- appearance
     use {'lukas-reineke/indent-blankline.nvim', config = function() require'indent_blankline'.setup {filetype = {'python', 'json', 'bzl'} } end } -- adds indentation guides to all lines
-    use {'kyazdani42/nvim-web-devicons', config = function() require'nvim-web-devicons'.setup() end } -- dev icons
+    use {'kyazdani42/nvim-web-devicons', config = function() require'devicons'.setup() end } -- dev icons
     use {'nvim-lualine/lualine.nvim', config = function() require'config.lualine'.setup() end } -- bottom status line
     use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end } -- colorize color hexes
     use {'folke/todo-comments.nvim', config = function() require'todo-comments'.setup() end } -- highlight TODOs in the code
@@ -73,8 +73,8 @@ return require('packer').startup(function()
 
     -- lsp
     use {'folke/trouble.nvim', config = function() require'trouble'.setup() end }
-    use {'williamboman/nvim-lsp-installer'}
-    use {'neovim/nvim-lspconfig', config = function() require'config.lsp'.setup() end }
+    use {'neovim/nvim-lspconfig', config = function() require'config.nvim-lspconfig'.setup() end }
+    use {'williamboman/nvim-lsp-installer', config = function() require'config.nvim-lsp'.setup() end }
     use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup({hint_enable = false}) end }
     use {'aymericbeaumet/vim-symlink'}
     use {'onsails/lspkind-nvim', config = function() require'lspkind'.init() end }
