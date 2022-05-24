@@ -71,20 +71,24 @@ map('n', '<leader>-', ':exe "resize " . (winheight(0) * 2/3)<cr>', options)
 -- Make current file executable
 map('n', '<leader>x', ':!chmod +x %<cr>', options)
 
+-- FUNCTIONS -------------------------------------------------------------------
+-- switch between cpp header and source file
+vim.keymap.set('n', '<F2>', vim.fn.SwitchSourceHeader, options)
+
 -- PLUGINS ---------------------------------------------------------------------
--- lsp
+-- LSP
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, options)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, options)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, options)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, options)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options)
--- map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
+-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options) -- replaced by telescope version
+map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, options)
-vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options)
--- map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options)
+-- vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options) -- replaced by telescope version
+map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options) -- replaced by telescope
 
--- telescope fuzzy finder ---------------------------------
+-- TELESCOPE FUZZY FINDER ---------------------------------
 -- file pickers
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
 map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
@@ -113,73 +117,85 @@ map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options) -- toggle Nvim Tree
 vim.keymap.set('n', '<leader>n', require 'config.nvimtree'.nvim_tree_find_file, options)
 
--- floaterm -----------------------------------------------
+-- FLOATERM -----------------------------------------------
 vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
 vim.g.floaterm_keymap_prev   = "<leader>tp" -- next terminal
 vim.g.floaterm_keymap_next   = "<leader>tn" -- previous terminal
 vim.g.floaterm_keymap_new    = "<leader>tf" -- create new terminal window
 
--- switch between cpp header and source file
-vim.keymap.set('n', '<F2>', vim.fn.SwitchSourceHeader, options)
-
--- spectre ------------------------------------------------
+-- SPECTRE ------------------------------------------------
 map('n', '<leader>S', ":lua require('spectre').open()<cr>", options) -- run command :Spectre
 map('n', '<leader>sw', ":lua require('spectre').open_visual({select_word=true})<cr>", options) -- search current word
 map('v', '<leader>s', ":lua require('spectre').open_visual()<cr>", options) -- search current word
 
--- search in current file ---------------------------------
+-- SEARCH IN CURRENT FILE ---------------------------------
 map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", options)
 
--- harpoon ------------------------------------------------
+-- HARPOON ------------------------------------------------
 map('n', '<leader>h', ":lua require('harpoon.mark').add_file()<CR>", options)
 map('n', '<C-h>', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", options)
 
--- undotree -----------------------------------------------
+-- UNDOTREE -----------------------------------------------
 map('n', '<leader>u', ':UndotreeToggle<CR>', options)
 
--- markdown preview ---------------------------------------
+-- MARKDOWN PREVIEW ---------------------------------------
 map('n', '<leader><space>mp', ':MarkdownPreviewToggle<cr>', options)
 map('n', '<leader><space>mi', ':call mkdp#util#install()<cr>', options)
 
--- maximizer ----------------------------------------------
+-- MAXIMIZER ----------------------------------------------
 map('n', '<leader>m', ':MaximizerToggle!<cr>', options)
 
--- git fugitive -------------------------------------------
+-- GIT FUGITIVE -------------------------------------------
 map('n', '<leader>gj', ':diffget //3<cr>', options)
 map('n', '<leader>gf', ':diffget //2<cr>', options)
 map('n', '<leader>gs', ':G<cr>', options) -- gv on a file (inside the status menu) to resolve conflicts
 map('n', '<leader>gb', ':Git blame<cr>', options)
 map('n', '<leader>gd', ':Gdiff<cr>', options)
 
--- gitsigns -----------------------------------------------
--- -- Navigation
--- map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
--- map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
--- -- Actions
--- map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', options)
--- map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', options)
--- map('n', ';s', gs.stage_buffer)
--- map('n', ';u', gs.undo_stage_hunk)
--- map('n', ';r', gs.reset_buffer)
--- map('n', ';p', gs.preview_hunk)
--- map('n', ';b', function() gs.blame_line { full = true } end)
--- map('n', ';bt', gs.toggle_current_line_blame)
--- map('n', ';d', gs.diffthis)
--- map('n', ';D', function() gs.diffthis('~') end)
--- map('n', ';t', gs.toggle_deleted)
--- -- text object
--- map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', options)
+-- GITSIGNS -----------------------------------------------
+local gs = package.loaded.gitsigns
 
--- debugging ----------------------------------------------
+local function map(mode, l, r, opts)
+  opts = opts or {}
+  opts.buffer = bufnr
+  vim.keymap.set(mode, l, r, opts)
+end
+-- Navigation
+map('n', ']c', function()
+  if vim.wo.diff then return ']c' end
+  vim.schedule(function() gs.next_hunk() end)
+  return '<Ignore>'
+end, {expr=true})
+map('n', '[c', function()
+  if vim.wo.diff then return '[c' end
+  vim.schedule(function() gs.prev_hunk() end)
+  return '<Ignore>'
+end, {expr=true})
+-- Actions
+map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+map('n', '<leader>hS', gs.stage_buffer)
+map('n', '<leader>hu', gs.undo_stage_hunk)
+map('n', '<leader>hR', gs.reset_buffer)
+map('n', '<leader>hp', gs.preview_hunk)
+map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+map('n', '<leader>tb', gs.toggle_current_line_blame)
+map('n', '<leader>hd', gs.diffthis)
+map('n', '<leader>hD', function() gs.diffthis('~') end)
+map('n', '<leader>td', gs.toggle_deleted)
+-- Text object
+map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')  end
 
--- barbar -------------------------------------------------
+-- DEBUGGING ----------------------------------------------
+
+-- BARBAR -------------------------------------------------
 local barbar_opts = { noremap = true, silent = true, nowait = true }
 -- Move to previous/next
 map('n', '<A-,>', ':BufferPrevious<CR>', barbar_opts)
 map('n', '<A-.>', ':BufferNext<CR>', barbar_opts)
 -- Re-order to previous/next
 map('n', '<A-<>', ':BufferMovePrevious<CR>', barbar_opts)
-map('n', '<A->>', ' :BufferMoveNext<CR>', barbar_opts)
+map('n', '<A->>', ':BufferMoveNext<CR>', barbar_opts)
 -- Goto buffer in position...
 map('n', '<A-1>', ':BufferGoto 1<CR>', barbar_opts)
 map('n', '<A-2>', ':BufferGoto 2<CR>', barbar_opts)
@@ -199,4 +215,3 @@ map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
 map('n', '<Space>bc', ':BufferCloseAllButCurrent<CR>', barbar_opts)
 --                 :BufferCloseBuffersLeft<CR>
 --                 :BufferCloseBuffersRight<CR>
-
