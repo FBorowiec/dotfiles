@@ -32,7 +32,7 @@ return require('packer').startup(function()
         event = { 'VimEnter' },
         setup = require('config.barbar').setup,
         config = require('config.barbar').config,
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        requires = { 'config.devicons', opt = true },
     }
     -- colorschemes
     use {'ChristianChiarulli/nvcode-color-schemes.vim'} -- VS Code-like colorscheme
@@ -44,7 +44,7 @@ return require('packer').startup(function()
     -- startscreen -alpha-nvim
     use {
         'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
+        requires = { 'config.devicons' },
         config = function ()
             require'alpha'.setup(require'alpha.themes.dashboard'.opts)
         end
@@ -53,7 +53,7 @@ return require('packer').startup(function()
     -- filetree
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        requires = { 'config.devicons', opt = true },
         config = function() require'config.nvimtree'.setup() end
     }
 
