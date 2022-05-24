@@ -1,8 +1,6 @@
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  -- vim.cmd('packadd packer.nvim')
-  -- vim.cmd('PackerSync')
 end
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
@@ -12,25 +10,30 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
-    -- Check "awesome plugins" on:
-    -- https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
+    -- Check "awesome-neovim plugins" on: https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 
     -- general
     use {'inkarkat/vim-ReplaceWithRegister'} -- replace text with the contents of a register
     use {'mbbill/undotree'} -- undotree
     use {'tpope/vim-commentary'} -- smart commenting
-    use {'machakann/vim-highlightedyank', requires = {'config.highlightedyank'}} -- highlight yanked section
-    use {'APZelos/blamer.nvim', requires = {'config.blamer'}} -- git blame
+    use {'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
+    use {'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
 
     -- appearance
     use {'lukas-reineke/indent-blankline.nvim', config = function() require'indent_blankline'.setup {filetype = {'python', 'json', 'bzl'} } end } -- adds indentation guides to all lines
-    use {'kyazdani42/nvim-web-devicons', config = function() require'devicons'.setup() end } -- dev icons
+    use {'kyazdani42/nvim-web-devicons', config = function() require'config.devicons'.setup() end } -- dev icons
     use {'nvim-lualine/lualine.nvim', config = function() require'config.lualine'.setup() end } -- bottom status line
     use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end } -- colorize color hexes
     use {'folke/todo-comments.nvim', config = function() require'todo-comments'.setup() end } -- highlight TODOs in the code
-    use {'akinsho/nvim-bufferline.lua', config = function() require'config.bufferline'.setup() end } -- show buffers in tab line
     use {'luukvbaal/stabilize.nvim', config = function() require("stabilize").setup() end } -- stabilize window when opening new ones
-
+    -- show buffers in tab line
+    use {
+        'romgrk/barbar.nvim',
+        event = { 'VimEnter' },
+        setup = require('config.barbar').setup,
+        config = require('config.barbar').config,
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    }
     -- colorschemes
     use {'ChristianChiarulli/nvcode-color-schemes.vim'} -- VS Code-like colorscheme
     use {'joshdick/onedark.vim'} -- Atom-like colorscheme
@@ -87,7 +90,7 @@ return require('packer').startup(function()
     use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
 
     -- terminal
-    use {'voldikss/vim-floaterm', requires = {'config.floaterm'}}
+    use {'voldikss/vim-floaterm', config = function() require'config.floaterm'.setup() end}
 
     -- debugging
     use {'szw/vim-maximizer'}
@@ -97,7 +100,7 @@ return require('packer').startup(function()
     -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
 
     -- Harpoon for most recent files editing
-    use {'ThePrimeagen/harpoon', config = function() require'config.harpoon' end }
+    use {'ThePrimeagen/harpoon', config = function() require'config.harpoon'.setup() end }
 
     -- bazel
     use {'google/vim-maktaba'}
@@ -117,12 +120,15 @@ return require('packer').startup(function()
     use {'rafamadriz/friendly-snippets'}
 
     -- find and replace
-    use {'nvim-pack/nvim-spectre', requires = {'nvim-lua/plenary.nvim'}}
+    use {
+        'nvim-pack/nvim-spectre',
+        requires = { 'nvim-lua/plenary.nvim', opt = true },
+    }
 
     -- Github copilot
     use {'github/copilot.vim'}
 
     -- miscenallaneous
-    use {'airblade/vim-rooter', requires = {'config.rooter'}} -- change vim root folder automatically
+    use {'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
 
 end)

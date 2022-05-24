@@ -15,14 +15,15 @@ vim.opt.autoindent = true
 
 -- misc
 vim.opt.nu = true -- show line numbers
-vim.opt.nowrap = true -- what is this? MS Word??
-vim.opt.noswapfile = true -- no swap file. none.
+vim.opt.wrap = false -- what is this? MS Word??
+vim.opt.swapfile = false -- no swap file. none.
 vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.noerrorbells = true -- disable error bells
+vim.opt.errorbells = false -- disable error bells
 vim.opt.clipboard = "unnamed,unnamedplus" -- use + registers for clipboard
 vim.opt.cursorline = true -- highlight current line
 vim.opt.encoding = "utf-8" -- use UTF-8 encoding
-vim.opt.shortmess += "c" -- avoid showing extra message when using completion
+vim.opt.shortmess:append("a") -- ignore annoying swapfile messages
+vim.opt.shortmess:append("I") -- no splash screen
 
 -- search
 vim.opt.incsearch = true
@@ -30,8 +31,8 @@ vim.opt.ignorecase = true
 vim.opt.hlsearch = true
 
 -- backup
-vim.opt.nobackup = true
-vim.opt.undodir = "~/.config/nvim/undodir"
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
 -- more space for messages
@@ -39,8 +40,9 @@ vim.opt.cmdheight = 2
 vim.opt.scrolloff = 16
 
 -- colors
-vim.opt.colorcolumn = 120
+vim.opt.colorcolumn = "120"
 vim.cmd([[highlight Colorcolumn ctermbg=0]])
+-- vim.api.nvim_set_hl(0, 'ColorColumn', { bg = 0 })
 vim.cmd([[highlight Normal guibg=none]])
 
 -- focus on new splits
@@ -54,4 +56,4 @@ vim.opt.timeoutlen = 400
 vim.opt.autoread = true
 
 -- no space when concating
-vim.opt.nojoinspaces = true
+vim.opt.joinspaces = false
