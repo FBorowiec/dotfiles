@@ -56,51 +56,17 @@ function M.setup()
                             '--disable ' ..
                                 'C0115,' .. -- missing-class-docstring
                                 'C0116,' .. -- missing-function-docstring
-                                'R0903' -- too-few-public-methods
+                                'R0903,' .. -- too-few-public-methods
+                                'E501' -- Line too long
                         }
                     },
                     pylsp_mypy = {
                         enabled = true,
                         live_mode = true
                     },
-                    jedi_completion = {
-                        enabled = true,
-                        fuzzy = true
-                    },
-                    jedi_hover = {
-                        enabled = true
-                    },
-                    jedi_references = {
-                        enabled = true
-                    },
-                    jedi_signature_help = {
-                        enabled = true
-                    },
-                    jedi_symbols = {
-                        enabled = true,
-                        all_scopes = true
-                    },
                     pycodestyle = {
                         enabled = false
                     },
-                    yapf = {
-                        enabled = false
-                    },
-                    pyflakes = {
-                        enabled = true
-                    },
-                    pydocstyle = {
-                        enabled = false
-                    },
-                    mccabe = {
-                        enabled = true
-                    },
-                    preload = {
-                        enabled = true
-                    },
-                    rope_completion = {
-                        enabled = true
-                    }
                 },
                 on_attach = on_attach
             }

@@ -67,7 +67,7 @@ return require('packer').startup(function()
     -- filetree
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = { 'config.devicons', opt = true },
+        wants = { 'config.devicons', opt = true },
         config = function() require 'config.nvimtree'.setup() end
     }
 
