@@ -125,6 +125,9 @@ return require('packer').startup(function()
         requires = { 'nvim-lua/plenary.nvim', opt = true },
     }
 
+    -- Which key
+    use {'folke/which-key.nvim', config = function() require'config.which-key' end }
+
     -- Github copilot
     use {'github/copilot.vim'}
 
