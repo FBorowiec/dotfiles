@@ -16,8 +16,8 @@
 + which key
 + copilot
 + rooter
++ misc        -- nvim tree icons
 
-- misc        -- nvim tree icons
 - debugging   -- cpp/python configs
 ? cmp         -- completion
 ? snippets    -- snippets
