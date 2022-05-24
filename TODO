@@ -1,5 +1,6 @@
 + general
 + telescope
++ appearance
 + colorschemes
 + startscreen
 + filetree
@@ -14,11 +15,10 @@
 + copilot
 + rooter
 
-- lsp
-- appearance
-- null-ls
-- debugging
-? cmp
-? snippets
-
-packer autoinstall
+- lsp         -- lsp installers
+- misc        -- nvim tree icons
+- null-ls     -- for json
+- debugging   -- cpp/python configs
+? cmp         -- completion
+? snippets    -- snippets
+- packer autoinstall
