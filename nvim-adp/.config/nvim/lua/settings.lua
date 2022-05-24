@@ -57,3 +57,9 @@ vim.opt.autoread = true
 
 -- no space when concating
 vim.opt.joinspaces = false
+
+-- cursor settings
+vim.cmd([[set guicursor=n-v-c:block-Cursor]])
+vim.cmd([[set guicursor+=i:ver100-iCursor]])
+vim.cmd([[set guicursor+=n-v-c:blinkon0]])
+vim.cmd([[set guicursor+=i:blinkwait10]])
