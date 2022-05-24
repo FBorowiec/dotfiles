@@ -35,7 +35,6 @@ function M.setup()
             require("null-ls").builtins.formatting.buildifier,
             require("null-ls").builtins.formatting.clang_format,
             require("null-ls").builtins.formatting.isort,
-            require("null-ls").builtins.formatting.json_tool,
             require("null-ls").builtins.formatting.json_tool.with({
                 condition = function()
                     return vim.fn.executable("python3") > 0
@@ -55,7 +54,6 @@ function M.setup()
                     return vim.fn.executable("jsonlint") > 0
                 end,
             }),
-            require("null-ls").builtins.formatting.json_tool,
             require("null-ls").builtins.formatting.fixjson.with({
                 condition = function()
                     return vim.fn.executable("fixjson") > 0
