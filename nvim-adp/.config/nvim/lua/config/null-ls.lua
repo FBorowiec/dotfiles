@@ -36,9 +36,31 @@ function M.setup()
             require("null-ls").builtins.formatting.clang_format,
             require("null-ls").builtins.formatting.isort,
             require("null-ls").builtins.formatting.json_tool,
+            require("null-ls").builtins.formatting.json_tool.with({
+                condition = function()
+                    return vim.fn.executable("python3") > 0
+                end,
+            }),
+            require("null-ls").builtins.formatting.markdownlint.with({
+                condition = function()
+                    return vim.fn.executable("markdownlint") > 0
+                end,
+            }),
+            require("null-ls").builtins.formatting.shfmt,
             require("null-ls").builtins.formatting.stylua,
             require("null-ls").builtins.formatting.trim_newlines,
             require("null-ls").builtins.formatting.trim_whitespace,
+            require("null-ls").builtins.diagnostics.jsonlint.with({
+                condition = function()
+                    return vim.fn.executable("jsonlint") > 0
+                end,
+            }),
+            require("null-ls").builtins.formatting.json_tool,
+            require("null-ls").builtins.formatting.fixjson.with({
+                condition = function()
+                    return vim.fn.executable("fixjson") > 0
+                end,
+            }),
         },
         on_attach = on_attach,
     })

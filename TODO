@@ -1,9 +1,11 @@
 + general
 + telescope
++ lsp
 + appearance
 + colorschemes
 + startscreen
 + filetree
++ null-ls
 + markdown
 + git
 + treesitter
@@ -15,9 +17,7 @@
 + copilot
 + rooter
 
-- lsp         -- lsp installers
 - misc        -- nvim tree icons
-- null-ls     -- for json
 - debugging   -- cpp/python configs
 ? cmp         -- completion
 ? snippets    -- snippets
