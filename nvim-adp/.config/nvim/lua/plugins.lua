@@ -47,7 +47,6 @@ return require('packer').startup(function()
     use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
     use { 'nvim-lualine/lualine.nvim', config = function() require 'config.lualine'.setup() end } -- bottom status line
     use { 'norcalli/nvim-colorizer.lua', config = function() require 'colorizer'.setup() end } -- colorize color hexes
-    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
     use {
         'romgrk/barbar.nvim', -- show buffers in tab line
         event = { 'VimEnter' },
@@ -68,7 +67,7 @@ return require('packer').startup(function()
     -- filetree
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        requires = { 'config.devicons', opt = true },
         config = function() require 'config.nvimtree'.setup() end
     }
 
@@ -133,4 +132,5 @@ return require('packer').startup(function()
 
     -- miscenallaneous
     use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
+    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
 end)
