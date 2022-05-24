@@ -1,2 +1,22 @@
-https://github.com/ayamir/dotfiles
-https://github.com/Axarva/dotfiles
++ general
++ telescope
++ colorschemes
++ startscreen
++ filetree
++ markdown
++ git
++ treesitter
++ terminal
++ harpoon
++ bazel
++ find and replace
++ which key
++ copilot
++ rooter
+
+- lsp
+- appearance
+- null-ls
+- debugging
+? cmp
+? snippets
