@@ -1,3 +1,4 @@
+-- TODO: lualize
 vim.cmd([[
     syntax enable
     if has('termguicolors')

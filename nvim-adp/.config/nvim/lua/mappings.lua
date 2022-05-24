@@ -31,7 +31,7 @@ map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
 map('n', '<leader>Q', ':q!<cr>', options)
 
--- Nohighlight
+-- toggle nohighlight
 map('n', '<leader>nh', ':nohlsearch<cr>', options)
 
 -- Make Y behave like other capital letters (C, D)
@@ -134,7 +134,7 @@ map('v', '<C-f>', ":lua require('spectre').open_visual()<cr>", options) -- searc
 map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", options)
 
 -- HARPOON ------------------------------------------------
-map('n', '<leader>h', ":lua require('harpoon.mark').add_file()<CR>", options)
+map('n', '<A-h>', ":lua require('harpoon.mark').add_file()<CR>", options)
 map('n', '<C-h>', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", options)
 
 -- UNDOTREE -----------------------------------------------
@@ -155,9 +155,10 @@ map('n', '<leader>gb', ':Git blame<cr>', options)
 map('n', '<leader>gd', ':Gdiff<cr>', options)
 
 -- GITSIGNS -----------------------------------------------
--- see gitsigns.lua
+-- see config/gitsigns.lua
 
 -- DEBUGGING ----------------------------------------------
+--
 
 -- BARBAR -------------------------------------------------
 local barbar_opts = { noremap = true, silent = true, nowait = true }
@@ -178,11 +179,8 @@ map('n', '<A-7>', ':BufferGoto 7<CR>', barbar_opts)
 map('n', '<A-8>', ':BufferGoto 8<CR>', barbar_opts)
 map('n', '<A-9>', ':BufferGoto 9<CR>', barbar_opts)
 map('n', '<A-0>', ':BufferLast<CR>', barbar_opts)
--- Close buffer
-map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
--- Wipeout buffer
---                 :BufferWipeout<CR>
 -- Close commands
-map('n', '<Space>bc', ':BufferCloseAllButCurrent<CR>', barbar_opts)
---                 :BufferCloseBuffersLeft<CR>
---                 :BufferCloseBuffersRight<CR>
+map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
+map('n', '<A-d>d', ':BufferCloseAllButCurrent<CR>', barbar_opts)
+map('n', '<A-d>l', ':BufferCloseBuffersLeft<CR>', barbar_opts)
+map('n', '<A-d>r', ':BufferCloseBuffersRight<CR>', barbar_opts)
