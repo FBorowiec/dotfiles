@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
     require('spectre').setup({
         color_devicons = true,
-        mapping={
+        mapping = {
             ['send_to_qf'] = {
                 map = "<leader><space>q",
                 cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
@@ -13,7 +13,7 @@ function M.setup()
         default = {
             find = {
                 cmd = "rg",
-                options = {"ignore-case", "hidden"}
+                options = { "ignore-case", "hidden" }
             },
         },
         is_open_target_win = true, -- open file on opener window
