@@ -33,9 +33,3 @@ vim.cmd([[
         autocmd BufWritePre * :call TrimWhitespace()
     augroup END
 ]])
-
--- navigate lsp diagnostic using location list
-function LspLocationList()
-    vim.lsp.diagnostic.set_loclist({open_loclist = false})
-end
-
