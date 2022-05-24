@@ -154,8 +154,33 @@ map('n', '<leader>gd', ':Gdiff<cr>', options)
 -- GITSIGNS -----------------------------------------------
 -- see config/gitsigns.lua
 
+-- BAZEL --------------------------------------------------
+vim.api.nvim_create_autocmd("FileType", { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end })
+vim.keymap.set('n', 'gbt', vim.fn.GoToBazelTarget)
+vim.keymap.set('n', '<leader>bl', vim.fn.RunBazel)
+vim.keymap.set('n', '<leader>bd', require'config.bazel'.DebugThisTest)
+vim.keymap.set('n', '<leader>by', require'config.bazel'.YankLabel)
+vim.keymap.set('n', '<leader>bt', function() vim.fn.RunBazelHere("test "  .. vim.g.bazel_config .. " -c opt") end)
+vim.keymap.set('n', '<leader>bb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c opt") end)
+vim.keymap.set('n', '<leader>br', function() vim.fn.RunBazelHere("run "   .. vim.g.bazel_config .. " -c opt") end)
+vim.keymap.set('n', '<leader>bdb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c dbg --cxxopt=-O0 ") end)
+
 -- DEBUGGING ----------------------------------------------
---
+local dap = require'telescope'.extensions.dap
+vim.keymap.set('n', '<leader>dt', require'dapui'.toggle)
+vim.keymap.set('n', '<leader>db', require'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<leader>d<space>', require'dap'.continue)
+vim.keymap.set('n', '<leader>di', require'dap'.step_into)
+vim.keymap.set('n', '<leader>do', require'dap'.step_over)
+vim.keymap.set('n', '<leader>dO', require'dap'.step_out)
+vim.keymap.set('n', '<leader>dC', require'dap'.run_to_cursor)
+vim.keymap.set('n', '<leader>df', dap.frames)
+vim.keymap.set('n', '<leader>dd', dap.commands)
+vim.keymap.set('n', '<leader>de', require'config.dap'.end_debug_session)
+-- vim.keymap.setmap('n', '<leader>dpa', require'config.dap'.set_python_args_from_input)
+-- vim.keymap.setmap('n', '<leader>dr', require'dap'.repl.open)
+-- vim.keymap.setmap('n', '<leader>dh', require('dap.ui.widgets').hover)
+-- vim.keymap.setmap('n', '<leader>ds', require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle)
 
 -- BARBAR -------------------------------------------------
 local barbar_opts = { noremap = true, silent = true, nowait = true }
