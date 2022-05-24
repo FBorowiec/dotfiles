@@ -4,8 +4,10 @@ local map = vim.api.nvim_set_keymap
 -- map the leader key
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' -- 'vim.g' sets global variables
+map('', 'Q', '', {}) -- disable 'Q'
 
 options = { noremap = true }
+
 
 -- Better indenting
 map('v', '<', '<gv', options)
@@ -76,9 +78,36 @@ vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, options)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, options)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, options)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options)
+-- map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, options)
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options)
+-- map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options)
+
+-- telescope fuzzy finder ---------------------------------
+-- file pickers
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
+map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
+map('n', '<leader>fl', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
+-- misc
+map('n', '<leader><space>t', "<cmd>lua require('telescope.builtin').treesitter()<cr>", options)
+map('n', '<leader><space>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", options)
+map('n', '<leader><space>h', "<cmd>lua require('telescope.builtin').help_tags()<cr>", options)
+map('n', '<leader><space>q', "<cmd>lua require('telescope.builtin').quickfix()<cr>", options)
+map('n', '<leader><space>l', "<cmd>lua require('telescope.builtin').loclist()<cr>", options)
+map('n', '<leader><space>s', "<cmd>lua require('telescope.builtin').search_history()<cr>", options)
+-- git pickers
+map('n', '<leader><space>gd', "<cmd>GDiff<cr>", options)
+map('n', '<leader><space>gc', "<cmd>lua require('telescope.builtin').git_commits()<cr>", options)
+map('n', '<leader><space>gb', "<cmd>lua require('telescope.builtin').git_branches()<cr>", options)
+map('n', '<leader><space>gh', "<cmd>lua require('telescope.builtin').git_stash()<cr>", options)
+map('n', '<leader><space>gs', "<cmd>lua require('telescope.builtin').git_status()<cr>", options)
+-- vim pickers
+map('n', '<leader><space>vo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", options)
+map('n', '<leader><space>vc', "<cmd>lua require('telescope.builtin').commands()<cr>", options)
+map('n', '<leader><space>vr', "<cmd>lua require('telescope.builtin').registers()<cr>", options)
+map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme()<cr>", options)
 
 -- NvimTree -----------------------------------------------
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options) -- toggle Nvim Tree
@@ -171,29 +200,3 @@ map('n', '<Space>bc', ':BufferCloseAllButCurrent<CR>', barbar_opts)
 --                 :BufferCloseBuffersLeft<CR>
 --                 :BufferCloseBuffersRight<CR>
 
--- telescope fuzzy finder ---------------------------------
--- File pickers
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
-map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
-map('n', '<leader>fl', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
--- Misc
-map('n', '<leader><space>t', "<cmd>lua require('telescope.builtin').treesitter()<cr>", options)
-map('n', '<leader><space>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", options)
-map('n', '<leader><space>h', "<cmd>lua require('telescope.builtin').help_tags()<cr>", options)
-map('n', '<leader><space>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options)
-map('n', '<leader><space>d', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options)
-map('n', '<leader><space>q', "<cmd>lua require('telescope.builtin').quickfix()<cr>", options)
-map('n', '<leader><space>l', "<cmd>lua require('telescope.builtin').loclist()<cr>", options)
-map('n', '<leader><space>s', "<cmd>lua require('telescope.builtin').search_history()<cr>", options)
--- Git pickers
-map('n', '<leader><space>gd', "<cmd>GDiff<cr>", options)
-map('n', '<leader><space>gc', "<cmd>lua require('telescope.builtin').git_commits()<cr>", options)
-map('n', '<leader><space>gb', "<cmd>lua require('telescope.builtin').git_branches()<cr>", options)
-map('n', '<leader><space>gh', "<cmd>lua require('telescope.builtin').git_stash()<cr>", options)
-map('n', '<leader><space>gs', "<cmd>lua require('telescope.builtin').git_status()<cr>", options)
--- Vim pickers
-map('n', '<leader><space>vo', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", options)
-map('n', '<leader><space>vc', "<cmd>lua require('telescope.builtin').commands()<cr>", options)
-map('n', '<leader><space>vr', "<cmd>lua require('telescope.builtin').registers()<cr>", options)
-map('n', '<leader><space>vs', "<cmd>lua require('telescope.builtin').colorscheme()<cr>", options)
