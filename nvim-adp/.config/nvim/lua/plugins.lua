@@ -19,16 +19,30 @@ return require('packer').startup(function()
     use {'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
     use {'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
 
+    -- lsp
+    use {'folke/trouble.nvim', config = function() require'trouble'.setup() end }
+    use {'neovim/nvim-lspconfig', config = function() require'config.nvim-lspconfig'.setup() end }
+    use {'williamboman/nvim-lsp-installer', config = function() require'config.nvim-lsp'.setup() end }
+    use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup({hint_enable = false}) end }
+    use {'aymericbeaumet/vim-symlink'}
+    use {'onsails/lspkind-nvim', config = function() require'lspkind'.init() end }
+
+    -- telescope
+    use {'nvim-lua/popup.nvim'}
+    use {'nvim-lua/plenary.nvim'}
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {'nvim-telescope/telescope-file-browser.nvim'}
+    use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
+
     -- appearance
     use {'lukas-reineke/indent-blankline.nvim', config = function() require'indent_blankline'.setup {filetype = {'cpp', 'python', 'json', 'bzl'} } end } -- adds indentation guides to all lines
     use {'kyazdani42/nvim-web-devicons', config = function() require'config.devicons'.setup() end } -- dev icons
     use {'nvim-lualine/lualine.nvim', config = function() require'config.lualine'.setup() end } -- bottom status line
     use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end } -- colorize color hexes
-    use {'folke/todo-comments.nvim', config = function() require'todo-comments'.setup() end } -- highlight TODOs in the code
+    use {'folke/todo-comments.nvim', requires = "nvim-lua/plenary.nvim" } -- highlight TODOs in the code
     use {'luukvbaal/stabilize.nvim', config = function() require("stabilize").setup() end } -- stabilize window when opening new ones
-    -- show buffers in tab line
     use {
-        'romgrk/barbar.nvim',
+        'romgrk/barbar.nvim', -- show buffers in tab line
         event = { 'VimEnter' },
         setup = require('config.barbar').setup,
         config = require('config.barbar').config,
@@ -38,7 +52,7 @@ return require('packer').startup(function()
     use {'ChristianChiarulli/nvcode-color-schemes.vim'} -- VS Code-like colorscheme
     use {'joshdick/onedark.vim'} -- Atom-like colorscheme
     use {'morhetz/gruvbox'} -- gruuuuuuuuuuuuuuuuvbox colorscheme
-    use {'sainnhe/gruvbox-material'} -- gruuuuuuuuuuuuuuuuvbox colorscheme
+    use {'sainnhe/gruvbox-material'} -- gruuuuuuuuuuuuuuuuvbox material
     use {'arcticicestudio/nord-vim'} -- the one and only
 
     -- startscreen -alpha-nvim
@@ -73,21 +87,6 @@ return require('packer').startup(function()
 
     -- null-ls for autoformat
     use {'jose-elias-alvarez/null-ls.nvim', config = function() require'config.null-ls'.setup() end }
-
-    -- lsp
-    use {'folke/trouble.nvim', config = function() require'trouble'.setup() end }
-    use {'neovim/nvim-lspconfig', config = function() require'config.nvim-lspconfig'.setup() end }
-    use {'williamboman/nvim-lsp-installer', config = function() require'config.nvim-lsp'.setup() end }
-    use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup({hint_enable = false}) end }
-    use {'aymericbeaumet/vim-symlink'}
-    use {'onsails/lspkind-nvim', config = function() require'lspkind'.init() end }
-
-    -- telescope
-    use {'nvim-lua/popup.nvim'}
-    use {'nvim-lua/plenary.nvim'}
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use {'nvim-telescope/telescope-file-browser.nvim'}
-    use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
 
     -- terminal
     use {'voldikss/vim-floaterm', config = function() require'config.floaterm'.setup() end}
@@ -125,10 +124,10 @@ return require('packer').startup(function()
         requires = { 'nvim-lua/plenary.nvim', opt = true }
     }
 
-    -- Which key
+    -- which key
     use {'folke/which-key.nvim', config = function() require'config.which-key' end }
 
-    -- Github copilot
+    -- github copilot
     use {'github/copilot.vim'}
 
     -- miscenallaneous
