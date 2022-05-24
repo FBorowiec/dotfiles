@@ -1,7 +1,7 @@
 local M = {}
 
 local function split_by_space(input)
-    chunks = {}
+    local chunks = {}
     for substring in input:gmatch("%S+") do
        table.insert(chunks, substring)
     end

@@ -6,7 +6,7 @@ map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' -- 'vim.g' sets global variables
 map('', 'Q', '', {}) -- disable 'Q'
 
-options = { noremap = true }
+local options = { noremap = true }
 
 -- Better indenting
 map('v', '<', '<gv', options)
@@ -73,9 +73,6 @@ map('n', '<leader>x', ':!chmod +x %<cr>', options)
 -- FUNCTIONS -------------------------------------------------------------------
 -- switch between cpp header and source file
 vim.keymap.set('n', '<F2>', vim.fn.SwitchSourceHeader, options)
-
--- navigate lsp diagnostic in localtion list (with <leader>j and <leader>k)
-vim.keymap.set('n', '<leader>ll', vim.fn.LspLocationList, options)
 
 -- PLUGINS ---------------------------------------------------------------------
 -- LSP
@@ -181,6 +178,6 @@ map('n', '<A-9>', ':BufferGoto 9<CR>', barbar_opts)
 map('n', '<A-0>', ':BufferLast<CR>', barbar_opts)
 -- Close commands
 map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
-map('n', '<A-d>d', ':BufferCloseAllButCurrent<CR>', barbar_opts)
-map('n', '<A-d>l', ':BufferCloseBuffersLeft<CR>', barbar_opts)
-map('n', '<A-d>r', ':BufferCloseBuffersRight<CR>', barbar_opts)
+map('n', '<A-d>', ':BufferCloseAllButCurrent<CR>', barbar_opts)
+map('n', '<A-l>', ':BufferCloseBuffersLeft<CR>', barbar_opts)
+map('n', '<A-r>', ':BufferCloseBuffersRight<CR>', barbar_opts)
