@@ -13,7 +13,7 @@ Under `nvim` you can find the config files for the plugins I use.
 
 #### Dependencies
 
-All dependecies are managed by Ansible.
+All dependencies are managed by [Ansible](https://www.github.com/FBorowiec/ansible).
 
 For Bazel projects you will need to run the `bazel_compilation_db.sh` first. This will let you use the command `bazel-compdb` to generate a `compile_commands.json`.
 
@@ -42,7 +42,7 @@ How to:
 * `<C-q>` - Add results to quickfix list
 * `:cfdo %s/ORIGINAL/REPLACEMENT/g | update` - replace within the qf-list
 
-Reference: [nvim_search_replace_multiple_file](https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/)
+Reference: [`nvim_search_replace_multiple_file`](https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/)
 
 * `q:` - list last executed commands
 * `copen | lopen` - open quickfix or location list
