@@ -121,8 +121,8 @@ return require('packer').startup(function()
 
     -- find and replace
     use {
-        'nvim-pack/nvim-spectre',
-        requires = { 'nvim-lua/plenary.nvim', opt = true },
+        'nvim-pack/nvim-spectre', config = function() require'config.spectre'.setup() end,
+        requires = { 'nvim-lua/plenary.nvim', opt = true }
     }
 
     -- Which key
