@@ -1,11 +1,38 @@
 local M = {}
+
+-- DEPENCENCIES:
+-- pycodestyle
+-- pydocstyle
+-- jedi
+-- mypy
+-- pylsp-mypy
+-- black
+-- python-lsp-black
+-- flake8
+-- pyls-flake8
+-- isort
+-- pyls-isort
+-- rope
+-- pylsp-rope
+
+local enable = { enable = true }
+local disable = { enable = false }
+local pydocstyle_ignore = {
+    'D100',
+    'D101',
+    'D102',
+    'D103',
+    'D104',
+    'D105',
+    'D106',
+    'D107',
+    'D205',
+    'D400',
+}
+
+
 function M.setup()
     local util = require('lspconfig.util')
-    local root_files = {
-        'pyproject.toml',
-        '.git',
-    }
-
     require 'lspconfig'.pylsp.setup {
         cmd = { "pylsp" },
         filetypes = { "python" },
@@ -27,52 +54,47 @@ function M.setup()
                     useLibraryCodeForTypes = true
                 }
             },
-            configurationSources = { "flake8_lint", "flake8", "black", "mypy", "isort" },
+            -- configurationSources = { "flake8", "black", "mypy", "pylint", "isort" },
             pylsp = {
                 plugins = {
+                    jedi_completion = {
+                        fuzzy = true,
+                        include_params = true,
+                    },
                     flake8 = {
-                        enabled = true,
+                        enabled = false,
+                        hangClosing = false,
                         maxLineLength = 120,
-                        ignore = {
-                            'D100', -- Missing docstring in public module
-                            'D101', -- Missing docstring in public class
-                            'D105', -- Missing docstring in magic method
-                            'D107', -- Missing docstring in __init__
-                            'D200', -- One-line docstring should fit on one line with quotes
-                            'D205', -- 1 blank line required between summary line and description
-                            'D400', -- First line should end with a period
-                            'D402', -- First line should not be the function's "signature"
-                            'D401', -- First line should be in imperative mood
-                            'E501', -- Line too long
-                            'N812', -- Lowercase imported as non lowercase (prevents `import torch.functionnal as F`)
-                            'W503' -- line break before binary operator
-                        },
                     },
-                    pylint = {
-                        enabled = true,
-                        -- https://vald-phoenix.github.io/pylint-errors/
-                        executable = 'pylint',
-                        args = {
-                            '--disable ' ..
-                                'C0115,' .. -- missing-class-docstring
-                                'C0116,' .. -- missing-function-docstring
-                                'R0903,' .. -- too-few-public-methods
-                                'E501' -- Line too long
-                        }
-                    },
-                    pylsp_mypy = {
-                        enabled = true,
-                        live_mode = true
+                    pyls_flake8 = {
+                        enabled = false,
+                        hangClosing = false,
+                        maxLineLength = 120,
                     },
                     pycodestyle = {
-                        enabled = false
+                        hangClosing = false,
+                        maxLineLength = 120,
                     },
-                },
-                on_attach = on_attach
+                    pydocstyle = {
+                        enabled = true,
+                        convention = 'numpy',
+                        ignore = pydocstyle_ignore,
+                        addIgnore = pydocstyle_ignore,
+                    },
+                    pylint = false,
+                    rope = disable,
+                    pylsp_rope = disable,
+                    pylsp_mypy = enable,
+                    pyls_isort = enable,
+                    autopep8 = disable,
+                    black = disable,
+                    python_lsp_black = disable,
+                    pyls_black = disable,
+                    pylsp_black = disable,
+                }
             }
         }
     }
-
     require 'lspconfig'.bashls.setup {}
 end
 
