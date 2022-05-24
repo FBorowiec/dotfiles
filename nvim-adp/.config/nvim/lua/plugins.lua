@@ -15,12 +15,12 @@ return require('packer').startup(function()
     -- general
     use {'inkarkat/vim-ReplaceWithRegister'} -- replace text with the contents of a register
     use {'mbbill/undotree'} -- undotree
-    use {'tpope/vim-commentary'} -- smart commenting
+    use {'tpope/vim-commentary'} -- smart commenting with 'gcc'
     use {'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
     use {'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
 
     -- appearance
-    use {'lukas-reineke/indent-blankline.nvim', config = function() require'indent_blankline'.setup {filetype = {'python', 'json', 'bzl'} } end } -- adds indentation guides to all lines
+    use {'lukas-reineke/indent-blankline.nvim', config = function() require'indent_blankline'.setup {filetype = {'cpp', 'python', 'json', 'bzl'} } end } -- adds indentation guides to all lines
     use {'kyazdani42/nvim-web-devicons', config = function() require'config.devicons'.setup() end } -- dev icons
     use {'nvim-lualine/lualine.nvim', config = function() require'config.lualine'.setup() end } -- bottom status line
     use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup() end } -- colorize color hexes
@@ -133,5 +133,4 @@ return require('packer').startup(function()
 
     -- miscenallaneous
     use {'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
-
 end)

@@ -1,3 +1,4 @@
+-- switch source/header file in cpp
 vim.cmd([[
     function! SwitchSourceHeader()
         let filepath = expand('%:p:h')
@@ -17,7 +18,10 @@ vim.cmd([[
         endif
         exec "find " . filepath . filename . filetype
     endfun
+]])
 
+-- trim whitespaces
+vim.cmd([[
     fun! TrimWhitespace()
         let l:save = winsaveview()
         keeppatterns %s/\s\+$//e
@@ -29,3 +33,8 @@ vim.cmd([[
         autocmd BufWritePre * :call TrimWhitespace()
     augroup END
 ]])
+
+function LspLocationList()
+    vim.lsp.diagnostic.set_loclist({open_loclist = false})
+end
+

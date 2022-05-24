@@ -74,6 +74,9 @@ map('n', '<leader>x', ':!chmod +x %<cr>', options)
 -- switch between cpp header and source file
 vim.keymap.set('n', '<F2>', vim.fn.SwitchSourceHeader, options)
 
+-- navigate lsp diagnostic in localtion list (with <leader>j and <leader>k)
+vim.keymap.set('n', '<leader>ll', vim.fn.LspLocationList, options)
+
 -- PLUGINS ---------------------------------------------------------------------
 -- LSP
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, options)
