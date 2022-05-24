@@ -43,6 +43,7 @@ function M.setup()
                             'D400', -- First line should end with a period
                             'D402', -- First line should not be the function's "signature"
                             'D401', -- First line should be in imperative mood
+                            'E501', -- Line too long
                             'N812', -- Lowercase imported as non lowercase (prevents `import torch.functionnal as F`)
                             'W503'  -- line break before binary operator
                         },
