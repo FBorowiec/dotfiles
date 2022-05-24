@@ -57,8 +57,8 @@ map('i', '<C-k>', '<Esc>:m .-2<cr>==', options)
 -- Quickfix and Location list
 map('n', '<C-j>', ':cnext<cr>', options)
 map('n', '<C-k>', ':cprev<cr>', options)
-map('n', '<leader>j', ':lnext<cr>', options)
-map('n', '<leader>k', ':lprev<cr>', options)
+map('n', '<leader><space>j', ':lnext<cr>', options)
+map('n', '<leader><space>k', ':lprev<cr>', options)
 
 -- Close all splits and go to last window
 map('n', ';q', '<C-w><C-O>', options)
@@ -131,8 +131,10 @@ map('v', '<C-f>', ":lua require('spectre').open_visual()<cr>", options) -- searc
 map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", options)
 
 -- HARPOON ------------------------------------------------
-map('n', '<A-h>', ":lua require('harpoon.mark').add_file()<CR>", options)
-map('n', '<C-h>', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", options)
+map('n', '<A-h>', ":lua require('harpoon.mark').add_file()<cr>", options)
+map('n', '<C-h>', ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
+map('n', '<leader>j', ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
+map('n', '<leader>k', ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
 
 -- UNDOTREE -----------------------------------------------
 map('n', '<leader>u', ':UndotreeToggle<CR>', options)
