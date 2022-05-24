@@ -35,6 +35,12 @@ function M.setup()
             require("null-ls").builtins.formatting.buildifier,
             require("null-ls").builtins.formatting.clang_format,
             require("null-ls").builtins.formatting.json_tool,
+            require("null-ls").builtins.formatting.stylua,
+            require("null-ls").builtins.formatting.reorder_python_imports,
+            require("null-ls").builtins.formatting.autopep8,
+            require("null-ls").builtins.formatting.json_tool,
+            require("null-ls").builtins.formatting.trim_newlines,
+            require("null-ls").builtins.formatting.trim_whitespace,
         },
         on_attach = on_attach,
     })

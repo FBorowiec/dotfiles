@@ -6,7 +6,7 @@ function M.setup()
         '.git',
     }
 
-    require'lspconfig'.pylsp.setup{
+    require 'lspconfig'.pylsp.setup {
         cmd = { "pylsp" },
         filetypes = { "python" },
         root_dir = function(fname)
@@ -45,7 +45,7 @@ function M.setup()
                             'D401', -- First line should be in imperative mood
                             'E501', -- Line too long
                             'N812', -- Lowercase imported as non lowercase (prevents `import torch.functionnal as F`)
-                            'W503'  -- line break before binary operator
+                            'W503' -- line break before binary operator
                         },
                     },
                     pylint = {
@@ -54,9 +54,9 @@ function M.setup()
                         executable = 'pylint',
                         args = {
                             '--disable ' ..
-                            'C0115,' .. -- missing-class-docstring
-                            'C0116,' .. -- missing-function-docstring
-                            'R0903'     -- too-few-public-methods
+                                'C0115,' .. -- missing-class-docstring
+                                'C0116,' .. -- missing-function-docstring
+                                'R0903' -- too-few-public-methods
                         }
                     },
                     pylsp_mypy = {
@@ -107,7 +107,7 @@ function M.setup()
         }
     }
 
-    require'lspconfig'.bashls.setup{}
+    require 'lspconfig'.bashls.setup {}
 end
 
 return M
