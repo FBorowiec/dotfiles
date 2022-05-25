@@ -124,6 +124,12 @@ function M.setup()
                 name = 'bazelversion',
                 cterm_color = "2"
             },
+            ['.bazelignore'] = {
+                icon = '',
+                color = '#A3BE8C',
+                name = 'bazelversion',
+                cterm_color = "2"
+            },
             txt = {
                 icon = '',
                 color = '#88C0D0',
