@@ -61,11 +61,7 @@ function M.setup()
                 end,
             }),
             -- markdown
-            require("null-ls").builtins.formatting.markdownlint.with({
-                condition = function()
-                    return vim.fn.executable("markdownlint") > 0
-                end,
-            }),
+            require("null-ls").builtins.diagnostics.mdl,
             -- sh
             require("null-ls").builtins.formatting.shfmt,
             -- lua
