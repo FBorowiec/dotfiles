@@ -1,131 +1,134 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd('packadd packer.nvim')
-  vim.cmd('PackerSync')
+    vim.fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
-vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerSync]])
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerSync', group = packer_group, pattern = 'plugins.lua' })
 
+-- Check "awesome-neovim plugins" on: https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use {'wbthomason/packer.nvim'}
+    use { 'wbthomason/packer.nvim' }
 
-    -- completion
-    use {'onsails/lspkind-nvim', config = function() require'lspkind'.init() end }
-
-    -- cmp
-    use {'hrsh7th/nvim-cmp', config = function() require'config.cmp'.setup() end }
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-path'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/cmp-vsnip'}
-    use {'alexander-born/cmp-bazel'}
+    -- general
+    use { 'inkarkat/vim-ReplaceWithRegister' } -- replace text with the contents of a register
+    use { 'mbbill/undotree' } -- undotree
+    use { 'tpope/vim-commentary' } -- smart commenting with 'gcc'
+    use { 'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
+    use { 'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
 
     -- lsp
-    use {'williamboman/nvim-lsp-installer'}
-    use {'neovim/nvim-lspconfig', config = function() require'config.lsp'.setup() end }
-    use {'ray-x/lsp_signature.nvim', config = function() require'lsp_signature'.setup({hint_enable = false}) end }
-    use {'aymericbeaumet/vim-symlink'}
+    use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
+    use { 'neovim/nvim-lspconfig', config = function() require 'config.nvim-lspconfig'.setup() end }
+    use { 'williamboman/nvim-lsp-installer', config = function() require 'config.nvim-lsp'.setup() end }
+    use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
+    use { 'aymericbeaumet/vim-symlink' }
+    use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
 
-    -- Nvim tree
+    -- telescope
+    use { 'nvim-lua/popup.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-file-browser.nvim' }
+    use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
+
+    -- colorschemes
+    use { 'ChristianChiarulli/nvcode-color-schemes.vim' } -- VS Code-like colorscheme
+    use { 'joshdick/onedark.vim' } -- Atom-like colorschemej
+    use { 'morhetz/gruvbox' } -- gruuuuuuuuuuuuuuuuvbox colorscheme
+    use { 'sainnhe/gruvbox-material' } -- gruuuuuuuuuuuuuuuuvbox material
+    use { 'arcticicestudio/nord-vim', config = function() require 'config.nord'.setup() end } -- the one and only
+
+    -- appearance
+    use { 'lukas-reineke/indent-blankline.nvim', config = function() require 'indent_blankline'.setup { filetype = { 'cpp', 'python', 'json', 'bzl' } } end } -- adds indentation guides to all lines
+    use { 'nvim-lualine/lualine.nvim', config = function() require 'config.lualine'.setup() end } -- bottom status line
+    use { 'norcalli/nvim-colorizer.lua', config = function() require 'colorizer'.setup() end } -- colorize color hexes
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require'config.nvimtree'.setup() end
-    }
-
-    -- Telescope
-    use {'nvim-lua/popup.nvim'}
-    use {'nvim-lua/plenary.nvim'}
-    use {'nvim-telescope/telescope-fzy-native.nvim'}
-    use {'nvim-telescope/telescope-file-browser.nvim'}
-    use {'nvim-telescope/telescope.nvim', config = function() require'config.telescope'.setup() end }
-
-    -- Navigating buffers
-    use {
-        'romgrk/barbar.nvim',
+        'romgrk/barbar.nvim', -- show buffers in tab line
         event = { 'VimEnter' },
         setup = require('config.barbar').setup,
         config = require('config.barbar').config,
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
 
-    -- Alpha-nvim
+    -- startscreen alpha-nvim
     use {
         'goolord/alpha-nvim',
         requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.opts)
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.opts)
         end
     }
 
-    -- Themes
-    use {'joshdick/onedark.vim'}
-    use {'christianchiarulli/nvcode-color-schemes.vim'}
-    use {'morhetz/gruvbox'}
-    use {'sainnhe/gruvbox-material'}
-    use {'arcticicestudio/nord-vim'}
-
-    -- Bazel
-    use {'alexander-born/bazel-vim', config = function() require'config.bazel'.setup() end }
-
-    -- undotree
-    use {'mbbill/undotree', config = function() require'config.undotree' end }
-
-    -- markdown
+    -- filetree
     use {
-        'iamcco/markdown-preview.nvim',
-        ft = {'markdown'},
-        run = 'vim.cmd("mkdp#util#install()")',
-        config = function() require'config.markdown-preview' end
+        'kyazdani42/nvim-tree.lua',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function() require 'config.nvimtree'.setup() end
     }
 
-    -- snippets
-    use {'rafamadriz/friendly-snippets'}
+    -- markdown
+    use { 'davidgranstrom/nvim-markdown-preview' }
 
-    -- Harpoon for most recent files editing
-    use {'ThePrimeagen/harpoon', config = function() require'config.harpoon' end }
+    -- git
+    use { 'tpope/vim-fugitive' }
+    use { 'tpope/vim-rhubarb' }
+    use { 'lewis6991/gitsigns.nvim', config = function() require 'config.gitsigns'.setup() end }
+    use { 'rhysd/conflict-marker.vim' }
 
-    -- Find and replace
-    use {'brooth/far.vim'}
-    -- Go to file with: vim path/to/file.ext:12:3 in shell or :e path/to/file.ext:12:3
-    use {'wsdjeg/vim-fetch'}
+    -- treesitter
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require 'config.treesitter'.setup() end }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    use { 'nvim-treesitter/playground' }
 
-    -- Editing
-    use {'tpope/vim-commentary'}
+    -- null-ls for autoformat
+    use { 'jose-elias-alvarez/null-ls.nvim', config = function() require 'config.null-ls'.setup() end }
 
-    -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'config.treesitter'.setup() end }
-    use {'nvim-treesitter/nvim-treesitter-textobjects'}
-    use {'nvim-treesitter/playground'}
+    -- terminal
+    use { 'voldikss/vim-floaterm', config = function() require 'config.floaterm'.setup() end }
 
-    -- Debugging
-    -- use {'mfussenegger/nvim-dap', config = function() require'config.dap'.setup() end }
-    -- use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"} }
-    -- use {'nvim-telescope/telescope-dap.nvim'}
+    -- debugging
+    use { 'szw/vim-maximizer' }
+    use { 'rcarriga/nvim-dap-ui' }
+    use { 'mfussenegger/nvim-dap', config = function() require 'config.dap'.setup() end }
+    use { 'nvim-telescope/telescope-dap.nvim' }
     -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
 
-    -- Easy maximization with <leader>m
-    use {'szw/vim-maximizer', config = function() require'config.maximizer' end }
+    -- Harpoon for most recent files editing
+    use { 'ThePrimeagen/harpoon', config = function() require 'config.harpoon'.setup() end }
 
-    -- Which key
-    use {'folke/which-key.nvim', config = function() require'config.which-key' end }
+    -- bazel
+    use { 'google/vim-maktaba' }
+    use { 'bazelbuild/vim-bazel' }
+    use { 'alexander-born/bazel-vim', config = function() require 'config.bazel'.setup() end }
 
-    -- Github copilot
-    use {'github/copilot.vim'}
+    -- cmp
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
+    use { 'alexander-born/cmp-bazel' }
 
-    -- Quick switching to desired tab with <leader><TAB>
-    use {'https://gitlab.com/yorickpeterse/nvim-window.git', config = function() require'config.nvim-window' end }
+    -- find and replace
+    use {
+        'nvim-pack/nvim-spectre', config = function() require 'config.spectre'.setup() end,
+        requires = { 'nvim-lua/plenary.nvim', opt = true }
+    }
 
-    -- Lua development
-    use {'tjdevries/nlua.nvim'}
-    use {'nvim-lua/completion-nvim'}
-    use {'euclidianAce/BetterLua.vim'}
-    use {'tjdevries/manillua.nvim'}
+    -- which key
+    use { 'folke/which-key.nvim', config = function() require 'config.which-key' end }
 
-    use {'ThePrimeagen/Vim-Be-Good'}
+    -- github copilot
+    use { 'github/copilot.vim' }
 
-    -- Vim commands inside of vim
-    use {'tpope/vim-fugitive', config = function() require'config.vim-fugitive' end }
+    -- miscenallaneous
+    use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
+    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
+
+    -- appearance - devicons - needs to be last
+    use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
 end)

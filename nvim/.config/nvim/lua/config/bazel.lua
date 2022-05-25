@@ -1,8 +1,8 @@
 local M = {}
 
 local function StartDebugger(program, args)
-    require'dapui'.open()
-    require'dap'.run({
+    require 'dapui'.open()
+    require 'dap'.run({
         name = "Launch",
         type = "cppdbg",
         request = "launch",
@@ -11,13 +11,13 @@ local function StartDebugger(program, args)
         stopOnEntry = false,
         args = args,
         runInTerminal = false,
-        setupCommands = {{text = "-enable-pretty-printing", ignoreFailures = true}},
+        setupCommands = { { text = "-enable-pretty-printing", ignoreFailures = true } },
     })
 end
 
 function M.DebugThisTest()
     local program = require('bazel').get_bazel_test_executable()
-    local args = {'--gtest_filter=' .. require('bazel').get_gtest_filter()}
+    local args = { '--gtest_filter=' .. require('bazel').get_gtest_filter() }
     vim.cmd('new')
     local on_exit = function(_, code)
         if code == 0 then
@@ -25,7 +25,7 @@ function M.DebugThisTest()
             StartDebugger(program, args)
         end
     end
-    vim.fn.termopen('bazel build ' .. vim.g.bazel_config .. ' -c dbg --cxxopt=-O0 ' .. vim.g.current_bazel_target, {on_exit = on_exit})
+    vim.fn.termopen('bazel build ' .. vim.g.bazel_config .. ' -c dbg --cxxopt=-O0 ' .. vim.g.current_bazel_target, { on_exit = on_exit })
 end
 
 function M.YankLabel()
@@ -36,11 +36,9 @@ function M.YankLabel()
 end
 
 function M.setup()
-    -- Info: to make tab completion work copy '/etc/bash_completion.d/bazel-complete.bash' to '/etc/bash_completion.d/bazel'
+    vim.g.bazel_config = vim.g.bazel_config or ''
 
-    vim.g.bazel_config = vim.g.bazel_config  or ''
-
-    vim.cmd[[
+    vim.cmd([[
     set errorformat=ERROR:\ %f:%l:%c:%m
     set errorformat+=%f:%l:%c:%m
     set errorformat+=[\ \ FAILED\ \ ]\ %m\ (%.%#
@@ -79,9 +77,7 @@ function M.setup()
      set errorformat+=%f(%l):\ %tarning:\ %m                " <filename>(<line>): warning: <message>
      set errorformat+=%f:%l:%c:\ %m                         " <filename>:<line>:<col>: <message>
      set errorformat+=%f:%l:\ %m                            " <filename>:<line>: <message>
-     ]]
-
-
+     ]])
 end
 
 return M
