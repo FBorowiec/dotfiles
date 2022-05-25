@@ -129,6 +129,8 @@ return require('packer').startup(function(use)
     -- miscenallaneous
     use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
     use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
+    use { 'sudormrfbin/cheatsheet.nvim' }
+    use { 'lewis6991/spellsitter.nvim' }
 
     -- appearance - devicons - needs to be last
     use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
