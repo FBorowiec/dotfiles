@@ -103,6 +103,7 @@ return require('packer').startup(function(use)
     use { 'rcarriga/nvim-dap-ui' }
     use { 'mfussenegger/nvim-dap', config = function() require 'config.dap'.setup() end }
     use { 'nvim-telescope/telescope-dap.nvim' }
+    use { 'theHamsta/nvim-dap-virtual-text', config = function() require 'nvim-dap-virtual-text'.setup() end }
     -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
 
     -- Harpoon for most recent files editing
