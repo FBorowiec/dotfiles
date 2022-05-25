@@ -12,6 +12,7 @@
   go_left = <Alt>h
   go_right = <Alt>l
   go_up = <Alt>k
+  full_screen = ""
   help = None
   layout_launcher = None
   hide_window = <Alt>z
