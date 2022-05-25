@@ -131,7 +131,7 @@ map('v', '<C-f>', ":lua require('spectre').open_visual()<cr>", options) -- searc
 map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", options)
 
 -- HARPOON ------------------------------------------------
-map('n', '<A-h>', ":lua require('harpoon.mark').add_file()<cr>", options)
+map('n', '<S-h>', ":lua require('harpoon.mark').add_file()<cr>", options)
 map('n', '<C-h>', ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
 map('n', '<leader>j', ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
 map('n', '<leader>k', ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
@@ -157,7 +157,7 @@ map('n', '<leader>gd', ':Gdiff<cr>', options)
 -- see config/gitsigns.lua
 
 -- BAZEL --------------------------------------------------
-vim.api.nvim_create_autocmd("FileType", { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end })
+-- vim.api.nvim_create_autocmd("FileType", { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end }) -- breaks
 vim.keymap.set('n', 'gbt', vim.fn.GoToBazelTarget)
 vim.keymap.set('n', '<leader>bl', vim.fn.RunBazel)
 vim.keymap.set('n', '<leader>bd', require 'config.bazel'.DebugThisTest)
@@ -171,18 +171,21 @@ vim.keymap.set('n', '<leader>bdb', function() vim.fn.RunBazelHere("build " .. vi
 local dap = require 'telescope'.extensions.dap
 vim.keymap.set('n', '<leader>dt', require 'dapui'.toggle)
 vim.keymap.set('n', '<leader>db', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>d<space>', require 'dap'.continue)
-vim.keymap.set('n', '<leader>di', require 'dap'.step_into)
-vim.keymap.set('n', '<leader>do', require 'dap'.step_over)
-vim.keymap.set('n', '<leader>dO', require 'dap'.step_out)
-vim.keymap.set('n', '<leader>dC', require 'dap'.run_to_cursor)
+vim.keymap.set('n', '<leader>dB', ":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", options)
+vim.keymap.set('n', '<F5>', require 'dap'.continue)
+vim.keymap.set('n', '<F10>', require 'dap'.step_over)
+vim.keymap.set('n', '<F11>', require 'dap'.step_into)
+vim.keymap.set('n', '<F12>', require 'dap'.step_out)
+vim.keymap.set('n', '<F6>', require 'dap'.run_to_cursor)
 vim.keymap.set('n', '<leader>df', dap.frames)
-vim.keymap.set('n', '<leader>dd', dap.commands)
+vim.keymap.set('n', '<leader>dc', dap.commands)
 vim.keymap.set('n', '<leader>de', require 'config.dap'.end_debug_session)
--- vim.keymap.setmap('n', '<leader>dpa', require'config.dap'.set_python_args_from_input)
--- vim.keymap.setmap('n', '<leader>dr', require'dap'.repl.open)
--- vim.keymap.setmap('n', '<leader>dh', require('dap.ui.widgets').hover)
--- vim.keymap.setmap('n', '<leader>ds', require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle)
+-- vim.keymap.setmap('n', '...', require'config.dap'.set_python_args_from_input)
+-- vim.keymap.setmap('n', '...', require'dap'.repl.open)
+-- vim.keymap.setmap('n', '...', require('dap.ui.widgets').hover)
+-- vim.keymap.setmap('n', '...', require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle)
+-- vim.keymap.setmap('n', '...', require'dap'.run_last())
+-- vim.keymap.setmap('n', '...', require'dap'..set_breakpoint(nil, nil, vim.fn.input('Log point message: ')))
 
 -- BARBAR -------------------------------------------------
 local barbar_opts = { noremap = true, silent = true, nowait = true }
