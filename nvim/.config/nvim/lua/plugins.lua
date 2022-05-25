@@ -17,6 +17,18 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-commentary' } -- smart commenting with 'gcc'
     use { 'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
     use { 'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
+    use { 'nvim-lua/popup.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+
+    -- cmp
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-vsnip' }
+    use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
+    use { 'alexander-born/cmp-bazel' }
 
     -- lsp
     use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
@@ -27,8 +39,6 @@ return require('packer').startup(function(use)
     use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
 
     -- telescope
-    use { 'nvim-lua/popup.nvim' }
-    use { 'nvim-lua/plenary.nvim' }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
@@ -102,16 +112,6 @@ return require('packer').startup(function(use)
     use { 'google/vim-maktaba' }
     use { 'bazelbuild/vim-bazel' }
     use { 'alexander-born/bazel-vim', config = function() require 'config.bazel'.setup() end }
-
-    -- cmp
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-cmdline' }
-    use { 'hrsh7th/cmp-vsnip' }
-    use { 'hrsh7th/vim-vsnip' }
-    use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
-    use { 'alexander-born/cmp-bazel' }
 
     -- find and replace
     use {
