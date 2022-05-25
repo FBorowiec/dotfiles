@@ -1,38 +1,38 @@
 local M = {}
 
 function M.nvim_tree_find_file()
-  local function starts_with(String, Start)
-    return string.sub(String, 1, string.len(Start)) == Start
-  end
+    local function starts_with(String, Start)
+        return string.sub(String, 1, string.len(Start)) == Start
+    end
 
-  local cur_path = vim.fn.expand('%:p:h')
+    local cur_path = vim.fn.expand('%:p:h')
 
-  if starts_with(cur_path, vim.g.project_path) then
-    require('nvim-tree').find_file(true)
-  else
-    require('nvim-tree').refresh()
-    require('nvim-tree.lib').change_dir(cur_path)
-    require('nvim-tree').find_file(true)
-  end
+    if starts_with(cur_path, vim.g.project_path) then
+        require('nvim-tree').find_file(true)
+    else
+        require('nvim-tree').refresh()
+        require('nvim-tree.lib').change_dir(cur_path)
+        require('nvim-tree').find_file(true)
+    end
 end
 
 function M.nvim_tree_toggle_project()
     vim.cmd('lcd ' .. vim.g.project_path)
-    require'nvim-tree'.toggle()
+    require 'nvim-tree'.toggle()
 end
 
 function M.grep_at_current_tree_node()
     local node = require('nvim-tree.lib').get_node_at_cursor()
     if not node then return end
-    require('telescope.builtin').live_grep({search_dirs = {node.absolute_path}})
+    require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
 end
 
 function M.setup()
     vim.g.project_path = vim.fn.getcwd()
-    require'nvim-tree'.setup {
-        disable_netrw = true,
-        update_cwd = true,
-        view = {
+    require 'nvim-tree'.setup {
+        disable_netrw       = true,
+        update_cwd          = false,
+        view                = {
             width = 40,
             side = 'left',
             auto_resize = false,
@@ -43,11 +43,11 @@ function M.setup()
         },
         update_focused_file = {
             enable      = true,
-            update_cwd  = true,
-            ignore_list = {".git"}
+            update_cwd  = false,
+            ignore_list = { ".git" }
         },
         update_to_buf_dir   = {
-            enable = true,
+            enable = false,
             auto_open = true,
         }
     }
@@ -74,10 +74,10 @@ function M.setup()
             symlink_open = "",
         },
         lsp = {
-           hint = "",
-           info = "",
-           warning = "",
-           error = "",
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
         }
     }
 end
