@@ -1,20 +1,5 @@
 local M = {}
 
--- DEPENCENCIES:
--- pycodestyle
--- pydocstyle
--- jedi
--- mypy
--- pylsp-mypy
--- black
--- python-lsp-black
--- flake8
--- pyls-flake8
--- isort
--- pyls-isort
--- rope
--- pylsp-rope
-
 local enable = { enable = true }
 local disable = { enable = false }
 local pydocstyle_ignore = {
@@ -38,7 +23,7 @@ function M.setup()
         filetypes = { "python" },
         root_dir = function(fname)
             local root_files = {
-                '.git.',
+                '.git',
                 'pyproject.toml',
                 'setup.py',
                 'setup.cfg',
@@ -47,14 +32,13 @@ function M.setup()
             return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
         end,
         settings = {
-            python = {
-                analysis = {
-                    autoSearchPaths = true,
-                    diagnosticMode = "workspace",
-                    useLibraryCodeForTypes = true
-                }
-            },
-            -- configurationSources = { "flake8", "black", "mypy", "pylint", "isort" },
+            -- python = {
+            --     analysis = {
+            --         autoSearchPaths = true,
+            --         diagnosticMode = "workspace",
+            --         useLibraryCodeForTypes = true
+            --     }
+            -- },
             pylsp = {
                 plugins = {
                     jedi_completion = {
@@ -81,16 +65,16 @@ function M.setup()
                         ignore = pydocstyle_ignore,
                         addIgnore = pydocstyle_ignore,
                     },
-                    pylint = false,
+                    pylint = enable,
                     rope = disable,
                     pylsp_rope = disable,
                     pylsp_mypy = enable,
                     pyls_isort = enable,
                     autopep8 = disable,
-                    black = disable,
-                    python_lsp_black = disable,
-                    pyls_black = disable,
-                    pylsp_black = disable,
+                    black = enable,
+                    python_lsp_black = enable,
+                    pyls_black = enable,
+                    pylsp_black = enable,
                 }
             }
         }
