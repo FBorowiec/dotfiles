@@ -36,6 +36,7 @@ function M.setup()
     local dap = require('dap')
 
     -- Inspired from: https://github.com/mendes-davi/nvim-config/blob/master/lua/dap/python.lua
+    -- python
     local opts = vim.tbl_extend("keep", opts or {}, {})
     dap.adapters.python = function(cb, config)
         if config.request == "attach" then
@@ -61,7 +62,6 @@ function M.setup()
             }
         end
     end
-
     dap.configurations.python = dap.configurations.python or {}
     table.insert(dap.configurations.python, {
         type = "python",
@@ -95,28 +95,38 @@ function M.setup()
         end,
     })
 
+    -- cpp
     dap.adapters.cppdbg = {
         id = 'cppdbg',
         type = 'executable',
         command = os.getenv("HOME") .. "/.cpptools/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7",
     }
-
-    -- Dap load launch.json from vscode when avaliable
-    if vim.fn.filereadable("./.vscode/launch.json") or vim.fn.filereadable("./launch.json") then
-        require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
-    end
-
     dap.configurations.cpp = {
         {
             type = 'cppdbg',
             request = 'launch',
-            name = "Launch file",
-            program = "/home/fra/dev/leetcode/bazel-bin/problems/test/unit_tests",
-            args = {},
-            cwd = "/home/fra/dev/leetcode",
+            name = "Launch c++ debug",
+            program = function() return vim.fn.input "Absolute path to target: " end,
+            cwd = function() return vim.fn.expand("%:p:h") end,
             cppdbgPath = os.getenv("HOME") .. "/.cpptools/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7",
+            MIMode = "gdb",
+            stopAtEntry = false,
+            setupCommands = {
+                {
+                    description = "Enable pretty-printing for gdb",
+                    text = "-enable-pretty-printing",
+                    ignoreFailures = true
+                }
+            }
         },
     }
+
+    -- Dap load launch.json when available
+    local cwd = vim.fn.expand("%:p:h")
+    if vim.fn.filereadable(cwd .. "/.vscode/launch.json") or vim.fn.filereadable(cwd .. "./launch.json") then
+        require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
+    end
+
 
     require("dapui").setup({
         sidebar = {
