@@ -104,16 +104,14 @@ return require('packer').startup(function(use)
     use { 'alexander-born/bazel-vim', config = function() require 'config.bazel'.setup() end }
 
     -- cmp
-    use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
     use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/cmp-vsnip' }
-    use { 'alexander-born/cmp-bazel' }
-
-    -- snippets
     use { 'hrsh7th/vim-vsnip' }
-    use { 'rafamadriz/friendly-snippets' }
+    use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
+    use { 'alexander-born/cmp-bazel' }
 
     -- find and replace
     use {
