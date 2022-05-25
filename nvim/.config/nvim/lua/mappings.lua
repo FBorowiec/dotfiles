@@ -211,3 +211,6 @@ map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
 map('n', '<A-d>', ':BufferCloseAllButCurrent<CR>', barbar_opts)
 map('n', '<A-l>', ':BufferCloseBuffersLeft<CR>', barbar_opts)
 map('n', '<A-r>', ':BufferCloseBuffersRight<CR>', barbar_opts)
+
+-- CHEATSHEET ---------------------------------------------
+map('n', '<leader>?', ':Cheatsheet<cr>', options)
