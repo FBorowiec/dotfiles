@@ -35,7 +35,7 @@ function M.setup()
 
     local dap = require('dap')
 
-    -- python: https://github.com/mendes-davi/nvim-config/blob/daf7e8f9974cd4e715c171071b8e3b460365fea9/lua/dap/python.lua
+    -- Inspired from: https://github.com/mendes-davi/nvim-config/blob/master/lua/dap/python.lua
     local opts = vim.tbl_extend("keep", opts or {}, {})
     dap.adapters.python = function(cb, config)
         if config.request == "attach" then
@@ -88,9 +88,9 @@ function M.setup()
         request = "attach",
         name = "Attach remote",
         connect = function()
-            local host = vim.fn.input "Host [127.0.0.1]: "
+            local host = vim.fn.input "Host (default=127.0.0.1): "
             host = host ~= "" and host or "127.0.0.1"
-            local port = tonumber(vim.fn.input "Port [5678]: ") or 5678
+            local port = tonumber(vim.fn.input "Port (default=5678): ") or 5678
             return { host = host, port = port }
         end,
     })
