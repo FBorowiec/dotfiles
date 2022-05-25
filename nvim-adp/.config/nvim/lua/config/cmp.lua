@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-
     local cmp = require 'cmp'
     cmp.setup {
         snippet = {
@@ -10,7 +9,10 @@ function M.setup()
             end,
         },
         formatting = {
-            format = require 'lspkind'.cmp_format({})
+            format = function(entry, vim_item)
+                vim_item.abbr = string.sub(vim_item.abbr, 1, 100)
+                return require 'lspkind'.cmp_format({})(entry, vim_item)
+            end
         },
         mapping = {
             ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -18,6 +20,20 @@ function M.setup()
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = true,
             },
+            ['<C-n>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
+            ['<C-p>'] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }),
         },
         sources = {
             { name = 'nvim_lsp' },
@@ -27,7 +43,7 @@ function M.setup()
         },
     }
 
-    vim.cmd([[ autocmd FileType bzl lua require'cmp'.setup.buffer { sources = { { name = 'bazel' }, { name = 'buffer' } } } ]])
+    -- vim.cmd([[ autocmd FileType bzl lua require'cmp'.setup.buffer { sources = { { name = 'bazel' }, { name = 'buffer' } } } ]])
 end
 
 return M
