@@ -31,11 +31,11 @@ function M.setup()
     vim.g.project_path = vim.fn.getcwd()
     require 'nvim-tree'.setup {
         disable_netrw       = true,
-        update_cwd          = false,
+        update_cwd          = true,
         view                = {
             width = 40,
             side = 'left',
-            auto_resize = false,
+            auto_resize = true,
             mappings = {
                 custom_only = false,
                 list = {}
@@ -43,7 +43,7 @@ function M.setup()
         },
         update_focused_file = {
             enable      = true,
-            update_cwd  = false,
+            update_cwd  = true,
             ignore_list = { ".git" }
         },
         update_to_buf_dir   = {
