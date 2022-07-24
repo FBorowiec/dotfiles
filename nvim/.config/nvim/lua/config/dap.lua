@@ -87,6 +87,8 @@ function M.setup()
         type = "python",
         request = "attach",
         name = "Attach remote",
+        redirectOutput = true,
+        redirectOutputStream = "stdout",
         connect = function()
             local host = vim.fn.input "Host (default=127.0.0.1): "
             host = host ~= "" and host or "127.0.0.1"
@@ -127,19 +129,27 @@ function M.setup()
         require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
     end
 
-
-    require("dapui").setup({
-        sidebar = {
-            elements = {
-                -- Provide as ID strings or tables with "id" and "size" keys
-                { id = "scopes", size = 0.25 },
-                { id = "breakpoints", size = 0.25 },
-                { id = "watches", size = 00.25 },
+    require('dapui').setup({
+        layouts = {
+            {
+                elements = {
+                    'scopes',
+                    'breakpoints',
+                    'stacks',
+                    'watches',
+                },
+                size = 40,
+                position = 'left',
             },
-        },
-        tray = {
-            elements = { "repl" },
-        },
+            {
+                elements = {
+                    'repl',
+                    'console',
+                },
+                size = 10,
+                position = 'bottom',
+            }
+        }
     })
 end
 
@@ -147,7 +157,7 @@ local load_launchjs = function()
     require("dap.ext.vscode").load_launchjs()
 end
 if not pcall(load_launchjs) then
-    vim.notify("Failed to parse launch.json", "warn")
+    vim.notify("Failed to parse launch.json")
 end
 
 return M
