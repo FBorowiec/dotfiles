@@ -10,8 +10,7 @@ function M.setup()
             grep_previewer       = require('telescope.previewers').vim_buffer_vimgrep.new,
             qflist_previewer     = require('telescope.previewers').vim_buffer_qflist.new,
             file_ignore_patterns = { ".git/" },
-
-            vimgrep_arguments = {
+            vimgrep_arguments    = {
                 'rg',
                 '--color=never',
                 '--no-heading',
@@ -23,24 +22,16 @@ function M.setup()
                 '--ignore-file',
                 '.gitignore'
             },
-
-            mappings = {
+            mappings             = {
                 i = {
                     ["<C-x>"] = false,
                     ["<C-q>"] = require('telescope.actions').send_to_qflist,
-                },
-            }
-        },
-        extensions = {
-            fzf = {
-                override_generic_sorter = true,
-                override_file_sorter = true,
-                fuzzy = true,
-                case_mode = "smart_case",
+                    ['<C-u>'] = false,
+                    ['<C-d>'] = false,
+                }
             }
         }
     }
-    require('telescope').load_extension('fzf')
     require('telescope').load_extension('file_browser')
 end
 
