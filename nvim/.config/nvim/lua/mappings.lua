@@ -1,7 +1,8 @@
 -- GENERAL ---------------------------------------------------------------------
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
 -- map the leader key
+map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' -- 'vim.g' sets global variables
 map('', 'Q', '', {}) -- disable 'Q'
@@ -29,7 +30,7 @@ map('n', '<M-Down>', ':move +1<cr>', options)
 -- Faster writing / quitting
 map('n', '<leader>w', ':w<cr>', options)
 map('n', '<leader>q', ':q<cr>', options)
-map('n', '<leader>Q', ':q!<cr>', options)
+map('n', '<leader>Q', ':qa!<cr>', options)
 
 -- toggle nohighlight
 map('n', '<leader>nh', ':nohlsearch<cr>', options)
@@ -54,6 +55,10 @@ map('v', 'K', ':m \'<-2<CR>gv=gv', options)
 map('i', '<C-j>', '<Esc>:m .+1<cr>==', options)
 map('i', '<C-k>', '<Esc>:m .-2<cr>==', options)
 
+-- Remap for dealing with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- Quickfix and Location list
 map('n', '<C-j>', ':cnext<cr>', options)
 map('n', '<C-k>', ':cprev<cr>', options)
@@ -72,17 +77,17 @@ map('n', '<leader>x', ':!chmod +x %<cr>', options)
 
 -- FUNCTIONS -------------------------------------------------------------------
 -- switch between cpp header and source file
-vim.keymap.set('n', '<F2>', vim.fn.SwitchSourceHeader, options)
+map('n', '<F2>', vim.fn.SwitchSourceHeader, options)
 
 -- PLUGINS ---------------------------------------------------------------------
 -- LSP
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, options)
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, options)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, options)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, options)
+map('n', '<leader>rn', vim.lsp.buf.rename, options)
+map('n', '<leader>ca', vim.lsp.buf.code_action, options)
+map('n', '[d', vim.diagnostic.goto_prev, options)
+map('n', ']d', vim.diagnostic.goto_next, options)
 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options) -- replaced by telescope version
 map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, options)
+map('n', 'gi', vim.lsp.buf.implementation, options)
 -- vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options) -- replaced by telescope version
 map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options) -- replaced by telescope
@@ -114,7 +119,7 @@ map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme
 
 -- NvimTree -----------------------------------------------
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options) -- toggle Nvim Tree
-vim.keymap.set('n', '<leader>n', require 'config.nvimtree'.nvim_tree_find_file, options)
+map('n', '<leader>n', require 'config.nvim-tree'.nvim_tree_find_file, options)
 
 -- FLOATERM -----------------------------------------------
 vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
@@ -157,35 +162,36 @@ map('n', '<leader>gd', ':Gdiff<cr>', options)
 -- see config/gitsigns.lua
 
 -- BAZEL --------------------------------------------------
--- vim.api.nvim_create_autocmd("FileType", { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end }) -- breaks
-vim.keymap.set('n', 'gbt', vim.fn.GoToBazelTarget)
-vim.keymap.set('n', '<leader>bl', vim.fn.RunBazel)
-vim.keymap.set('n', '<leader>bd', require 'config.bazel'.DebugThisTest)
-vim.keymap.set('n', '<leader>by', require 'config.bazel'.YankLabel)
-vim.keymap.set('n', '<leader>bt', function() vim.fn.RunBazelHere("test " .. vim.g.bazel_config .. " -c opt") end)
-vim.keymap.set('n', '<leader>bb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c opt") end)
-vim.keymap.set('n', '<leader>br', function() vim.fn.RunBazelHere("run " .. vim.g.bazel_config .. " -c opt") end)
-vim.keymap.set('n', '<leader>bdb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c dbg --cxxopt=-O0 ") end)
+-- vim.api.nvim_create_autocmd("FileType",
+-- { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end }) -- breaks
+map('n', 'gbt', vim.fn.GoToBazelTarget)
+map('n', '<leader>bl', vim.fn.RunBazel)
+map('n', '<leader>bd', require 'config.bazel'.DebugThisTest)
+map('n', '<leader>by', require 'config.bazel'.YankLabel)
+map('n', '<leader>bt', function() vim.fn.RunBazelHere("test " .. vim.g.bazel_config .. " -c opt") end)
+map('n', '<leader>bb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c opt") end)
+map('n', '<leader>br', function() vim.fn.RunBazelHere("run " .. vim.g.bazel_config .. " -c opt") end)
+map('n', '<leader>bdb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c dbg ") end)
 
 -- DEBUGGING ----------------------------------------------
 local dap = require 'telescope'.extensions.dap
-vim.keymap.set('n', '<leader>dt', require 'dapui'.toggle)
-vim.keymap.set('n', '<leader>db', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>dB', ":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", options)
-vim.keymap.set('n', '<F5>', require 'dap'.continue)
-vim.keymap.set('n', '<F10>', require 'dap'.step_over)
-vim.keymap.set('n', '<F11>', require 'dap'.step_into)
-vim.keymap.set('n', '<F12>', require 'dap'.step_out)
-vim.keymap.set('n', '<F6>', require 'dap'.run_to_cursor)
-vim.keymap.set('n', '<leader>df', dap.frames)
-vim.keymap.set('n', '<leader>dc', dap.commands)
-vim.keymap.set('n', '<leader>de', require 'config.dap'.end_debug_session)
--- vim.keymap.setmap('n', '...', require'config.dap'.set_python_args_from_input)
--- vim.keymap.setmap('n', '...', require'dap'.repl.open)
--- vim.keymap.setmap('n', '...', require('dap.ui.widgets').hover)
--- vim.keymap.setmap('n', '...', require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle)
--- vim.keymap.setmap('n', '...', require'dap'.run_last())
--- vim.keymap.setmap('n', '...', require'dap'..set_breakpoint(nil, nil, vim.fn.input('Log point message: ')))
+map('n', '<leader>dt', require 'dapui'.toggle)
+map('n', '<leader>db', require 'dap'.toggle_breakpoint)
+map('n', '<leader>dB', ":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", options)
+map('n', '<F5>', require 'dap'.continue)
+map('n', '<F10>', require 'dap'.step_over)
+map('n', '<F11>', require 'dap'.step_into)
+map('n', '<F12>', require 'dap'.step_out)
+map('n', '<F6>', require 'dap'.run_to_cursor)
+map('n', '<leader>df', dap.frames)
+map('n', '<leader>dc', dap.commands)
+map('n', '<leader>de', require 'config.dap'.end_debug_session)
+-- map('n', '...', require'config.dap'.set_python_args_from_input)
+-- map('n', '...', require'dap'.repl.open)
+-- map('n', '...', require('dap.ui.widgets').hover)
+-- map('n', '...', require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).toggle)
+-- map('n', '...', require'dap'.run_last())
+-- map('n', '...', require'dap'..set_breakpoint(nil, nil, vim.fn.input('Log point message: ')))
 
 -- BARBAR -------------------------------------------------
 local barbar_opts = { noremap = true, silent = true, nowait = true }

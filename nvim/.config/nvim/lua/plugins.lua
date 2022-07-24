@@ -1,21 +1,22 @@
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
+    is_bootstrap = true
+    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    vim.cmd [[packadd packer.nvim]]
 end
-
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerSync', group = packer_group, pattern = 'plugins.lua' })
-
 -- Check "awesome-neovim plugins" on: https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
-return require('packer').startup(function(use)
+-- stylua: ignore start
+require('packer').startup(function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
 
     -- general
     use { 'inkarkat/vim-ReplaceWithRegister' } -- replace text with the contents of a register
     use { 'mbbill/undotree' } -- undotree
+    -- use { 'numToStr/Comment.nvim' }
     use { 'tpope/vim-commentary' } -- smart commenting with 'gcc'
-    use { 'machakann/vim-highlightedyank', config = function() require 'config.highlightedyank'.setup() end } -- highlight yanked section
     use { 'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
     use { 'nvim-lua/popup.nvim' }
     use { 'nvim-lua/plenary.nvim' }
@@ -39,7 +40,7 @@ return require('packer').startup(function(use)
     use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
 
     -- telescope
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
 
@@ -51,7 +52,11 @@ return require('packer').startup(function(use)
     use { 'arcticicestudio/nord-vim', config = function() require 'config.nord'.setup() end } -- the one and only
 
     -- appearance
-    use { 'lukas-reineke/indent-blankline.nvim', config = function() require 'indent_blankline'.setup { filetype = { 'cpp', 'python', 'json', 'bzl' } } end } -- adds indentation guides to all lines
+    -- adds indentation guides to all lines
+    use { 'lukas-reineke/indent-blankline.nvim', config = function() require 'indent_blankline'.setup {
+            filetype = { 'cpp', 'python', 'json', 'bzl' } }
+    end
+    }
     use { 'nvim-lualine/lualine.nvim', config = function() require 'config.lualine'.setup() end } -- bottom status line
     use { 'norcalli/nvim-colorizer.lua', config = function() require 'colorizer'.setup() end } -- colorize color hexes
     use {
@@ -69,13 +74,6 @@ return require('packer').startup(function(use)
         config = function()
             require 'alpha'.setup(require 'alpha.themes.dashboard'.opts)
         end
-    }
-
-    -- filetree
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function() require 'config.nvimtree'.setup() end
     }
 
     -- markdown
@@ -124,14 +122,62 @@ return require('packer').startup(function(use)
     use { 'folke/which-key.nvim', config = function() require 'config.which-key' end }
 
     -- github copilot
-    use { 'github/copilot.vim' }
+    -- use { 'github/copilot.vim' } -- was nice when it was free :/
 
     -- miscenallaneous
     use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
     use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
     use { 'sudormrfbin/cheatsheet.nvim' }
-    use { 'lewis6991/spellsitter.nvim' }
+    -- use { 'chrisbra/csv.vim' }
+    use { 'mzlogin/vim-markdown-toc' }
+    use {
+        'lewis6991/satellite.nvim',
+        config = function()
+            require('satellite').setup()
+        end
+    }
+    use {
+        'lewis6991/spellsitter.nvim',
+        config = function()
+            require('spellsitter').setup()
+        end
+    }
+
+    -- copilot
+    use { 'github/copilot.vim' }
 
     -- appearance - devicons - needs to be last
     use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
+
+    -- filetree
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function() require 'config.nvim-tree'.setup() end
+    }
+
+    if is_bootstrap then
+        require('packer').sync()
+    end
 end)
+-- stylua: ignore end
+
+-- When we are bootstrapping a configuration, it doesn't
+-- make sense to execute the rest of the init.lua.
+-- You'll need to restart nvim, and then it will work.
+if is_bootstrap then
+    print '=================================='
+    print '    Plugins are being installed   '
+    print '    Wait until Packer completes,  '
+    print '       then restart nvim          '
+    print '=================================='
+    return
+end
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    command = 'source <afile> | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
+})
