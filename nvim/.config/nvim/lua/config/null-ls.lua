@@ -1,17 +1,5 @@
 local M = {}
 
-local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(clients)
-            -- filter out clients that you don't want to use
-            return vim.tbl_filter(function(client)
-                return client.name ~= "clangd"
-            end, clients)
-        end,
-        bufnr = bufnr,
-    })
-end
-
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- add to your shared on_attach callback
@@ -31,9 +19,12 @@ end
 function M.setup()
     require("null-ls").setup({
         sources = {
-            -- python
-            require("null-ls").builtins.formatting.black,
-            require("null-ls").builtins.formatting.isort,
+            -- ansible-lint
+            require("null-ls").builtins.diagnostics.ansiblelint.with({
+                condition = function()
+                    return vim.fn.executable("ansible-lint") > 0
+                end,
+            }),
             -- bazel
             require("null-ls").builtins.diagnostics.buildifier,
             require("null-ls").builtins.formatting.buildifier.with({
@@ -44,12 +35,11 @@ function M.setup()
             -- cpp
             require("null-ls").builtins.formatting.clang_format,
             require("null-ls").builtins.formatting.cmake_format,
+            -- github actions workflow files
+            require("null-ls").builtins.diagnostics.actionlint,
+            -- git
+            require("null-ls").builtins.diagnostics.gitlint,
             -- json
-            require("null-ls").builtins.formatting.json_tool.with({
-                condition = function()
-                    return vim.fn.executable("python3") > 0
-                end,
-            }),
             require("null-ls").builtins.diagnostics.jsonlint.with({
                 condition = function()
                     return vim.fn.executable("jsonlint") > 0
@@ -60,12 +50,30 @@ function M.setup()
                     return vim.fn.executable("fixjson") > 0
                 end,
             }),
+            require("null-ls").builtins.formatting.json_tool.with({
+                condition = function()
+                    return vim.fn.executable("python3") > 0
+                end,
+            }),
+            -- lua
+            require("null-ls").builtins.diagnostics.luacheck,
+            require("null-ls").builtins.formatting.stylua,
             -- markdown
             require("null-ls").builtins.diagnostics.mdl,
+            -- python
+            -- require("null-ls").builtins.diagnostics.mypy,
+            require("null-ls").builtins.formatting.black,
+            require("null-ls").builtins.formatting.isort,
             -- sh
+            require("null-ls").builtins.diagnostics.zsh,
             require("null-ls").builtins.formatting.shfmt,
-            -- lua
-            require("null-ls").builtins.formatting.stylua,
+            require("null-ls").builtins.formatting.shellharden,
+            -- sql
+            -- require("null-ls").builtins.diagnostics.pg_format,
+            require("null-ls").builtins.formatting.pg_format,
+            require("null-ls").builtins.formatting.sqlfluff.with({
+                extra_args = { "--dialect", "postgres" }
+            }),
             -- misc
             require("null-ls").builtins.formatting.trim_newlines,
             require("null-ls").builtins.formatting.trim_whitespace,
@@ -73,12 +81,6 @@ function M.setup()
             require("null-ls").builtins.diagnostics.yamllint.with({
                 condition = function()
                     return vim.fn.executable("yamllint") > 0
-                end,
-            }),
-            -- ansible-lint
-            require("null-ls").builtins.diagnostics.ansiblelint.with({
-                condition = function()
-                    return vim.fn.executable("ansible-lint") > 0
                 end,
             }),
         },
