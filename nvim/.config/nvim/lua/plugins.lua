@@ -42,18 +42,18 @@ require('packer').startup(function(use)
     -- telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
+    use { 'nvim-telescope/telescope-live-grep-args.nvim' }
+    use { 'nvim-telescope/telescope-media-files.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
-    use {
-        'nvim-telescope/telescope-media-files.nvim',
-        config = function() require('telescope').load_extension('media_files') end
-    }
 
     -- colorschemes
     use { 'ChristianChiarulli/nvcode-color-schemes.vim' } -- VS Code-like colorscheme
     use { 'joshdick/onedark.vim' } -- Atom-like colorschemej
     use { 'morhetz/gruvbox' } -- gruuuuuuuuuuuuuuuuvbox colorscheme
     use { 'sainnhe/gruvbox-material' } -- gruuuuuuuuuuuuuuuuvbox material
+    use { 'marko-cerovac/material.nvim' }
     use { 'arcticicestudio/nord-vim', config = function() require 'config.nord'.setup() end } -- the one and only
+
 
     -- appearance
     -- adds indentation guides to all lines

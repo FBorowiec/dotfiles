@@ -65,6 +65,7 @@ function M.setup()
             require("null-ls").builtins.formatting.black,
             require("null-ls").builtins.formatting.isort,
             -- sh
+            require("null-ls").builtins.diagnostics.shellcheck,
             require("null-ls").builtins.diagnostics.zsh,
             require("null-ls").builtins.formatting.shfmt,
             require("null-ls").builtins.formatting.shellharden,

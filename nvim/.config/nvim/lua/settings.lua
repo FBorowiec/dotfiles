@@ -1,3 +1,6 @@
+-- update time
+vim.o.updatetime = 200
+
 -- relative line numbering
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -9,6 +12,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
+
+-- sign column
+vim.opt.signcolumn = "auto:2"
 
 -- enable mouse in all modes - before enabling this ask yourself: 'are you out of your mind?'
 -- vim.opt.mouse = "a"

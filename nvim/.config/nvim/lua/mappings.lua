@@ -96,8 +96,8 @@ map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr
 -- file pickers
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
 map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('  : ')})<cr>", options)
-map('n', '<leader>fl', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
+map('n', '<leader>fl', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", options)
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
 -- misc
 map('n', '<leader><space>t', "<cmd>lua require('telescope.builtin').treesitter()<cr>", options)
 map('n', '<leader><space>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", options)
