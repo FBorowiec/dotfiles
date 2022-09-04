@@ -220,3 +220,6 @@ map('n', '<A-r>', ':BufferCloseBuffersRight<CR>', barbar_opts)
 
 -- CHEATSHEET ---------------------------------------------
 map('n', '<leader>?', ':Cheatsheet<cr>', options)
+
+-- FOCUS --------------------------------------------------
+map('n', '<c-l>', ':FocusToggle<CR>', { silent = true })

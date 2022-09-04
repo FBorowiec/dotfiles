@@ -43,7 +43,11 @@ function M.setup()
         },
     }
 
-    vim.cmd([[ autocmd FileType bzl lua require'cmp'.setup.buffer { sources = { { name = 'bazel' }, { name = 'buffer' } } } ]])
+    vim.cmd(
+        [[
+            autocmd FileType bzl lua require'cmp'.setup.buffer { sources = { { name = 'bazel' }, { name = 'buffer' } } }
+        ]]
+    )
 end
 
 return M
