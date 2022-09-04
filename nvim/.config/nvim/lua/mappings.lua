@@ -89,7 +89,7 @@ map('n', ']d', vim.diagnostic.goto_next, options)
 map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
 map('n', 'gi', vim.lsp.buf.implementation, options)
 -- vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options) -- replaced by telescope version
-map('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
+map('n', '<leader>rl', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options) -- replaced by telescope
 
 -- TELESCOPE FUZZY FINDER ---------------------------------
@@ -119,7 +119,7 @@ map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme
 
 -- NvimTree -----------------------------------------------
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options) -- toggle Nvim Tree
-map('n', '<leader>n', require 'config.nvim-tree'.nvim_tree_find_file, options)
+map('n', '<leader>nt', require 'config.nvim-tree'.nvim_tree_find_file, options)
 
 -- FLOATERM -----------------------------------------------
 vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
@@ -171,7 +171,7 @@ map('n', '<leader>by', require 'config.bazel'.YankLabel)
 map('n', '<leader>bt', function() vim.fn.RunBazelHere("test " .. vim.g.bazel_config .. " -c opt") end)
 map('n', '<leader>bb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c opt") end)
 map('n', '<leader>br', function() vim.fn.RunBazelHere("run " .. vim.g.bazel_config .. " -c opt") end)
-map('n', '<leader>bdb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c dbg ") end)
+map('n', '<leader>bs', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c dbg ") end)
 
 -- DEBUGGING ----------------------------------------------
 local dap = require 'telescope'.extensions.dap

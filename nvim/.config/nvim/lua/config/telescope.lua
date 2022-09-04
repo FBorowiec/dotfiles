@@ -26,8 +26,12 @@ function M.setup()
                 i = {
                     ["<C-x>"] = false,
                     ["<C-q>"] = require('telescope.actions').send_to_qflist,
-                    ['<C-u>'] = false,
-                    ['<C-d>'] = false,
+                    ["<C-u>"] = false,
+                    ["<C-d>"] = false,
+                    ["<C-j><C-k>"] = require('telescope.actions').close,
+                },
+                n = {
+                    ["<C-j><C-k>"] = require('telescope.actions').close,
                 }
             }
         }
