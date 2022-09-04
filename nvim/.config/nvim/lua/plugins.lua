@@ -70,6 +70,7 @@ require('packer').startup(function(use)
         config = require('config.barbar').config,
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
+    use { 'beauwilliams/focus.nvim', config = function() require('focus').setup() end }
 
     -- startscreen alpha-nvim
     use {
@@ -140,10 +141,8 @@ require('packer').startup(function(use)
     -- use { 'chrisbra/csv.vim' }
     use { 'mzlogin/vim-markdown-toc' }
     use {
-        'lewis6991/satellite.nvim',
-        config = function()
-            require('satellite').setup()
-        end
+        'petertriho/nvim-scrollbar',
+        config = function() require 'scrollbar'.setup() end,
     }
     use {
         'lewis6991/spellsitter.nvim',
