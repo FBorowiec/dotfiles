@@ -43,6 +43,10 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
+    use {
+        'nvim-telescope/telescope-media-files.nvim',
+        config = function() require('telescope').load_extension('media_files') end
+    }
 
     -- colorschemes
     use { 'ChristianChiarulli/nvcode-color-schemes.vim' } -- VS Code-like colorscheme
@@ -83,11 +87,17 @@ require('packer').startup(function(use)
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-rhubarb' }
     use { 'lewis6991/gitsigns.nvim', config = function() require 'config.gitsigns'.setup() end }
-    use { 'rhysd/conflict-marker.vim' }
+    use { 'rhysd/conflict-marker.vim', config = function() require 'config.conflict-marker'.setup() end }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require 'config.treesitter'.setup() end }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function() require 'config.treesitter'.setup() end
+    }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    use { 'nvim-treesitter/nvim-treesitter-context' }
     use { 'nvim-treesitter/playground' }
 
     -- null-ls for autoformat
@@ -121,12 +131,11 @@ require('packer').startup(function(use)
     -- which key
     use { 'folke/which-key.nvim', config = function() require 'config.which-key' end }
 
-    -- github copilot
-    -- use { 'github/copilot.vim' } -- was nice when it was free :/
-
     -- miscenallaneous
-    use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end } -- change vim root folder automatically
-    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end } -- stabilize window when opening new ones
+    -- change vim root folder automatically
+    use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end }
+    -- stabilize window when opening new ones
+    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end }
     use { 'sudormrfbin/cheatsheet.nvim' }
     -- use { 'chrisbra/csv.vim' }
     use { 'mzlogin/vim-markdown-toc' }
