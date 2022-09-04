@@ -11,7 +11,7 @@
 [pull]
     default = current
 [credential]
-	helper = store
+    helper = store
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
