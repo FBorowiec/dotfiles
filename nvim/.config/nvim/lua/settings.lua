@@ -1,5 +1,5 @@
 -- update time
-vim.o.updatetime = 200
+vim.o.updatetime = 100
 
 -- relative line numbering
 vim.opt.relativenumber = true
