@@ -3,8 +3,8 @@ local M = {}
 function M.setup()
     require("harpoon").setup({
         menu = {
-            width = 120,
-            height = 40,
+            width = 140,
+            height = 30,
         }
     })
 end
