@@ -30,55 +30,21 @@ end
 function M.setup()
     vim.g.project_path = vim.fn.getcwd()
     require 'nvim-tree'.setup {
-        disable_netrw       = true,
-        update_cwd          = true,
-        view                = {
-            width = 40,
-            side = 'left',
-            -- auto_resize = true,
+        sort_by  = "case_sensitive",
+        view     = {
+            adaptive_size = true,
             mappings = {
                 custom_only = false,
-                list = {}
+                list = { key = "u", action = "dir_up" },
             }
         },
-        update_focused_file = {
-            enable      = true,
-            update_cwd  = true,
-            ignore_list = { ".git", ".git/" }
+        renderer = {
+            group_empty = true,
         },
-        -- update_to_buf_dir   = {
-        --     enable = false,
-        --     auto_open = true,
-        -- }
-    }
-
-    vim.g.nvim_tree_icons = {
-        -- default = '',
-        symlink = '',
-        git = {
-            unstaged = "✗",
-            staged = "✓",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "★",
-            deleted = "",
+        filters  = {
+            dotfiles = false,
+            custom = { "^.git$" }
         },
-        folder = {
-            arrow_open = "",
-            arrow_closed = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = "",
-        },
-        lsp = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        }
     }
 end
 
