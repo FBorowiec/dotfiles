@@ -31,14 +31,6 @@ require('packer').startup(function(use)
     use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
     use { 'alexander-born/cmp-bazel' }
 
-    -- lsp
-    use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
-    use { 'neovim/nvim-lspconfig', config = function() require 'config.nvim-lspconfig'.setup() end }
-    use { 'williamboman/nvim-lsp-installer', config = function() require 'config.nvim-lsp'.setup() end }
-    use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
-    use { 'aymericbeaumet/vim-symlink' }
-    use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
-
     -- telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use { 'nvim-telescope/telescope-file-browser.nvim' }
@@ -46,19 +38,22 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-media-files.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
 
+    -- Harpoon for most recent files editing
+    use { 'ThePrimeagen/harpoon', config = function() require 'config.harpoon'.setup() end }
+
     -- colorschemes
     use { 'ChristianChiarulli/nvcode-color-schemes.vim' } -- VS Code-like colorscheme
     use { 'joshdick/onedark.vim' } -- Atom-like colorschemej
-    use { 'morhetz/gruvbox' } -- gruuuuuuuuuuuuuuuuvbox colorscheme
-    use { 'sainnhe/gruvbox-material' } -- gruuuuuuuuuuuuuuuuvbox material
+    use { 'morhetz/gruvbox' } -- gruvbox colorscheme
+    use { 'sainnhe/gruvbox-material' } -- gruvbox material
     use { 'marko-cerovac/material.nvim' }
     use { 'arcticicestudio/nord-vim', config = function() require 'config.nord'.setup() end } -- the one and only
-
 
     -- appearance
     -- adds indentation guides to all lines
     use { 'lukas-reineke/indent-blankline.nvim', config = function() require 'indent_blankline'.setup {
-            filetype = { 'cpp', 'python', 'json', 'bzl' } }
+            filetype = { 'cpp', 'python', 'json', 'bzl' }
+        }
     end
     }
     use { 'nvim-lualine/lualine.nvim', config = function() require 'config.lualine'.setup() end } -- bottom status line
@@ -101,8 +96,15 @@ require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter-context' }
     use { 'nvim-treesitter/playground' }
 
-    -- null-ls for autoformat
+    -- lsp
+    use { 'williamboman/mason.nvim' }
+    use { 'williamboman/mason-lspconfig.nvim', config = function() require 'config.mason-lspconfig'.setup() end }
+    use { 'neovim/nvim-lspconfig', config = function() require 'config.nvim-lspconfig'.setup() end }
     use { 'jose-elias-alvarez/null-ls.nvim', config = function() require 'config.null-ls'.setup() end }
+    use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
+    use { 'aymericbeaumet/vim-symlink' }
+    use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
+    use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
 
     -- terminal
     use { 'voldikss/vim-floaterm', config = function() require 'config.floaterm'.setup() end }
@@ -114,9 +116,6 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-dap.nvim' }
     use { 'theHamsta/nvim-dap-virtual-text', config = function() require 'nvim-dap-virtual-text'.setup() end }
     -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
-
-    -- Harpoon for most recent files editing
-    use { 'ThePrimeagen/harpoon', config = function() require 'config.harpoon'.setup() end }
 
     -- bazel
     use { 'google/vim-maktaba' }
