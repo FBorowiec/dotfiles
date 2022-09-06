@@ -32,13 +32,6 @@ function M.setup()
             return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
         end,
         settings = {
-            -- python = {
-            --     analysis = {
-            --         autoSearchPaths = true,
-            --         diagnosticMode = "workspace",
-            --         useLibraryCodeForTypes = true
-            --     }
-            -- },
             pylsp = {
                 plugins = {
                     jedi_completion = {
