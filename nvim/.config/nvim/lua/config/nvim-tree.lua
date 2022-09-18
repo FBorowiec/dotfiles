@@ -36,7 +36,8 @@ function M.setup()
             mappings = {
                 custom_only = false,
                 list = { key = "u", action = "dir_up" },
-            }
+            },
+            relativenumber = true,
         },
         renderer = {
             group_empty = true,
