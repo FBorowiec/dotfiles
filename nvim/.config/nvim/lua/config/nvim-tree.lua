@@ -30,8 +30,8 @@ end
 function M.setup()
     vim.g.project_path = vim.fn.getcwd()
     require 'nvim-tree'.setup {
-        sort_by  = "case_sensitive",
-        view     = {
+        sort_by             = "case_sensitive",
+        view                = {
             adaptive_size = true,
             mappings = {
                 custom_only = false,
@@ -39,12 +39,17 @@ function M.setup()
             },
             relativenumber = true,
         },
-        renderer = {
+        renderer            = {
             group_empty = true,
         },
-        filters  = {
+        filters             = {
             dotfiles = false,
             custom = { "^.git$" }
+        },
+        update_focused_file = {
+            enable      = true,
+            update_cwd  = true,
+            ignore_list = { ".git", ".git/" }
         },
     }
 end
