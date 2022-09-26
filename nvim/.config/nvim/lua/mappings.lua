@@ -107,6 +107,7 @@ map('n', '<leader><space>l', "<cmd>lua require('telescope.builtin').loclist()<cr
 map('n', '<leader><space>s', "<cmd>lua require('telescope.builtin').search_history()<cr>", options)
 -- git pickers
 map('n', '<leader><space>gd', "<cmd>GDiff<cr>", options)
+map('n', '<leader><space>gD', "<cmd>0Gclog<cr>", options)
 map('n', '<leader><space>gc', "<cmd>lua require('telescope.builtin').git_commits()<cr>", options)
 map('n', '<leader><space>gb', "<cmd>lua require('telescope.builtin').git_branches()<cr>", options)
 map('n', '<leader><space>gh', "<cmd>lua require('telescope.builtin').git_stash()<cr>", options)
