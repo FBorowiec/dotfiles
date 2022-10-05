@@ -119,7 +119,7 @@ map('n', '<leader><space>vr', "<cmd>lua require('telescope.builtin').registers()
 map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme()<cr>", options)
 
 -- NvimTree -----------------------------------------------
-map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeRefresh<cr>', options) -- toggle Nvim Tree
+map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeCollapse<cr>', options) -- toggle Nvim Tree
 map('n', '<leader>nt', require 'config.nvim-tree'.nvim_tree_find_file, options)
 
 -- FLOATERM -----------------------------------------------
@@ -214,10 +214,10 @@ map('n', '<A-8>', ':BufferGoto 8<CR>', barbar_opts)
 map('n', '<A-9>', ':BufferGoto 9<CR>', barbar_opts)
 map('n', '<A-0>', ':BufferLast<CR>', barbar_opts)
 -- Close commands
-map('n', '<A-c>', ':BufferClose<CR>', barbar_opts)
-map('n', '<A-d>', ':BufferCloseAllButCurrent<CR>', barbar_opts)
-map('n', '<A-l>', ':BufferCloseBuffersLeft<CR>', barbar_opts)
-map('n', '<A-r>', ':BufferCloseBuffersRight<CR>', barbar_opts)
+map('n', '<A-/>', ':BufferClose<CR>', barbar_opts)
+map('n', '<A-;>', ':BufferCloseAllButCurrent<CR>', barbar_opts)
+-- map('n', '<A-l>', ':BufferCloseBuffersLeft<CR>', barbar_opts)
+-- map('n', '<A-r>', ':BufferCloseBuffersRight<CR>', barbar_opts)
 
 -- CHEATSHEET ---------------------------------------------
 map('n', '<leader>?', ':Cheatsheet<cr>', options)
