@@ -17,7 +17,7 @@ vim.opt.autoindent = true
 vim.opt.signcolumn = "auto:2"
 
 -- enable mouse in all modes - before enabling this ask yourself: 'are you out of your mind?'
--- vim.opt.mouse = "a"
+vim.opt.mouse = "" -- "a"
 
 -- misc
 vim.opt.nu = true -- show line numbers
