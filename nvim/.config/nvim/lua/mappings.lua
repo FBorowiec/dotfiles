@@ -66,7 +66,7 @@ map('n', '<leader><space>j', ':lnext<cr>', options)
 map('n', '<leader><space>k', ':lprev<cr>', options)
 
 -- Close all splits and go to last window
-map('n', ';q', '<C-w><C-O>', options)
+map('n', '<leader>;q', '<C-w><C-O>', options)
 
 -- Quick window resize
 map('n', '<leader>+', ':exe "resize " . (winheight(0) * 3/2)<cr>', options)
@@ -78,6 +78,7 @@ map('n', '<leader>x', ':!chmod +x %<cr>', options)
 -- FUNCTIONS -------------------------------------------------------------------
 -- switch between cpp header and source file
 map('n', '<F2>', vim.fn.SwitchSourceHeader, options)
+map('n', '<F1>', vim.fn.ToggleTransparency, options)
 
 -- PLUGINS ---------------------------------------------------------------------
 -- LSP
