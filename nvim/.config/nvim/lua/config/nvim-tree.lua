@@ -32,7 +32,8 @@ function M.setup()
     require 'nvim-tree'.setup {
         sort_by             = "case_sensitive",
         view                = {
-            adaptive_size = true,
+            adaptive_size = false,
+            width = 42,
             mappings = {
                 custom_only = false,
                 list = { key = "u", action = "dir_up" },
