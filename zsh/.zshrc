@@ -88,6 +88,7 @@ plugins=(
     ubuntu
     web-search
     zsh-autosuggestions
+    zsh-dircolors-nord
     zsh-interactive-cd
     zsh-navigation-tools
     zsh-vi-mode
@@ -167,3 +168,4 @@ alias k='k -h'
 export PATH="$PATH:/home/$USER/bin"
 export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
