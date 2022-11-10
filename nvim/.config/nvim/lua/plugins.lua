@@ -6,7 +6,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
     vim.cmd [[packadd packer.nvim]]
 end
--- Check "awesome-neovim plugins" on: https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
+
 -- stylua: ignore start
 require('packer').startup(function(use)
     -- Packer can manage itself
@@ -41,13 +41,9 @@ require('packer').startup(function(use)
     -- Harpoon for most recent files editing
     use { 'ThePrimeagen/harpoon', config = function() require 'config.harpoon'.setup() end }
 
-    -- colorschemes
-    use { 'ChristianChiarulli/nvcode-color-schemes.vim' } -- VS Code-like colorscheme
-    use { 'joshdick/onedark.vim' } -- Atom-like colorschemej
-    use { 'morhetz/gruvbox' } -- gruvbox colorscheme
-    use { 'sainnhe/gruvbox-material' } -- gruvbox material
-    use { 'marko-cerovac/material.nvim' }
-    use { 'arcticicestudio/nord-vim', config = function() require 'config.nord'.setup() end } -- the one and only
+    -- colorschemes: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes
+    use { 'EdenEast/nightfox.nvim' }
+    use { 'shaunsingh/nord.nvim', config = function() require 'config.nord'.setup() end }
 
     -- appearance
     -- adds indentation guides to all lines
@@ -85,16 +81,6 @@ require('packer').startup(function(use)
     use { 'lewis6991/gitsigns.nvim', config = function() require 'config.gitsigns'.setup() end }
     use { 'rhysd/conflict-marker.vim', config = function() require 'config.conflict-marker'.setup() end }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-
-    -- treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-        config = function() require 'config.treesitter'.setup() end
-    }
-    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-    use { 'nvim-treesitter/nvim-treesitter-context' }
-    use { 'nvim-treesitter/playground' }
 
     -- lsp
     use { 'williamboman/mason.nvim' }
@@ -142,6 +128,7 @@ require('packer').startup(function(use)
     use {
         'petertriho/nvim-scrollbar',
         config = function() require 'scrollbar'.setup() end,
+        requires = { 'lewis6991/gitsigns.nvim', opt = true }
     }
     use {
         'lewis6991/spellsitter.nvim',
@@ -149,6 +136,19 @@ require('packer').startup(function(use)
             require('spellsitter').setup()
         end
     }
+    -- easier match finding
+    use { 'kevinhwang91/nvim-hlslens', config = function() require 'config.scrollbar'.setup() end }
+
+    -- treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function() require 'config.treesitter'.setup() end
+    }
+    -- use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    -- use { 'nvim-treesitter/nvim-treesitter-context' }
+    -- use { 'nvim-treesitter/playground' }
+
 
     -- copilot
     use { 'github/copilot.vim' }
@@ -173,11 +173,11 @@ end)
 -- make sense to execute the rest of the init.lua.
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
-    print '=================================='
-    print '    Plugins are being installed   '
-    print '    Wait until Packer completes,  '
-    print '       then restart nvim          '
-    print '=================================='
+    print '================================='
+    print '   Plugins are being installed   '
+    print '   Wait until Packer completes,  '
+    print '      then restart nvim          '
+    print '================================='
     return
 end
 
