@@ -1,10 +1,11 @@
 local M = {}
 
 function M.setup()
+    vim.cmd("colorscheme nordfox") -- either this or theme = "nord" in the config below
     require('lualine').setup {
         options = {
             icons_enabled = true,
-            theme = 'nord',
+            -- theme = 'nord',
             component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
             disabled_filetypes = {},
