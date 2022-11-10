@@ -14,7 +14,8 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 
 -- sign column
-vim.opt.signcolumn = "auto:2"
+vim.opt.signcolumn = "yes"
+-- vim.cmd([[set signcolumn=number]])
 
 -- enable mouse in all modes - before enabling this ask yourself: 'are you out of your mind?'
 vim.opt.mouse = "" -- "a"
@@ -42,7 +43,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
 -- more space for messages
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.scrolloff = 16
 
 -- colors
