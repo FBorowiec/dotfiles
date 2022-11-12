@@ -152,9 +152,9 @@ require('packer').startup(function(use)
         run = ':TSUpdate',
         config = function() require 'config.treesitter'.setup() end
     }
-    -- use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-    -- use { 'nvim-treesitter/nvim-treesitter-context' }
-    -- use { 'nvim-treesitter/playground' }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    use { 'nvim-treesitter/nvim-treesitter-context' }
+    use { 'nvim-treesitter/playground' }
 
 
     -- copilot
