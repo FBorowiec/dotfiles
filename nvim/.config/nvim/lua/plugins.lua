@@ -123,13 +123,20 @@ require('packer').startup(function(use)
     -- stabilize window when opening new ones
     use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end }
     use { 'sudormrfbin/cheatsheet.nvim' }
-    -- use { 'chrisbra/csv.vim' }
+    use { 'chrisbra/csv.vim' }
     use { 'mzlogin/vim-markdown-toc' }
     use {
         'petertriho/nvim-scrollbar',
         config = function() require 'scrollbar'.setup() end,
         requires = { 'lewis6991/gitsigns.nvim', opt = true }
     }
+    -- alternative to nvim-scrollbar
+    -- use {
+    --     'lewis6991/satellite.nvim',
+    --     config = function()
+    --         require('satellite').setup()
+    --     end
+    -- }
     use {
         'lewis6991/spellsitter.nvim',
         config = function()
