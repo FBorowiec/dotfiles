@@ -65,6 +65,9 @@ vim.opt.autoread = true
 -- no space when concating
 vim.opt.joinspaces = false
 
+-- keeps the same screen lines in all split windows
+vim.cmd([[set splitkeep=topline]])
+
 -- cursor settings
 vim.cmd([[set guicursor=n-v-c:block-Cursor]])
 vim.cmd([[set guicursor+=i:ver100-iCursor]])

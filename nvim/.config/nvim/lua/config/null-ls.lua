@@ -61,7 +61,8 @@ function M.setup()
             -- markdown
             require("null-ls").builtins.diagnostics.mdl,
             -- python
-            -- require("null-ls").builtins.diagnostics.mypy,
+            require("null-ls").builtins.diagnostics.mypy,
+            require("null-ls").builtins.diagnostics.pylint,
             require("null-ls").builtins.formatting.black,
             require("null-ls").builtins.formatting.isort,
             -- sh

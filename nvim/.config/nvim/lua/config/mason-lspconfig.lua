@@ -28,28 +28,66 @@ local lua_settings = {
     },
 }
 
+local pyright_settings = {
+    settings = {
+        python = {
+            analysis = {
+                diagnosticMode = "openFilesOnly",
+                typeCheckingMode = "basic"
+            }
+        }
+    }
+}
+
 function M.setup()
     local servers = {
         "ansiblels",
+        "awk_ls",
         "bashls",
         "clangd",
         "cmake",
+        "cssls",
+        "cssmodules_ls",
         "dockerls",
+        "dotls",
+        "elixirls",
+        "elmls",
+        "emmet_ls",
         "eslint",
+        "glint",
+        "golangci_lint_ls",
         "gopls",
+        "gradle_ls",
         "grammarly",
+        "graphql",
+        "groovyls",
         "html",
-        "tsserver",
+        "jsonls",
+        "jsonnet_ls",
         "kotlin_language_server",
         "ltex",
+        "luau_lsp",
         "marksman",
-        "pylsp",
+        "opencl_ls",
+        "perlnavigator",
+        "prosemd_lsp",
+        "purescriptls",
+        "pyright",
+        "quick_lint_js",
+        "remark_ls",
         "rust_analyzer",
-        "sumneko_lua",
-        "sqlls",
         "solang",
-        "taplo",
+        "solc",
+        "solidity",
+        "sqlls",
+        "sqls",
+        "stylelint_lsp",
+        "sumneko_lua",
         "terraformls",
+        "texlab",
+        "tflint",
+        "tsserver",
+        "vimls",
         "yamlls",
     }
     require("mason").setup()
@@ -64,8 +102,8 @@ function M.setup()
         if server == "sumneko_lua" then
             config.settings = lua_settings
         end
-        if server == "pylsp" then
-            config.settings = { python = { analysis = { extraPaths = { vim.fn.getcwd() } } } }
+        if server == "pyright" then
+            config.settings = pyright_settings
         end
         require('lspconfig')[server].setup(config)
     end
