@@ -12,16 +12,45 @@ require('packer').startup(function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
 
+    -- core
+    use { 'nvim-lua/popup.nvim' }
+    use { 'nvim-lua/plenary.nvim' }
+
+    -- treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function() require 'config.treesitter'.setup() end
+    }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    use { 'nvim-treesitter/nvim-treesitter-context' }
+    use { 'nvim-treesitter/playground' }
+
+    -- lsp
+    use { 'williamboman/mason.nvim' }
+    use { 'williamboman/mason-lspconfig.nvim', config = function() require 'config.mason-lspconfig'.setup() end }
+    use { 'neovim/nvim-lspconfig', config = function() require 'config.nvim-lspconfig'.setup() end }
+    use { 'jose-elias-alvarez/null-ls.nvim', config = function() require 'config.null-ls'.setup() end }
+    use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
+    use { 'aymericbeaumet/vim-symlink' }
+    use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
+    use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
+
+    -- telescope
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+    use { 'nvim-telescope/telescope-file-browser.nvim' }
+    use { 'nvim-telescope/telescope-live-grep-args.nvim' }
+    use { 'nvim-telescope/telescope-media-files.nvim' }
+    use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
+
     -- general
     use { 'inkarkat/vim-ReplaceWithRegister' } -- replace text with the contents of a register
     use { 'mbbill/undotree' } -- undotree
     -- use { 'numToStr/Comment.nvim' }
     use { 'tpope/vim-commentary' } -- smart commenting with 'gcc'
     use { 'APZelos/blamer.nvim', config = function() require 'config.blamer'.setup() end } -- git blame
-    use { 'nvim-lua/popup.nvim' }
-    use { 'nvim-lua/plenary.nvim' }
 
-    -- cmp
+    -- cmp and snips
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
@@ -30,13 +59,6 @@ require('packer').startup(function(use)
     use { 'hrsh7th/vim-vsnip' }
     use { 'hrsh7th/nvim-cmp', config = function() require 'config.cmp'.setup() end }
     use { 'alexander-born/cmp-bazel' }
-
-    -- telescope
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-    use { 'nvim-telescope/telescope-file-browser.nvim' }
-    use { 'nvim-telescope/telescope-live-grep-args.nvim' }
-    use { 'nvim-telescope/telescope-media-files.nvim' }
-    use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
 
     -- Harpoon for most recent files editing
     use { 'ThePrimeagen/harpoon', config = function() require 'config.harpoon'.setup() end }
@@ -82,16 +104,6 @@ require('packer').startup(function(use)
     use { 'rhysd/conflict-marker.vim', config = function() require 'config.conflict-marker'.setup() end }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    -- lsp
-    use { 'williamboman/mason.nvim' }
-    use { 'williamboman/mason-lspconfig.nvim', config = function() require 'config.mason-lspconfig'.setup() end }
-    use { 'neovim/nvim-lspconfig', config = function() require 'config.nvim-lspconfig'.setup() end }
-    use { 'jose-elias-alvarez/null-ls.nvim', config = function() require 'config.null-ls'.setup() end }
-    use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
-    use { 'aymericbeaumet/vim-symlink' }
-    use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
-    use { 'folke/trouble.nvim', config = function() require 'trouble'.setup() end }
-
     -- terminal
     use { 'voldikss/vim-floaterm', config = function() require 'config.floaterm'.setup() end }
 
@@ -99,6 +111,7 @@ require('packer').startup(function(use)
     use { 'szw/vim-maximizer' }
     use { 'rcarriga/nvim-dap-ui' }
     use { 'mfussenegger/nvim-dap', config = function() require 'config.dap'.setup() end }
+    use { 'mfussenegger/nvim-dap-python', config = function() require 'dap-python'.setup() end }
     use { 'nvim-telescope/telescope-dap.nvim' }
     use { 'theHamsta/nvim-dap-virtual-text', config = function() require 'nvim-dap-virtual-text'.setup() end }
     -- use {'Pocco81/DAPInstall.nvim', config = function() require("dap-install").setup() end }
@@ -120,8 +133,6 @@ require('packer').startup(function(use)
     -- miscenallaneous
     -- change vim root folder automatically
     use { 'airblade/vim-rooter', config = function() require 'config.rooter'.setup() end }
-    -- stabilize window when opening new ones
-    use { 'luukvbaal/stabilize.nvim', config = function() require 'stabilize'.setup() end }
     use { 'sudormrfbin/cheatsheet.nvim' }
     use { 'chrisbra/csv.vim' }
     use { 'mzlogin/vim-markdown-toc' }
@@ -145,17 +156,6 @@ require('packer').startup(function(use)
     }
     -- easier match finding
     use { 'kevinhwang91/nvim-hlslens', config = function() require 'config.scrollbar'.setup() end }
-
-    -- treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-        config = function() require 'config.treesitter'.setup() end
-    }
-    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-    use { 'nvim-treesitter/nvim-treesitter-context' }
-    use { 'nvim-treesitter/playground' }
-
 
     -- copilot
     use { 'github/copilot.vim' }

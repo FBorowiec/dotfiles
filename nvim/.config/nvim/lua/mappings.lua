@@ -97,6 +97,7 @@ map('n', '<leader>rl', "<cmd>lua require('telescope.builtin').lsp_references()<c
 -- file pickers
 map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", options)
 map('n', '<leader>fb', "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR><esc>", options)
+-- "plugin" --iglob nvim/** --iglob !nvim/.config/nvim/lua
 map('n', '<leader>fl', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", options)
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", options)
 -- misc

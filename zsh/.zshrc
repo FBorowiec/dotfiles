@@ -129,6 +129,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Permanently alias vim to nvim
 alias vim="nvim"
+alias vi="nvim"
 
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
