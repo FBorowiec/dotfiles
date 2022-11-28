@@ -85,3 +85,8 @@ key_bindings:
   - {key: Equals, mods: Control, action: IncreaseFontSize}
   - {key: Minus, mods: Control, action: DecreaseFontSize}
 # - {key: F11, mods: None, action: ToggleFullscreen}
+
+shell:
+  program: /usr/bin/tmux
+  args:
+    - -u  # force UTF-8 in tmux
