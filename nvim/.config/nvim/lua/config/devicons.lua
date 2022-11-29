@@ -22,13 +22,13 @@ function M.setup()
                 name = "zsh",
                 cterm_color = "39"
             },
-            ['zshrc'] = {
+            ['.zshrc'] = {
                 icon = "",
                 color = "#81A1C1",
                 name = "zshrc",
                 cterm_color = "39"
             },
-            ['inputrc'] = {
+            ['.inputrc'] = {
                 icon = "",
                 color = "#81A1C1",
                 name = "inputrc",
@@ -76,6 +76,12 @@ function M.setup()
                 name = 'gitlint',
                 cterm_color = "203"
             },
+            ['.gitmodules'] = {
+                icon = '',
+                color = '#BF616A',
+                name = 'gitmodules',
+                cterm_color = "203"
+            },
             ['TODO'] = {
                 icon = '',
                 color = '#B48EAD',
@@ -83,49 +89,49 @@ function M.setup()
                 cterm_color = "183"
             },
             ['BUILD'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'BUILD',
                 cterm_color = "2"
             },
             ['WORKSPACE'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'WORKSPACE',
                 cterm_color = "2"
             },
             ['.bazeliskrc'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bazeliskrc',
                 cterm_color = "2"
             },
             ['.bazelrc'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bazelrc',
                 cterm_color = "2"
             },
             bazelrc = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bazelrc',
                 cterm_color = "2"
             },
             bzl = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bzl',
                 cterm_color = "2"
             },
             ['.bazelversion'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bazelversion',
                 cterm_color = "2"
             },
             ['.bazelignore'] = {
-                icon = '',
+                icon = '',
                 color = '#A3BE8C',
                 name = 'bazelversion',
                 cterm_color = "2"
