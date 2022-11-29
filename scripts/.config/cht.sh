@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-languages=`echo "cpp c python lua" | tr ' ' '\n'`
-core_utils=`echo "xargs find mv cp sed awk curl tar rg" | tr ' ' '\n'`
-
-selected=`printf "$languages\n$core_utils" | fzf`
+selected=$(cat ~/.config/.tmux-cht-languages ~/.config/.tmux-cht-command | fzf)
 if [[ -z $selected ]]; then
-    exit 0
+	exit 0
 fi
-read -p "Query: " query
 
-if printf $languages | grep -qs $selected; then
-    tmux neww bash -c "curl cht.sh/$selected/`echo $query | tr ' ' '+'` & while [ : ]; do sleep 1; done"
+read -p "Enter Query: " query
+
+if grep -qs "$selected" ~/.config/.tmux-cht-languages; then
+	query=$(echo "$query" | tr ' ' '+')
+	tmux neww bash -c "curl cht.sh/$selected/$(echo "$query" | tr ' ' '+') & while [ : ]; do sleep 1; done"
 else
-    tmux neww bash -c "curl cht.sh/$selected+$query & while [ : ]; do sleep 1; done"
+	tmux neww bash -c "curl cht.sh/$selected+$query & while [ : ]; do sleep 1; done"
 fi
