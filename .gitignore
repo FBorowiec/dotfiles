@@ -1,14 +1,17 @@
+# Nvim
 nvim/.config/nvim/autoload
 nvim/.config/nvim/plugin
 nvim/.config/nvim/plugged
 nvim/.config/nvim/undodir
 nvim/.config/nvim/.luarc.json
 
+# Spicetify
 spotify/.config/spicetify/Backup
 spotify/.config/spicetify/CustomApps
 spotify/.config/spicetify/Extracted
 spotify/.config/spicetify/config-xpui.ini
 
+# BetterDiscord
 discord/.config/BetterDiscord/data/betterdiscord.asar
 discord/.config/BetterDiscord/data/emotes.asar
 discord/.config/BetterDiscord/data/stable/custom.css
@@ -21,3 +24,6 @@ discord/.config/BetterDiscord/data/stable/settings.json
 package-lock.json
 package.json
 node_modules
+
+# Lua
+.luarc.json
