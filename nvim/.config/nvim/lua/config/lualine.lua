@@ -8,7 +8,7 @@ function M.setup()
             -- theme = 'nord',
             component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
-            disabled_filetypes = {},
+            disabled_filetypes = { 'packer', 'NvimTree' },
             always_divide_middle = false,
             globalstatus = false,
         },

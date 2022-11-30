@@ -74,7 +74,6 @@ function M.setup()
         "purescriptls",
         "pyright",
         "quick_lint_js",
-        "remark_ls",
         "rust_analyzer",
         "solang",
         "solc",
