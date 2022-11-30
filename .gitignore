@@ -16,3 +16,8 @@ discord/.config/BetterDiscord/data/stable/emotes.json
 discord/.config/BetterDiscord/data/stable/misc.json
 discord/.config/BetterDiscord/data/stable/plugins.json
 discord/.config/BetterDiscord/data/stable/settings.json
+
+# Remark for markdown - https://github.com/williamboman/nvim-lsp-installer/issues/519
+package-lock.json
+package.json
+node_modules
