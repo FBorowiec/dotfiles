@@ -33,7 +33,7 @@ local pyright_settings = {
         python = {
             analysis = {
                 diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "basic"
+                typeCheckingMode = "strict"
             }
         }
     }

@@ -40,6 +40,7 @@ function M.setup()
             { name = 'vsnip' },
             { name = 'path' },
             { name = 'buffer' },
+            { name = 'copilot' },
         },
     }
 

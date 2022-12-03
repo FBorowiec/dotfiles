@@ -159,6 +159,22 @@ require('packer').startup(function(use)
 
     -- copilot
     use { 'github/copilot.vim' }
+    -- use {
+    --     'zbirenbaum/copilot.lua',
+    --     event = 'VimEnter',
+    --     config = function()
+    --         vim.defer_fn(function()
+    --             require('copilot').setup()
+    --         end, 100)
+    --     end,
+    -- }
+    -- use {
+    --     'zbirenbaum/copilot-cmp',
+    --     after = { 'copilot.lua' },
+    --     config = function()
+    --         require('copilot_cmp').setup()
+    --     end
+    -- }
 
     -- appearance - devicons - needs to be last
     use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
