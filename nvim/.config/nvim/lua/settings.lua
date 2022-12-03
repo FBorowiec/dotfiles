@@ -34,7 +34,7 @@ vim.opt.shortmess:append("I") -- no splash screen
 
 -- search
 vim.opt.incsearch = true
-vim.opt.ignorecase = true
+vim.opt.ignorecase = false
 vim.opt.hlsearch = true
 
 -- backup

@@ -166,6 +166,12 @@ function M.setup()
                 name = 'pylintrc',
                 cterm_color = "8"
             },
+            ['.yamllint'] = {
+                icon = '',
+                color = '#6D8086',
+                name = 'yamllint',
+                cterm_color = "8"
+            },
             ['Jenkinsfile'] = {
                 icon = '',
                 color = '#ECEFF4',

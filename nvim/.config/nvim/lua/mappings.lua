@@ -49,6 +49,10 @@ map('n', 'n', 'nzzzv', options)
 map('n', 'N', 'Nzzzv', options)
 map('n', 'J', 'mzJ`z', options)
 
+-- Keeping it centered while moving halp page up/down
+map('n', '<C-u>', '<C-u>zz', options)
+map('n', '<C-d>', '<C-d>zz', options)
+
 -- Moving text
 map('v', 'J', ':m \'>+1<CR>gv=gv', options)
 map('v', 'K', ':m \'<-2<CR>gv=gv', options)
