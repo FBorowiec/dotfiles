@@ -166,6 +166,7 @@ gencompdb() {
 alias tmux_def='rm -r -- ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/resurrect/last'
 alias k='k -h'
 
+source ~/.config/.open_ai
 export PATH="$PATH:/home/$USER/bin"
 export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
