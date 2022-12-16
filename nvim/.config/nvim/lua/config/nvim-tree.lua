@@ -53,6 +53,9 @@ function M.setup()
             update_cwd  = true,
             ignore_list = { ".git", ".git/" }
         },
+        diagnostics         = {
+            enable = true,
+        },
     }
 end
 
