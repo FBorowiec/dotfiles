@@ -175,7 +175,16 @@ require('packer').startup(function(use)
     --         require('copilot_cmp').setup()
     --     end
     -- }
-
+    -- openai
+    -- Packer
+    use({
+        "jackMort/ChatGPT.nvim", config = function() require("chatgpt").setup() end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
     -- appearance - devicons - needs to be last
     use { 'kyazdani42/nvim-web-devicons', config = function() require 'config.devicons'.setup() end } -- dev icons
 

@@ -230,3 +230,7 @@ map('n', '<leader>?', ':Cheatsheet<cr>', options)
 
 -- FOCUS --------------------------------------------------
 map('n', '<c-l>', ':FocusToggle<CR>', { silent = true })
+
+-- ChatGPT ------------------------------------------------
+map('n', '<leader>fc', ':ChatGPT<cr>', options)
+map('n', '<leader><leader>fc', ':ChatGPTActAs<cr>', options)
