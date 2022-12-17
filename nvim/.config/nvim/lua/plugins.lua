@@ -41,6 +41,7 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-file-browser.nvim' }
     use { 'nvim-telescope/telescope-live-grep-args.nvim' }
     use { 'nvim-telescope/telescope-media-files.nvim' }
+    use { 'debugloop/telescope-undo.nvim' }
     use { 'nvim-telescope/telescope.nvim', config = function() require 'config.telescope'.setup() end }
 
     -- general
@@ -176,9 +177,8 @@ require('packer').startup(function(use)
     --     end
     -- }
     -- openai
-    -- Packer
     use({
-        "jackMort/ChatGPT.nvim", config = function() require("chatgpt").setup() end,
+        "jackMort/ChatGPT.nvim", config = function() require 'config.openai'.setup() end,
         requires = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",

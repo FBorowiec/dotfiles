@@ -149,7 +149,7 @@ map('n', '<leader>j', ":lua require('harpoon.ui').nav_next()<cr>", options) -- n
 map('n', '<leader>k', ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
 
 -- UNDOTREE -----------------------------------------------
-map('n', '<leader>u', ':UndotreeToggle<CR>', options)
+map('n', '<leader>u', ':Telescope undo<cr>', options)
 
 -- MARKDOWN PREVIEW ---------------------------------------
 map('n', '<leader><space>mp', ':MarkdownPreviewToggle<cr>', options)
