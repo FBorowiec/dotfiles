@@ -5,6 +5,7 @@ function M.setup()
     require('telescope').load_extension('file_browser')
     require('telescope').load_extension('media_files')
     require('telescope').load_extension('live_grep_args')
+    require('telescope').load_extension('undo')
     local lga_actions = require("telescope-live-grep-args.actions")
 
     require('telescope').setup {
