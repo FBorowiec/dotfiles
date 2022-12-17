@@ -5,7 +5,7 @@ local map = vim.keymap.set
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' -- 'vim.g' sets global variables
-map('', 'Q', '', {}) -- disable 'Q'
+map('n', 'Q', '', {}) -- disable 'Q'
 
 local options = { noremap = true }
 
@@ -41,6 +41,19 @@ map('n', 'Y', 'y$', options)
 -- deletes visual selection and pastes without changing default register
 map('v', 'p', '"_dP', options)
 
+-- copy to system clipboard
+map('n', '<leader>y', '"+y', options)
+map('v', '<leader>y', '"+y', options)
+map('n', '<leader>Y', '"+y$', options)
+
+-- paste from system clipboard
+map('n', '<leader>p', '"+p', options)
+map('v', '<leader>p', '"+p', options)
+
+-- move to void register
+map('n', '<leader>d', '"_d', options)
+map('v', '<leader>d', '"_d', options)
+
 -- go to first file on line
 map('n', 'gf', '^f/gf', options)
 
@@ -64,10 +77,10 @@ map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Quickfix and Location list
-map('n', '<C-j>', ':cnext<cr>', options)
-map('n', '<C-k>', ':cprev<cr>', options)
-map('n', '<leader><space>j', ':lnext<cr>', options)
-map('n', '<leader><space>k', ':lprev<cr>', options)
+map('n', '<C-j>', ':cnext<cr>zz', options)
+map('n', '<C-k>', ':cprev<cr>zz', options)
+map('n', '<leader><space>j', ':lnext<cr>zz', options)
+map('n', '<leader><space>k', ':lprev<cr>zz', options)
 
 -- Close all splits and go to last window
 map('n', '<leader>;q', '<C-w><C-O>', options)
@@ -78,6 +91,9 @@ map('n', '<leader>-', ':exe "resize " . (winheight(0) * 2/3)<cr>', options)
 
 -- Make current file executable
 map('n', '<leader>x', ':!chmod +x %<cr>', options)
+
+-- Quick rename
+map("n", "<leader><leader>rn", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- FUNCTIONS -------------------------------------------------------------------
 -- switch between cpp header and source file
