@@ -1,5 +1,5 @@
 -- update time
-vim.o.updatetime = 100
+vim.o.updatetime = 50
 
 -- relative line numbering
 vim.opt.relativenumber = true
@@ -26,7 +26,7 @@ vim.opt.wrap = false -- what is this? MS Word??
 vim.opt.swapfile = false -- no swap file. none.
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.errorbells = false -- disable error bells
-vim.opt.clipboard = "unnamed,unnamedplus" -- use + registers for clipboard
+-- vim.opt.clipboard = "unnamed,unnamedplus" -- use + registers for clipboard
 vim.opt.cursorline = true -- highlight current line
 vim.opt.encoding = "utf-8" -- use UTF-8 encoding
 vim.opt.shortmess:append("a") -- ignore annoying swapfile messages
@@ -35,7 +35,7 @@ vim.opt.shortmess:append("I") -- no splash screen
 -- search
 vim.opt.incsearch = true
 vim.opt.ignorecase = false
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 
 -- backup
 vim.opt.backup = false
