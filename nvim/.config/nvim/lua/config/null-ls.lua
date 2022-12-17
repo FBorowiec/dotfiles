@@ -71,7 +71,6 @@ function M.setup()
             require("null-ls").builtins.formatting.shfmt,
             require("null-ls").builtins.formatting.shellharden,
             -- sql
-            -- require("null-ls").builtins.diagnostics.pg_format,
             require("null-ls").builtins.formatting.pg_format,
             require("null-ls").builtins.formatting.sqlfluff.with({
                 extra_args = { "--dialect", "postgres" }
