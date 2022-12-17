@@ -101,9 +101,9 @@ function M.setup()
         if server == "sumneko_lua" then
             config.settings = lua_settings
         end
-        if server == "pyright" then
-            config.settings = pyright_settings
-        end
+        -- if server == "pyright" then
+        --     config.settings = pyright_settings
+        -- end
         require('lspconfig')[server].setup(config)
     end
 
