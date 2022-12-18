@@ -104,6 +104,7 @@ map('n', '<F1>', vim.fn.ToggleTransparency, options)
 -- LSP
 map('n', '<leader>rn', vim.lsp.buf.rename, options)
 map('n', '<leader>ca', vim.lsp.buf.code_action, options)
+map('n', '<leader>lr', ':LspRestart<cr>', options)
 map('n', '[d', vim.diagnostic.goto_prev, options)
 map('n', ']d', vim.diagnostic.goto_next, options)
 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options) -- replaced by telescope version
@@ -142,7 +143,7 @@ map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme
 
 -- NvimTree -----------------------------------------------
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeCollapse<cr>', options) -- toggle Nvim Tree
-map('n', '<leader>nt', require 'config.nvim-tree'.nvim_tree_find_file, options)
+map('n', '<leader>nt', ':nvim_tree_find_file()<cr>', options)
 
 -- FLOATERM -----------------------------------------------
 vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
@@ -189,8 +190,8 @@ map('n', '<leader>gd', ':Gdiffsplit<cr>', options)
 -- { pattern = "bzl", callback = function() map('n', 'gd', vim.fn.GoToBazelDefinition, { buffer = 0 }) end }) -- breaks
 map('n', 'gbt', vim.fn.GoToBazelTarget)
 map('n', '<leader>bl', vim.fn.RunBazel)
-map('n', '<leader>bd', require 'config.bazel'.DebugThisTest)
-map('n', '<leader>by', require 'config.bazel'.YankLabel)
+map('n', '<leader>bd', ':DebugThisTest()<cr>')
+map('n', '<leader>by', ':YankLabel()<cr>')
 map('n', '<leader>bt', function() vim.fn.RunBazelHere("test " .. vim.g.bazel_config .. " -c opt") end)
 map('n', '<leader>bb', function() vim.fn.RunBazelHere("build " .. vim.g.bazel_config .. " -c opt") end)
 map('n', '<leader>br', function() vim.fn.RunBazelHere("run " .. vim.g.bazel_config .. " -c opt") end)
@@ -208,7 +209,7 @@ map('n', '<F12>', require 'dap'.step_out)
 map('n', '<F6>', require 'dap'.run_to_cursor)
 map('n', '<leader>df', dap.frames)
 map('n', '<leader>dc', dap.commands)
-map('n', '<leader>de', require 'config.dap'.end_debug_session)
+map('n', '<leader>de', ':end_debug_session()')
 -- map('n', '...', require'config.dap'.set_python_args_from_input)
 -- map('n', '...', require'dap'.repl.open)
 -- map('n', '...', require('dap.ui.widgets').hover)

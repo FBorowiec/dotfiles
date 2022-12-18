@@ -1,19 +1,3 @@
-local function nvim_tree_find_file()
-    local function starts_with(String, Start)
-        return string.sub(String, 1, string.len(Start)) == Start
-    end
-
-    local cur_path = vim.fn.expand('%:p:h')
-
-    if starts_with(cur_path, vim.g.project_path) then
-        require('nvim-tree').find_file(true)
-    else
-        require('nvim-tree').refresh()
-        require('nvim-tree.lib').change_dir(cur_path)
-        require('nvim-tree').find_file(true)
-    end
-end
-
 local function nvim_tree_toggle_project()
     vim.cmd('lcd ' .. vim.g.project_path)
     require 'nvim-tree'.toggle()
