@@ -157,6 +157,12 @@ require 'nvim-web-devicons'.setup {
             name = 'coveragerc',
             cterm_color = "8"
         },
+        ['.luacheckrc'] = {
+            icon = '',
+            color = '#6D8086',
+            name = 'luacheckrc',
+            cterm_color = "8"
+        },
         ['.pylintrc'] = {
             icon = '',
             color = '#6D8086',

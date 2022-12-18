@@ -29,7 +29,7 @@ require('packer').startup(function(use)
             'j-hui/fidget.nvim',
         },
     }
-    use { 'jose-elias-alvarez/null-ls.nvim', config = function() require 'config.null-ls'.setup() end }
+    use { 'jose-elias-alvarez/null-ls.nvim' }
     use { 'ray-x/lsp_signature.nvim', config = function() require 'lsp_signature'.setup({ hint_enable = false }) end }
     use { 'aymericbeaumet/vim-symlink' }
     use { 'onsails/lspkind-nvim', config = function() require 'lspkind'.init() end }
@@ -50,6 +50,12 @@ require('packer').startup(function(use)
     use { 'debugloop/telescope-undo.nvim', requires = { 'mbbill/undotree' } }
     use { 'nvim-telescope/telescope.nvim' }
 
+    -- filetree
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+    }
+
     -- harpoon for most recent files editing
     use { 'ThePrimeagen/harpoon' }
 
@@ -64,12 +70,10 @@ require('packer').startup(function(use)
         requires = {
             -- autocompletion
             { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-cmdline' },
-            { 'hrsh7th/cmp-vsnip' },
-            { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lua' },
             { 'alexander-born/cmp-bazel' },
 
             -- snippets
@@ -95,7 +99,7 @@ require('packer').startup(function(use)
     -- DEBUGGING
     use { 'szw/vim-maximizer' }
     use { 'rcarriga/nvim-dap-ui' }
-    use { 'mfussenegger/nvim-dap', config = function() require 'config.dap'.setup() end }
+    use { 'mfussenegger/nvim-dap' }
     use { 'mfussenegger/nvim-dap-python', config = function() require 'dap-python'.setup() end }
     use { 'nvim-telescope/telescope-dap.nvim' }
     use { 'theHamsta/nvim-dap-virtual-text', config = function() require 'nvim-dap-virtual-text'.setup() end }
@@ -143,23 +147,23 @@ require('packer').startup(function(use)
 
     -- AI
     -- copilot
-    use { 'github/copilot.vim' }
-    -- use {
-    --     'zbirenbaum/copilot.lua',
-    --     event = 'VimEnter',
-    --     config = function()
-    --         vim.defer_fn(function()
-    --             require('copilot').setup()
-    --         end, 100)
-    --     end,
-    -- }
-    -- use {
-    --     'zbirenbaum/copilot-cmp',
-    --     after = { 'copilot.lua' },
-    --     config = function()
-    --         require('copilot_cmp').setup()
-    --     end
-    -- }
+    -- use { 'github/copilot.vim' }
+    use {
+        'zbirenbaum/copilot.lua',
+        event = 'VimEnter',
+        config = function()
+            vim.defer_fn(function()
+                require('copilot').setup()
+            end, 100)
+        end,
+    }
+    use {
+        'zbirenbaum/copilot-cmp',
+        after = { 'copilot.lua' },
+        config = function()
+            require('copilot_cmp').setup()
+        end
+    }
     -- openai
     use {
         'jackMort/ChatGPT.nvim',
@@ -178,7 +182,7 @@ require('packer').startup(function(use)
     -- bazel
     use { 'google/vim-maktaba' }
     use { 'bazelbuild/vim-bazel' }
-    use { 'alexander-born/bazel-vim', config = function() require 'config.bazel'.setup() end }
+    use { 'alexander-born/bazel-vim' }
 
     -- which key
     use { 'folke/which-key.nvim' }
@@ -196,14 +200,6 @@ require('packer').startup(function(use)
 
     -- appearance - devicons - needs to be last
     use { 'kyazdani42/nvim-web-devicons' } -- dev icons
-
-    -- filetree
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = { 'kyazdani42/nvim-web-devicons' },
-        config = function() require 'config.nvim-tree'.setup() end
-    }
-
     if is_bootstrap then
         require('packer').sync()
     end
