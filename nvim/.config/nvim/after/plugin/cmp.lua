@@ -75,12 +75,18 @@ cmp.setup.cmdline(':', {
     })
 })
 
--- Set up lspconfig.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
---     capabilities = capabilities
--- }
+-- nvim-cmp supports additional completion capabilities
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- for _, server in ipairs(lsp.servers) do
+--     require('lspconfig')[server].setup {
+--         capabilities = capabilities,
+--     }
+-- end
+
+-- Turn on lsp status information
+require('fidget').setup()
 
 vim.cmd(
     [[
