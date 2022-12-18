@@ -103,16 +103,18 @@ map('n', '<F1>', vim.fn.ToggleTransparency, options)
 -- PLUGINS ---------------------------------------------------------------------
 -- LSP
 map('n', '<leader>rn', vim.lsp.buf.rename, options)
+map('n', '<leader>rl', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
+-- vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options) -- replaced by telescope version
 map('n', '<leader>ca', vim.lsp.buf.code_action, options)
 map('n', '<leader>lr', ':LspRestart<cr>', options)
 map('n', '[d', vim.diagnostic.goto_prev, options)
 map('n', ']d', vim.diagnostic.goto_next, options)
 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options) -- replaced by telescope version
 map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
+map('n', 'gD', vim.lsp.buf.declaration, options) -- [g]o to [D]eclaration
 map('n', 'gi', vim.lsp.buf.implementation, options)
--- vim.keymap.set('n', '<leader>r', vim.lsp.buf.references, options) -- replaced by telescope version
-map('n', '<leader>rl', "<cmd>lua require('telescope.builtin').lsp_references()<cr>", options) -- telescope
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options) -- replaced by telescope
+map('n', '<leader>ds', "<cmd>lua require('telescope.builtin').lsp_document_symbols<cr>", options)
 
 -- TELESCOPE FUZZY FINDER ---------------------------------
 -- file pickers
@@ -141,7 +143,7 @@ map('n', '<leader><space>vc', "<cmd>lua require('telescope.builtin').commands()<
 map('n', '<leader><space>vr', "<cmd>lua require('telescope.builtin').registers()<cr>", options)
 map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme()<cr>", options)
 
--- NvimTree -----------------------------------------------
+-- NVIMTREE -----------------------------------------------
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeCollapse<cr>', options) -- toggle Nvim Tree
 map('n', '<leader>nt', ':nvim_tree_find_file()<cr>', options)
 
@@ -150,14 +152,6 @@ vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
 vim.g.floaterm_keymap_prev   = "<leader>tp" -- next terminal
 vim.g.floaterm_keymap_next   = "<leader>tn" -- previous terminal
 vim.g.floaterm_keymap_new    = "<leader>tf" -- create new terminal window
-
--- SPECTRE ------------------------------------------------
-map('n', '<C-F>', ":lua require('spectre').open()<cr>", options) -- run command :Spectre
-map('n', '<C-f>', ":lua require('spectre').open_visual({select_word=true})<cr>", options) -- search current word
-map('v', '<C-f>', ":lua require('spectre').open_visual()<cr>", options) -- search current word
-
--- SEARCH IN CURRENT FILE ---------------------------------
-map('n', '<leader>sp', ":lua require('spectre').open_file_search()<cr>", options)
 
 -- HARPOON ------------------------------------------------
 map('n', '<S-h>', ":lua require('harpoon.mark').add_file()<cr>", options)
@@ -248,6 +242,6 @@ map('n', '<leader>?', ':Cheatsheet<cr>', options)
 -- FOCUS --------------------------------------------------
 map('n', '<c-l>', ':FocusToggle<CR>', { silent = true })
 
--- ChatGPT ------------------------------------------------
+-- CHATGPT ------------------------------------------------
 map('n', '<leader>fc', ':ChatGPT<cr>', options)
 map('n', '<leader><leader>fc', ':ChatGPTActAs<cr>', options)
