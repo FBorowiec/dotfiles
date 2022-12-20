@@ -211,6 +211,12 @@ require 'nvim-web-devicons'.setup {
             name = 'msg',
             cterm_color = "15"
         },
+        pine = {
+            icon = '',
+            color = '#008000',
+            name = 'msg',
+            cterm_color = "15"
+        },
         csv = {
             icon = '',
             color = '#A3BE8C',
