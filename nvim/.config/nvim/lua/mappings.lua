@@ -147,11 +147,9 @@ map('n', '<leader><space>vt', "<cmd>lua require('telescope.builtin').colorscheme
 map('n', '<C-p>', ':NvimTreeToggle<cr>:NvimTreeCollapse<cr>', options) -- toggle Nvim Tree
 map('n', '<leader>nt', ':nvim_tree_find_file()<cr>', options)
 
--- FLOATERM -----------------------------------------------
-vim.g.floaterm_keymap_toggle = "<leader>tt" -- toggle terminal
-vim.g.floaterm_keymap_prev   = "<leader>tp" -- next terminal
-vim.g.floaterm_keymap_next   = "<leader>tn" -- previous terminal
-vim.g.floaterm_keymap_new    = "<leader>tf" -- create new terminal window
+-- TOGGLETERM ---------------------------------------------
+map('n', '<leader>tt', ':ToggleTerm direction=float<cr>', options)
+map('t', '<leader>tt', '<C-\\><C-n>:ToggleTerm<cr>', options)
 
 -- HARPOON ------------------------------------------------
 map('n', '<S-h>', ":lua require('harpoon.mark').add_file()<cr>", options)
