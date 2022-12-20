@@ -94,7 +94,7 @@ require('packer').startup(function(use)
 
 
     -- TERMINAL
-    use { 'voldikss/vim-floaterm' }
+    use { 'akinsho/toggleterm.nvim', tag = '*' }
 
     -- DEBUGGING
     use { 'szw/vim-maximizer' }
