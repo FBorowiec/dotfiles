@@ -56,7 +56,7 @@ require("null-ls").setup {
         require("null-ls").builtins.diagnostics.luacheck,
         require("null-ls").builtins.formatting.stylua,
         -- markdown
-        require("null-ls").builtins.diagnostics.mdl,
+        -- require("null-ls").builtins.diagnostics.mdl,
         -- python
         require("null-ls").builtins.diagnostics.mypy,
         require("null-ls").builtins.diagnostics.pylint,
