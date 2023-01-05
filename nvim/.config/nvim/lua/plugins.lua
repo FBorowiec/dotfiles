@@ -62,6 +62,7 @@ require('packer').startup(function(use)
     -- general
     use { 'inkarkat/vim-ReplaceWithRegister' } -- replace text with the contents of a register
     use { 'tpope/vim-commentary' } -- smart commenting with 'gcc'
+    use { 'asiryk/auto-hlsearch.nvim' }
     -- use { 'numToStr/Comment.nvim' }
 
     -- AUTOCOMPLETION AND SNIPPETS
