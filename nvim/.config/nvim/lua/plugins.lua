@@ -48,6 +48,7 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-live-grep-args.nvim' }
     use { 'nvim-telescope/telescope-media-files.nvim' }
     use { 'debugloop/telescope-undo.nvim', requires = { 'mbbill/undotree' } }
+    use { 'xiyaowong/telescope-emoji.nvim' }
     use { 'nvim-telescope/telescope.nvim' }
 
     -- filetree
