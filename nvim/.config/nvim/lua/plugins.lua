@@ -111,6 +111,7 @@ require('packer').startup(function(use)
     -- colorschemes: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Colorschemes
     use { 'EdenEast/nightfox.nvim' }
     use { 'shaunsingh/nord.nvim' }
+    use { 'AlexvZyl/nordic.nvim' }
 
     -- adds indentation guides to all lines
     use { 'lukas-reineke/indent-blankline.nvim', config = function() require 'indent_blankline'.setup {

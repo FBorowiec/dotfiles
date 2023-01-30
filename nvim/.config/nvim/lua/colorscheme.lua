@@ -7,7 +7,7 @@ vim.cmd([[
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     endif
     set background=dark
-    colorscheme nordfox
+    colorscheme nordic
     set guifont=DroidSansMono\ Nerd\ Font\ 11
     highlight Normal ctermbg=none guibg=none
     highlight NonText ctermbg=none guibg=none

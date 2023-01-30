@@ -1,4 +1,4 @@
-vim.cmd("colorscheme nordfox") -- either this or theme = "nord" in the config below
+vim.cmd("colorscheme nordic") -- either this or theme = "nord" in the config below
 require('lualine').setup {
     options = {
         icons_enabled = true,
