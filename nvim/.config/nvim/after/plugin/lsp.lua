@@ -64,6 +64,7 @@ local servers = {
     "kotlin_language_server",
     "ltex",
     "luau_lsp",
+    "lua_ls",
     "marksman",
     "opencl_ls",
     "perlnavigator",
@@ -78,7 +79,6 @@ local servers = {
     -- "sqlls",
     -- "sqls",
     "stylelint_lsp",
-    "sumneko_lua",
     "terraformls",
     "texlab",
     "tflint",
@@ -96,7 +96,7 @@ capabilities.offsetEncoding = { "utf-16" }
 
 for _, server in pairs(servers) do
     local config = { capabilities = capabilities }
-    if server == "sumneko_lua" then
+    if server == "lua_ls" then
         config.settings = lua_settings
     end
     -- if server == "pyright" then
