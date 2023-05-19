@@ -229,8 +229,8 @@ require 'nvim-web-devicons'.setup {
             name = 'xlsx',
             cterm_color = "155"
         }
-    };
+    },
     -- globally enable default icons (default to false)
     -- will get overriden by `get_icons` option
-    default = true;
+    default = true,
 }
