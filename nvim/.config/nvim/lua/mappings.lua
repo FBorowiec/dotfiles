@@ -73,8 +73,8 @@ map('i', '<C-j>', '<Esc>:m .+1<cr>==', options)
 map('i', '<C-k>', '<Esc>:m .-2<cr>==', options)
 
 -- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Quickfix and Location list
 map('n', '<C-j>', ':cnext<cr>zz', options)
@@ -111,7 +111,7 @@ map('n', '[d', vim.diagnostic.goto_prev, options)
 map('n', ']d', vim.diagnostic.goto_next, options)
 -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, options) -- replaced by telescope version
 map('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", options) -- telescope
-map('n', 'gD', vim.lsp.buf.declaration, options) -- [g]o to [D]eclaration
+map('n', 'gD', vim.lsp.buf.declaration, options)                                       -- [g]o to [D]eclaration
 map('n', 'gi', vim.lsp.buf.implementation, options)
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist, options) -- replaced by telescope
 map('n', '<leader>ds', "<cmd>lua require('telescope.builtin').lsp_document_symbols<cr>", options)

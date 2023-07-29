@@ -20,6 +20,7 @@ require 'nvim-tree'.setup {
             list = { key = "u", action = "dir_up" },
         },
         relativenumber = true,
+        side = "right",
     },
     renderer            = {
         group_empty = true,
