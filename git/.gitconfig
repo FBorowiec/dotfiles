@@ -30,3 +30,5 @@
     prompt = false
 [core]
     excludesfile = ~/.config/gitignore
+[init]
+    defaultBranch = main
