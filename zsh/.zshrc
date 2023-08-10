@@ -127,9 +127,6 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Permanently alias vim to nvim
-alias vim="nvim"
-alias vi="nvim"
 
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
@@ -148,8 +145,6 @@ function preexec {
 
 source ~/.inputrc
 
-alias svim='sudo -E nvim'
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
@@ -163,8 +158,20 @@ gencompdb() {
     rm ${BAZEL_ROOT}/compile_commands.json.bak 2> /dev/null;
 }
 
+# Use neovim in sudo mode
+alias svim='sudo -E nvim'
+# Reset tmux config
 alias tmux_def='rm -r -- ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/resurrect/last'
+# Move verbose ls
 alias k='k -h'
+# Permanently alias vim to nvim
+alias vim="nvim"
+alias vi="nvim"
+# Lazygit
+alias lg="lazygit"
+# Alias for Python3.11
+alias py='python3.11'
+
 
 source ~/.config/.open_ai
 export PATH="$PATH:/home/$USER/bin"
