@@ -1,34 +1,52 @@
-[alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
 [user]
     name = Franek Borowiec
     email = franek.borowiec@gmail.com
+
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
+
 [core]
     editor = nvim
+    pager = delta
+    excludesfile = ~/.config/gitignore
+
+[interactive]
+    diffFilter = delta --color-only
+
 [push]
     default = current
+
 [pull]
     default = current
     rebase = true
+
+[merge]
+    tool = nvim
+    conflictstyle = diff3
+
 [rebase]
     autoStash = true
+
 [credential]
     helper = store
+
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
 [diff]
-    tool = vimdiff
+    colorMoved = default
+
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-[merge]
-    tool = nvim
-[mergetool]
     prompt = false
-[core]
-    excludesfile = ~/.config/gitignore
+
 [init]
     defaultBranch = main
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color
