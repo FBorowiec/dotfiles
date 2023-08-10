@@ -172,7 +172,7 @@ alias lg="lazygit"
 # Alias for Python3.11
 alias py='python3.11'
 
-
+# Copilot
 source ~/.config/.open_ai
 export PATH="$PATH:/home/$USER/bin"
 export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
