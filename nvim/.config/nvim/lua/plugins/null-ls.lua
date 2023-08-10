@@ -58,10 +58,10 @@ return {
     table.insert(opts.sources, nls.builtins.diagnostics.luacheck)
     table.insert(opts.sources, nls.builtins.formatting.stylua)
     -- markdown
-    -- table.insert(opts.sources, nls.builtins.diagnostics.mdl)
+    table.insert(opts.sources, nls.builtins.diagnostics.mdl)
     -- python
     table.insert(opts.sources, nls.builtins.diagnostics.mypy)
-    -- table.insert(opts.sources, nls.builtins.diagnostics.pylint)
+    table.insert(opts.sources, nls.builtins.diagnostics.pylint)
     table.insert(opts.sources, nls.builtins.formatting.black)
     table.insert(opts.sources, nls.builtins.formatting.isort)
     -- sh
