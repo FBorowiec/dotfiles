@@ -33,7 +33,7 @@ map("n", "<F2>", vim.fn.SwitchSourceHeader, options)
 map("n", "<F1>", ":TransparentToggle<cr>", options)
 
 -- Harpoon
-map("n", "<S-h>", ":lua require('harpoon.mark').add_file()<cr>", options)
+map("n", "<A-h>", ":lua require('harpoon.mark').add_file()<cr>", options)
 map("n", "<C-h>", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
 map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
 map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
