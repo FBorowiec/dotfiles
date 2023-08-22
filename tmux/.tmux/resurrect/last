@@ -1,0 +1,17 @@
+pane	Main	1	1	:*	0	foobuntu	:/home/fra	1	zsh	:zsh
+pane	Main	2	0	:	0	foobuntu	:/home/fra/dotfiles	1	zsh	:zsh
+pane	Main	3	0	:	0	foobuntu	:/home/fra/ansible	1	zsh	:zsh
+pane	Main	4	0	:	0	foobuntu	:/home/fra/dev/ta_bot/main	1	zsh	:zsh
+pane	Main	5	0	:	0	foobuntu	:/home/fra/dev/ta_backtester/main	1	zsh	:zsh
+pane	Main	6	0	:	0	foobuntu	:/home/fra/dev	1	zsh	:zsh
+pane	Main	7	0	:	0	foobuntu	:/home/fra	1	zsh	:zsh
+pane	Main	8	0	:-	0	foobuntu	:/home/fra	1	btop	:zsh
+window	Main	1	:Home	1	:*	bf9d,282x73,0,0,0	off
+window	Main	2	:Dotfiles	0	:	bf9e,282x73,0,0,1	off
+window	Main	3	:Ansible	0	:	bf9f,282x73,0,0,2	off
+window	Main	4	:Dev 1	0	:	bfa0,282x73,0,0,3	off
+window	Main	5	:Dev 2	0	:	bfa1,282x73,0,0,4	off
+window	Main	6	:Dev 3	0	:	bfa2,282x73,0,0,5	off
+window	Main	7	:SSH	0	:	bfa3,282x73,0,0,6	off
+window	Main	8	:BTOP	0	:-	bfa4,282x73,0,0,7	off
+state	Main	
