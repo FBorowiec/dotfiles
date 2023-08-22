@@ -169,8 +169,10 @@ alias vim="nvim"
 alias vi="nvim"
 # Lazygit
 alias lg="lazygit"
-# Alias for Python3.11
-alias py='python3.11'
+# Ranger
+alias rr="ranger"
+
+alias git-make-worktree="~/.config/worktree.sh"
 
 # Copilot
 source ~/.config/.open_ai
