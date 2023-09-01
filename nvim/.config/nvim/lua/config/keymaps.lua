@@ -29,9 +29,6 @@ map("n", "<C-k>", ":cprev<cr>zz", options)
 -- Switch between cpp header and source file
 map("n", "<F2>", vim.fn.SwitchSourceHeader, options)
 
--- Toggle transparency
-map("n", "<F1>", ":TransparentToggle<cr>", options)
-
 -- Harpoon
 map("n", "<A-h>", ":lua require('harpoon.mark').add_file()<cr>", options)
 map("n", "<C-h>", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
