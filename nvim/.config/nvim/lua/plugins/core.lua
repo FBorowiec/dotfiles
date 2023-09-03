@@ -63,4 +63,5 @@ return {
       require("focus").setup()
     end,
   },
+  { "echasnovski/mini.pairs", enabled = false },
 }
