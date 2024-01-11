@@ -8,7 +8,7 @@ if [[ -e $HOME/.zshrc ]]; then
 	rm "$HOME"/.zshrc
 fi
 
-for folder in "${STOW_FOLDERS[@]}"; do
+for folder in $STOW_FOLDERS; do
 	stow -D "$folder"
 	stow "$folder"
 done
