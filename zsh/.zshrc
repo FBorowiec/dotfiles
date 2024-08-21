@@ -81,7 +81,6 @@ plugins=(
     k
     docker
     docker-compose
-    docker-machine
     fzf-tab
     pip
     thefuck
@@ -174,9 +173,5 @@ alias rr="ranger"
 
 alias git-make-worktree="~/.config/worktree.sh"
 
-# Copilot
-source ~/.config/.open_ai
 export PATH="$PATH:/home/$USER/bin"
-export SPICETIFY_INSTALL="/home/$USER/spicetify-cli"
-export PATH="$SPICETIFY_INSTALL:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
