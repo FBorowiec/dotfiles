@@ -175,3 +175,39 @@ alias git-make-worktree="~/.config/worktree.sh"
 
 export PATH="$PATH:/home/$USER/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/home/sf33267/.local/bin"
+export PATH="/home/sf33267/go/bin:$PATH"
+
+bazel() {
+    local args=("$@")
+    local context_flag=false
+
+    # Iterate through arguments to check for --context
+    for arg in "${args[@]}"; do
+        if [[ "$arg" == "--errors" ]]; then
+            context_flag=true
+            # Remove --context from the arguments
+            args=("${args[@]/$arg}")
+            break
+        fi
+        if [[ "$arg" == "--iwyu" ]]; then
+            context_flag=true
+            # Remove --context from the arguments
+            args=("${args[@]/$arg}")
+            break
+        fi
+    done
+
+
+    # Execute the bazel command with or without the context grep
+    if $context_flag; then
+        if [[ "$arg" == "--errors" ]]; then
+            command bazel "${args[@]}" 2>&1 | grep -ie error\: -C1
+        fi
+        if [[ "$arg" == "--iwyu" ]]; then
+            command bazel "${args[@]}" 2>&1 | grep -ie IWYU\: -C5
+        fi
+    else
+        command bazel "${args[@]}"
+    fi
+}
