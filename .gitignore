@@ -6,6 +6,7 @@ nvim/.config/nvim/undodir
 nvim/.config/nvim/.luarc.json
 nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/lazyvim.json
+**/lazy-lock.json
 
 # Spicetify
 spotify/.config/spicetify/Backup
@@ -33,5 +34,6 @@ node_modules
 # Python
 .mypy_cache
 
-# Nvim
-**/lazy-lock.json
+# Tmux
+**/tmux_resurrect_*
+tmux/.tmux/resurrect/last
