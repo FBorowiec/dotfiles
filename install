@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS="alacritty btop discord dwm git mutt nvim ranger scripts spotify tealdeer terminator tmux zsh"
+	STOW_FOLDERS="alacritty btop git nvim ranger scripts tealdeer tmux zsh"
 fi
 
 if [[ -e $HOME/.zshrc ]]; then
 	rm "$HOME"/.zshrc
 fi
 
-for folder in $STOW_FOLDERS; do
+for folder in "${STOW_FOLDERS[@]}"; do
 	stow -D "$folder"
 	stow "$folder"
 done
