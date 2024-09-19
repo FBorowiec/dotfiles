@@ -32,3 +32,6 @@ node_modules
 
 # Python
 .mypy_cache
+
+# Nvim
+**/lazy-lock.json
