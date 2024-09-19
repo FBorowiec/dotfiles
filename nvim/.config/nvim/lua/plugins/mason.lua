@@ -12,7 +12,6 @@ return {
         "isort",
         "mypy",
         "pylint",
-        "pyright",
         "ruff",
         "ruff-lsp",
 
@@ -33,6 +32,7 @@ return {
         -- "pyment",
         -- "pyproject-flake8",
         -- "pyre",
+        -- "pyright",
         -- "python-lsp-server",
         -- "reorder-python-imports",
         -- "sourcery",
@@ -89,7 +89,7 @@ return {
 
         -----------------------------
         -- MARKDOWN / TEXT
-        "grammarly-languageserver grammarly",
+        -- "grammarly-languageserver grammarly",
         "ltex-ls",
         "markdown-oxide",
         "markdown-toc",
@@ -130,7 +130,7 @@ return {
         "sqls",
 
         -----------------------------
-        -- SQL
+        -- c++
         "neocmakelsp",
         "cmake-language-server",
         "cmakelang",
