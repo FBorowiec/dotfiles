@@ -41,9 +41,5 @@ map("n", "<C-k>", ":cprev<cr>zz", options)
 -- Maximizer
 map("n", "<leader>m", ":MaximizerToggle!<cr>", options)
 --
--- -- Git fugitive
--- map("n", "<leader>gj", ":diffget //3<cr>", options)
--- map("n", "<leader>gf", ":diffget //2<cr>", options)
---
 -- -- Focus
 -- map("n", "<c-l>", ":FocusToggle<CR>", { silent = true })
