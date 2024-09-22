@@ -1,0 +1,37 @@
+# i3 config file
+
+set $mod Mod1
+
+# Font
+font pango:Hack Regular 10
+
+# Tokyo Night Colors
+set $bg-color           #24283b
+set $inactive-bg-color  #1f2335
+set $text-color         #c0caf5
+set $inactive-text-color #565f89
+set $urgent-bg-color    #f7768e
+
+# Window colors
+client.focused          $bg-color $bg-color $text-color $text-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $inactive-text-color
+client.urgent           $urgent-bg-color $urgent-bg-color $text-color $text-color
+
+# Gaps configuration
+gaps inner 20
+gaps outer 20
+
+# Smart gaps
+smart_gaps on
+
+# Background wallpaper
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper.jpg
+
+# Start picom for transparency
+exec --no-startup-id picom
+
+# Keybindings
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d exec rofi -show drun
+
+# Additional configurations...
