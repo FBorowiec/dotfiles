@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS="alacritty btop git nvim ranger scripts tealdeer tmux zsh"
+	STOW_FOLDERS=("alacritty" "btop" "git" "nvim" "ranger" "scripts" "tealdeer" "tmux" "zsh")
 fi
 
 if [[ -e $HOME/.zshrc ]]; then
-	rm "$HOME"/.zshrc
+	rm "$HOME/.zshrc"
 fi
 
 for folder in "${STOW_FOLDERS[@]}"; do
-	stow -D "$folder"
+	if stow -n "$folder" | grep -q 'Would perform stow of'; then
+		continue
+	else
+		stow -D "$folder"
+	fi
+
 	stow "$folder"
 done
