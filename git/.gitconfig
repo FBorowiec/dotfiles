@@ -54,3 +54,7 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[includeIf "hasconfig:remote.*.url:https://github.adx.fcagroup.com"]
+    [user]
+        email = franciszek.borowiec@stellantis.com
