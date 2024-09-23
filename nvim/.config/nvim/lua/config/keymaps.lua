@@ -26,20 +26,15 @@ map("v", "K", ":m '<-2<CR>gv=gv", options)
 map("n", "<C-j>", ":cnext<cr>zz", options)
 map("n", "<C-k>", ":cprev<cr>zz", options)
 
--- -- Switch between cpp header and source file
--- map("n", "<F2>", vim.fn.SwitchSourceHeader, options)
---
--- -- Harpoon
--- map("n", "<A-h>", ":lua require('harpoon.mark').add_file()<cr>", options)
--- map("n", "<C-h>", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
--- map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
--- map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
---
--- -- Close all splits and go to last window
--- map("n", "<leader>;q", "<C-w><C-O>", options)
---
+-- Telescope Live grep with args
+map("n", "<leader>sg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
+-- Harpoon
+map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
+map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
+
+-- Close all splits and go to last window
+map("n", "<leader>;q", "<C-w><C-O>", options)
+
 -- Maximizer
 map("n", "<leader>m", ":MaximizerToggle!<cr>", options)
---
--- -- Focus
--- map("n", "<c-l>", ":FocusToggle<CR>", { silent = true })
