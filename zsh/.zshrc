@@ -87,7 +87,6 @@ plugins=(
     ubuntu
     web-search
     zsh-autosuggestions
-    zsh-dircolors-nord
     zsh-interactive-cd
     zsh-navigation-tools
     zsh-vi-mode
