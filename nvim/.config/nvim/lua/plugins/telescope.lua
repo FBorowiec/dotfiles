@@ -10,11 +10,13 @@ return {
     opts.defaults = opts.defaults or {}
     opts.pickers = opts.pickers or {}
 
-    -- Configure the find_files picker to include hidden files
+    -- Include hidden files
     opts.pickers.find_files = {
       hidden = true,
     }
-    require("telescope").setup(opts)
-    require("telescope").load_extension("live_grep_args")
+
+    local telescope = require("telescope")
+    telescope.load_extension("live_grep_args")
+    return opts
   end,
 }

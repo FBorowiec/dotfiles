@@ -33,8 +33,5 @@ map("n", "<leader>sg", ":lua require('telescope').extensions.live_grep_args.live
 map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
 map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
 
--- Close all splits and go to last window
-map("n", "<leader>;q", "<C-w><C-O>", options)
-
 -- Maximizer
 map("n", "<leader>m", ":MaximizerToggle!<cr>", options)
