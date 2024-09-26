@@ -29,15 +29,16 @@ map("n", "<C-k>", ":cprev<cr>zz", options)
 -- Harpoon
 map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
 map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
-
 -- Toggle previous & next buffers stored within Harpoon list
 local harpoon = require("harpoon")
 map("n", "<leader>j", function()
   harpoon:list():prev()
-end)
+end, options)
 map("n", "<leader>k", function()
   harpoon:list():next()
-end)
+end, options)
 
 -- Maximizer
-map("n", "<leader>m", ":MaximizerToggle!<cr>", options)
+map("n", "<leader>m", function()
+  require("maximize").toggle()
+end, options)

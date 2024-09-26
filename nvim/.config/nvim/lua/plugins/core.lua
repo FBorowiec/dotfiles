@@ -6,14 +6,27 @@ return {
       colorscheme = "tokyonight-night",
     },
   },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   --- additional plugins
   {
-    "xiyaowong/transparent.nvim",
-    "szw/vim-maximizer",
-    "davidgranstrom/nvim-markdown-preview",
+    "declancm/maximize.nvim",
+    config = true,
+  },
+  {
     "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup()
     end,
   },
+  --- disabled plugins
+  { "mini.pairs", enabled = false },
 }
