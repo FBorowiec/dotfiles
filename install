@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS=("alacritty" "btop" "git" "nvim" "ranger" "scripts" "tealdeer" "tmux" "zsh")
+	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "scripts" "tealdeer" "tmux" "zsh")
 fi
 
 if [[ -e $HOME/.zshrc ]]; then
@@ -17,3 +17,6 @@ for folder in "${STOW_FOLDERS[@]}"; do
 
 	stow "$folder"
 done
+
+# Btop contains symlinks therefore needs to be treated separately
+stow --target="$HOME"/snap/btop/current btop
