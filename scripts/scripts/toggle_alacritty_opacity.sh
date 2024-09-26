@@ -13,9 +13,6 @@ if [ -f "$CONFIG_FILE" ]; then
 		else
 			sed -i "s/opacity = [0-9.]*$/opacity = $OPACITY_VALUE/" "$CONFIG_FILE"
 		fi
-	# else
-	# 	# If the opacity line doesn't exist, add it
-	# 	echo "opacity = $OPACITY_VALUE" >>"$CONFIG_FILE"
 	fi
 
 else
