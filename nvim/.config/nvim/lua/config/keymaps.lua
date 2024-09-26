@@ -26,12 +26,18 @@ map("v", "K", ":m '<-2<CR>gv=gv", options)
 map("n", "<C-j>", ":cnext<cr>zz", options)
 map("n", "<C-k>", ":cprev<cr>zz", options)
 
--- Telescope Live grep with args
-map("n", "<leader>sg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-
 -- Harpoon
 map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
 map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
+
+-- Toggle previous & next buffers stored within Harpoon list
+local harpoon = require("harpoon")
+map("n", "<leader>j", function()
+  harpoon:list():prev()
+end)
+map("n", "<leader>k", function()
+  harpoon:list():next()
+end)
 
 -- Maximizer
 map("n", "<leader>m", ":MaximizerToggle!<cr>", options)
