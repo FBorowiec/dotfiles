@@ -170,7 +170,7 @@ alias lg="lazygit"
 # Ranger
 alias rr="ranger"
 
-alias git-make-worktree="~/.config/worktree.sh"
+alias git-make-worktree="~/.config/scripts/worktree.sh"
 
 export PATH="$PATH:/home/$USER/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
