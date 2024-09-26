@@ -12,17 +12,8 @@ return {
       desc = "Grep with args (root dir)",
     },
   },
-  config = function(_, opts)
-    opts.defaults = opts.defaults or {}
-    opts.pickers = opts.pickers or {}
-
-    -- Include hidden files
-    opts.pickers.find_files = {
-      hidden = true,
-    }
-
+  config = function()
     local telescope = require("telescope")
-    telescope.setup(opts)
     telescope.load_extension("live_grep_args")
   end,
 }
