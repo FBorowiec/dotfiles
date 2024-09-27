@@ -10,9 +10,9 @@ while true; do
 	fi
 done
 
-tmux new-session -d -s "$SESSION_NAME" -c "$PWD"
-tmux new-window -t "$SESSION_NAME:2" -c "$PWD"
-tmux new-window -t "$SESSION_NAME:3" -n "btop" -c "$PWD" "btop"
+tmux new-session -d -s "$SESSION_NAME" -c "$PWD" -n "Dev 1"
+tmux new-window -t "$SESSION_NAME:2" -c "$PWD" -n "Dev 2"
+tmux new-window -t "$SESSION_NAME:3" -n "BTOP" -c "$PWD" "btop"
 tmux select-window -t "$SESSION_NAME:1"
 
 if [ "$TMUX" != "" ]; then
