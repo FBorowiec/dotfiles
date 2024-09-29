@@ -146,19 +146,23 @@ function preexec {
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # ALIASES
-# Use neovim in sudo mode
-alias svim='sudo -E nvim'
 # Move verbose ls
-alias k='k -h'
-# Permanently alias vim to nvim
+alias k='k -h -A --no-vcs'
+alias ll='k -h -A --no-vcs'
+# vim to nvim
 alias vim="nvim"
 alias vi="nvim"
+# Use neovim in sudo mode
+alias svim='sudo -E nvim'
 # Lazygit
 alias lg="lazygit"
 # Ranger
 alias rr="ranger"
 # Git worktree
 alias git-make-worktree="$HOME/config/git_scripts/make_worktree.sh"
+# Znt navigation tools
+alias history="n-history"
+alias env="n-env"
 
 # PATH
 export PATH="$PATH:$HOME/.cargo/bin"
