@@ -159,7 +159,7 @@ alias lg="lazygit"
 # Ranger
 alias rr="ranger"
 # Git worktree
-alias git-make-worktree="$HOME/config/git_scripts/make_worktree.sh"
+alias git-make-worktree="$HOME/.config/git_scripts/make_worktree.sh"
 # Znt navigation tools
 alias history="n-history"
 alias env="n-env"
@@ -191,14 +191,10 @@ bazel() {
         fi
     done
 
-
     # Execute the bazel command with or without the context grep
     if $context_flag; then
         if [[ "$arg" == "--errors" ]]; then
             command bazel "${args[@]}" 2>&1 | grep -ie error\: -C1
-        fi
-        if [[ "$arg" == "--iwyu" ]]; then
-            command bazel "${args[@]}" 2>&1 | grep -ie IWYU\: -C5
         fi
     else
         command bazel "${args[@]}"
