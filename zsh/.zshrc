@@ -141,25 +141,13 @@ function preexec {
     refresh_tmux_vars
 }
 
-source ~/.inputrc
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-gencompdb() {
-    BAZEL_ROOT=$(bazel info workspace)
-    cd ${BAZEL_ROOT} &&
-    bazel-compdb &&
-    sed -i 's/-fno-canonical-system-headers //g' ${BAZEL_ROOT}/compile_commands.json;
-    sed -i 's/-ftree-loop-vectorize //g' ${BAZEL_ROOT}/compile_commands.json;
-    perl -ni.bak -e 'print unless /.*\.h(pp)?"},?/' ${BAZEL_ROOT}/compile_commands.json;
-    rm ${BAZEL_ROOT}/compile_commands.json.bak 2> /dev/null;
-}
-
+# ALIASES
 # Use neovim in sudo mode
 alias svim='sudo -E nvim'
-# Reset tmux config
-alias tmux_def='rm -r -- ~/.tmux/resurrect/tmux_resurrect_* ~/.tmux/resurrect/last && ln -s ~/.tmux/resurrect/tmux_default.txt ~/.tmux/resurrect/last'
 # Move verbose ls
 alias k='k -h'
 # Permanently alias vim to nvim
@@ -169,13 +157,15 @@ alias vi="nvim"
 alias lg="lazygit"
 # Ranger
 alias rr="ranger"
+# Git worktree
+alias git-make-worktree="$HOME/config/git_scripts/make_worktree.sh"
 
-alias git-make-worktree="~/.config/scripts/worktree.sh"
-
-export PATH="$PATH:/home/$USER/bin"
+# PATH
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:/home/sf33267/.local/bin"
-export PATH="/home/sf33267/go/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
+
+source ~/.inputrc
 
 bazel() {
     local args=("$@")
