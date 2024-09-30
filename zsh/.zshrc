@@ -163,6 +163,8 @@ alias git-make-worktree="$HOME/.config/git_scripts/make_worktree.sh"
 # Znt navigation tools
 alias history="n-history"
 alias env="n-env"
+# Bat instead of cat
+alias cat="batcat"
 
 # PATH
 export PATH="$PATH:$HOME/.cargo/bin"
