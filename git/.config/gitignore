@@ -1,8 +1,12 @@
+# Bazel
 bazel-*
+external*
+user.bazelrc
+
+# CPP
 compile_commands.json
-Session.vim
-.vimspector.json
+
+# Python
 __init__.py
 __pycache__/
 *.pyc
-user.bazelrc
