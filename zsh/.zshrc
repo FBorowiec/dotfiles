@@ -141,6 +141,7 @@ function preexec {
     refresh_tmux_vars
 }
 
+## --- CUSTOM CONFIGURATION --- ##
 
 # ALIASES
 # Move verbose ls
@@ -164,12 +165,16 @@ alias env="n-env"
 alias cat="batcat"
 
 # PATH
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin"  # Rust
+export PATH="$PATH:$HOME/.local/bin"  # Python
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"  # Go
+export PATH="$PATH:$HOME/.spicetify"  # Spicetify
 
-source ~/.inputrc
+# SOURCE
+source "$HOME/.inputrc"  # Editing modes
+source "$HOME/.cargo/env"  # Cargo environment
 
+# Expand Bazel commands to include error context
 bazel() {
     local args=("$@")
     local context_flag=false
