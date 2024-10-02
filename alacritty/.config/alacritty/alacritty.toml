@@ -80,8 +80,8 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["-u"]
-program = "/usr/bin/tmux"
+program = "/bin/bash"
+args = ["-c", "$HOME/.config/alacritty/tmux_auto.sh"]
 
 [window]
 opacity = 0.8
