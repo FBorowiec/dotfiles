@@ -10,6 +10,7 @@ compile_commands.json
 __init__.py
 __pycache__/
 *.pyc
+.mypy_cache/
 
 # Ignore locally
 gitignore/
