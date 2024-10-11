@@ -18,10 +18,6 @@ return {
   },
   --- additional plugins
   {
-    "declancm/maximize.nvim",
-    config = true,
-  },
-  {
     "beauwilliams/focus.nvim",
     config = function()
       require("focus").setup()

@@ -22,23 +22,15 @@ map("n", "<C-d>", "<C-d>zz", options)
 map("v", "J", ":m '>+1<CR>gv=gv", options)
 map("v", "K", ":m '<-2<CR>gv=gv", options)
 
--- Quickfix and Location list
+-- Quickfix list navigation
 map("n", "<C-j>", ":cnext<cr>zz", options)
 map("n", "<C-k>", ":cprev<cr>zz", options)
 
 -- Harpoon
-map("n", "<leader>j", ":lua require('harpoon.ui').nav_next()<cr>", options) -- navigates to next mark
-map("n", "<leader>k", ":lua require('harpoon.ui').nav_prev()<cr>", options) -- navigates to previous mark
--- Toggle previous & next buffers stored within Harpoon list
 local harpoon = require("harpoon")
 map("n", "<leader>j", function()
-  harpoon:list():prev()
-end, options)
-map("n", "<leader>k", function()
   harpoon:list():next()
-end, options)
-
--- Maximizer
-map("n", "<leader>m", function()
-  require("maximize").toggle()
-end, options)
+end, { desc = "󱡀 Harpoon to next file", noremap = true })
+map("n", "<leader>k", function()
+  harpoon:list():prev()
+end, { desc = "󱡀 Harpoon to previous file", noremap = true })
