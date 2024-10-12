@@ -14,3 +14,6 @@ __pycache__/
 
 # Ignore locally
 gitignore/
+
+# Null ls
+.null-ls*
