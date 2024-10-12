@@ -41,10 +41,6 @@
 [diff]
     colorMoved = default
 
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-    prompt = false
-
 [init]
     defaultBranch = main
 
@@ -58,3 +54,8 @@
 [includeIf "hasconfig:remote.*.url:https://github.adx.fcagroup.com"]
     [user]
         email = franciszek.borowiec@stellantis.com
+        name = FRANCISZEK BOROWIEC
+
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+    prompt = false
