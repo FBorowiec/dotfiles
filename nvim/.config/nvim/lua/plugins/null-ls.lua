@@ -7,6 +7,19 @@ return {
       opts.root_dir = opts.root_dir
         or require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git")
       opts.sources = vim.list_extend(opts.sources or {}, {
+        -- CODE ACTIONS
+        nls.builtins.code_actions.gitsigns,
+        nls.builtins.code_actions.refactoring,
+
+        -- COMPLETION
+        -- lua
+        nls.builtins.completion.luasnip,
+        -- tags
+        nls.builtins.completion.tags,
+        -- snippets
+        nls.builtins.completion.vsnip,
+
+        -- LINTING / FORMATTING
         -- ansible
         nls.builtins.diagnostics.ansiblelint,
         -- bazel
@@ -14,6 +27,8 @@ return {
         nls.builtins.formatting.buildifier,
         -- cpp
         nls.builtins.formatting.clang_format,
+        nls.builtins.diagnostics.clazy,
+        nls.builtins.diagnostics.cppcheck,
         nls.builtins.formatting.cmake_format,
         -- github actions
         nls.builtins.diagnostics.actionlint,
