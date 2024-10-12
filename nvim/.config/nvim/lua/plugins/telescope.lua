@@ -1,3 +1,6 @@
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -13,7 +16,17 @@ return {
     },
   },
   config = function()
-    local telescope = require("telescope")
+    require("telescope").setup({
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+            ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+            ["<C-space>"] = actions.to_fuzzy_refine,
+          },
+        },
+      },
+    })
     telescope.load_extension("live_grep_args")
   end,
 }
