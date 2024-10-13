@@ -34,3 +34,6 @@ end, { desc = "󱡀 Harpoon to next file", noremap = true })
 map("n", "<leader>k", function()
   harpoon:list():prev()
 end, { desc = "󱡀 Harpoon to previous file", noremap = true })
+
+-- Functions
+map("n", "gb", GoToBazelTarget, { desc = " Go to Bazel target", noremap = true })
