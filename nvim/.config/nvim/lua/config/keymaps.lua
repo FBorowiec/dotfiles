@@ -37,3 +37,4 @@ end, { desc = "󱡀 Harpoon to previous file", noremap = true })
 
 -- Functions
 map("n", "gb", GoToBazelTarget, { desc = " Go to Bazel target", noremap = true })
+map("n", "<f2>", SwitchBetweenHeaderSource, { desc = " Switch between header/source", noremap = true })
