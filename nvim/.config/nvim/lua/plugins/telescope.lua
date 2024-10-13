@@ -4,9 +4,10 @@ local actions = require("telescope.actions")
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    {
-      "nvim-telescope/telescope-live-grep-args.nvim",
-    },
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
+    { "nvim-telescope/telescope-media-files.nvim" },
+    { "nvim-telescope/telescope-file-browser.nvim" },
+    { "nvim-telescope/telescope-frecency.nvim" },
   },
   keys = {
     {
@@ -23,6 +24,11 @@ return {
       "<leader>fg",
       "<cmd>Telescope find_files<CR>",
       desc = "Find Files (Root Dir)",
+    },
+    {
+      "<leader>fb",
+      "<cmd>Telescope file_browser<CR>",
+      desc = "Browse Files",
     },
   },
   config = function()
@@ -57,5 +63,8 @@ return {
       },
     })
     telescope.load_extension("live_grep_args")
+    telescope.load_extension("media_files")
+    telescope.load_extension("file_browser")
+    telescope.load_extension("frecency")
   end,
 }
