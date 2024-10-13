@@ -1,11 +1,12 @@
-[user]
-    name = Franek Borowiec
-    email = franek.borowiec@gmail.com
-
-[includeIf "gitdir/i:~/work/stel_projects/"]
+[includeIf "hasconfig:remote.origin.url:github.adx.fcagroup.com*"]
     [user]
         name = FRANCISZEK BOROWIEC
         email = franciszek.borowiec@stellantis.com
+
+[includeIf "hasconfig:remote.origin.url:github.com*"]
+    [user]
+        name = Franek Borowiec
+        email = franek.borowiec@gmail.com
 
 [url "git@github.com:"]
     insteadOf = https://github.com/
@@ -16,6 +17,7 @@
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
+    gone = !git fetch -p && git branch -vv | grep 'origin/.*: gone]' | grep -v '+' | awk '{print $1}' | xargs git branch -D
 
 [core]
     editor = nvim
@@ -56,6 +58,7 @@
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color
 
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-    prompt = false
+# [mergetool "nvim"]
+#     cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+#     prompt = false
+
