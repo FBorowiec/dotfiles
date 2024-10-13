@@ -2,6 +2,17 @@
     name = Franek Borowiec
     email = franek.borowiec@gmail.com
 
+[includeIf "gitdir/i:~/work/stel_projects/"]
+    [user]
+        name = FRANCISZEK BOROWIEC
+        email = franciszek.borowiec@stellantis.com
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[init]
+    defaultBranch = main
+
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
@@ -12,9 +23,6 @@
     excludesfile = ~/.config/gitignore
     longpaths = true
 
-[interactive]
-    diffFilter = delta --color-only
-
 [push]
     default = current
 
@@ -22,12 +30,12 @@
     default = current
     rebase = true
 
+[rebase]
+    autoStash = true
+
 [merge]
     tool = nvim
     conflictstyle = diff3
-
-[rebase]
-    autoStash = true
 
 [credential]
     helper = store
@@ -38,23 +46,15 @@
     process = git-lfs filter-process
     required = true
 
+[interactive]
+    diffFilter = delta --color-only
+
 [diff]
     colorMoved = default
-
-[init]
-    defaultBranch = main
 
 [delta]
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color
-
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-
-[includeIf "hasconfig:remote.*.url:https://github.adx.fcagroup.com"]
-    [user]
-        email = franciszek.borowiec@stellantis.com
-        name = FRANCISZEK BOROWIEC
 
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
