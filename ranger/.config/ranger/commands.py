@@ -7,10 +7,11 @@
 # A simple command for demonstration purposes follows.
 # -----------------------------------------------------------------------------
 
-from __future__ import (absolute_import, division, print_function)
+from __future__ import absolute_import, division, print_function
 
 # You can import any python module as needed.
 import os
+import subprocess
 
 # You always need to import ranger.api.commands here to get the Command class:
 from ranger.api.commands import Command
@@ -60,3 +61,32 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+
+class fzf_find_select(Command):
+    def execute(self):
+        # Define the command to list files using fdfind
+        fdfind_command = "fdfind --type f"
+
+        # Define the fzf command with bat preview
+        fzf_command = "fzf --border --margin=0,1 --preview 'bat -f -P --plain {}'"
+
+        # Combine the commands
+        full_command = f"{fdfind_command} | {fzf_command}"
+
+        # Execute the command and capture the output
+        fzf = self.fm.execute_command(full_command, stdout=subprocess.PIPE, shell=True)
+        stdout, _ = fzf.communicate()
+
+        if fzf.returncode == 0:
+            # Get the selected file path
+            selected_file = stdout.decode("utf-8").strip()
+            selected_file_path = os.path.abspath(selected_file)
+
+            if os.path.exists(selected_file_path):
+                # If it's a directory, change to it
+                if os.path.isdir(selected_file_path):
+                    self.fm.cd(selected_file_path)
+                else:
+                    # If it's a file, select it
+                    self.fm.select_file(selected_file_path)
