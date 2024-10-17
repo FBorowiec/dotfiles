@@ -27,7 +27,7 @@ return {
         nls.builtins.formatting.buildifier,
         -- cpp
         nls.builtins.formatting.clang_format,
-        nls.builtins.diagnostics.clazy,
+        -- nls.builtins.diagnostics.clazy,  -- heavy
         nls.builtins.diagnostics.cppcheck,
         nls.builtins.formatting.cmake_format,
         -- github actions
