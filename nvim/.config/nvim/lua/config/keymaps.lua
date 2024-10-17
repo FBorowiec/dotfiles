@@ -26,6 +26,14 @@ map("v", "K", ":m '<-2<CR>gv=gv", options)
 map("n", "<C-j>", ":cnext<cr>zz", options)
 map("n", "<C-k>", ":cprev<cr>zz", options)
 
+-- Fast copy path
+map(
+  "n",
+  "<leader>yy",
+  ":let @+ = expand('%:p')<CR>",
+  { noremap = true, silent = true, desc = "Copy current file path" }
+)
+
 -- Harpoon
 local harpoon = require("harpoon")
 map("n", "<leader>j", function()
