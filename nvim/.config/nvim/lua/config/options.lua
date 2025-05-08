@@ -3,6 +3,6 @@
 -- Add any additional options here
 
 -- vim.opt.mouse = "" -- disable mouse support
-vim.opt.scrolloff = 30
+vim.opt.scrolloff = 8
 vim.opt.timeoutlen = 500
 vim.opt.colorcolumn = "80,120"

@@ -16,6 +16,13 @@ return {
       },
     },
   },
+  -- disable stating in insert mode
+  {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      start_in_insert = false,
+    },
+  },
   --- additional plugins
   {
     "beauwilliams/focus.nvim",

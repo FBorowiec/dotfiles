@@ -174,31 +174,22 @@ export PATH="$PATH:$HOME/.spicetify"  # Spicetify
 source "$HOME/.inputrc"  # Editing modes
 source "$HOME/.cargo/env"  # Cargo environment
 
-# Expand Bazel commands to include error context
+# Print only error message with bazel
 bazel() {
     local args=("$@")
     local context_flag=false
 
-    # Iterate through arguments to check for --context
     for arg in "${args[@]}"; do
         if [[ "$arg" == "--errors" ]]; then
             context_flag=true
-            # Remove --context from the arguments
-            args=("${args[@]/$arg}")
-            break
-        fi
-        if [[ "$arg" == "--iwyu" ]]; then
-            context_flag=true
-            # Remove --context from the arguments
-            args=("${args[@]/$arg}")
+            args=("${args[@]/$arg}") # remove --errors from args
             break
         fi
     done
 
-    # Execute the bazel command with or without the context grep
     if $context_flag; then
         if [[ "$arg" == "--errors" ]]; then
-            command bazel "${args[@]}" 2>&1 | grep -ie error\: -C1
+            command bazel "${args[@]}" 2>&1 | grep -ie error\: -C0
         fi
     else
         command bazel "${args[@]}"

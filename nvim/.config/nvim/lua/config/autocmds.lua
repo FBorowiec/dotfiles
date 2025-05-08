@@ -69,3 +69,19 @@ function SwitchBetweenHeaderSource()
 
   print("Corresponding file not found.")
 end
+
+function OpenFileWithLineAndColumnInTerm()
+  local filename = vim.fn.expand("<cfile>")
+  local line, col = filename:match(":(%d+):(%d+)$")
+
+  if line and col then
+    local file = filename:match("^(.*):%d+:%d+$")
+    file = vim.fn.trim(file)
+    -- Open the file using :drop and move the cursor to the specific line and column
+    vim.cmd("drop " .. vim.fn.fnameescape(file))
+    vim.api.nvim_win_set_cursor(0, { tonumber(line), tonumber(col) })
+  else
+    -- Fallback to normal gf behavior using :drop
+    vim.cmd("drop " .. vim.fn.expand("<cfile>"))
+  end
+end

@@ -47,11 +47,38 @@ end, { desc = "󱡀 Harpoon to previous file", noremap = true })
 -- consistent keybinding (same for ranger and custom shell fdfind command)
 map(
   "n",
-  "F",
+  "<leader>F",
   "<cmd>lua require('telescope.builtin').find_files({ previewer = false })<CR>",
   { noremap = true, silent = true }
 )
 
 -- Functions
-map("n", "gb", GoToBazelTarget, { desc = " Go to Bazel target", noremap = true })
 map("n", "<f2>", SwitchBetweenHeaderSource, { desc = " Switch between header/source", noremap = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "neoterm" then
+      vim.api.nvim_buf_set_keymap(
+        0,
+        "n",
+        "gb",
+        ":lua OpenFileWithLineAndColumnInTerm()<CR>",
+        { desc = " Go to Bazel target", noremap = true, silent = true }
+      )
+    end
+  end,
+})
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "neoterm" then
+      vim.api.nvim_buf_set_keymap(
+        0,
+        "n",
+        "gf",
+        ":lua OpenFileWithLineAndColumnInTerm()<CR>",
+        { desc = " Go to file", noremap = true, silent = true }
+      )
+    end
+  end,
+})
