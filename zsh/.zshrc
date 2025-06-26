@@ -174,6 +174,9 @@ export PATH="$PATH:$HOME/.spicetify"  # Spicetify
 source "$HOME/.inputrc"  # Editing modes
 source "$HOME/.cargo/env"  # Cargo environment
 
+# API KEYS
+export AVANTE_ANTHROPIC_API_KEY=$(<$HOME/.keys/anthropic_key)
+
 # Print only error message with bazel
 bazel() {
     local args=("$@")
