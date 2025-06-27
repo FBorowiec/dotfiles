@@ -1,4 +1,4 @@
-[includeIf "hasconfig:remote.origin.url:github.adx.fcagroup.com*"]
+[includeIf "hasconfig:remote.origin.url:github.psa-cloud.com*"]
     [user]
         name = FRANCISZEK BOROWIEC
         email = franciszek.borowiec@stellantis.com
