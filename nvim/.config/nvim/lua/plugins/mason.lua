@@ -13,7 +13,6 @@ return {
         "mypy",
         "pylint",
         "ruff",
-        "ruff-lsp",
 
         -- "autoflake",
         -- "autopep8",
