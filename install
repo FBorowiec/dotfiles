@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "scripts" "tealdeer" "tmux" "zsh")
+	# btop below
+	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "tealdeer" "tmux" "zsh")
 fi
 
 if [[ -e $HOME/.zshrc ]]; then
