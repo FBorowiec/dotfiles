@@ -1,12 +1,6 @@
-[includeIf "hasconfig:remote.origin.url:git@github.psa-cloud.com:*"]
-    [user]
-        name = FRANCISZEK BOROWIEC - SF33267
-        email = franciszek.borowiec@stellantis.com
-
-[includeIf "hasconfig:remote.origin.url:git@github.com:*"]
-    [user]
-        name = Franek Borowiec
-        email = franek.borowiec@gmail.com
+[user]
+    name = Franek Borowiec
+    email = franek.borowiec@gmail.com
 
 [init]
     defaultBranch = main
@@ -16,6 +10,17 @@
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     rst = !git reset $(git merge-base origin/main $(git branch --show-current))
     set-upstream = !git branch --set-upstream-to=origin/$(git symbolic-ref --short HEAD)
+    set-user = "!f() { \
+        origin=$(git remote get-url origin 2>/dev/null); \
+        case \"$origin\" in \
+            git@github.psa-cloud.com:*) \
+                git config user.name \"FRANCISZEK BOROWIEC - SF33267\"; \
+                git config user.email \"franciszek.borowiec@stellantis.com\"; \
+                echo \"Set Stellantis identity\" ;; \
+            *) \
+                echo \"Personal identity (global) remains active.\" ;; \
+        esac; \
+    }; f"
 
 [core]
     editor = nvim
