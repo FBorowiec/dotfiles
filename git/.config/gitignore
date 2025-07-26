@@ -17,3 +17,6 @@ gitignore/
 
 # Null ls
 .null-ls*
+
+# AI
+.claude
