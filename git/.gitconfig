@@ -50,11 +50,13 @@
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color
 
-[mergetool "nvim"]
-    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-    prompt = false
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+
+[mergetool "nvim"]
+    prompt = false
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+
