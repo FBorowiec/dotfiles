@@ -1,15 +1,12 @@
-[includeIf "hasconfig:remote.origin.url:github.psa-cloud.com*"]
+[includeIf "hasconfig:remote.origin.url:git@github.psa-cloud.com:*"]
     [user]
         name = FRANCISZEK BOROWIEC - SF33267
         email = franciszek.borowiec@stellantis.com
 
-[includeIf "hasconfig:remote.origin.url:github.com*"]
+[includeIf "hasconfig:remote.origin.url:git@github.com:*"]
     [user]
         name = Franek Borowiec
         email = franek.borowiec@gmail.com
-
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 
 [init]
     defaultBranch = main
