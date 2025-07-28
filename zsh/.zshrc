@@ -164,18 +164,9 @@ alias env="n-env"
 # Bat instead of cat
 alias cat="batcat"
 
-# PATH
-export PATH="$PATH:$HOME/.cargo/bin"  # Rust
-export PATH="$PATH:$HOME/.local/bin"  # Python
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"  # Go
-export PATH="$PATH:$HOME/.spicetify"  # Spicetify
-
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
 source "$HOME/.cargo/env"  # Cargo environment
-
-# API KEYS
-export AVANTE_ANTHROPIC_API_KEY=$(<$HOME/.keys/anthropic_key)
 
 # Print only error message with bazel
 bazel() {
