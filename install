@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	# btop below
 	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "tealdeer" "tmux" "zsh")
 fi
 
@@ -10,14 +9,29 @@ if [[ -e $HOME/.zshrc ]]; then
 fi
 
 for folder in "${STOW_FOLDERS[@]}"; do
-	if stow -n "$folder" | grep -q 'Would perform stow of'; then
+	if stow -n "$folder" 2>/dev/null | grep -q 'Would perform stow of'; then
+		echo "Stowing $folder (no conflicts detected)"
 		continue
 	else
-		stow -D "$folder"
+		echo "Unstowing $folder first (conflicts detected)"
+		stow -D "$folder" 2>/dev/null
 	fi
 
-	stow "$folder"
+	if stow "$folder"; then
+		echo "Successfully stowed $folder"
+	else
+		echo "Warning: Failed to stow $folder" >&2
+	fi
 done
 
-# Btop contains symlinks therefore needs to be treated separately
-stow --target="$HOME"/snap/btop/current btop
+BTOP_TARGET="$HOME/snap/btop/current"
+if [[ -d "$BTOP_TARGET" ]]; then
+	echo "Stowing btop to $BTOP_TARGET"
+	if stow --target="$BTOP_TARGET" btop; then
+		echo "Successfully stowed btop"
+	else
+		echo "Warning: Failed to stow btop" >&2
+	fi
+else
+	echo "Skipping btop: target directory $BTOP_TARGET does not exist"
+fi
