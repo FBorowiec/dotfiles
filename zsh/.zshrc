@@ -163,6 +163,8 @@ alias history="n-history"
 alias env="n-env"
 # Bat instead of cat
 alias cat="batcat"
+# Zoxide cd
+alias cd="z"
 
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
@@ -189,3 +191,6 @@ bazel() {
         command bazel "${args[@]}"
     fi
 }
+
+# zoxide cd
+eval "$(zoxide init zsh)"
