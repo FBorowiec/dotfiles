@@ -28,13 +28,23 @@ fi
 . "$HOME/.cargo/env"
 
 # PATHS
-export PATH="$PATH:/home/sf33267/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin" # Rust
-export PATH="$PATH:$HOME/.local/bin" # Python
-export PATH="$PATH:$HOME/.spicetify" # Spicetify
-export GOPATH="$HOME/go"             # Go
+export GOPATH="$HOME/go"
 export GOBIN="$HOME/go/bin"
-export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
+
+# Add paths only if they exist and aren't already in PATH
+add_to_path() {
+	case ":$PATH:" in
+	*":$1:"*) ;;
+	*) PATH="$1:$PATH" ;;
+	esac
+}
+
+add_to_path "/usr/local/go/bin"
+add_to_path "$GOPATH/bin"
+add_to_path "$HOME/.cargo/bin"
+add_to_path "$HOME/.local/bin"
+
+export PATH
 
 # API KEYS
 AVANTE_ANTHROPIC_API_KEY=$(<"$HOME"/.keys/anthropic_key)
