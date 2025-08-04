@@ -29,10 +29,12 @@ fi
 
 # PATHS
 export PATH="$PATH:/home/sf33267/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"               # Rust
-export PATH="$PATH:$HOME/.local/bin"               # Python
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin" # Go
-export PATH="$PATH:$HOME/.spicetify"               # Spicetify
+export PATH="$PATH:$HOME/.cargo/bin" # Rust
+export PATH="$PATH:$HOME/.local/bin" # Python
+export PATH="$PATH:$HOME/.spicetify" # Spicetify
+export GOPATH="$HOME/go"             # Go
+export GOBIN="$HOME/go/bin"
+export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 
 # API KEYS
 AVANTE_ANTHROPIC_API_KEY=$(<"$HOME"/.keys/anthropic_key)
