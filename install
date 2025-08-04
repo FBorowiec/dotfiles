@@ -24,6 +24,8 @@ for folder in "${STOW_FOLDERS[@]}"; do
 	stow "$folder"
 done
 
-# Btop contains symlinks therefore needs to be treated separately
-remove_conflicts "btop"
-stow --target="$HOME"/snap/btop/current btop
+if [[ -d "$HOME"/snap/btop ]]; then
+	# Btop contains symlinks therefore needs to be treated separately
+	remove_conflicts "btop"
+	stow --target="$HOME"/snap/btop/current btop
+fi
