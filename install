@@ -4,34 +4,26 @@ if [[ -z $STOW_FOLDERS ]]; then
 	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "tealdeer" "tmux" "zsh")
 fi
 
-if [[ -e $HOME/.zshrc ]]; then
-	rm "$HOME/.zshrc"
-fi
+remove_conflicts() {
+	local folder=$1
+	stow -n "$folder" 2>&1 |
+		grep -E '^\s+\* existing target' |
+		sed -E 's/^.*: (.*)$/\1/' |
+		while read -r relpath; do
+			path="$HOME/$relpath"
+			if [[ -e $path || -L $path ]]; then
+				echo "Removing conflicting path: $path"
+				rm -rf "$path"
+			fi
+		done
+}
 
 for folder in "${STOW_FOLDERS[@]}"; do
-	if stow -n "$folder" 2>/dev/null | grep -q 'Would perform stow of'; then
-		echo "Stowing $folder (no conflicts detected)"
-		continue
-	else
-		echo "Unstowing $folder first (conflicts detected)"
-		stow -D "$folder" 2>/dev/null
-	fi
-
-	if stow "$folder"; then
-		echo "Successfully stowed $folder"
-	else
-		echo "Warning: Failed to stow $folder" >&2
-	fi
+	remove_conflicts "$folder"
+	stow -D "$folder" 2>/dev/null || true
+	stow "$folder"
 done
 
-BTOP_TARGET="$HOME/snap/btop/current"
-if [[ -d "$BTOP_TARGET" ]]; then
-	echo "Stowing btop to $BTOP_TARGET"
-	if stow --target="$BTOP_TARGET" btop; then
-		echo "Successfully stowed btop"
-	else
-		echo "Warning: Failed to stow btop" >&2
-	fi
-else
-	echo "Skipping btop: target directory $BTOP_TARGET does not exist"
-fi
+# Btop contains symlinks therefore needs to be treated separately
+remove_conflicts "btop"
+stow --target="$HOME"/snap/btop/current btop
