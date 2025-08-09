@@ -9,15 +9,13 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u "$UID" -x polybar >/dev/null; do sleep 1; done
 
-# Launch polybar
+# Launch polybar for each monitor
 echo "---" | tee -a /tmp/polybar-main.log
-polybar main 2>&1 | tee -a /tmp/polybar-main.log &
-disown
 
-# Launch additional bars for multiple monitors
-monitors=("$(polybar --list-monitors | cut -d":" -f1)")
+# Launch bars for each monitor
+monitors=($(polybar --list-monitors | cut -d":" -f1))
 for m in "${monitors[@]}"; do
-	MONITOR=$m polybar --reload main &
+	MONITOR=$m polybar --reload main 2>&1 | tee -a /tmp/polybar-$m.log &
 done
 
 echo "Polybar launched..."
