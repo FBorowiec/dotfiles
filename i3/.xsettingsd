@@ -1,7 +1,8 @@
 Net/ThemeName "Tokyonight-Dark"
 Net/IconThemeName "Tokyonight-Dark"
 Net/FontName "JetBrains Mono 10"
-Gtk/CursorThemeName "Adwaita"
+Gtk/CursorThemeName "DMZ-Black"
+Gtk/ApplicationPreferDarkTheme 1
 Net/EnableEventSounds 1
 EnableInputFeedbackSounds 0
 Xft/Antialias 1
