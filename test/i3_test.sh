@@ -11,6 +11,7 @@ check_success() {
 		echo "ERROR: $1 failed with exit code $exit_code" >&2
 		return "$exit_code"
 	fi
+	echo "INFO: $1 successful" >&2
 	return 0
 }
 
@@ -26,3 +27,7 @@ check_success "Testing alacritty config"
 killall picom 2>/dev/null || true
 picom --config i3/.config/picom/picom.conf
 check_success "Testing picom config"
+
+# test rofi configuration
+rofi -show drun -theme i3/.config/rofi/tokyo-night.rasi
+check_success "Testing rofi config"
