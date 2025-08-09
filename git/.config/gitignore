@@ -20,3 +20,6 @@ gitignore/
 
 # AI
 .claude
+
+# Ansbile
+.ansible/.lock
