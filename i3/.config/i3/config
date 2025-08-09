@@ -111,6 +111,9 @@ exec --no-startup-id pavucontrol --tab=3
 # Autotiling (automatic split direction)
 exec_always --no-startup-id autotiling
 
+# Monitor configuration
+exec_always --no-startup-id xrandr --output HDMI-1 --mode 2560x1440 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --pos 2560x0
+
 #####################
 # Key Bindings      #
 #####################
@@ -317,3 +320,4 @@ bindsym $mod+Shift+d gaps inner current set 8; gaps outer current set 4
 
 # Toggle gaps
 bindsym $mod+g exec --no-startup-id "if [ $(i3-msg -t get_tree | jq '.nodes[].nodes[].nodes[] | select(.focused==true) | .gaps.inner') -eq 0 ]; then i3-msg gaps inner current set 8; i3-msg gaps outer current set 4; else i3-msg gaps inner current set 0; i3-msg gaps outer current set 0; fi"
+
