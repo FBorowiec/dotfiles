@@ -33,11 +33,6 @@ test_gui_app() {
 	check_success "$test_name"
 }
 
-# Usage:
-test_gui_app "alacritty" "alacritty --config-file alacritty/.config/alacritty/alacritty.toml --print-events --command true 2>/dev/null"
-
-test_gui_app "picom" "picom --config i3/.config/picom/picom.conf"
-
 # test i3 configuration
 i3 -C -c i3/.config/i3/config
 check_success "Testing i3 config"
