@@ -7,10 +7,10 @@
 bt_status=$(bluetoothctl show | grep "Powered: yes")
 
 if [ "$bt_status" != "" ]; then
-	bt_icon=""
+	bt_icon=" "
 	bt_text="ON"
 else
-	bt_icon="󰂲"
+	bt_icon="󰂲 "
 	bt_text="OFF"
 fi
 
