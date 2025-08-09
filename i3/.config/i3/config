@@ -66,7 +66,7 @@ gaps inner 8
 gaps outer 4
 
 # Only enable gaps on a workspace when there is at least one container
-smart_gaps on
+smart_gaps off
 
 # Window colors
 #                       border              background         text                 indicator            child_border
@@ -84,8 +84,8 @@ client.placeholder      #000000             #0c0c0c            #ffffff          
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Set wallpaper (solid color in Tokyo Night style)
-exec_always --no-startup-id hsetroot -solid "$bg-color"
+# Set wallpaper
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/star_wars_last_supper.jpg
 
 # Picom compositor for transparency and effects
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
@@ -105,14 +105,22 @@ exec --no-startup-id clipit
 # Auto-lock screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 
-# PulseAudio system tray
-exec --no-startup-id pavucontrol --tab=3
+# PulseAudio system tray (commented out - opens volume control window automatically)
+# exec --no-startup-id pavucontrol --tab=3
+
+# Auto-start applications
+exec --no-startup-id brave
+exec --no-startup-id alacritty
+exec --no-startup-id /opt/pulsesecure/bin/pulseUI
+exec --no-startup-id teams-for-linux
+exec --no-startup-id firefox
+exec --no-startup-id spotify
 
 # Autotiling (automatic split direction)
 exec_always --no-startup-id autotiling
 
-# Monitor configuration
-exec_always --no-startup-id xrandr --output HDMI-1 --mode 2560x1440 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --pos 2560x0
+# Monitor configuration - use external only if connected, otherwise laptop screen
+exec_always --no-startup-id "if xrandr | grep 'HDMI-1 connected'; then xrandr --output HDMI-1 --mode 2560x1440 --primary --output eDP-1 --off; else xrandr --output eDP-1 --mode 1920x1080 --primary --output HDMI-1 --off; fi"
 
 #####################
 # Key Bindings      #
@@ -147,6 +155,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+# Transparency toggle
+bindsym $mod+shift+t exec --no-startup-id ~/.config/i3/transparency.sh
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -251,10 +262,19 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # Application workspace assignments
-assign [class="Firefox"] $ws2
-assign [class="Code"] $ws3
-assign [class="discord"] $ws4
-assign [class="Spotify"] $ws5
+assign [class="Brave-browser"] $ws1
+assign [class="brave-browser"] $ws1
+assign [class="brave"] $ws1
+assign [class="Alacritty"] $ws2
+assign [class="PulseUI"] $ws3
+assign [class="pulseui"] $ws3
+assign [class="Pulse Secure"] $ws3
+assign [class="teams-for-linux"] $ws4
+assign [class="Teams for Linux"] $ws4
+assign [class="Microsoft Teams"] $ws4
+assign [class="Firefox"] $ws5
+assign [class="firefox"] $ws5
+assign [class="Spotify"] $ws6
 
 #####################
 # System Controls   #
