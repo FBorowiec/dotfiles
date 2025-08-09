@@ -346,7 +346,7 @@ bindsym $mod+Shift+plus gaps outer current plus 5
 bindsym $mod+Shift+minus gaps outer current minus 5
 
 # Reset gaps
-bindsym $mod+Shift+d gaps inner current set 8; gaps outer current set 4
+bindsym $mod+Shift+g gaps inner current set 8; gaps outer current set 4
 
 # Toggle gaps
 bindsym $mod+g exec --no-startup-id "if [ $(i3-msg -t get_tree | jq '.nodes[].nodes[].nodes[] | select(.focused==true) | .gaps.inner') -eq 0 ]; then i3-msg gaps inner current set 8; i3-msg gaps outer current set 4; else i3-msg gaps inner current set 0; i3-msg gaps outer current set 0; fi"
