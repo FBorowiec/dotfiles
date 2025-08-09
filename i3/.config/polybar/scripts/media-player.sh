@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Get player status
+player_status=$(playerctl status 2>/dev/null)
+if [ $? -ne 0 ] || [ "$player_status" = "" ]; then
+	echo ""
+	exit 0
+fi
+
+# Get song info
+artist=$(playerctl metadata artist 2>/dev/null | head -c 20)
+title=$(playerctl metadata title 2>/dev/null | head -c 25)
+player=$(playerctl metadata --format "{{ playerName }}" 2>/dev/null)
+
+# Set icon based on status
+case $player_status in
+"Playing")
+	icon="󰏤 "
+	;;
+"Paused")
+	icon="󰐊 "
+	;;
+*)
+	icon="󰓛 "
+	;;
+esac
+
+# Format output
+if [ "$artist" != "" ] && [ "$title" != "" ]; then
+	if [ ${#artist} -gt 15 ]; then
+		artist="${artist:0:15}..."
+	fi
+	if [ ${#title} -gt 20 ]; then
+		title="${title:0:20}..."
+	fi
+	echo "$icon $artist - $title"
+elif [ "$title" != "" ]; then
+	if [ ${#title} -gt 30 ]; then
+		title="${title:0:30}..."
+	fi
+	echo "$icon $title"
+else
+	echo "$icon $player"
+fi

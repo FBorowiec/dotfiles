@@ -105,8 +105,9 @@ exec --no-startup-id redshift-gtk
 # Clipboard manager
 exec --no-startup-id clipit
 
-# Auto-lock screen
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
+# Auto-lock screen (5 minute timeout)
+exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/scripts/lock-screen.sh" &
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock-screen.sh
 
 # PulseAudio system tray (commented out - opens volume control window automatically)
 # exec --no-startup-id pavucontrol --tab=3
@@ -296,10 +297,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Lock screen
-bindsym $mod+shift+x exec --no-startup-id i3lock-fancy
+bindsym $mod+shift+x exec --no-startup-id ~/.config/i3/scripts/lock-screen.sh
 
-# Power management menu
-bindsym $mod+Shift+p exec --no-startup-id rofi -show power-menu -modi power-menu:~/.config/rofi/scripts/power-menu.sh
+# System menus
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-menu.sh
+bindsym $mod+Shift+b exec --no-startup-id ~/.config/i3/scripts/bluetooth-menu.sh
+bindsym $mod+Shift+a exec --no-startup-id ~/.config/i3/scripts/audio-menu.sh
+bindsym $mod+Shift+d exec --no-startup-id ~/.config/i3/scripts/display-menu.sh
 
 #####################
 # Resize Mode       #
