@@ -84,6 +84,9 @@ client.placeholder      #000000             #0c0c0c            #ffffff          
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Set GTK theme environment variables
+exec_always --no-startup-id xsettingsd &
+
 # Set wallpaper
 exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/star_wars_last_supper.jpg
 
@@ -115,6 +118,7 @@ exec --no-startup-id /opt/pulsesecure/bin/pulseUI
 exec --no-startup-id teams-for-linux
 exec --no-startup-id firefox
 exec --no-startup-id spotify
+exec --no-startup-id nautilus
 
 # Autotiling (automatic split direction)
 exec_always --no-startup-id autotiling
@@ -275,6 +279,8 @@ assign [class="Microsoft Teams"] $ws4
 assign [class="Firefox"] $ws5
 assign [class="firefox"] $ws5
 assign [class="Spotify"] $ws6
+assign [class="Nautilus"] $ws7
+assign [class="nautilus"] $ws7
 
 #####################
 # System Controls   #
