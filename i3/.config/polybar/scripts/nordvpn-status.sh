@@ -5,7 +5,7 @@
 
 # Check if nordvpn command exists
 if ! command -v nordvpn &>/dev/null; then
-	echo "󰤭 " # VPN unavailable icon
+	echo "󰤭  " # VPN unavailable
 	exit 1
 fi
 
@@ -17,15 +17,15 @@ case "$status" in
 	# Get server location for tooltip
 	server=$(nordvpn status 2>/dev/null | grep "Current server:" | cut -d' ' -f3-)
 	if [ "$server" != "" ]; then
-		echo "󰖂 " # Connected VPN icon
+		echo "  "
 	else
-		echo "󰖂 " # Connected VPN icon
+		echo "  "
 	fi
 	;;
 "Disconnected" | "")
-	echo "󰤭 " # Disconnected VPN icon
+	echo "󰤭  " # Disconnected VPN icon
 	;;
 *)
-	echo "󰤫 " # Unknown/connecting status
+	echo "󰤫  " # Unknown/connecting status
 	;;
 esac
