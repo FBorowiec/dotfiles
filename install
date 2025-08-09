@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS=("alacritty" "git" "nvim" "ranger" "tealdeer" "tmux" "zsh")
+	STOW_FOLDERS=("alacritty" "git" "i3" "nvim" "ranger" "tealdeer" "tmux" "zsh")
 fi
 
 remove_conflicts() {
