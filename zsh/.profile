@@ -46,6 +46,10 @@ add_to_path "$HOME/.local/bin"
 
 export PATH
 
+# GTK Theme environment variables
+export GTK_THEME=Tokyonight-Dark
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
 # API KEYS
 AVANTE_ANTHROPIC_API_KEY=$(<"$HOME"/.keys/anthropic_key)
 export AVANTE_ANTHROPIC_API_KEY
