@@ -59,7 +59,7 @@ font pango:JetBrains Mono 10
 # Window appearance
 default_border pixel 2
 default_floating_border pixel 2
-hide_edge_borders smart
+hide_edge_borders none
 
 # Gaps configuration
 gaps inner 8
@@ -70,7 +70,7 @@ smart_gaps off
 
 # Window colors
 #                       border              background         text                 indicator            child_border
-client.focused          $blue               $blue              $bg-color            $purple              $blue
+client.focused          $blue               $blue              $bg-color            $blue                $blue
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color   $inactive-bg-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color   $inactive-bg-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color     $urgent-bg-color
@@ -104,6 +104,9 @@ exec --no-startup-id redshift-gtk
 
 # Clipboard manager
 exec --no-startup-id clipit
+
+# Auto display management
+exec_always --no-startup-id ~/.config/i3/scripts/auto-display.sh
 
 # Auto-lock screen (5 minute timeout)
 exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/scripts/lock-screen.sh" &
