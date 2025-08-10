@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIG_FILE="$HOME/.config/alacritty/alacritty.toml"
-OPACITY_VALUE="0.8"
+OPACITY_VALUE="0.6"
 
 # Check if the config file exists
 if [ -f "$CONFIG_FILE" ]; then
