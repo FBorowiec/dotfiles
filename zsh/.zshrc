@@ -167,6 +167,8 @@ alias cat="batcat"
 alias cd="z"
 # statusbar
 alias statusbar="$HOME/.config/i3/scripts/switch-statusbar.sh toggle"
+# autodisplay
+alias autodisplay="$HOME/.config/i3/scripts/auto-display.sh"
 
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
