@@ -5,22 +5,22 @@ options="    Lock\n 󰍃   Logout\n 󰒲   Suspend\n 󰤄   Hibernate\n   
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power Menu" -theme ~/.config/rofi/tokyo-night.rasi)
 
 case $chosen in
-" Lock")
+*"Lock")
 	~/.config/i3/scripts/lock-screen.sh
 	;;
-"󰍃 Logout")
+*"Logout")
 	i3-msg exit
 	;;
-"󰒲 Suspend")
+*"Suspend")
 	systemctl suspend
 	;;
-"󰤄 Hibernate")
+*"Hibernate")
 	systemctl hibernate
 	;;
-" Reboot")
+*"Reboot")
 	systemctl reboot
 	;;
-"⏻ Shutdown")
+*"Shutdown")
 	systemctl poweroff
 	;;
 esac
