@@ -15,12 +15,8 @@ status=$(nordvpn status 2>/dev/null | grep "Status:" | awk '{print $2}')
 case "$status" in
 "Connected")
 	# Get server location for tooltip
-	server=$(nordvpn status 2>/dev/null | grep "Current server:" | cut -d' ' -f3-)
-	if [ "$server" != "" ]; then
-		echo " "
-	else
-		echo " "
-	fi
+	country=$(nordvpn status 2>/dev/null | grep "Country:" | cut -d' ' -f2-)
+	echo "  $country"
 	;;
 "Disconnected" | "")
 	echo "  " # Disconnected VPN icon

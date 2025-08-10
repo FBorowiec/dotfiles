@@ -112,7 +112,7 @@ exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/scripts/lock-screen.sh" &
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock-screen.sh
 
-# PulseAudio system tray (commented out - opens volume control window automatically)
+# Audio control (pavucontrol - commented out as it opens volume control window automatically)
 # exec --no-startup-id pavucontrol --tab=3
 
 # Auto-start applications
