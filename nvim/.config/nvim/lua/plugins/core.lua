@@ -21,6 +21,7 @@ return {
     "akinsho/toggleterm.nvim",
     opts = {
       start_in_insert = false,
+      direction = "horizontal",
     },
   },
   --- additional plugins
