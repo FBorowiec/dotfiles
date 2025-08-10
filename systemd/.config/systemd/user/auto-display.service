@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto Display Management
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'while true; do inotifywait -e modify /sys/class/drm/*/status 2>/dev/null && sleep 2 && %h/.config/i3/scripts/auto-display.sh; done'
+Restart=always
+RestartSec=3
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target
