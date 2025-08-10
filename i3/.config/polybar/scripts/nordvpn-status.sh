@@ -17,15 +17,15 @@ case "$status" in
 	# Get server location for tooltip
 	server=$(nordvpn status 2>/dev/null | grep "Current server:" | cut -d' ' -f3-)
 	if [ "$server" != "" ]; then
-		echo "   -  "
+		echo " "
 	else
-		echo "   -  "
+		echo " "
 	fi
 	;;
 "Disconnected" | "")
-	echo "   -   " # Disconnected VPN icon
+	echo "  " # Disconnected VPN icon
 	;;
 *)
-	echo "   - 󰤫  " # Unknown/connecting status
+	echo "󰤫  " # Unknown/connecting status
 	;;
 esac
