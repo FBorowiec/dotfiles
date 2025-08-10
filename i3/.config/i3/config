@@ -93,8 +93,8 @@ exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/star_wars_last_
 # Picom compositor for transparency and effects
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
-# Polybar status bar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# Status bar selection (polybar or i3blocks)
+exec_always --no-startup-id ~/.config/i3/scripts/switch-statusbar.sh start
 
 # System tray applications
 exec --no-startup-id nm-applet
@@ -341,6 +341,46 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+#####################
+# Status Bar        #
+#####################
+
+# Status bar configuration for i3blocks
+# This will be enabled/disabled by the switching script
+bar {
+    id bar-main
+    status_command i3blocks -c ~/.config/i3blocks/config
+    position top
+    height 26
+
+    # Tokyo Night colors
+    colors {
+        background #1a1b26
+        statusline #c0caf5
+        separator #414868
+
+        # workspace colors
+        focused_workspace  #7aa2f7 #7aa2f7 #1a1b26
+        active_workspace   #414868 #414868 #c0caf5
+        inactive_workspace #1a1b26 #1a1b26 #565f89
+        urgent_workspace   #f7768e #f7768e #c0caf5
+    }
+
+    font pango:JetBrains Mono, FontAwesome, Font Awesome 6 Free 10
+
+    # Workspace buttons and mouse support
+    workspace_buttons yes
+    strip_workspace_numbers no
+    binding_mode_indicator yes
+
+    # Start hidden by default, will be shown when i3blocks is selected
+    hidden_state hide
+    mode hide
+}
+
+# Keybinding to switch between status bars
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/i3/scripts/switch-statusbar.sh toggle && notify-send "Status Bar" "Switched status bar" -t 2000
 
 #####################
 # Gaps Controls     #
