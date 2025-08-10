@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Auto display management script (optimized for low CPU usage)
 # Automatically switches to laptop-only when external displays are disconnected
 
@@ -17,58 +16,89 @@ trap "rm -f '$LOCK_FILE'" EXIT
 
 # Cache xrandr output to avoid multiple calls
 XRANDR_OUTPUT=$(xrandr 2>/dev/null)
+if [ $? -ne 0 ]; then
+	notify-send "xrandr failed to execute"
+	exit 1
+fi
 
-# Function to restart polybar only if needed
-restart_polybar_if_needed() {
-	if pgrep -x polybar >/dev/null; then
-		pkill polybar
-		sleep 0.5
-		~/.config/polybar/launch.sh &
-	fi
+restart_polybar() {
+	notify-send "Restarting polybar" -t 1000
+	pkill polybar
+	sleep 2
+	DISPLAY=${DISPLAY:-:1} XAUTHORITY=${XAUTHORITY} ~/.config/polybar/launch.sh &
 }
 
-# Function to switch to laptop only
 switch_to_laptop_only() {
-	# Get all non-laptop displays from cached output
-	echo "$XRANDR_OUTPUT" | grep -E " connected| disconnected" | cut -d' ' -f1 | while read -r display; do
-		if [ "$display" != "eDP-1" ] && [ "$display" != "LVDS-1" ]; then
+	notify-send "Switching to laptop-only mode" -t 1000
+
+	# Get all non-laptop displays and turn them off
+	echo "$XRANDR_OUTPUT" | grep " connected\| disconnected" | cut -d' ' -f1 | while read -r display; do
+		if [ "$display" != "eDP-1" ] && [ "$display" != "LVDS-1" ] && [ "$display" != "" ]; then
+			notify-send "Turning off display: $display" -t 1000
 			xrandr --output "$display" --off 2>/dev/null
 		fi
 	done
 
-	# Set laptop display as primary
-	xrandr --output eDP-1 --primary --auto 2>/dev/null || xrandr --output LVDS-1 --primary --auto 2>/dev/null
+	# Set laptop display as primary - try eDP-1 first, then LVDS-1
+	if echo "$XRANDR_OUTPUT" | grep -q "eDP-1 connected"; then
+		xrandr --output eDP-1 --primary --auto 2>/dev/null
+		notify-send "Set eDP-1 as primary" -t 1000
+	elif echo "$XRANDR_OUTPUT" | grep -q "LVDS-1 connected"; then
+		xrandr --output LVDS-1 --primary --auto 2>/dev/null
+		notify-send "Set LVDS-1 as primary" -t 1000
+	fi
 
-	restart_polybar_if_needed
-	notify-send "Display" "Switched to laptop-only mode" -t 2000
+	restart_polybar
+	notify-send "Switched to laptop-only mode" -t 1500
 }
 
-# Count active external displays using cached output
+switch_to_external_only() {
+	local external="$1"
+	notify-send "Switching to external display only: $external" -t 1500
+
+	# Turn on external display
+	xrandr --output "$external" --primary --auto 2>/dev/null
+	if [ $? -eq 0 ]; then
+		notify-send "Successfully enabled display: $external" -t 1000
+		# Turn off laptop display
+		xrandr --output eDP-1 --off 2>/dev/null || xrandr --output LVDS-1 --off 2>/dev/null
+
+		restart_polybar
+		notify-send "Using external display only: $external" -t 1500
+	else
+		notify-send "Failed to enable $external" -t 1500
+	fi
+}
+
+# Count active external displays - look for displays that are connected AND have a resolution
+external_connected=$(echo "$XRANDR_OUTPUT" | grep " connected" | grep -v "eDP-1\|LVDS-1" | wc -l)
 external_active=$(echo "$XRANDR_OUTPUT" | grep " connected" | grep -v "eDP-1\|LVDS-1" | grep -c "[0-9]\+x[0-9]\+")
 
-# Read previous state
 prev_state=""
 if [ -f "$STATE_FILE" ]; then
 	prev_state=$(cat "$STATE_FILE")
 fi
-
-current_state="external_$external_active"
+current_state="connected_${external_connected}_active_${external_active}"
 
 # Only make changes if state has changed
 if [ "$current_state" != "$prev_state" ]; then
 	echo "$current_state" >"$STATE_FILE"
 
-	if [ "$external_active" -eq 0 ]; then
+	if [ "$external_connected" -eq 0 ]; then
+		# No external displays connected
 		switch_to_laptop_only
-	elif [ "$external_active" -eq 1 ]; then
-		# External display connected, switch to external only
+	elif [ "$external_connected" -eq 1 ]; then
+		# One external display connected
 		external=$(echo "$XRANDR_OUTPUT" | grep " connected" | grep -v "eDP-1\|LVDS-1" | head -1 | cut -d' ' -f1)
 		if [ "$external" != "" ]; then
-			xrandr --output "$external" --primary --auto 2>/dev/null
-			xrandr --output eDP-1 --off 2>/dev/null || xrandr --output LVDS-1 --off 2>/dev/null
-
-			restart_polybar_if_needed
-			notify-send "Display" "Using external display only: $external" -t 2000
+			switch_to_external_only "$external"
+		fi
+	elif [ "$external_connected" -gt 1 ]; then
+		# Multiple external displays - use the first one for now
+		notify-send "Multiple external displays detected, using the first one" -t 1000
+		external=$(echo "$XRANDR_OUTPUT" | grep " connected" | grep -v "eDP-1\|LVDS-1" | head -1 | cut -d' ' -f1)
+		if [ "$external" != "" ]; then
+			switch_to_external_only "$external"
 		fi
 	fi
 fi
