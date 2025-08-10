@@ -19,11 +19,12 @@ for display in "${displays[@]}"; do
 	fi
 done
 
-options="$options\n── Quick Presets ──\n"
+options="$options── Presets ──\n"
 options="$options💻 Laptop Only\n"
 options="$options🖥️ External Only\n"
 options="$options🔄 Mirror Displays\n"
-options="$options↔️ Extend Right\n"
+options="$options➡️ Extend Right\n"
+options="$options⬅️ Extend Left\n"
 options="$options↕️ Extend Above/Below\n"
 options="$options🔧 Advanced Settings (arandr)\n"
 
@@ -31,13 +32,13 @@ chosen=$(echo -e "$options" | rofi -dmenu -i -p "Display" -theme ~/.config/rofi/
 
 case $chosen in
 "💻 Laptop Only")
-	# Turn off external displays and use only laptop
-	for display in "${displays[@]}"; do
-		if [ "$display" != "eDP-1" ] && [ "$display" != "LVDS-1" ]; then
+	# Turn off all external displays and use only laptop
+	while read -r display; do
+		if [ "$display" != "eDP-1" ] && [ "$display" != "LVDS-1" ] && [ "$display" != "" ]; then
 			xrandr --output "$display" --off
 		fi
-	done
-	# Set laptop display as primary
+	done <<<"$displays"
+	# Set laptop display as primary and ensure it's on
 	xrandr --output eDP-1 --primary --auto 2>/dev/null || xrandr --output LVDS-1 --primary --auto
 	notify-send "Display" "Using laptop display only" -t 2000
 	;;
@@ -60,12 +61,20 @@ case $chosen in
 		notify-send "Display" "Mirroring displays" -t 2000
 	fi
 	;;
-"↔️ Extend Right")
+"➡️ Extend Right")
 	external=$(echo "$displays" | grep -v "eDP-1\|LVDS-1" | head -1)
 	if [ "$external" != "" ]; then
 		xrandr --output eDP-1 --primary --auto --output "$external" --auto --right-of eDP-1 2>/dev/null ||
 			xrandr --output LVDS-1 --primary --auto --output "$external" --auto --right-of LVDS-1
 		notify-send "Display" "Extended display to the right" -t 2000
+	fi
+	;;
+"⬅️ Extend Left")
+	external=$(echo "$displays" | grep -v "eDP-1\|LVDS-1" | head -1)
+	if [ "$external" != "" ]; then
+		xrandr --output eDP-1 --primary --auto --output "$external" --auto --left-of eDP-1 2>/dev/null ||
+			xrandr --output LVDS-1 --primary --auto --output "$external" --auto --left-of LVDS-1
+		notify-send "Display" "Extended display to the left" -t 2000
 	fi
 	;;
 "↕️ Extend Above/Below")
