@@ -37,3 +37,6 @@ node_modules
 # Tmux
 **/tmux_resurrect_*
 tmux/.tmux/resurrect/last
+
+# Currently selected statusbar
+i3/.config/i3/statusbar-choice
