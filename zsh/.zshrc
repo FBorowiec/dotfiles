@@ -165,6 +165,8 @@ alias env="n-env"
 alias cat="batcat"
 # Zoxide cd
 alias cd="z"
+# statusbar
+alias statusbar="$HOME/.config/i3/scripts/switch-statusbar.sh toggle"
 
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
