@@ -347,7 +347,6 @@ bindsym $mod+r mode "resize"
 #####################
 
 # Status bar configuration for i3blocks
-# This will be enabled/disabled by the switching script
 bar {
     id bar-main
     status_command i3blocks -c ~/.config/i3blocks/config
@@ -373,10 +372,6 @@ bar {
     workspace_buttons yes
     strip_workspace_numbers no
     binding_mode_indicator yes
-
-    # Start hidden by default, will be shown when i3blocks is selected
-    hidden_state hide
-    mode hide
 }
 
 # Keybinding to switch between status bars

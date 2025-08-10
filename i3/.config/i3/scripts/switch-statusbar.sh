@@ -50,14 +50,17 @@ pkill i3blocks 2>/dev/null
 NEW_CHOICE=$(cat "$CONFIG_FILE")
 case "$NEW_CHOICE" in
 "polybar")
-	# Hide i3bar and start polybar
-	i3-msg bar mode hide bar-main
-	sleep 0.5
+	# Hide i3 bar and start polybar
+	if pgrep -x i3 >/dev/null; then
+		i3-msg "bar hidden_state hide bar-main" 2>/dev/null
+	fi
 	~/.config/polybar/launch.sh &
 	;;
 "i3blocks")
-	# Show i3bar with i3blocks
-	i3-msg bar mode dock bar-main
+	# Show i3 bar with i3blocks
+	if pgrep -x i3 >/dev/null; then
+		i3-msg "bar hidden_state show bar-main" 2>/dev/null
+	fi
 	;;
 esac
 
