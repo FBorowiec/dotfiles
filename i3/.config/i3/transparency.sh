@@ -19,7 +19,7 @@ if grep -q "80:class_g = 'Alacritty'" "$PICOM_CONFIG"; then
 	picom --config ~/.config/picom/picom.conf &
 
 	# Send notification
-	notify-send "Transparency" "Switched to 100% opacity" -t 2000
+	notify-send "Transparency" "Switched to 100% opacity" -t 1500
 else
 	# Currently at 100%, switch to 80%
 	sed -i 's/100:class_g = '\''Alacritty'\''/80:class_g = '\''Alacritty'\''/g' "$PICOM_CONFIG"
@@ -33,5 +33,5 @@ else
 	picom --config ~/.config/picom/picom.conf &
 
 	# Send notification
-	notify-send "Transparency" "Switched to 80% opacity" -t 2000
+	notify-send "Transparency" "Switched to 80% opacity" -t 1500
 fi

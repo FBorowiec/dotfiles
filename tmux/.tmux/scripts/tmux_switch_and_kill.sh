@@ -10,5 +10,5 @@ if [ "$SESSION_COUNT" -gt 1 ]; then
 	# Kill the previous session
 	tmux kill-session -t "$CURRENT_SESSION"
 else
-	notify-send "No other sessions to switch to."
+	notify-send -t 1500 "No other sessions to switch to."
 fi
