@@ -84,7 +84,7 @@ program = "/bin/bash"
 args = ["-c", "$HOME/.config/alacritty/tmux_auto.sh"]
 
 [window]
-opacity = 0.6
+opacity = 1.0
 startup_mode = "Maximized"
 
 [window.padding]
