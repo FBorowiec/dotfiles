@@ -9,7 +9,7 @@ if [[ -z $selected ]]; then
 	exit 0
 fi
 
-read -p "Enter Query: " query
+read -rp "Enter Query: " query
 
 if grep -qs "$selected" "$languages"; then
 	query=$(echo "$query" | tr ' ' '+')

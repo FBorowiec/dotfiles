@@ -1,13 +1,5 @@
 #!/bin/bash
 
-display_message() {
-	if [ "$TMUX" != "" ]; then
-		tmux display-message -d 1000 "$1"
-	else
-		echo "$1"
-	fi
-}
-
 if [ "$1" != "" ]; then
 	# Session name provided as an argument
 	SESSION_NAME="$1"
@@ -25,9 +17,9 @@ else
 fi
 
 if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-	display_message "Session '$SESSION_NAME' already exists. Attaching to it."
+	notify-send "Session '$SESSION_NAME' already exists. Attaching to it."
 else
-	display_message "Creating session '$SESSION_NAME'."
+	notify-send "Creating session '$SESSION_NAME'."
 	tmux new-session -d -s "$SESSION_NAME" -n "ranger" -c "$PWD" "ranger"
 	tmux new-window -t "$SESSION_NAME:2" -n "zsh" -c "$PWD"
 	tmux new-window -t "$SESSION_NAME:9" -n "btop" -c "$PWD" "btop"

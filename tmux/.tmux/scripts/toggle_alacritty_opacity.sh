@@ -3,7 +3,6 @@
 CONFIG_FILE="$HOME/.config/alacritty/alacritty.toml"
 OPACITY_VALUE="0.6"
 
-# Check if the config file exists
 if [ -f "$CONFIG_FILE" ]; then
 	# Check if the opacity line is present
 	if grep -q "opacity =" "$CONFIG_FILE"; then
@@ -16,5 +15,5 @@ if [ -f "$CONFIG_FILE" ]; then
 	fi
 
 else
-	echo "Alacritty configuration file not found: $CONFIG_FILE"
+	notify-send "Alacritty configuration file not found: $CONFIG_FILE"
 fi
