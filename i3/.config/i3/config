@@ -123,6 +123,7 @@ exec --no-startup-id teams-for-linux
 exec --no-startup-id firefox
 exec --no-startup-id spotify
 exec --no-startup-id nautilus
+exec --no-startup-id nordvpn connect && notify-send "Connected to VPN" -t 1500
 
 # Autotiling (automatic split direction)
 exec_always --no-startup-id autotiling
