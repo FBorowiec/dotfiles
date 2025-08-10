@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DIR=${DIR:-/}
+ALERT_LOW=${ALERT_LOW:-10}
+LABEL=${LABEL:-}
+
+# Get disk usage percentage
+USAGE=$(df -h "$DIR" | awk 'NR==2{print $5}' | sed 's/%//')
+
+# Output with label and percentage
+echo "${LABEL}${USAGE}%"
+echo "${LABEL}${USAGE}%"
+
+# Set color based on usage
+if [ "$USAGE" -gt 90 ]; then
+	echo "#f7768e"
+elif [ "$USAGE" -gt 75 ]; then
+	echo "#e0af68"
+else
+	echo "#9ece6a"
+fi

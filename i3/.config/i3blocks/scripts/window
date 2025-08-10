@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get active window title
+TITLE=$(xdotool getactivewindow getwindowname 2>/dev/null | head -c 60)
+
+if [[ -n "$TITLE" ]]; then
+	if [[ ${#TITLE} -gt 57 ]]; then
+		TITLE="${TITLE:0:57}..."
+	fi
+	echo "$TITLE"
+else
+	echo ""
+fi

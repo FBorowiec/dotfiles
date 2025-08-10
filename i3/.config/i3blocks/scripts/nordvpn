@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Check if nordvpn command exists
+if ! command -v nordvpn &>/dev/null; then
+	echo "󰤭  "
+	echo "󰤭  "
+	echo "#565f89"
+	exit 0
+fi
+
+# Get NordVPN status
+status=$(nordvpn status 2>/dev/null | grep "Status:" | awk '{print $2}')
+
+case "$status" in
+"Connected")
+	echo "  VPN"
+	echo "  VPN"
+	echo "#7dcfff"
+	;;
+"Disconnected" | "")
+	echo "  VPN"
+	echo "  VPN"
+	echo "#565f89"
+	;;
+*)
+	echo "󰤫  VPN"
+	echo "󰤫  VPN"
+	echo "#e0af68"
+	;;
+esac
+
+# Handle click events
+case $BLOCK_BUTTON in
+1) ~/.config/polybar/scripts/nordvpn-toggle.sh ;;
+esac

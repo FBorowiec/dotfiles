@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if ! systemctl is-active --quiet bluetooth; then
+	echo "󰂲 "
+	echo "󰂲 "
+	echo "#565f89"
+	exit 0
+fi
+
+# Check bluetooth power status
+power_status=$(bluetoothctl show | grep "Powered:" | awk '{print $2}')
+
+if [ "$power_status" = "yes" ]; then
+	# Check if any device is connected
+	connected_devices=$(bluetoothctl devices | while read -r device; do
+		mac=$(echo "$device" | awk '{print $2}')
+		if bluetoothctl info "$mac" | grep -q "Connected: yes"; then
+			echo "connected"
+			break
+		fi
+	done)
+
+	if [ "$connected_devices" = "connected" ]; then
+		echo " "
+		echo " "
+		echo "#7aa2f7"
+	else
+		echo "󰂲 "
+		echo "󰂲 "
+		echo "#565f89"
+	fi
+else
+	echo "󰂲 "
+	echo "󰂲 "
+	echo "#565f89"
+fi
+
+# Handle click events
+case $BLOCK_BUTTON in
+1) ~/.config/i3/scripts/bluetooth-menu.sh ;;
+esac

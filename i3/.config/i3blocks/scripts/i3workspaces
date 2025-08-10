@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Workspace icons (using same as polybar)
+declare -A ICONS=(
+	["1"]=" "
+	["2"]=" "
+	["3"]="󰌾 "
+	["4"]="󰊻 "
+	["5"]="󰈹 "
+	["6"]=" "
+	["7"]=" "
+	["8"]=" "
+	["9"]="9"
+	["10"]="10"
+)
+
+# Get workspace information from i3-msg
+WORKSPACES=$(i3-msg -t get_workspaces)
+
+OUTPUT=""
+for ws in {1..10}; do
+	# Check if workspace is focused
+	FOCUSED=$(echo "$WORKSPACES" | jq -r ".[] | select(.num==$ws) | .focused")
+	# Check if workspace has windows
+	HAS_WINDOWS=$(echo "$WORKSPACES" | jq -r ".[] | select(.num==$ws) | .num" 2>/dev/null)
+
+	ICON=${ICONS[$ws]}
+
+	if [[ "$FOCUSED" == "true" ]]; then
+		# Focused workspace - blue background
+		OUTPUT+="<span background=\"#7aa2f7\" foreground=\"#1a1b26\"> $ICON </span>"
+	elif [[ -n "$HAS_WINDOWS" ]]; then
+		# Occupied workspace - normal color
+		OUTPUT+=" $ICON "
+	else
+		# Empty workspace - dimmed
+		OUTPUT+="<span foreground=\"#565f89\"> $ICON </span>"
+	fi
+done
+
+echo "$OUTPUT"

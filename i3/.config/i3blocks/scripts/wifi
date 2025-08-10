@@ -1,0 +1,32 @@
+#!/bin/bash
+
+INTERFACE=${INTERFACE:-$(iw dev | awk '$1=="Interface"{print $2}' | head -n1)}
+
+if [[ -z "$INTERFACE" ]]; then
+	echo "No WiFi"
+	echo "No WiFi"
+	echo "#565f89"
+	exit
+fi
+
+# Check if interface is up
+if [[ "$(cat /sys/class/net/"$INTERFACE"/operstate 2>/dev/null)" != "up" ]]; then
+	echo "$INTERFACE down"
+	echo "$INTERFACE down"
+	echo "#f7768e"
+	exit
+fi
+
+# Get WiFi info
+SSID=$(iw dev "$INTERFACE" info | grep ssid | awk '{for(i=2;i<=NF;i++) printf "%s ", $i; print ""}' | sed 's/ $//')
+IP=$(ip addr show "$INTERFACE" | grep "inet " | awk '{print $2}' | cut -d'/' -f1)
+
+if [[ -n "$SSID" && -n "$IP" ]]; then
+	echo "$INTERFACE $SSID $IP"
+	echo "$INTERFACE $SSID $IP"
+	echo "#7dcfff"
+else
+	echo "$INTERFACE disconnected"
+	echo "$INTERFACE disconnected"
+	echo "#565f89"
+fi

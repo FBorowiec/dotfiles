@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PICOM_CONFIG="$HOME/.config/picom/picom.conf"
+
+# Check if any apps currently have 80% opacity
+if grep -q "80:class_g" "$PICOM_CONFIG"; then
+	# Currently transparent (80%) - show solid ghost
+	echo "󱙝 "
+	echo "󱙝 "
+	echo "#9d7cd8"
+else
+	# Currently opaque (100%) - show transparent ghost
+	echo "󰊠 "
+	echo "󰊠 "
+	echo "#9d7cd8"
+fi
+
+# Handle click and scroll events
+case $BLOCK_BUTTON in
+1) ~/.config/i3/transparency.sh ;;
+4) ~/.config/polybar/scripts/transparency.sh up ;;
+5) ~/.config/polybar/scripts/transparency.sh down ;;
+esac

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Get volume information
+VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n1 | sed 's/%//')
+MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o "yes")
+
+if [[ "$MUTED" == "yes" ]]; then
+	echo "󰝟 muted"
+	echo "󰝟 muted"
+	echo "#565f89"
+else
+	echo "  ${VOLUME}%"
+	echo "  ${VOLUME}%"
+	echo "#7aa2f7"
+fi
+
+# Handle click and scroll events
+case $BLOCK_BUTTON in
+1) pavucontrol & ;;
+3) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
+5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
+esac

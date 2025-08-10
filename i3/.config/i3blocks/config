@@ -1,0 +1,125 @@
+# i3blocks config file
+
+# Global properties
+align=center
+markup=none
+separator=true
+separator_block_width=15
+command=$HOME/.config/i3blocks/scripts/$BLOCK_NAME
+
+# Date and time
+[time]
+command=date +'%Y-%m-%d %H:%M:%S'
+interval=1
+color=#7aa2f7
+
+# Filesystem usage
+[disk]
+command=$HOME/.config/i3blocks/scripts/disk
+LABEL=
+DIR=/
+ALERT_LOW=10
+interval=30
+color=#9ece6a
+
+# Memory usage  
+[memory]
+command=$HOME/.config/i3blocks/scripts/memory
+label=RAM 
+interval=2
+color=#e0af68
+
+# CPU usage
+[cpu_usage]
+command=$HOME/.config/i3blocks/scripts/cpu
+label=CPU 
+interval=2
+color=#ff9e64
+
+# WiFi
+[wifi]
+command=$HOME/.config/i3blocks/scripts/wifi
+INTERFACE=wlan0
+interval=10
+color=#7dcfff
+
+# Ethernet
+[ethernet]
+command=$HOME/.config/i3blocks/scripts/ethernet
+INTERFACE=eth0
+interval=10
+color=#7dcfff
+
+# Window title (centered)
+[window]
+command=$HOME/.config/i3blocks/scripts/window
+interval=1
+align=center
+
+# i3 workspaces (centered)
+[i3workspaces]
+command=$HOME/.config/i3blocks/scripts/i3workspaces
+markup=pango
+interval=1
+align=center
+
+# Keyboard layout
+[keyboard_layout]
+command=$HOME/.config/i3blocks/scripts/keyboard_layout
+interval=1
+color=#7aa2f7
+
+# NordVPN status
+[nordvpn]
+command=$HOME/.config/i3blocks/scripts/nordvpn
+interval=5
+color=#7dcfff
+
+# Transparency control
+[transparency]
+command=$HOME/.config/i3blocks/scripts/transparency
+interval=3
+color=#9d7cd8
+
+# Display control
+[display]
+command=echo "󰍺 "
+color=#ff9e64
+interval=once
+
+# Audio control  
+[audio]
+command=echo " "
+color=#9ece6a
+interval=once
+
+# PulseAudio volume
+[volume]
+command=$HOME/.config/i3blocks/scripts/volume
+interval=1
+signal=10
+color=#7aa2f7
+
+# Media player
+[mediaplayer]
+command=$HOME/.config/i3blocks/scripts/mediaplayer
+interval=2
+color=#9ece6a
+
+# Flameshot screenshot
+[flameshot]
+command=echo "󰄀 "
+color=#ff9e64
+interval=once
+
+# Bluetooth control
+[bluetooth]
+command=$HOME/.config/i3blocks/scripts/bluetooth
+interval=5
+color=#7aa2f7
+
+# Power control
+[power]
+command=echo "⏻ "
+color=#f7768e
+interval=once

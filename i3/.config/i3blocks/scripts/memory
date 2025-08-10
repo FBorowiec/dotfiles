@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Get memory usage
+MEM_INFO=$(free | grep '^Mem:')
+MEM_TOTAL=$(echo "$MEM_INFO" | awk '{print $2}')
+MEM_USED=$(echo "$MEM_INFO" | awk '{print $3}')
+MEM_PERCENTAGE=$(((MEM_USED * 100) / MEM_TOTAL))
+
+# Output format: RAM XX%
+echo "RAM ${MEM_PERCENTAGE}%"
+echo "RAM ${MEM_PERCENTAGE}%"
+
+# Color based on usage
+if [ "$MEM_PERCENTAGE" -gt 80 ]; then
+	echo "#f7768e"
+elif [ "$MEM_PERCENTAGE" -gt 60 ]; then
+	echo "#e0af68"
+else
+	echo "#9ece6a"
+fi

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get CPU usage percentage
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
+CPU_PERCENTAGE=$(printf "%.0f" "$CPU_USAGE")
+
+# Output format: CPU XX%
+echo "CPU ${CPU_PERCENTAGE}%"
+echo "CPU ${CPU_PERCENTAGE}%"
+
+# Color based on usage
+if [ "$CPU_PERCENTAGE" -gt 80 ]; then
+	echo "#f7768e"
+elif [ "$CPU_PERCENTAGE" -gt 60 ]; then
+	echo "#ff9e64"
+else
+	echo "#9ece6a"
+fi

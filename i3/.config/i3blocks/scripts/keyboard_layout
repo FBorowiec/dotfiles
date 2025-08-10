@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get current keyboard layout
+LAYOUT=$(setxkbmap -query | grep layout | awk '{print toupper($2)}')
+
+echo "$LAYOUT"
+echo "$LAYOUT"
+echo "#7aa2f7"
+
+# Handle click events
+case $BLOCK_BUTTON in
+1) ~/.config/polybar/scripts/keyboard-layout.sh ;;
+esac
