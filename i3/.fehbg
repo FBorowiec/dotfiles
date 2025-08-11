@@ -1,3 +1,2 @@
-#!/usr/bin/env bash
-
-feh --no-fehbg --bg-fill '/usr/share/backgrounds/star_wars_last_supper.jpg'
+#!/bin/sh
+feh --no-fehbg --bg-fill '/usr/share/backgrounds/star_wars_last_supper.jpg' 
