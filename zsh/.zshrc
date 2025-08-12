@@ -166,7 +166,7 @@ alias cat="batcat"
 # Zoxide cd
 alias cd="z"
 # statusbar
-alias statusbar="$HOME/.config/i3/scripts/switch-statusbar.sh toggle"
+alias statusbar="$HOME/.config/i3/scripts/switch-statusbar.sh polybar"
 # autodisplay
 alias autodisplay="$HOME/.config/i3/scripts/auto-display.sh"
 
