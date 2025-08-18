@@ -8,21 +8,6 @@ nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/lazyvim.json
 **/lazy-lock.json
 
-# Spicetify
-spotify/.config/spicetify/Backup
-spotify/.config/spicetify/CustomApps
-spotify/.config/spicetify/Extracted
-spotify/.config/spicetify/config-xpui.ini
-
-# BetterDiscord
-discord/.config/BetterDiscord/data/betterdiscord.asar
-discord/.config/BetterDiscord/data/emotes.asar
-discord/.config/BetterDiscord/data/stable/custom.css
-discord/.config/BetterDiscord/data/stable/emotes.json
-discord/.config/BetterDiscord/data/stable/misc.json
-discord/.config/BetterDiscord/data/stable/plugins.json
-discord/.config/BetterDiscord/data/stable/settings.json
-
 # Remark for markdown - https://github.com/williamboman/nvim-lsp-installer/issues/519
 package-lock.json
 package.json
