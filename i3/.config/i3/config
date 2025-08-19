@@ -105,8 +105,8 @@ exec --no-startup-id redshift-gtk
 # Clipboard manager
 exec --no-startup-id clipit
 
-# # Auto display management
-# exec_always --no-startup-id ~/.config/i3/scripts/auto-display.sh
+# Auto display management
+exec_always --no-startup-id ~/.config/i3/scripts/auto-display.sh &
 
 # Auto-lock screen (5 minute timeout)
 exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/scripts/lock-screen.sh" &
