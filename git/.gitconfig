@@ -52,8 +52,8 @@
     colorMoved = default
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color
+    navigate = true    # use n and N to move between diffs
+    light = false
 
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
