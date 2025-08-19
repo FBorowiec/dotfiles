@@ -36,7 +36,7 @@ background = "0x1a1b26"
 foreground = "0xc0caf5"
 
 [font]
-size = 16.0
+size = 14.0
 
 [font.glyph_offset]
 x = 0
@@ -84,7 +84,7 @@ program = "/bin/bash"
 args = ["-c", "$HOME/.config/alacritty/tmux_auto.sh"]
 
 [window]
-opacity = 0.6
+opacity = 1.0
 startup_mode = "Maximized"
 
 [window.padding]
