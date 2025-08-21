@@ -62,8 +62,8 @@ default_floating_border pixel 2
 hide_edge_borders none
 
 # Gaps configuration
-gaps inner 8
-gaps outer 4
+gaps inner 14
+gaps outer 7
 
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps off
