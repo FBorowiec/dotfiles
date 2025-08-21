@@ -43,6 +43,7 @@ add_to_path "/usr/local/go/bin"
 add_to_path "$GOPATH/bin"
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.claude/local"
 
 export PATH
 

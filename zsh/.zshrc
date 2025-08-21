@@ -172,6 +172,7 @@ alias autodisplay="$HOME/.config/i3/scripts/auto-display.sh"
 
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
+source "$HOME/.profile"  # Paths
 source "$HOME/.cargo/env"  # Cargo environment
 
 # Print only error message with bazel
