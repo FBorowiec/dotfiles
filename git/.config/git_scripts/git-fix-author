@@ -1,0 +1,16 @@
+#!/bin/bash
+
+current_name=$(git config user.name)
+current_email=$(git config user.email)
+
+if [[ "$current_email" == "franciszek.borowiec@stellantis.com" ]]; then
+	wrong_email='franek.borowiec@gmail.com'
+else
+	wrong_email='franciszek.borowiec@stellantis.com'
+fi
+
+echo "Fixing commits from $wrong_email to $current_name <$current_email>"
+mailmap_file=$(mktemp)
+echo "$current_name <$current_email> <$wrong_email>" >"$mailmap_file"
+git filter-repo --mailmap "$mailmap_file" --force
+rm "$mailmap_file"

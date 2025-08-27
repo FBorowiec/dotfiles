@@ -21,20 +21,7 @@
                 echo \"Personal identity (global) remains active.\" ;; \
         esac; \
     }; f"
-    fix-author = "!f() { \
-        origin=$(git remote get-url origin 2>/dev/null); \
-        if echo \"$origin\" | grep -q 'github.psa-cloud.com'; then \
-            wrong='franek.borowiec@gmail.com'; \
-            correct_name='FRANCISZEK BOROWIEC - SF33267'; \
-            correct_email='franciszek.borowiec@stellantis.com'; \
-        else \
-            wrong='franciszek.borowiec@stellantis.com'; \
-            correct_name='Franek Borowiec'; \
-        correct_email='franek.borowiec@gmail.com'; \
-        fi; \
-        echo \"Fixing commits from $wrong to $correct_name <$correct_email>\"; \
-        git filter-repo --email-callback \"return email if email != b'$wrong' else b'$correct_email'\" --name-callback \"return name if email != b'$wrong' else b'$correct_name'\" --force; \
-    }; f"
+	fix-author = !/home/sf33267/dotfiles/git/.config/git_scripts/git-fix-author
 
 [core]
     editor = nvim
