@@ -41,7 +41,7 @@ return {
         -- lua
         nls.builtins.formatting.stylua,
         -- markdown
-        nls.builtins.diagnostics.mdl,
+        nls.builtins.diagnostics.markdownlint_cli2,
         -- python
         nls.builtins.diagnostics.mypy,
         nls.builtins.diagnostics.pylint,
