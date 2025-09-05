@@ -4,15 +4,11 @@ return {
     opts = {
       ensure_installed = {
         -----------------------------
-        -- PYTHON
-        "basedpyright",
-        "black",
-        "blackd-client",
-        "debugpy",
-        "isort",
-        "mypy",
-        "pylint",
-        "ruff",
+        -- PYTHON (only tools from pyproject.toml)
+        "basedpyright",  -- LSP
+        "debugpy",       -- debugger
+        "mypy",          -- from pyproject.toml
+        "ruff",          -- from pyproject.toml
 
         -- "autoflake",
         -- "autopep8",

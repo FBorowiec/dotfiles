@@ -42,11 +42,8 @@ return {
         nls.builtins.formatting.stylua,
         -- markdown
         nls.builtins.diagnostics.markdownlint_cli2,
-        -- python
+        -- python (only mypy, ruff handled by conform)
         nls.builtins.diagnostics.mypy,
-        nls.builtins.diagnostics.pylint,
-        nls.builtins.formatting.black,
-        nls.builtins.formatting.isort,
         -- sh
         nls.builtins.formatting.shfmt,
         nls.builtins.formatting.shellharden,

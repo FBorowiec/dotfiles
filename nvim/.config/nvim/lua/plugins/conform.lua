@@ -4,6 +4,7 @@ return {
     event = { "BufWritePre" },
     opts = {
       formatters_by_ft = {
+        python = { "ruff_format" },  -- Use ruff format from pyproject.toml
         markdown = { "prettier", "markdownlint-cli2" },
       },
       format_on_save = {
