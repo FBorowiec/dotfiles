@@ -25,3 +25,6 @@ tmux/.tmux/resurrect/last
 
 # Currently selected statusbar
 i3/.config/i3/statusbar-choice
+
+# Work
+git/.config/git/scripts/authors/devtools.txt
