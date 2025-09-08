@@ -23,6 +23,14 @@
     }; f"
 	fix-author = !/home/sf33267/dotfiles/git/.config/git/scripts/git-fix-author
   add-coauthors = !~/.config/git/scripts/add-coauthors.sh
+  update-fork = "!f() { \
+        branch=$(git rev-parse --abbrev-ref HEAD); \
+        git fetch upstream && \
+        git checkout main && \
+        git pull --rebase upstream main && \
+        git push origin main && \
+        git checkout \"$branch\"; \
+  }; f"
 
 [core]
     editor = nvim
