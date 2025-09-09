@@ -96,32 +96,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -149,15 +123,10 @@ alias k='k -h -A --no-vcs'
 alias ll='k -h -A --no-vcs'
 # vim to nvim
 alias vim="nvim"
-alias vi="nvim"
-# Use neovim in sudo mode
-alias svim='sudo -E nvim'
 # Lazygit
 alias lg="lazygit"
 # Ranger
 alias rr="ranger"
-# Git worktree
-alias git-make-worktree="$HOME/.config/git_scripts/make_worktree.sh"
 # Znt navigation tools
 alias history="n-history"
 alias env="n-env"
@@ -165,10 +134,6 @@ alias env="n-env"
 alias cat="batcat"
 # Zoxide cd
 alias cd="z"
-# statusbar
-alias statusbar="$HOME/.config/i3/scripts/switch-statusbar.sh polybar"
-# autodisplay
-alias autodisplay="$HOME/.config/i3/scripts/auto-display.sh"
 
 # SOURCE
 source "$HOME/.inputrc"  # Editing modes
