@@ -145,8 +145,8 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/tokyo-night.rasi
-bindsym $mod+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/tokyo-night.rasi
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -theme ~/.config/rofi/tokyo-night.rasi
+bindsym $mod+Tab exec --no-startup-id rofi -show window -show-icons -theme ~/.config/rofi/tokyo-night.rasi
 
 # File manager
 bindsym $mod+e exec --no-startup-id thunar
