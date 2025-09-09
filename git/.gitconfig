@@ -21,8 +21,9 @@
                 echo \"Personal identity (global) remains active.\" ;; \
         esac; \
     }; f"
-	fix-author = !/home/sf33267/dotfiles/git/.config/git/scripts/git-fix-author
+	fix-author = !~/.config/git/scripts/git-fix-author
   add-coauthors = !~/.config/git/scripts/add-coauthors.sh
+  make-worktree = !~/.config/git/scripts/make_worktree.sh
   update-fork = "!f() { \
         branch=$(git rev-parse --abbrev-ref HEAD); \
         git fetch upstream && \
