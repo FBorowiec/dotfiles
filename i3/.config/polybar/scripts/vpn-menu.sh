@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# VPN Menu - Choose between NordVPN and WireGuard
+# VPN Menu - Choose between NordVPN and Tailscale
 # Uses rofi to show selection menu
-
-# Check if we're on home network
-home_network_ip="192.168.0.114"
-on_home_network=$(ip route get "$home_network_ip" 2>/dev/null | grep -q "via" || ping -c 1 -W 1 "$home_network_ip" &>/dev/null && echo "yes" || echo "no")
 
 # Get current VPN status
 nordvpn_status=$(nordvpn status 2>/dev/null | grep "Status:" | awk '{print $2}')
-wireguard_status=$(ip link show wg0-home 2>/dev/null && echo "Connected" || echo "Disconnected")
+tailscale_status=$(tailscale status --json 2>/dev/null | jq -r 'if .ExitNodeStatus.ID then "Connected" else "Disconnected" end' 2>/dev/null || echo "Disconnected")
 
 # Build menu options
 options=""
@@ -20,19 +16,10 @@ else
 	options+="  Connect NordVPN\n"
 fi
 
-# Only show WireGuard option if NOT on home network
-if [ "$on_home_network" = "yes" ]; then
-	if [ "$wireguard_status" = "Connected" ]; then
-		options+="  Disconnect WireGuard Home (Warning: At Home!)\n"
-	else
-		options+="⚠  WireGuard Home (Disabled - At Home)\n"
-	fi
+if [ "$tailscale_status" = "Connected" ]; then
+	options+="  Disconnect Tailscale Exit Node\n"
 else
-	if [ "$wireguard_status" = "Connected" ]; then
-		options+="  Disconnect WireGuard Home\n"
-	else
-		options+="  Connect WireGuard Home\n"
-	fi
+	options+="  Connect Tailscale Exit Node\n"
 fi
 
 # Show menu
@@ -41,9 +28,9 @@ choice=$(echo -e "$options" | rofi -dmenu -i -p "VPN" -theme ~/.config/rofi/toky
 # Handle selection
 case "$choice" in
 *"Connect NordVPN")
-	# Disconnect WireGuard first if connected
-	if [ "$wireguard_status" = "Connected" ]; then
-		sudo wg-quick down wg0-home
+	# Disconnect Tailscale exit node first if connected
+	if [ "$tailscale_status" = "Connected" ]; then
+		sudo tailscale up --reset --accept-dns=false --accept-routes
 		sleep 1
 	fi
 	nordvpn connect
@@ -53,25 +40,17 @@ case "$choice" in
 	nordvpn disconnect
 	notify-send "VPN" "Disconnecting NordVPN..." -t 2000
 	;;
-*"Connect WireGuard Home")
-	# Only allow if NOT on home network
-	if [ "$on_home_network" = "yes" ]; then
-		notify-send "VPN" "Cannot connect: You're at home!" -u critical -t 3000
-		exit 1
-	fi
+*"Connect Tailscale Exit Node")
 	# Disconnect NordVPN first if connected
 	if [ "$nordvpn_status" = "Connected" ]; then
 		nordvpn disconnect
 		sleep 1
 	fi
-	sudo wg-quick up wg0-home
-	notify-send "VPN" "Connecting to WireGuard Home..." -t 2000
+	sudo tailscale up --reset --accept-dns=false --accept-routes --exit-node=raspberrypi
+	notify-send "VPN" "Connecting to Tailscale exit node..." -t 2000
 	;;
-*"Disconnect WireGuard Home"*)
-	sudo wg-quick down wg0-home
-	notify-send "VPN" "Disconnecting WireGuard Home..." -t 2000
-	;;
-*"Disabled - At Home"*)
-	notify-send "VPN" "WireGuard only works when away from home" -t 3000
+*"Disconnect Tailscale Exit Node")
+	sudo tailscale up --reset --accept-dns=false --accept-routes
+	notify-send "VPN" "Disconnecting from exit node..." -t 2000
 	;;
 esac
