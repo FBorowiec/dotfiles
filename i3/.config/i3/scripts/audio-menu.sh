@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clean up temp files from previous runs
+rm -f /tmp/audio_sinks /tmp/audio_sources
+
 # Get current default sink and source
 current_sink=$(pactl get-default-sink)
 current_source=$(pactl get-default-source)
@@ -40,7 +43,7 @@ chosen=$(echo -e "$options" | rofi -dmenu -i -p "Audio Devices" -theme ~/.config
 case $chosen in
 "  [ACTIVE]"* | "  "*)
 	# Extract description and find corresponding sink
-	desc=$(echo "$chosen" | sed 's/^🔊 \[ACTIVE\] //; s/^🔉 //')
+	desc=$(echo "$chosen" | sed 's/^🔊 \[ACTIVE\] //; s/^🔊 //; s/^🔇 //')
 	sink_name=$(grep ":$desc$" /tmp/audio_sinks | cut -d':' -f2)
 	if [ "$sink_name" != "" ]; then
 		pactl set-default-sink "$sink_name"
