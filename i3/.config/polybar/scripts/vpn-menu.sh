@@ -66,7 +66,7 @@ case "$choice" in
 		nordvpn disconnect
 		sleep 1
 	fi
-	sudo tailscale up --reset --accept-dns=false --accept-routes --exit-node=raspberrypi
+	sudo tailscale up --reset --accept-dns=false --accept-routes --exit-node=ms01media
 	notify-send "VPN" "Connecting to Tailscale exit node..." -t 2000
 	;;
 *"Disconnect Tailscale Exit Node")
