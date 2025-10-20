@@ -292,8 +292,6 @@ assign [class="Nautilus"] $ws7
 assign [class="nautilus"] $ws7
 assign [class="Discord"] $ws8
 assign [class="discord"] $ws8
-assign [class="Joplin"] $ws9
-assign [class="joplin"] $ws9
 
 #####################
 # System Controls   #
