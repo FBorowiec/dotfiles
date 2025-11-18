@@ -4,11 +4,12 @@
 [mgr]
 prepend_keymap = [
   # Tmux integration keybindings
-  { on = ["T"], run = 'shell --block --confirm "$SHELL ~/.config/yazi/scripts/nvim_tmux.sh \\"$0\\""', desc = "Open in nvim (new tmux window)" },
-  { on = ["S"], run = 'shell --block "$SHELL ~/.config/yazi/scripts/cd_tmux.sh \\"$0\\""', desc = "Open shell here (new tmux window)" },
+  { on = "T", run = 'shell --block --confirm -- $HOME/.config/yazi/scripts/nvim_tmux.sh "$0"', desc = "Open in nvim (new tmux window)" },
 
-  # FZF integration
-  { on = ["<C-f>"], run = "plugin fzf", desc = "Find files with fzf" },
+  # Navigation plugins
+  { on = "<C-f>", run = "plugin fzf-jump", desc = "Find files with fzf" },
+  { on = "<C-g>", run = "plugin zoxide", desc = "Jump to directory (zoxide)" },
+  { on = "z", run = "plugin zoxide", desc = "Jump to directory (zoxide)" },
 
   # Plugin: smart-enter (replaces default enter)
   { on = ["l"], run = "plugin --sync smart-enter", desc = "Smart enter: directories/archives or open files" },
@@ -33,7 +34,13 @@ prepend_keymap = [
   { on = ["="], run = "plugin chmod", desc = "Change permissions" },
 
   # Plugin: smart-paste (replaces default paste)
-  { on = ["p"], run = "plugin smart-paste", desc = "Smart paste with conflict resolution" },
+  { on = "p", run = "plugin smart-paste", desc = "Smart paste with conflict resolution" },
+
+  # Plugin: jump-to-char (like vim's f/F)
+  { on = "f", run = "plugin jump-to-char", desc = "Jump to char" },
+
+  # Plugin: diff (compare files)
+  { on = "D", run = "plugin diff", desc = "Diff selected files" },
 ]
 
 [tasks]

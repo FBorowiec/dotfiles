@@ -11,6 +11,10 @@ require("smart-enter"):setup({
 -- Git integration for file status indicators
 require("git"):setup()
 
+-- Plugin: full-border
+-- Full border around yazi UI
+require("full-border"):setup()
+
 -- Plugin: vcs-files
 -- Show only version control tracked files
 -- No setup required, use 'vf' keybinding to toggle

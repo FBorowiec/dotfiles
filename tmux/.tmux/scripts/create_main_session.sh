@@ -6,7 +6,7 @@ if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
 	notify-send -t 1500 "Session '$SESSION_NAME' already exists. Attaching to it."
 else
 	notify-send -t 1500 "Creating session '$SESSION_NAME'."
-	tmux new-session -d -s "$SESSION_NAME" -n "ranger" -c "$PWD" "ranger"
+	tmux new-session -d -s "$SESSION_NAME" -n "yazi" -c "$PWD" "yazi"
 	tmux new-window -t "$SESSION_NAME:2" -n "dotfiles" -c "$HOME/dotfiles"
 	tmux new-window -t "$SESSION_NAME:3" -n "ansible" -c "$HOME/ansible"
 	tmux new-window -t "$SESSION_NAME:4" -n "zsh" -c "$HOME"
