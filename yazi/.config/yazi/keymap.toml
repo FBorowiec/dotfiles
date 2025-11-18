@@ -32,6 +32,9 @@ prepend_keymap = [
   # Plugin: chmod
   { on = ["="], run = "plugin chmod", desc = "Change permissions" },
 
+  # Archive extraction
+  { on = "e", run = 'shell --block --confirm -- $HOME/.config/yazi/scripts/extract.sh "$0"', desc = "Extract archive here" },
+
   # Plugin: smart-paste (replaces default paste)
   { on = "p", run = "plugin smart-paste", desc = "Smart paste with conflict resolution" },
 
