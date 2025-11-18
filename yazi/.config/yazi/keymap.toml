@@ -6,10 +6,9 @@ prepend_keymap = [
   # Tmux integration keybindings
   { on = "T", run = 'shell --block --confirm -- $HOME/.config/yazi/scripts/nvim_tmux.sh "$0"', desc = "Open in nvim (new tmux window)" },
 
-  # Navigation plugins
-  { on = "<C-f>", run = "plugin fzf-jump", desc = "Find files with fzf" },
-  { on = "<C-g>", run = "plugin zoxide", desc = "Jump to directory (zoxide)" },
-  { on = "z", run = "plugin zoxide", desc = "Jump to directory (zoxide)" },
+  # Navigation - with proper yazi integration
+  { on = "<C-f>", run = 'shell --block -- $HOME/.config/yazi/scripts/fzf_jump.sh', desc = "Find files with fzf" },
+  { on = "z", run = 'shell --block -- $HOME/.config/yazi/scripts/zoxide_jump.sh', desc = "Jump with zoxide" },
 
   # Plugin: smart-enter (replaces default enter)
   { on = ["l"], run = "plugin --sync smart-enter", desc = "Smart enter: directories/archives or open files" },
