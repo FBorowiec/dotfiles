@@ -28,3 +28,7 @@ i3/.config/i3/statusbar-choice
 
 # Work
 git/.config/git/scripts/authors/devtools.txt
+
+# Yazi plugins
+yazi/.config/yazi/plugins/*
+yazi/.config/yazi/*.toml-*

@@ -127,6 +127,15 @@ alias vim="nvim"
 alias lg="lazygit"
 # Ranger
 alias rr="ranger"
+# Yazi - with shell wrapper for cd on exit
+function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 # Znt navigation tools
 alias history="n-history"
 alias env="n-env"

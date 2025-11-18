@@ -7,7 +7,7 @@ user.bazelrc
 compile_commands.json
 
 # Python
-__init__.py
+#__init__.py
 __pycache__/
 *.pyc
 .mypy_cache/

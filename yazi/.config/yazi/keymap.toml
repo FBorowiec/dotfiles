@@ -1,0 +1,52 @@
+# Yazi keymap configuration
+# Documentation: https://yazi-rs.github.io/docs/configuration/keymap
+
+[mgr]
+prepend_keymap = [
+  # Tmux integration keybindings
+  { on = ["T"], run = 'shell --block --confirm "$SHELL ~/.config/yazi/scripts/nvim_tmux.sh \\"$0\\""', desc = "Open in nvim (new tmux window)" },
+  { on = ["S"], run = 'shell --block "$SHELL ~/.config/yazi/scripts/cd_tmux.sh \\"$0\\""', desc = "Open shell here (new tmux window)" },
+
+  # FZF integration
+  { on = ["<C-f>"], run = "plugin fzf", desc = "Find files with fzf" },
+
+  # Plugin: smart-enter (replaces default enter)
+  { on = ["l"], run = "plugin --sync smart-enter", desc = "Smart enter: directories/archives or open files" },
+  { on = ["<Right>"], run = "plugin --sync smart-enter", desc = "Smart enter: directories/archives or open files" },
+
+  # Plugin: git operations
+  { on = ["<C-g>"], run = "plugin git", desc = "Git operations" },
+
+  # Plugin: mount/unmount
+  { on = ["m", "m"], run = "plugin mount", desc = "Mount drive" },
+  { on = ["m", "u"], run = "plugin mount --args='unmount'", desc = "Unmount drive" },
+
+  # Plugin: vcs-files (show only VCS tracked files)
+  { on = ["v", "f"], run = "plugin vcs-files", desc = "Show VCS tracked files only" },
+
+  # Plugin: zoom
+  { on = ["z", "+"], run = "plugin zoom --args='in'", desc = "Zoom in" },
+  { on = ["z", "-"], run = "plugin zoom --args='out'", desc = "Zoom out" },
+  { on = ["z", "0"], run = "plugin zoom", desc = "Reset zoom" },
+
+  # Plugin: chmod
+  { on = ["="], run = "plugin chmod", desc = "Change permissions" },
+
+  # Plugin: smart-paste (replaces default paste)
+  { on = ["p"], run = "plugin smart-paste", desc = "Smart paste with conflict resolution" },
+]
+
+[tasks]
+prepend_keymap = []
+
+[select]
+prepend_keymap = []
+
+[input]
+prepend_keymap = []
+
+[completion]
+prepend_keymap = []
+
+[help]
+prepend_keymap = []

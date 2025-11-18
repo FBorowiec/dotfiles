@@ -1,0 +1,57 @@
+# Yazi configuration file
+# Documentation: https://yazi-rs.github.io/docs/configuration/yazi
+
+[mgr]
+# Layout
+layout = [1, 3, 4]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+show_hidden = false
+show_symlink = true
+
+[preview]
+# Preview configuration
+tab_size = 4
+max_width = 600
+max_height = 900
+cache_dir = ""
+image_filter = "triangle"
+image_quality = 75
+sixel_fraction = 15
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
+
+[opener]
+# File openers - these will be handled by default programs
+
+[open]
+# Rules for opening files
+rules = [
+  { name = "*/", use = ["open", "reveal"] },
+]
+
+[tasks]
+micro_workers = 10
+macro_workers = 25
+bizarre_retry = 5
+image_alloc = 536870912  # 512MB
+image_bound = [0, 0]
+suppress_preload = false
+
+[plugin]
+# Plugin configuration
+prepend_fetchers = [
+  { id = "git", name = "*", run = "git" },
+  { id = "git", name = "*/", run = "git" },
+]
+prepend_preloaders = [
+  { mime = "image/*", run = "git" },
+  { mime = "video/*", run = "git" },
+]
+prepend_previewers = []
+
+[log]
+enabled = false
